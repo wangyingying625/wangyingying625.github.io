@@ -6,7 +6,7 @@
 <meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
 <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
 <meta HTTP-EQUIV="expires" CONTENT="0"> 
-<title>漏洞复现记录 | mldwyy</title>	
+<title>Git 使用代理 | mldwyy</title>	
 
 <link rel="stylesheet" href="https://wangyingying625.github.io/styles/main.css">
 <script type="text/javascript">
@@ -142,10 +142,10 @@ window.onload=getCSS();
 	
 	                      
 		<div class="entry-content">
-			<h1 class="wow swing entry-title">漏洞复现记录</h1>
+			<h1 class="wow swing entry-title">Git 使用代理</h1>
 <div class="entry-meta">
 <div class="wow bounce">
-	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-02-28 15:51:45" itemprop="datePublished" pubdate="">2021-02-28</time></i>
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-02-28 16:00:31" itemprop="datePublished" pubdate="">2021-02-28</time></i>
 	          </div>
 			
 </span>
@@ -153,20 +153,30 @@ window.onload=getCSS();
 		</div>
                   
 			<div class="wow slideInLeft entry-summary song">
-				<figure data-type="image" tabindex="1"><img src="https://wangyingying625.github.io/post-images/1614499068820.jpg" alt="" loading="lazy"></figure>
+				<p>GRidea 的更新总是失败，需要手动给git增加一个全局代理。</p>
+<h1 id="设置代理">设置代理</h1>
+<pre><code class="language-bash">git config --global https.proxy http://127.0.0.1:1087
+
+git config --global https.proxy https://127.0.0.1:1087
+</code></pre>
+<h1 id="取消代理">取消代理</h1>
+<pre><code class="language-bash">git config --global --unset http.proxy
+
+git config --global --unset https.proxy
+</code></pre>
 
 							</div>
 	<div class="wow bounceInDown vt-post-tags">
  
+				<a href="https://wangyingying625.github.io/tag/tools/" rel="tag">工具</a>	
+				 
 					</div>						
 <nav class="navigation3 post-navigation3" role="navigation">
 		
 		<div class="nav-links3">
       
-		<div class="wow bounceInLeft nav-previous3"><a href="https://wangyingying625.github.io/post/git-shi-yong-dai-li/" rel="prev"> Git 使用代理</a></div>
 		 
-		 
-		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/about/" rel="next"> 关于</a></div>
+		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/lou-dong-fu-xian-ji-lu/" rel="next"> 漏洞复现记录</a></div>
 		
 		</div>
 	</nav>
