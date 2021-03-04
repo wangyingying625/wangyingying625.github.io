@@ -145,7 +145,7 @@ window.onload=getCSS();
 			<h1 class="wow swing entry-title">src漏洞总结</h1>
 <div class="entry-meta">
 <div class="wow bounce">
-	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-03-02 15:11:46" itemprop="datePublished" pubdate="">2021-03-02</time></i>
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-03-04 13:17:41" itemprop="datePublished" pubdate="">2021-03-04</time></i>
 	          </div>
 			
 </span>
@@ -153,65 +153,60 @@ window.onload=getCSS();
 		</div>
                   
 			<div class="wow slideInLeft entry-summary song">
-				<h1 id="存储型xss漏洞details-open-ontoggleprompthello">存储型xss漏洞&lt;details open ontoggle=prompt('hello')&gt;</h1>
-<h2 id="漏洞1">漏洞1:</h2>
-<p>1.可能危害:获取用户cookie,修改HTML代码<br>
+				<p>漏洞1:<br>
+1.可能危害:获取用户cookie,修改HTML代码<br>
 2.复现过程:登录-&gt;留言板留言写入HTML标签及js代码<br>
 3.复现结果:留言板处写入的代码被存进数据库,插入到原来的HTML内,破坏原来页面结构;当其他用户查看这个页面时候执行恶意插入的js代码获取用户cookie</p>
-<h1 id="反序列化漏洞">反序列化漏洞:</h1>
-<h1 id="绕过认证">绕过认证:</h1>
-<h2 id="漏洞1修改get参数绕过验证">漏洞1(修改get参数绕过验证):</h2>
-<p>1.危害:修改用户密码,登录并用该身份查看信息<br>
+<p>反序列化漏洞:<br>
+绕过认证:<br>
+漏洞1(修改get参数绕过验证):<br>
+1.危害:修改用户密码,登录并用该身份查看信息<br>
 2.复现过程:登录时选择忘记密码-&gt;试用户名-&gt;选择找回密码-&gt;选择手机验证码验证-&gt;修改get部分参数绕过手机验证-&gt;密码修改成功<br>
 3.复现结果:用户密码修改成功</p>
-<h2 id="漏洞2修改参数userid绕过认证">漏洞2(修改参数userId绕过认证):</h2>
-<p>1.危害:登录用户账号获取用户用户名和密码信息<br>
+<p>漏洞2(修改参数userId绕过认证):<br>
+1.危害:登录用户账号获取用户用户名和密码信息<br>
 2.复现过程:登录已知用户-&gt;修改用户ID-&gt;返回用户信息(包括用户密码)</p>
-<h1 id="文件上传">文件上传:</h1>
-<p>一句话木马:</p>
-<pre><code class="language-php">&lt;?php
+<p>文件上传:<br>
+一句话木马:</p>
+<?php
 eval($_POST['cmd']);
-</code></pre>
-<p>? 绕过 :</p>
-<pre><code class="language-php">&lt;?php 
-if ((
-    ($_FILES[&quot;file&quot;][&quot;type&quot;] == &quot;image/gif&quot;)
-        || ($_FILES[&quot;file&quot;][&quot;type&quot;] == &quot;image/jpeg&quot;)
-        || ($_FILES[&quot;file&quot;][&quot;type&quot;] == &quot;image/jpg&quot;)
-        || ($_FILES[&quot;file&quot;][&quot;type&quot;] == &quot;image/pjpeg&quot;)
-        || ($_FILES[&quot;file&quot;][&quot;type&quot;] == &quot;image/x-png&quot;)
-        || ($_FILES[&quot;file&quot;][&quot;type&quot;] == &quot;image/png&quot;))
-</code></pre>
-<p>path : /var/www/html<br>
-uid : server/upload/</p>
-<p>/var/www/html/server/upload/ 不可解析 !<br>
-uid :  server/upload/../a.php  = server/a.php<br>
-waf:</p>
-<h1 id="任意文件下载包含">任意文件下载(包含):</h1>
-<ol>
-<li>下载任意文件</li>
-<li>执行代码</li>
-</ol>
-<h2 id="漏洞1-2">漏洞1:</h2>
-<h1 id="注入">注入:</h1>
-<h2 id="漏洞1sql注入">漏洞1(SQL注入):</h2>
-<p>1.危害:无密码登录<br>
-2.复现过程:登录时用户名部分填入admin' or '1'='1 密码任意-&gt;无密码登录成功</p>
+? 绕过 :
 
+<?php 
+if ((
+    ($_FILES["file"]["type"] == "image/gif")
+        || ($_FILES["file"]["type"] == "image/jpeg")
+        || ($_FILES["file"]["type"] == "image/jpg")
+        || ($_FILES["file"]["type"] == "image/pjpeg")
+        || ($_FILES["file"]["type"] == "image/x-png")
+        || ($_FILES["file"]["type"] == "image/png"))
+path : /var/www/html
+uid : server/upload/
+
+/var/www/html/server/upload/ 不可解析 !
+uid : server/upload/../a.php = server/a.php
+waf:
+
+任意文件下载(包含):
+下载任意文件
+执行代码
+漏洞1:
+注入:
+漏洞1(SQL注入):
+1.危害:无密码登录
+2.复现过程:登录时用户名部分填入admin' or '1'='1 密码任意->无密码登录成功
 							</div>
 	<div class="wow bounceInDown vt-post-tags">
  
-				<a href="https://wangyingying625.github.io/tag/vulnerability_record/" rel="tag">漏洞记录</a>	
-				 
 					</div>						
 <nav class="navigation3 post-navigation3" role="navigation">
 		
 		<div class="nav-links3">
       
-		<div class="wow bounceInLeft nav-previous3"><a href="https://wangyingying625.github.io/post/sql-yu-yan/" rel="prev"> SQL语言</a></div>
+		<div class="wow bounceInLeft nav-previous3"><a href="https://wangyingying625.github.io/post/owasp-top-10-lou-dong-bi-ji/" rel="prev"> OWASP TOP 10 漏洞笔记</a></div>
 		 
 		 
-		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/burp-yong-fa/" rel="next"> Burp 用法</a></div>
+		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/shu-ju-ku-bi-ji/" rel="next"> 数据库笔记</a></div>
 		
 		</div>
 	</nav>

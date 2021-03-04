@@ -145,7 +145,7 @@ window.onload=getCSS();
 			<h1 class="wow swing entry-title">数据库笔记</h1>
 <div class="entry-meta">
 <div class="wow bounce">
-	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-03-04 10:33:32" itemprop="datePublished" pubdate="">2021-03-04</time></i>
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-03-04 13:13:00" itemprop="datePublished" pubdate="">2021-03-04</time></i>
 	          </div>
 			
 </span>
@@ -162,31 +162,27 @@ window.onload=getCSS();
 <li>API:应用程序里访问数据库(JDBC)</li>
 <li>把访问数据库接口封装成类(php框架laravel)</li>
 </ol>
-<h1 id="关系模型把实体和实体间的联系都抽象成关系一个关系对应一张表对数据库的操作内容和操作结果都是关系对应的还有层次模型网状模型等">关系模型:把实体和实体间的联系都抽象成关系,一个关系对应一张表,对数据库的操作内容和操作结果都是关系.对应的还有层次模型,网状模型等</h1>
-<h2 id="关系型数据库采用关系模型来组织和构建的数据库">关系型数据库(采用关系模型来组织和构建的数据库):</h2>
-<h3 id="常用的关系型数据库oraclemysqlsql-serverdb2">常用的关系型数据库:oracle,MySQL,SQL server,DB2</h3>
-<p>每种数据库支持的具体类型可能不同</p>
-<h3 id="关系型数据库查询语言的形式化基础">关系型数据库查询语言的形式化基础:</h3>
-<ol>
-<li>
-<p>关系代数(过程化)</p>
-</li>
-<li>
-<p>关系演算(非过程化,查询时不需要具体描述查询的步骤,只需描述要查询的结果需满足条件)</p>
-</li>
-</ol>
+<h1 id="关系模型">关系模型:</h1>
+<p>把实体和实体间的联系都抽象成关系,一个关系对应一张表,对数据库的操作内容和操作结果都是关系.对应的还有层次模型,网状模型等</p>
+<h1 id="关系型数据库采用关系模型来组织和构建的数据库">关系型数据库(采用关系模型来组织和构建的数据库):</h1>
+<p>常用的关系型数据库:oracle,MySQL,SQL server,DB2<br>
+每种数据库支持的具体类型可能不同</p>
+<h2 id="关系型数据库查询语言的形式化基础">关系型数据库查询语言的形式化基础:</h2>
+<h3 id="关系代数过程化">关系代数(过程化)</h3>
+<h3 id="关系演算非过程化查询时不需要具体描述查询的步骤只需描述要查询的结果需满足条件">关系演算(非过程化,查询时不需要具体描述查询的步骤,只需描述要查询的结果需满足条件)</h3>
 <h1 id="sql语言一种非过程化的关系演算语言">SQL语言(一种非过程化的关系演算语言):</h1>
 <h2 id="常用名词">常用名词</h2>
-<h3 id="基表存在于物理磁盘内的一张表">基表:存在于物理磁盘内的一张表</h3>
-<h3 id="视图虚表根据用户的需要映射出的表并不真正存在于物理磁盘">视图:虚表,根据用户的需要映射出的表,并不真正存在于物理磁盘</h3>
-<h3 id="保留字">保留字:</h3>
-<pre><code>            NULL:空值
-            UNIQUE:说明表的某一属性值是否允许重复
-            DEFAUIT:为某一属性指定缺省值
-            PRIMARY KEY:用来指定某一属性为主键
-            FOREIGN KEY:用来指明某一属性是外键
-            CHECK:定义表时为某一属性进行检查是否符合某要求
-</code></pre>
+<ol>
+<li>基表:存在于物理磁盘内的一张表</li>
+<li>视图:虚表,根据用户的需要映射出的表,并不真正存在于物理磁盘</li>
+<li>保留字:<br>
+NULL:空值<br>
+UNIQUE:说明表的某一属性值是否允许重复<br>
+DEFAUIT:为某一属性指定缺省值<br>
+PRIMARY KEY:用来指定某一属性为主键<br>
+FOREIGN KEY:用来指明某一属性是外键<br>
+CHECK:定义表时为某一属性进行检查是否符合某要求</li>
+</ol>
 <h2 id="sql的四种子语言">SQL的四种子语言:</h2>
 <ol>
 <li>DDL:(Data Definition Language):用来定义删除维护数据模式(表的创建与删除,视图的创建与删除,修改表的模式),多用图形化工具操作</li>
@@ -195,7 +191,7 @@ window.onload=getCSS();
 <li>DCL(Data Control Language):管理数据库的用户权限(授权,创建用户,完整性约束,审计)</li>
 </ol>
 <h2 id="sql语言的基本模式">SQL语言的基本模式</h2>
-<p>SELECT <a href="%E5%8F%AF%E5%8A%A0%E5%8F%AF%E4%B8%8D%E5%8A%A0,%E8%8B%A5%E5%8A%A0%E5%88%99%E5%AF%B9%E6%9F%A5%E8%AF%A2%E5%87%BA%E7%9A%84%E9%87%8D%E5%A4%8D%E8%A1%8C%E8%BF%9B%E8%A1%8C%E5%88%A0%E9%99%A4">DISTINCT</a> 目标列  FROM 表名 WHERE 查询条件</p>
+<p>SELECT DISTINCT 目标列 FROM 表名 WHERE 查询条件</p>
 <h2 id="sql语言的执行策略">SQL语言的执行策略:</h2>
 <ol>
 <li>根据from后的表名做笛卡尔乘积得到表A</li>
@@ -203,27 +199,27 @@ window.onload=getCSS();
 <li>根据SELECT后的想要的列对B进行投影,得到表C</li>
 <li>若select后加了[DISTINCT]则对表C排序去除相同信息</li>
 </ol>
-<h2 id="例1">例1:</h2>
-<p><img src="https://wangyingying625.github.io/post-images/1614828586294.png" alt="" loading="lazy"><br>
+<h3 id="例1">例1:</h3>
+<p><img src="https://wangyingying625.github.io/post-images/1614835018824.png" alt="" loading="lazy"><br>
 表名为table1,其中id自增为主键<br>
-<img src="https://wangyingying625.github.io/post-images/1614829181360.png" alt="" loading="lazy"><br>
+<img src="https://wangyingying625.github.io/post-images/1614835029464.png" alt="" loading="lazy"><br>
 表名为shop,其中id自增为主键</p>
 <p>执行SQL语句: SELECT T.name FROM table1 T,shop S WHERE T.id=S.id<br>
-<img src="https://wangyingying625.github.io/post-images/1614829312978.png" alt="" loading="lazy"><br>
+<img src="https://wangyingying625.github.io/post-images/1614835041033.png" alt="" loading="lazy"><br>
 执行结果</p>
 
 							</div>
 	<div class="wow bounceInDown vt-post-tags">
  
-				<a href="https://wangyingying625.github.io/tag/Ml4JS8axz/" rel="tag">数据库学习</a>	
-				 
 					</div>						
 <nav class="navigation3 post-navigation3" role="navigation">
 		
 		<div class="nav-links3">
       
+		<div class="wow bounceInLeft nav-previous3"><a href="https://wangyingying625.github.io/post/src-lou-dong-zong-jie/" rel="prev"> src漏洞总结</a></div>
 		 
-		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/sql-yu-yan/" rel="next"> SQL语言</a></div>
+		 
+		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/hello-gridea/" rel="next"> Hello Gridea</a></div>
 		
 		</div>
 	</nav>
