@@ -174,13 +174,15 @@ CHECK:定义表时为某一属性进行检查是否符合某要求</li>
 <li>DCL(Data Control Language):管理数据库的用户权限(授权,创建用户,完整性约束,审计)</li>
 </ol>
 <h3 id="sql语言的基本模式">SQL语言的基本模式</h3>
-<p>SELECT DISTINCT 目标列 FROM 表名 WHERE 查询条件</p>
+<p>SELECT [DISTINCT] 目标列 FROM 表名 WHERE 查询条件 GROUP BY 分组属性 HAVING 分组条件</p>
 <h3 id="sql语言的执行策略">SQL语言的执行策略:</h3>
 <ol>
-<li>根据from后的表名做笛卡尔乘积得到表A</li>
-<li>用where后面的条件对表A进行筛选得到表B</li>
-<li>根据SELECT后的想要的列对B进行投影,得到表C</li>
-<li>若select后加了[DISTINCT]则对表C排序去除相同信息</li>
+<li>根据FROM后的表名做笛卡尔乘积得到表A</li>
+<li>用WHERE后面的条件对表A进行筛选得到符合条件的表B</li>
+<li>对表B中的信息按照GROUP BY后的分组属性分组,对属性相同的元组分成一组</li>
+<li>对分好组的表按照HAVING后的分组条件再次筛选,筛选出符合条件的组</li>
+<li>在选好的组中根据SELECT后的信息进行投影,每个组出一条元组<br>
+SELECT的属性和HAVING属性必须是分组属性集的子集</li>
 </ol>
 <p><img src="https://wangyingying625.github.io/post-images/1614835018824.png" alt="" loading="lazy"><br>
 表名为table1,其中id自增为主键<br>
@@ -242,11 +244,46 @@ CHECK:定义表时为某一属性进行检查是否符合某要求</li>
 <h3 id="聚集函数">聚集函数</h3>
 <ol>
 <li>COUNT(*)某表的元组数</li>
-<li>COUNT([DISTINCT] A)某表中属性值A的不同值个数</li>
+<li>COUNT([DISTINCT] A)某表中属性值A的不同值个数,属性A的值不一样时候加一</li>
 <li>SUM([DISTINCT] A)对属性A进行累计求和</li>
 <li>AVG([DISTINCT] A)属性A的平均值</li>
 <li>MAX(A)</li>
 <li>MIN(A)</li>
+</ol>
+<h3 id="分组group-by">分组GROUP BY</h3>
+<ol>
+<li>模式:GROUP BY( )</li>
+<li>功能:对表中信息按照条件分组,条件相同即为一组</li>
+<li>要求对分组得到的每个组它的属性在SELECT上必须是单一的(因为每个组最终只出一条信息,若不单一就无法继续)简单来说就是要求SELECT和HAVING后的属性都必须是GROUP BY后的属性的子集</li>
+</ol>
+<h3 id="having">HAVING</h3>
+<p>SELECT的属性和HAVING属性必须是分组属性集的子集</p>
+<ol>
+<li>模式:HAVING</li>
+<li>功能:对分好组后的信息按照条件筛选<br>
+例1:<br>
+定义user表如下<br>
+<img src="https://wangyingying625.github.io/post-images/1614859980796.png" alt="" loading="lazy"><br>
+查询年龄大于25的用户里每个级别最年轻用户的年龄并且每个级别里用户数要大于1<br>
+<code>SQL SELECT U.rating,MIN(U.age) AS minAge FROM user U WHERE U.age &gt;25 GROUP BY U.rating HAVING COUNT(*)&gt;1</code><br>
+结果如下:<br>
+<img src="https://wangyingying625.github.io/post-images/1614860466747.png" alt="" loading="lazy"></li>
+<li>执行过程<br>
+对表中信息按照rating属性排序,得到:<br>
+rating   age<br>
+3         33<br>
+5          34<br>
+7           45<br>
+7           36<br>
+8           45<br>
+10          33<br>
+分出5组<br>
+再根据HAVING的条件进行筛选组,得到<br>
+7           45<br>
+7           36<br>
+对SELECT后的条件进行映射<br>
+得到<br>
+7           36</li>
 </ol>
 
 							</div>
