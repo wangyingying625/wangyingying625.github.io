@@ -2,13 +2,265 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-02-28T08:06:05.180Z</updated>
+    <updated>2021-03-04T04:05:53.802Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
     <logo>https://wangyingying625.github.io/images/avatar.png</logo>
     <icon>https://wangyingying625.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, mldwyy</rights>
+    <entry>
+        <title type="html"><![CDATA[数据库笔记]]></title>
+        <id>https://wangyingying625.github.io/post/shu-ju-ku-bi-ji/</id>
+        <link href="https://wangyingying625.github.io/post/shu-ju-ku-bi-ji/">
+        </link>
+        <updated>2021-03-04T02:33:32.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="数据库系统">数据库系统:</h1>
+<p>数据库系统包括:数据库,数据库管理系统💑</p>
+<h2 id="数据库管理系统提供给用户访问数据库的接口">数据库管理系统提供给用户访问数据库的接口:</h2>
+<ol>
+<li>SQL语言:使用这种语言访问数据库(不是编程语言,不是功能完备的语言,不能进行复杂的编程)</li>
+<li>访问数据库的工具(GUI):提供给用户图形化界面</li>
+<li>API:应用程序里访问数据库(JDBC)</li>
+<li>把访问数据库接口封装成类(php框架laravel)</li>
+</ol>
+<h2 id="关系模型把实体和实体间的联系都抽象成关系一个关系对应一张表对数据库的操作内容和操作结果都是关系对应的还有层次模型网状模型等">关系模型:把实体和实体间的联系都抽象成关系,一个关系对应一张表,对数据库的操作内容和操作结果都是关系.对应的还有层次模型,网状模型等</h2>
+<h2 id="常用的关系型数据库采用关系模型来组织和构建的数据库oraclemysqlsql-serverdb2">常用的关系型数据库(采用关系模型来组织和构建的数据库):oracle,MySQL,SQL server,DB2</h2>
+<p>每种数据库支持的具体类型可能不同</p>
+<h1 id="关系型数据库查询语言的形式化基础">关系型数据库查询语言的形式化基础:</h1>
+<h2 id="关系代数过程化">关系代数(过程化)</h2>
+<h2 id="关系演算非过程化查询时不需要具体描述查询的步骤只需描述要查询的结果需满足条件">关系演算(非过程化,查询时不需要具体描述查询的步骤,只需描述要查询的结果需满足条件)</h2>
+<h1 id="基本概念">基本概念:</h1>
+<h2 id="基表存在于物理磁盘内的一张表">基表:存在于物理磁盘内的一张表</h2>
+<h2 id="视图虚表根据用户的需要映射出的表并不真正存在于物理磁盘">视图:虚表,根据用户的需要映射出的表,并不真正存在于物理磁盘</h2>
+<h2 id="保留字">保留字:</h2>
+<pre><code>            NULL:空值
+            UNIQUE:说明表的某一属性值是否允许重复
+            DEFAUIT:为某一属性指定缺省值
+            PRIMARY KEY:用来指定某一属性为主键
+            FOREIGN KEY:用来指明某一属性是外键
+            CHECK:定义表时为某一属性进行检查是否符合某要求
+</code></pre>
+<h1 id="sql的四种子语言">SQL的四种子语言:</h1>
+<ol>
+<li>DDL:(Data Definition Language):用来定义删除维护数据模式(表的创建与删除,视图的创建与删除,修改表的模式),多用图形化工具操作</li>
+<li>QL(Query Language):查询语言,对数据库里的数据进行查询,查询出满足条件的数据</li>
+<li>DML(Data Manipulation Language):数据操作语言,对数据库里已经存在的数据进行增删改</li>
+<li>DCL(Data Control Language):管理数据库的用户权限(授权,创建用户,完整性约束,审计)</li>
+</ol>
+<h2 id="sql语言的基本模式">SQL语言的基本模式</h2>
+<p>SELECT <a href="%E5%8F%AF%E5%8A%A0%E5%8F%AF%E4%B8%8D%E5%8A%A0,%E8%8B%A5%E5%8A%A0%E5%88%99%E5%AF%B9%E6%9F%A5%E8%AF%A2%E5%87%BA%E7%9A%84%E9%87%8D%E5%A4%8D%E8%A1%8C%E8%BF%9B%E8%A1%8C%E5%88%A0%E9%99%A4">DISTINCT</a> 目标列  FROM 表名 WHERE 查询条件</p>
+<h2 id="sql语言的执行策略">SQL语言的执行策略:</h2>
+<ol>
+<li>根据from后的表名做笛卡尔乘积得到表A</li>
+<li>用where后面的条件对表A进行筛选得到表B</li>
+<li>根据SELECT后的想要的列对B进行投影,得到表C</li>
+<li>若select后加了[DISTINCT]则对表C排序去除相同信息</li>
+</ol>
+<h2 id="例1">例1:</h2>
+<p><img src="https://wangyingying625.github.io/post-images/1614828586294.png" alt="" loading="lazy"><br>
+表名为table1,其中id自增为主键<br>
+<img src="https://wangyingying625.github.io/post-images/1614829181360.png" alt="" loading="lazy"><br>
+表名为shop,其中id自增为主键</p>
+<p>执行SQL语句: SELECT T.name FROM table1 T,shop S WHERE T.id=S.id<br>
+<img src="https://wangyingying625.github.io/post-images/1614829312978.png" alt="" loading="lazy"><br>
+执行结果</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SQL语言]]></title>
+        <id>https://wangyingying625.github.io/post/sql-yu-yan/</id>
+        <link href="https://wangyingying625.github.io/post/sql-yu-yan/">
+        </link>
+        <updated>2021-03-04T02:33:32.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="数据库管理系统提供给用户访问数据库的接口">数据库管理系统提供给用户访问数据库的接口:</h2>
+<p>1.SQL语言:使用这种语言访问数据库(不是编程语言,不是功能完备的语言,不能进行复杂的编程)<br>
+2.访问数据库的工具(GUI):提供给用户图形化界面<br>
+3.API:应用程序里访问数据库(JDBC)<br>
+4.把访问数据库接口封装成类(php框架laravel)</p>
+<h2 id="关系模型把实体和实体间的联系都抽象成关系一个关系对应一张表对数据库的操作内容和操作结果都是关系对应的还有层次模型网状模型等">关系模型:把实体和实体间的联系都抽象成关系,一个关系对应一张表,对数据库的操作内容和操作结果都是关系.对应的还有层次模型,网状模型等</h2>
+<h2 id="常用的关系型数据库采用关系模型来组织和构建的数据库oraclemysqlsql-serverdb2">常用的关系型数据库(采用关系模型来组织和构建的数据库):oracle,MySQL,SQL server,DB2</h2>
+<p>每种数据库支持的具体类型可能不同</p>
+<h1 id="关系型数据库查询语言的形式化基础">关系型数据库查询语言的形式化基础:</h1>
+<h2 id="关系代数过程化">关系代数(过程化)</h2>
+<h2 id="关系演算非过程化查询时不需要具体描述查询的步骤只需描述要查询的结果需满足条件">关系演算(非过程化,查询时不需要具体描述查询的步骤,只需描述要查询的结果需满足条件)</h2>
+<h1 id="基本概念">基本概念:</h1>
+<h2 id="基表存在于物理磁盘内的一张表">基表:存在于物理磁盘内的一张表</h2>
+<h2 id="视图虚表根据用户的需要映射出的表并不真正存在于物理磁盘">视图:虚表,根据用户的需要映射出的表,并不真正存在于物理磁盘</h2>
+<h2 id="保留字">保留字:</h2>
+<pre><code>            NULL:空值
+            UNIQUE:说明表的某一属性值是否允许重复
+            DEFAUIT:为某一属性指定缺省值
+            PRIMARY KEY:用来指定某一属性为主键
+            FOREIGN KEY:用来指明某一属性是外键
+            CHECK:定义表时为某一属性进行检查是否符合某要求
+</code></pre>
+<h1 id="sql的四种子语言">SQL的四种子语言:</h1>
+<h2 id="ddldata-definition-language用来定义删除维护数据模式表的创建与删除视图的创建与删除修改表的模式多用图形化工具操作">DDL:(Data Definition Language):用来定义删除维护数据模式(表的创建与删除,视图的创建与删除,修改表的模式),多用图形化工具操作</h2>
+<h2 id="qlquery-language查询语言对数据库里的数据进行查询查询出满足条件的数据">QL(Query Language):查询语言,对数据库里的数据进行查询,查询出满足条件的数据</h2>
+<h2 id="dmldata-manipulation-language数据操作语言对数据库里已经存在的数据进行增删改">DML(Data Manipulation Language):数据操作语言,对数据库里已经存在的数据进行增删改</h2>
+<h2 id="dcldata-control-language管理数据库的用户权限授权创建用户完整性约束审计">DCL(Data Control Language):管理数据库的用户权限(授权,创建用户,完整性约束,审计)</h2>
+<h1 id="sql语言的基本模式">SQL语言的基本模式</h1>
+<pre><code>        SELECT [DISTINCT(可加可不加,若加则对查询出的重复行进行删除)]目标列  FROM 表名 WHERE 查询条件
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[src漏洞总结]]></title>
+        <id>https://wangyingying625.github.io/post/src-lou-dong-zong-jie/</id>
+        <link href="https://wangyingying625.github.io/post/src-lou-dong-zong-jie/">
+        </link>
+        <updated>2021-03-02T07:11:46.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="存储型xss漏洞details-open-ontoggleprompthello">存储型xss漏洞&lt;details open ontoggle=prompt('hello')&gt;</h1>
+<h2 id="漏洞1">漏洞1:</h2>
+<p>1.可能危害:获取用户cookie,修改HTML代码<br>
+2.复现过程:登录-&gt;留言板留言写入HTML标签及js代码<br>
+3.复现结果:留言板处写入的代码被存进数据库,插入到原来的HTML内,破坏原来页面结构;当其他用户查看这个页面时候执行恶意插入的js代码获取用户cookie</p>
+<h1 id="反序列化漏洞">反序列化漏洞:</h1>
+<h1 id="绕过认证">绕过认证:</h1>
+<h2 id="漏洞1修改get参数绕过验证">漏洞1(修改get参数绕过验证):</h2>
+<p>1.危害:修改用户密码,登录并用该身份查看信息<br>
+2.复现过程:登录时选择忘记密码-&gt;试用户名-&gt;选择找回密码-&gt;选择手机验证码验证-&gt;修改get部分参数绕过手机验证-&gt;密码修改成功<br>
+3.复现结果:用户密码修改成功</p>
+<h2 id="漏洞2修改参数userid绕过认证">漏洞2(修改参数userId绕过认证):</h2>
+<p>1.危害:登录用户账号获取用户用户名和密码信息<br>
+2.复现过程:登录已知用户-&gt;修改用户ID-&gt;返回用户信息(包括用户密码)</p>
+<h1 id="文件上传">文件上传:</h1>
+<p>一句话木马:</p>
+<pre><code class="language-php">&lt;?php
+eval($_POST['cmd']);
+</code></pre>
+<p>? 绕过 :</p>
+<pre><code class="language-php">&lt;?php 
+if ((
+    ($_FILES[&quot;file&quot;][&quot;type&quot;] == &quot;image/gif&quot;)
+        || ($_FILES[&quot;file&quot;][&quot;type&quot;] == &quot;image/jpeg&quot;)
+        || ($_FILES[&quot;file&quot;][&quot;type&quot;] == &quot;image/jpg&quot;)
+        || ($_FILES[&quot;file&quot;][&quot;type&quot;] == &quot;image/pjpeg&quot;)
+        || ($_FILES[&quot;file&quot;][&quot;type&quot;] == &quot;image/x-png&quot;)
+        || ($_FILES[&quot;file&quot;][&quot;type&quot;] == &quot;image/png&quot;))
+</code></pre>
+<p>path : /var/www/html<br>
+uid : server/upload/</p>
+<p>/var/www/html/server/upload/ 不可解析 !<br>
+uid :  server/upload/../a.php  = server/a.php<br>
+waf:</p>
+<h1 id="任意文件下载包含">任意文件下载(包含):</h1>
+<ol>
+<li>下载任意文件</li>
+<li>执行代码</li>
+</ol>
+<h2 id="漏洞1-2">漏洞1:</h2>
+<h1 id="注入">注入:</h1>
+<h2 id="漏洞1sql注入">漏洞1(SQL注入):</h2>
+<p>1.危害:无密码登录<br>
+2.复现过程:登录时用户名部分填入admin' or '1'='1 密码任意-&gt;无密码登录成功</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Burp 用法]]></title>
+        <id>https://wangyingying625.github.io/post/burp-yong-fa/</id>
+        <link href="https://wangyingying625.github.io/post/burp-yong-fa/">
+        </link>
+        <updated>2021-03-01T15:01:14.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="网络流程">网络流程</h1>
+<p>浏览器 -&gt; Burp(listen: 8080  fitter 127.0.0.1) -&gt; 服务器<br>
+浏览器 &lt;- Burp &lt;- 服务器</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[OWASP TOP 10 漏洞笔记]]></title>
+        <id>https://wangyingying625.github.io/post/owasp-top-10-lou-dong-bi-ji/</id>
+        <link href="https://wangyingying625.github.io/post/owasp-top-10-lou-dong-bi-ji/">
+        </link>
+        <updated>2021-03-01T14:49:04.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="注入">注入</h1>
+<h2 id="sql-注入">SQL 注入</h2>
+<p>1.产生条件:网站执行的sql代码需要结合用户输入<br>
+用户输入恶意的sql代码<br>
+使用order by 1检测出正常被执行的代码查询结果列数<br>
+使用union拼接恶意查询语句(union查询结果列数需要与前面执行的sql语句查询列数相同)<br>
+2.测试方法:<br>
+2.1 数字型:SELECT * from user WHERE id= 1 and 1=2;即可以用and永假式看是否异常测试;<br>
+?id=2<br>
+?id=3-1<br>
+若为字符型SELECT *from user WHERE name='name1 or 1=1'<br>
+2.2 字符型:SELECT * from user WHERE name='name1' and '1'='1'<br>
+3.可能危害:执行SQL代码,获取数据库信息<br>
+4.注意点:union并时要求返回元组有相同的属性数目,需要提前用order by 1/2/3...测试前面语句的返回属性数</p>
+<p>提交的sql 注入到 原始的sql中</p>
+<p>mysql 可以写文件, 但是要求,绝对路径 --&gt; 写入文件</p>
+<h2 id="命令注入">命令注入</h2>
+<p>提交的命令注入到原始的命令中</p>
+<p>1.基础知识:管道符|能把前面命令的输出当做后面命令的输入<br>
+;分号后的命令能被直接执行<br>
+&amp;&amp;符号如果前面命令执行成功就接着执行后面命令<br>
+|| 如果前面命令执行失败就执行后面命令<br>
+php的exec函数会把参数当做命令执行<br>
+2.可能危害:get shell</p>
+<h1 id="失效的身份认证">失效的身份认证</h1>
+<h2 id="弱口令口令破解">弱口令&amp;口令破解</h2>
+<p>使用burpsuit抓包-&gt;send to intruder-&gt;<br>
+<img src="https://wangyingying625.github.io/post-images/1614697583771.png" alt="" loading="lazy"><br>
+-&gt;payloads-&gt;payload Type -&gt;start attack<br>
+无验证码,无防止爆破<br>
+http://127.0.0.1:678/vulnerabilities/brute/</p>
+<h2 id="cookie伪造cookie绕过">cookie伪造&amp;cookie绕过</h2>
+<p>Admin=1</p>
+<h1 id="敏感数据泄露">敏感数据泄露</h1>
+<p>不安全的 API 接口</p>
+<p>/userinfo?id=1<br>
+{&quot;身份证&quot;:1111111111,&quot;手机号&quot;:xxxxxxx}</p>
+<h1 id="xml-外部实体xxe">XML 外部实体(XXE)</h1>
+<p>1.基础知识:xml可扩展标记语言,用来传输和存储数据,标记电子文件使其具有结构性<br>
+xml包括xml声明+DTD(文档类型定义)+文档元素<br>
+其中DTD内容可以用户自己声明也可以引用外部链接地址<br>
+允许你发XML , 他会解析XML --&gt; 会解析 XML 的外部实体(变量[文件]) --&gt; 外部实体可以引用系统文件--&gt;输出这个变量内容</p>
+<p>Doc , Excel , 配置文件</p>
+<h1 id="失效的访问控制">失效的访问控制</h1>
+<h2 id="越权访问逻辑漏洞">越权访问(逻辑漏洞)</h2>
+<h3 id="水平越权">水平越权</h3>
+<p>userA  修改/查看隐秘属性-&gt;  userB</p>
+<h3 id="垂直越权">垂直越权</h3>
+<p>userA  修改/查看隐秘属性-&gt;  AdminB</p>
+<p>文档页面 -&gt; 加密文档id (0x11)  Post(password)  url --&gt; 解密  (✔️) Post url --&gt; 文档 url (http://test.com/doc/0x111)是有规律的</p>
+<h1 id="安全配置错误">安全配置错误</h1>
+<p>不安全的默认配置 : 开了debug模式  PHP框架(larvael)开启了debuger会显示出所有变量内容(包括数据库密码)<br>
+开了php报错,会显示错误信息: 网站绝对路径</p>
+<h1 id="跨站脚本xss">跨站脚本(XSS)</h1>
+<p>Xss 平台</p>
+<p>获取受害者的cookie</p>
+<h1 id="不安全的反序列化">不安全的反序列化</h1>
+<p>序列化 : 变量 (对象) --&gt; 字符串<br>
+反序列化 :字符串 --&gt;  变量 (对象)</p>
+<p>127.0.0.1/a.php<br>
+User<br>
+user: name :yy id: 3 lasttime: 2021.xxx<br>
+序列化成字符串<br>
+127.0.0.1/b.php<br>
+字符串反序列化成对象</p>
+<p>php : __wake()</p>
+<h1 id="使用含有已知漏洞的组件">使用含有已知漏洞的组件</h1>
+<p>危害巨大 --&gt; 入侵</p>
+<p>struct2<br>
+fastjson<br>
+weblogic<br>
+shiro</p>
+<p>中国: cnvd<br>
+国际: cve</p>
+<h1 id="不足的日志记录和监控">不足的日志记录和监控</h1>
+<h1 id=""></h1>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[hekll]]></title>
+        <id>https://wangyingying625.github.io/post/hekll/</id>
+        <link href="https://wangyingying625.github.io/post/hekll/">
+        </link>
+        <updated>2021-03-01T01:08:47.000Z</updated>
+        <content type="html"><![CDATA[<p>dsfvg</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Git 使用代理]]></title>
         <id>https://wangyingying625.github.io/post/git-shi-yong-dai-li/</id>
@@ -35,21 +287,6 @@ git config --global --unset https.proxy
         </link>
         <updated>2021-02-28T07:51:45.000Z</updated>
         <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://wangyingying625.github.io/post-images/1614499068820.jpg" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[关于]]></title>
-        <id>https://wangyingying625.github.io/post/about/</id>
-        <link href="https://wangyingying625.github.io/post/about/">
-        </link>
-        <updated>2019-01-25T11:09:48.000Z</updated>
-        <content type="html"><![CDATA[<blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
-</blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<h2 id="联系我呀">📬 联系我呀</h2>
 ]]></content>
     </entry>
 </feed>

@@ -6,7 +6,7 @@
 <meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
 <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
 <meta HTTP-EQUIV="expires" CONTENT="0"> 
-<title>漏洞复现记录 | mldwyy</title>	
+<title>OWASP TOP 10 漏洞笔记 | mldwyy</title>	
 
 <link rel="stylesheet" href="https://wangyingying625.github.io/styles/main.css">
 <script type="text/javascript">
@@ -142,10 +142,10 @@ window.onload=getCSS();
 	
 	                      
 		<div class="entry-content">
-			<h1 class="wow swing entry-title">漏洞复现记录</h1>
+			<h1 class="wow swing entry-title">OWASP TOP 10 漏洞笔记</h1>
 <div class="entry-meta">
 <div class="wow bounce">
-	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-02-28 15:51:45" itemprop="datePublished" pubdate="">2021-02-28</time></i>
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-03-01 22:49:04" itemprop="datePublished" pubdate="">2021-03-01</time></i>
 	          </div>
 			
 </span>
@@ -153,7 +153,82 @@ window.onload=getCSS();
 		</div>
                   
 			<div class="wow slideInLeft entry-summary song">
-				<figure data-type="image" tabindex="1"><img src="https://wangyingying625.github.io/post-images/1614499068820.jpg" alt="" loading="lazy"></figure>
+				<h1 id="注入">注入</h1>
+<h2 id="sql-注入">SQL 注入</h2>
+<p>1.产生条件:网站执行的sql代码需要结合用户输入<br>
+用户输入恶意的sql代码<br>
+使用order by 1检测出正常被执行的代码查询结果列数<br>
+使用union拼接恶意查询语句(union查询结果列数需要与前面执行的sql语句查询列数相同)<br>
+2.测试方法:<br>
+2.1 数字型:SELECT * from user WHERE id= 1 and 1=2;即可以用and永假式看是否异常测试;<br>
+?id=2<br>
+?id=3-1<br>
+若为字符型SELECT *from user WHERE name='name1 or 1=1'<br>
+2.2 字符型:SELECT * from user WHERE name='name1' and '1'='1'<br>
+3.可能危害:执行SQL代码,获取数据库信息<br>
+4.注意点:union并时要求返回元组有相同的属性数目,需要提前用order by 1/2/3...测试前面语句的返回属性数</p>
+<p>提交的sql 注入到 原始的sql中</p>
+<p>mysql 可以写文件, 但是要求,绝对路径 --&gt; 写入文件</p>
+<h2 id="命令注入">命令注入</h2>
+<p>提交的命令注入到原始的命令中</p>
+<p>1.基础知识:管道符|能把前面命令的输出当做后面命令的输入<br>
+;分号后的命令能被直接执行<br>
+&amp;&amp;符号如果前面命令执行成功就接着执行后面命令<br>
+|| 如果前面命令执行失败就执行后面命令<br>
+php的exec函数会把参数当做命令执行<br>
+2.可能危害:get shell</p>
+<h1 id="失效的身份认证">失效的身份认证</h1>
+<h2 id="弱口令口令破解">弱口令&amp;口令破解</h2>
+<p>使用burpsuit抓包-&gt;send to intruder-&gt;<br>
+<img src="https://wangyingying625.github.io/post-images/1614697583771.png" alt="" loading="lazy"><br>
+-&gt;payloads-&gt;payload Type -&gt;start attack<br>
+无验证码,无防止爆破<br>
+http://127.0.0.1:678/vulnerabilities/brute/</p>
+<h2 id="cookie伪造cookie绕过">cookie伪造&amp;cookie绕过</h2>
+<p>Admin=1</p>
+<h1 id="敏感数据泄露">敏感数据泄露</h1>
+<p>不安全的 API 接口</p>
+<p>/userinfo?id=1<br>
+{&quot;身份证&quot;:1111111111,&quot;手机号&quot;:xxxxxxx}</p>
+<h1 id="xml-外部实体xxe">XML 外部实体(XXE)</h1>
+<p>1.基础知识:xml可扩展标记语言,用来传输和存储数据,标记电子文件使其具有结构性<br>
+xml包括xml声明+DTD(文档类型定义)+文档元素<br>
+其中DTD内容可以用户自己声明也可以引用外部链接地址<br>
+允许你发XML , 他会解析XML --&gt; 会解析 XML 的外部实体(变量[文件]) --&gt; 外部实体可以引用系统文件--&gt;输出这个变量内容</p>
+<p>Doc , Excel , 配置文件</p>
+<h1 id="失效的访问控制">失效的访问控制</h1>
+<h2 id="越权访问逻辑漏洞">越权访问(逻辑漏洞)</h2>
+<h3 id="水平越权">水平越权</h3>
+<p>userA  修改/查看隐秘属性-&gt;  userB</p>
+<h3 id="垂直越权">垂直越权</h3>
+<p>userA  修改/查看隐秘属性-&gt;  AdminB</p>
+<p>文档页面 -&gt; 加密文档id (0x11)  Post(password)  url --&gt; 解密  (✔️) Post url --&gt; 文档 url (http://test.com/doc/0x111)是有规律的</p>
+<h1 id="安全配置错误">安全配置错误</h1>
+<p>不安全的默认配置 : 开了debug模式  PHP框架(larvael)开启了debuger会显示出所有变量内容(包括数据库密码)<br>
+开了php报错,会显示错误信息: 网站绝对路径</p>
+<h1 id="跨站脚本xss">跨站脚本(XSS)</h1>
+<p>Xss 平台</p>
+<p>获取受害者的cookie</p>
+<h1 id="不安全的反序列化">不安全的反序列化</h1>
+<p>序列化 : 变量 (对象) --&gt; 字符串<br>
+反序列化 :字符串 --&gt;  变量 (对象)</p>
+<p>127.0.0.1/a.php<br>
+User<br>
+user: name :yy id: 3 lasttime: 2021.xxx<br>
+序列化成字符串<br>
+127.0.0.1/b.php<br>
+字符串反序列化成对象</p>
+<p>php : __wake()</p>
+<h1 id="使用含有已知漏洞的组件">使用含有已知漏洞的组件</h1>
+<p>危害巨大 --&gt; 入侵</p>
+<p>struct2<br>
+fastjson<br>
+weblogic<br>
+shiro</p>
+<p>中国: cnvd<br>
+国际: cve</p>
+<h1 id="不足的日志记录和监控">不足的日志记录和监控</h1>
+<h1 id=""></h1>
 
 							</div>
 	<div class="wow bounceInDown vt-post-tags">
@@ -163,9 +238,11 @@ window.onload=getCSS();
 		
 		<div class="nav-links3">
       
-		<div class="wow bounceInLeft nav-previous3"><a href="https://wangyingying625.github.io/post/git-shi-yong-dai-li/" rel="prev"> Git 使用代理</a></div>
+		<div class="wow bounceInLeft nav-previous3"><a href="https://wangyingying625.github.io/post/burp-yong-fa/" rel="prev"> Burp 用法</a></div>
 		 
 		 
+		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/hekll/" rel="next"> hekll</a></div>
+		
 		</div>
 	</nav>
 	<div class="wow rollIn author-info" style="visibility: visible; animation-name: rollIn;">
