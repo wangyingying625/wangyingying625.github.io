@@ -204,9 +204,43 @@ CHECK:定义表时为某一属性进行检查是否符合某要求</li>
 表名为table1,其中id自增为主键<br>
 <img src="https://wangyingying625.github.io/post-images/1614835029464.png" alt="" loading="lazy"><br>
 表名为shop,其中id自增为主键</p>
-<p>执行SQL语句: SELECT T.name FROM table1 T,shop S WHERE T.id=S.id<br>
-<img src="https://wangyingying625.github.io/post-images/1614835041033.png" alt="" loading="lazy"><br>
-执行结果</p>
+<p>执行SQL语句:<br>
+<code>SQL SELECT T.name FROM table1 T,shop S WHERE T.id=S.id</code><br>
+执行结果如下图:<br>
+<img src="https://wangyingying625.github.io/post-images/1614835041033.png" alt="" loading="lazy"></p>
+<h2 id="模糊查询like">模糊查询like:</h2>
+<ol>
+<li>_(下划线)表示匹配任意字符</li>
+<li>%表示匹配任意0 到多个字符<br>
+<code>SQL SELECT T.name FROM table1 T WHERE T.name LIKE 'w_%i'</code><br>
+执行结果如下图:<br>
+<img src="https://wangyingying625.github.io/post-images/1614835904286.png" alt="" loading="lazy"></li>
+</ol>
+<h2 id="起别名as">起别名AS:</h2>
+<p><code>SQL SELECT T.id+1 AS id1 FROM table1 T WHERE T.name LIKE 'w_%i'</code><br>
+结果如下<br>
+<img src="https://wangyingying625.github.io/post-images/1614836268735.png" alt="" loading="lazy"></p>
+<h2 id="连接union">连接UNION:</h2>
+<p>union是关系代数中的并(∪)操作扩展而来的,所以要满足并操作的条件<br>
+并操作:把两个关系模式相同的元组组合<br>
+即要求UNION前后两句sql查询到的表列数相同<br>
+<code>SQL SELECT name FROM table1 WHERE id=1 UNION SELECT number FROM shop WHERE name='food'</code><br>
+结果如下<br>
+<img src="https://wangyingying625.github.io/post-images/1614836988247.png" alt="" loading="lazy"></p>
+<h2 id="自连接">自连接:</h2>
+<p>新建一张购买表buy,信息如下:<br>
+<img src="https://wangyingying625.github.io/post-images/1614838025350.png" alt="" loading="lazy"><br>
+若要查询既买了food又买了cloth的用户名<br>
+<code>SQL SELECT T.name FROM table1 T,buy B1,buy B2 WHERE B1.uid=B2.uid AND (B1.sid=1 AND B2.sid=2) AND T.id=B1.uid</code><br>
+<img src="https://wangyingying625.github.io/post-images/1614838719827.png" alt="" loading="lazy"></p>
+<h2 id="交intersect部分数据库支持">交INTERSECT(部分数据库支持):</h2>
+<p>实现查询既买了food又买了cloth的用户名<br>
+<code>SQL SELECT T.name FROM table1 T,buy B WHERE B.uid=T.id AND B.sid=1 INTERSECT SELECT T.name FROM table1 T,buy B WHERE B.uid=T.id AND B.sid=2</code></p>
+<h2 id="嵌套查询">嵌套查询:</h2>
+<h3 id="非关联嵌套">非关联嵌套:</h3>
+<p>查询买了food的用户名<br>
+``SQL<br>
+SELECT</p>
 
 							</div>
 	<div class="wow bounceInDown vt-post-tags">
