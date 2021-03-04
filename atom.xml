@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-04T12:49:45.478Z</updated>
+    <updated>2021-03-04T12:55:45.418Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
@@ -129,8 +129,8 @@ SELECT的属性和HAVING属性必须是分组属性集的子集</li>
 查询年龄大于25的用户里每个级别最年轻用户的年龄并且每个级别里用户数要大于1<br>
 <code>SQL SELECT U.rating,MIN(U.age) AS minAge FROM user U WHERE U.age &gt;25 GROUP BY U.rating HAVING COUNT(*)&gt;1</code><br>
 结果如下:<br>
-<img src="https://wangyingying625.github.io/post-images/1614860466747.png" alt="" loading="lazy"></li>
-<li>执行过程<br>
+<img src="https://wangyingying625.github.io/post-images/1614860466747.png" alt="" loading="lazy"><br>
+执行过程<br>
 对表中信息按照rating属性排序,得到:<br>
 rating   age<br>
 3         33<br>
@@ -145,7 +145,10 @@ rating   age<br>
 7           36<br>
 对SELECT后的条件进行映射<br>
 得到<br>
-7           36</li>
+7           36<br>
+查询平均年龄最小的等级<br>
+<code>SQL SELECT Temp.rating FROM ( SELECT S.rating ,AVG(S.age) AS avgage FROM user S GROUP BY S.rating ) AS Temp WHERE temp.avgage=(SELECT MIN (Temp.avgage))</code><br>
+生成了临时表Temp</li>
 </ol>
 ]]></content>
     </entry>
