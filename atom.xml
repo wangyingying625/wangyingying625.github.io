@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-04T09:49:56.265Z</updated>
+    <updated>2021-03-04T11:14:54.410Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
@@ -265,10 +265,30 @@ CHECK:定义表时为某一属性进行检查是否符合某要求</li>
 <p>实现查询既买了food又买了cloth的用户名<br>
 <code>SQL SELECT T.name FROM table1 T,buy B WHERE B.uid=T.id AND B.sid=1 INTERSECT SELECT T.name FROM table1 T,buy B WHERE B.uid=T.id AND B.sid=2</code></p>
 <h2 id="嵌套查询">嵌套查询:</h2>
-<h3 id="非关联嵌套">非关联嵌套:</h3>
+<h3 id="非关联嵌套子查询的条件与父查询无关">非关联嵌套(子查询的条件与父查询无关):</h3>
 <p>查询买了food的用户名<br>
-``SQL<br>
-SELECT</p>
+<code>SQL SELECT T.name FROM table1 T WHERE T.id IN(SELECT B.uid FROM buy B WHERE B.sid=1)</code><br>
+对每个用户扫描,查看其id是否在买过food的表的id里面,若在返回id对应的姓名</p>
+<h3 id="关联嵌套查询嵌套的子查询条件与父查询相关">关联嵌套查询(嵌套的子查询条件与父查询相关):</h3>
+<ol>
+<li>
+<p>查询买过food用户的名称:<br>
+<code>SQL SELECT T.name FROM table1 T WHERE EXISTS (SELECT * FROM buy B WHERE B.uid=T.id AND B.sid=1)</code><br>
+如果某用户买过food,那么在buy表中必然存在一条记录,其uid等于该用户id且sid等于1<br>
+对table1中的每个用户遍历,查看是否在buy表中存在符合上述条件的元组<br>
+相当于二重循环,对外层循环中的每条元组都做一次内层循环</p>
+</li>
+<li>
+<p>查只有一个人买的商品<br>
+<code>SQL SELECT B.sid FROM buy B WHERE B.sid NOT IN (SELECT B1.sid FROM buy B1 WHERE B.uid!=B1.uid)</code><br>
+查出表中除用户1 外其他用户买的商品,如果用户1买的商品不在其他用户买的商品列表里,则用户1买的商品就是只有一人买的<br>
+对buy表扫描,查看当前这条购买的这个人,除他以外其他人都买了什么,如果他买的东西不在其他人买的东西的列表那就满足条件<br>
+构造步骤:<br>
+查询只有除我外其他人购买了的商品:SELECT 商品 FROM 购物表 WHERE 购买者!=我<br>
+查出我只有我买的商品:SELECT 商品 FROM 购物表1 WHERE 商品 NOT IN (SELECT 商品 FROM 购物表 2 WHERE 购买者!=我)<br>
+遍历到所有人:SELECT 商品 FROM 购物表1 WHERE 商品 NOT IN (SELECT 商品 FROM 购物表 2 WHERE 购买者!=购物表1中对应购买者)</p>
+</li>
+</ol>
 ]]></content>
     </entry>
     <entry>
