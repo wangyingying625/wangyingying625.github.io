@@ -2,13 +2,116 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-04T11:14:54.410Z</updated>
+    <updated>2021-03-04T11:49:21.503Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
     <logo>https://wangyingying625.github.io/images/avatar.png</logo>
     <icon>https://wangyingying625.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, mldwyy</rights>
+    <entry>
+        <title type="html"><![CDATA[SQL语言]]></title>
+        <id>https://wangyingying625.github.io/post/sql-yu-yan/</id>
+        <link href="https://wangyingying625.github.io/post/sql-yu-yan/">
+        </link>
+        <updated>2021-03-04T11:48:18.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="sql语言一种非过程化的关系演算语言">SQL语言(一种非过程化的关系演算语言):</h2>
+<h3 id="常用名词">常用名词</h3>
+<ol>
+<li>基表:存在于物理磁盘内的一张表</li>
+<li>视图:虚表,根据用户的需要映射出的表,并不真正存在于物理磁盘</li>
+<li>保留字:<br>
+NULL:空值<br>
+UNIQUE:说明表的某一属性值是否允许重复<br>
+DEFAUIT:为某一属性指定缺省值<br>
+PRIMARY KEY:用来指定某一属性为主键<br>
+FOREIGN KEY:用来指明某一属性是外键<br>
+CHECK:定义表时为某一属性进行检查是否符合某要求</li>
+</ol>
+<h3 id="sql的四种子语言">SQL的四种子语言:</h3>
+<ol>
+<li>DDL:(Data Definition Language):用来定义删除维护数据模式(表的创建与删除,视图的创建与删除,修改表的模式),多用图形化工具操作</li>
+<li>QL(Query Language):查询语言,对数据库里的数据进行查询,查询出满足条件的数据</li>
+<li>DML(Data Manipulation Language):数据操作语言,对数据库里已经存在的数据进行增删改</li>
+<li>DCL(Data Control Language):管理数据库的用户权限(授权,创建用户,完整性约束,审计)</li>
+</ol>
+<h3 id="sql语言的基本模式">SQL语言的基本模式</h3>
+<p>SELECT DISTINCT 目标列 FROM 表名 WHERE 查询条件</p>
+<h3 id="sql语言的执行策略">SQL语言的执行策略:</h3>
+<ol>
+<li>根据from后的表名做笛卡尔乘积得到表A</li>
+<li>用where后面的条件对表A进行筛选得到表B</li>
+<li>根据SELECT后的想要的列对B进行投影,得到表C</li>
+<li>若select后加了[DISTINCT]则对表C排序去除相同信息</li>
+</ol>
+<p><img src="https://wangyingying625.github.io/post-images/1614835018824.png" alt="" loading="lazy"><br>
+表名为table1,其中id自增为主键<br>
+<img src="https://wangyingying625.github.io/post-images/1614835029464.png" alt="" loading="lazy"><br>
+表名为shop,其中id自增为主键</p>
+<p>执行SQL语句:<br>
+<code>SQL SELECT T.name FROM table1 T,shop S WHERE T.id=S.id</code><br>
+执行结果如下图:<br>
+<img src="https://wangyingying625.github.io/post-images/1614835041033.png" alt="" loading="lazy"></p>
+<h3 id="模糊查询like">模糊查询like:</h3>
+<ol>
+<li>_(下划线)表示匹配任意字符</li>
+<li>%表示匹配任意0 到多个字符<br>
+<code>SQL SELECT T.name FROM table1 T WHERE T.name LIKE 'w_%i'</code><br>
+执行结果如下图:<br>
+<img src="https://wangyingying625.github.io/post-images/1614835904286.png" alt="" loading="lazy"></li>
+</ol>
+<h3 id="起别名as">起别名AS:</h3>
+<p><code>SQL SELECT T.id+1 AS id1 FROM table1 T WHERE T.name LIKE 'w_%i'</code><br>
+结果如下<br>
+<img src="https://wangyingying625.github.io/post-images/1614836268735.png" alt="" loading="lazy"></p>
+<h3 id="连接union">连接UNION:</h3>
+<p>union是关系代数中的并(∪)操作扩展而来的,所以要满足并操作的条件<br>
+并操作:把两个关系模式相同的元组组合<br>
+即要求UNION前后两句sql查询到的表列数相同<br>
+<code>SQL SELECT name FROM table1 WHERE id=1 UNION SELECT number FROM shop WHERE name='food'</code><br>
+结果如下<br>
+<img src="https://wangyingying625.github.io/post-images/1614836988247.png" alt="" loading="lazy"></p>
+<h3 id="自连接">自连接:</h3>
+<p>新建一张购买表buy,信息如下:<br>
+<img src="https://wangyingying625.github.io/post-images/1614838025350.png" alt="" loading="lazy"><br>
+若要查询既买了food又买了cloth的用户名<br>
+<code>SQL SELECT T.name FROM table1 T,buy B1,buy B2 WHERE B1.uid=B2.uid AND (B1.sid=1 AND B2.sid=2) AND T.id=B1.uid</code><br>
+<img src="https://wangyingying625.github.io/post-images/1614838719827.png" alt="" loading="lazy"></p>
+<h3 id="交intersect部分数据库支持">交INTERSECT(部分数据库支持):</h3>
+<p>实现查询既买了food又买了cloth的用户名<br>
+<code>SQL SELECT T.name FROM table1 T,buy B WHERE B.uid=T.id AND B.sid=1 INTERSECT SELECT T.name FROM table1 T,buy B WHERE B.uid=T.id AND B.sid=2</code></p>
+<h3 id="嵌套查询">嵌套查询:</h3>
+<ol>
+<li>非关联嵌套(子查询的条件与父查询无关):<br>
+查询买了food的用户名<br>
+<code>SQL SELECT T.name FROM table1 T WHERE T.id IN(SELECT B.uid FROM buy B WHERE B.sid=1)</code><br>
+对每个用户扫描,查看其id是否在买过food的表的id里面,若在返回id对应的姓名</li>
+<li>关联嵌套查询(嵌套的子查询条件与父查询相关):<br>
+例1. 查询买过food用户的名称:<br>
+<code>SQL SELECT T.name FROM table1 T WHERE EXISTS (SELECT * FROM buy B WHERE B.uid=T.id AND B.sid=1)</code><br>
+如果某用户买过food,那么在buy表中必然存在一条记录,其uid等于该用户id且sid等于1<br>
+对table1中的每个用户遍历,查看是否在buy表中存在符合上述条件的元组<br>
+相当于二重循环,对外层循环中的每条元组都做一次内层循环</li>
+</ol>
+<p>例2. 查只有一个人买的商品<br>
+<code>SQL SELECT B.sid FROM buy B WHERE B.sid NOT IN (SELECT B1.sid FROM buy B1 WHERE B.uid!=B1.uid)</code><br>
+查出表中除用户1 外其他用户买的商品,如果用户1买的商品不在其他用户买的商品列表里,则用户1买的商品就是只有一人买的<br>
+对buy表扫描,查看当前这条购买的这个人,除他以外其他人都买了什么,如果他买的东西不在其他人买的东西的列表那就满足条件<br>
+构造步骤:<br>
+查询只有除我外其他人购买了的商品:SELECT 商品 FROM 购物表 WHERE 购买者!=我<br>
+查出我只有我买的商品:SELECT 商品 FROM 购物表1 WHERE 商品 NOT IN (SELECT 商品 FROM 购物表 2 WHERE 购买者!=我)<br>
+遍历到所有人:SELECT 商品 FROM 购物表1 WHERE 商品 NOT IN (SELECT 商品 FROM 购物表 2 WHERE 购买者!=购物表1中对应购买者)</p>
+<h3 id="聚集函数">聚集函数</h3>
+<ol>
+<li>COUNT(*)某表的元组数</li>
+<li>COUNT([DISTINCT] A)某表中属性值A的不同值个数</li>
+<li>SUM([DISTINCT] A)对属性A进行累计求和</li>
+<li>AVG([DISTINCT] A)属性A的平均值</li>
+<li>MAX(A)</li>
+<li>MIN(A)</li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Git 使用代理]]></title>
         <id>https://wangyingying625.github.io/post/git-shi-yong-dai-li/</id>
@@ -176,117 +279,32 @@ waf:
 2.复现过程:登录时用户名部分填入admin' or '1'='1 密码任意->无密码登录成功]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[数据库笔记]]></title>
+        <title type="html"><![CDATA[数据库基本概念]]></title>
         <id>https://wangyingying625.github.io/post/shu-ju-ku-bi-ji/</id>
         <link href="https://wangyingying625.github.io/post/shu-ju-ku-bi-ji/">
         </link>
         <updated>2021-03-04T05:13:00.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="数据库系统">数据库系统:</h1>
+        <content type="html"><![CDATA[<h2 id="数据库系统">数据库系统:</h2>
 <p>数据库系统包括:数据库(存储数据),数据库管理系统(对数据库进行管理),数据和数据库管理员💑</p>
-<h2 id="数据库管理系统提供给用户访问数据库的接口">数据库管理系统提供给用户访问数据库的接口:</h2>
+<h3 id="数据库管理系统提供给用户访问数据库的接口">数据库管理系统提供给用户访问数据库的接口:</h3>
 <ol>
 <li>SQL语言:使用这种语言访问数据库(不是编程语言,不是功能完备的语言,不能进行复杂的编程)</li>
 <li>访问数据库的工具(GUI):提供给用户图形化界面</li>
 <li>API:应用程序里访问数据库(JDBC)</li>
 <li>把访问数据库接口封装成类(php框架laravel)</li>
 </ol>
-<h1 id="关系模型">关系模型:</h1>
+<h2 id="关系模型">关系模型:</h2>
 <p>把实体和实体间的联系都抽象成关系,一个关系对应一张表,对数据库的操作内容和操作结果都是关系.对应的还有层次模型,网状模型等</p>
-<h1 id="关系型数据库采用关系模型来组织和构建的数据库">关系型数据库(采用关系模型来组织和构建的数据库):</h1>
+<h2 id="关系型数据库采用关系模型来组织和构建的数据库">关系型数据库(采用关系模型来组织和构建的数据库):</h2>
 <p>常用的关系型数据库:oracle,MySQL,SQL server,DB2<br>
 每种数据库支持的具体类型可能不同</p>
-<h2 id="关系型数据库查询语言的形式化基础">关系型数据库查询语言的形式化基础:</h2>
-<h3 id="关系代数过程化">关系代数(过程化)</h3>
-<h3 id="关系演算非过程化查询时不需要具体描述查询的步骤只需描述要查询的结果需满足条件">关系演算(非过程化,查询时不需要具体描述查询的步骤,只需描述要查询的结果需满足条件)</h3>
-<h1 id="sql语言一种非过程化的关系演算语言">SQL语言(一种非过程化的关系演算语言):</h1>
-<h2 id="常用名词">常用名词</h2>
-<ol>
-<li>基表:存在于物理磁盘内的一张表</li>
-<li>视图:虚表,根据用户的需要映射出的表,并不真正存在于物理磁盘</li>
-<li>保留字:<br>
-NULL:空值<br>
-UNIQUE:说明表的某一属性值是否允许重复<br>
-DEFAUIT:为某一属性指定缺省值<br>
-PRIMARY KEY:用来指定某一属性为主键<br>
-FOREIGN KEY:用来指明某一属性是外键<br>
-CHECK:定义表时为某一属性进行检查是否符合某要求</li>
-</ol>
-<h2 id="sql的四种子语言">SQL的四种子语言:</h2>
-<ol>
-<li>DDL:(Data Definition Language):用来定义删除维护数据模式(表的创建与删除,视图的创建与删除,修改表的模式),多用图形化工具操作</li>
-<li>QL(Query Language):查询语言,对数据库里的数据进行查询,查询出满足条件的数据</li>
-<li>DML(Data Manipulation Language):数据操作语言,对数据库里已经存在的数据进行增删改</li>
-<li>DCL(Data Control Language):管理数据库的用户权限(授权,创建用户,完整性约束,审计)</li>
-</ol>
-<h2 id="sql语言的基本模式">SQL语言的基本模式</h2>
-<p>SELECT DISTINCT 目标列 FROM 表名 WHERE 查询条件</p>
-<h2 id="sql语言的执行策略">SQL语言的执行策略:</h2>
-<ol>
-<li>根据from后的表名做笛卡尔乘积得到表A</li>
-<li>用where后面的条件对表A进行筛选得到表B</li>
-<li>根据SELECT后的想要的列对B进行投影,得到表C</li>
-<li>若select后加了[DISTINCT]则对表C排序去除相同信息</li>
-</ol>
-<h3 id="例1">例1:</h3>
-<p><img src="https://wangyingying625.github.io/post-images/1614835018824.png" alt="" loading="lazy"><br>
-表名为table1,其中id自增为主键<br>
-<img src="https://wangyingying625.github.io/post-images/1614835029464.png" alt="" loading="lazy"><br>
-表名为shop,其中id自增为主键</p>
-<p>执行SQL语句:<br>
-<code>SQL SELECT T.name FROM table1 T,shop S WHERE T.id=S.id</code><br>
-执行结果如下图:<br>
-<img src="https://wangyingying625.github.io/post-images/1614835041033.png" alt="" loading="lazy"></p>
-<h2 id="模糊查询like">模糊查询like:</h2>
-<ol>
-<li>_(下划线)表示匹配任意字符</li>
-<li>%表示匹配任意0 到多个字符<br>
-<code>SQL SELECT T.name FROM table1 T WHERE T.name LIKE 'w_%i'</code><br>
-执行结果如下图:<br>
-<img src="https://wangyingying625.github.io/post-images/1614835904286.png" alt="" loading="lazy"></li>
-</ol>
-<h2 id="起别名as">起别名AS:</h2>
-<p><code>SQL SELECT T.id+1 AS id1 FROM table1 T WHERE T.name LIKE 'w_%i'</code><br>
-结果如下<br>
-<img src="https://wangyingying625.github.io/post-images/1614836268735.png" alt="" loading="lazy"></p>
-<h2 id="连接union">连接UNION:</h2>
-<p>union是关系代数中的并(∪)操作扩展而来的,所以要满足并操作的条件<br>
-并操作:把两个关系模式相同的元组组合<br>
-即要求UNION前后两句sql查询到的表列数相同<br>
-<code>SQL SELECT name FROM table1 WHERE id=1 UNION SELECT number FROM shop WHERE name='food'</code><br>
-结果如下<br>
-<img src="https://wangyingying625.github.io/post-images/1614836988247.png" alt="" loading="lazy"></p>
-<h2 id="自连接">自连接:</h2>
-<p>新建一张购买表buy,信息如下:<br>
-<img src="https://wangyingying625.github.io/post-images/1614838025350.png" alt="" loading="lazy"><br>
-若要查询既买了food又买了cloth的用户名<br>
-<code>SQL SELECT T.name FROM table1 T,buy B1,buy B2 WHERE B1.uid=B2.uid AND (B1.sid=1 AND B2.sid=2) AND T.id=B1.uid</code><br>
-<img src="https://wangyingying625.github.io/post-images/1614838719827.png" alt="" loading="lazy"></p>
-<h2 id="交intersect部分数据库支持">交INTERSECT(部分数据库支持):</h2>
-<p>实现查询既买了food又买了cloth的用户名<br>
-<code>SQL SELECT T.name FROM table1 T,buy B WHERE B.uid=T.id AND B.sid=1 INTERSECT SELECT T.name FROM table1 T,buy B WHERE B.uid=T.id AND B.sid=2</code></p>
-<h2 id="嵌套查询">嵌套查询:</h2>
-<h3 id="非关联嵌套子查询的条件与父查询无关">非关联嵌套(子查询的条件与父查询无关):</h3>
-<p>查询买了food的用户名<br>
-<code>SQL SELECT T.name FROM table1 T WHERE T.id IN(SELECT B.uid FROM buy B WHERE B.sid=1)</code><br>
-对每个用户扫描,查看其id是否在买过food的表的id里面,若在返回id对应的姓名</p>
-<h3 id="关联嵌套查询嵌套的子查询条件与父查询相关">关联嵌套查询(嵌套的子查询条件与父查询相关):</h3>
+<h3 id="关系型数据库查询语言的形式化基础">关系型数据库查询语言的形式化基础:</h3>
 <ol>
 <li>
-<p>查询买过food用户的名称:<br>
-<code>SQL SELECT T.name FROM table1 T WHERE EXISTS (SELECT * FROM buy B WHERE B.uid=T.id AND B.sid=1)</code><br>
-如果某用户买过food,那么在buy表中必然存在一条记录,其uid等于该用户id且sid等于1<br>
-对table1中的每个用户遍历,查看是否在buy表中存在符合上述条件的元组<br>
-相当于二重循环,对外层循环中的每条元组都做一次内层循环</p>
+<p>关系代数(过程化)</p>
 </li>
 <li>
-<p>查只有一个人买的商品<br>
-<code>SQL SELECT B.sid FROM buy B WHERE B.sid NOT IN (SELECT B1.sid FROM buy B1 WHERE B.uid!=B1.uid)</code><br>
-查出表中除用户1 外其他用户买的商品,如果用户1买的商品不在其他用户买的商品列表里,则用户1买的商品就是只有一人买的<br>
-对buy表扫描,查看当前这条购买的这个人,除他以外其他人都买了什么,如果他买的东西不在其他人买的东西的列表那就满足条件<br>
-构造步骤:<br>
-查询只有除我外其他人购买了的商品:SELECT 商品 FROM 购物表 WHERE 购买者!=我<br>
-查出我只有我买的商品:SELECT 商品 FROM 购物表1 WHERE 商品 NOT IN (SELECT 商品 FROM 购物表 2 WHERE 购买者!=我)<br>
-遍历到所有人:SELECT 商品 FROM 购物表1 WHERE 商品 NOT IN (SELECT 商品 FROM 购物表 2 WHERE 购买者!=购物表1中对应购买者)</p>
+<p>关系演算(非过程化,查询时不需要具体描述查询的步骤,只需描述要查询的结果需满足条件)</p>
 </li>
 </ol>
 ]]></content>
