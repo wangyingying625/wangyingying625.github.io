@@ -6,7 +6,7 @@
 <meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
 <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
 <meta HTTP-EQUIV="expires" CONTENT="0"> 
-<title>docker使用笔记 | mldwyy</title>	
+<title>数据库管理系统(DBMS) | mldwyy</title>	
 
 <link rel="stylesheet" href="https://wangyingying625.github.io/styles/main.css">
 <script type="text/javascript">
@@ -142,10 +142,10 @@ window.onload=getCSS();
 	
 	                      
 		<div class="entry-content">
-			<h1 class="wow swing entry-title">docker使用笔记</h1>
+			<h1 class="wow swing entry-title">数据库管理系统(DBMS)</h1>
 <div class="entry-meta">
 <div class="wow bounce">
-	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-03-05 11:12:08" itemprop="datePublished" pubdate="">2021-03-05</time></i>
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-03-05 19:20:03" itemprop="datePublished" pubdate="">2021-03-05</time></i>
 	          </div>
 			
 </span>
@@ -153,18 +153,25 @@ window.onload=getCSS();
 		</div>
                   
 			<div class="wow slideInLeft entry-summary song">
-				<h2 id="常用命令">常用命令</h2>
+				<h2 id="数据库管理系统的体系结构">数据库管理系统的体系结构:</h2>
+<h3 id="dbms组成结构把用户的sql落实到对磁盘的操作">DBMS组成结构:(把用户的SQL落实到对磁盘的操作)</h3>
 <ol>
-<li>查找容器id:docker ps</li>
-<li>启动docker-compose:docker-compose up -d</li>
-<li>进入容器:</li>
-<li>docker images</li>
+<li>语法分析器:对用户提交的SQL语句进行语法分析</li>
+<li>授权检查:检查某用户是否有权限执行该语句</li>
+<li>语义分析和查询处理</li>
+<li>访问管理:如何把表存储为磁盘中的文件流(实现关系模型,为上层提供表)<br>
+因为其在最底层,所以这层提供的函数就是访问原语</li>
 </ol>
-<h2 id="零碎知识">零碎知识</h2>
+<h3 id="变成语言中使用数据库的流程">变成语言中使用数据库的流程:</h3>
 <ol>
-<li>docker不用进文件夹</li>
-<li>docker-compose需要进文件夹</li>
+<li>连接数据库:向系统请求一个DBMS核心进程,建立一个通讯管道,应用与数据库管理系统间通过管道进行通信(两个pipe,一写一读)<br>
+应用程序-----------------------------&gt;DBMS核心进程(发SQL)<br>
+应用程序&lt;-----------------------------DBMS核心进程(返回结果)</li>
+<li></li>
 </ol>
+<h2 id="数据库管理系统的接口">数据库管理系统的接口:</h2>
+<h2 id="查询优化">查询优化:</h2>
+<h2 id="事务管理">事务管理:</h2>
 
 							</div>
 	<div class="wow bounceInDown vt-post-tags">
@@ -174,10 +181,8 @@ window.onload=getCSS();
 		
 		<div class="nav-links3">
       
-		<div class="wow bounceInLeft nav-previous3"><a href="https://wangyingying625.github.io/post/shu-ju-ku-guan-li-xi-tong/" rel="prev"> 数据库管理系统</a></div>
 		 
-		 
-		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/ying-yu-jie-shao/" rel="next"> 英语介绍</a></div>
+		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/shu-ju-ku-guan-li-xi-tong/" rel="next"> 数据库管理系统</a></div>
 		
 		</div>
 	</nav>
