@@ -288,6 +288,11 @@ rating   age<br>
 <code>SQL SELECT Temp.rating FROM ( SELECT S.rating ,AVG(S.age) AS avgage FROM user S GROUP BY S.rating ) AS Temp WHERE temp.avgage=(SELECT MIN (Temp.avgage))</code><br>
 生成了临时表Temp</li>
 </ol>
+<h3 id="定义视图view">定义视图view</h3>
+<p>student(name,school)<br>
+soldiers(name,service)<br>
+``SQL<br>
+CREATE VIEW prospects (name,school,service) AS SELECT name,school,CAST</p>
 
 							</div>
 	<div class="wow bounceInDown vt-post-tags">

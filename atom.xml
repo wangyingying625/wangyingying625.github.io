@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-04T13:08:42.720Z</updated>
+    <updated>2021-03-05T02:10:08.501Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
@@ -150,6 +150,11 @@ rating   age<br>
 <code>SQL SELECT Temp.rating FROM ( SELECT S.rating ,AVG(S.age) AS avgage FROM user S GROUP BY S.rating ) AS Temp WHERE temp.avgage=(SELECT MIN (Temp.avgage))</code><br>
 生成了临时表Temp</li>
 </ol>
+<h3 id="定义视图view">定义视图view</h3>
+<p>student(name,school)<br>
+soldiers(name,service)<br>
+``SQL<br>
+CREATE VIEW prospects (name,school,service) AS SELECT name,school,CAST</p>
 ]]></content>
     </entry>
     <entry>
