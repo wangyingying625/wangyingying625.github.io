@@ -6,7 +6,7 @@
 <meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
 <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
 <meta HTTP-EQUIV="expires" CONTENT="0"> 
-<title>SQL语言 | mldwyy</title>	
+<title>docker使用笔记 | mldwyy</title>	
 
 <link rel="stylesheet" href="https://wangyingying625.github.io/styles/main.css">
 <script type="text/javascript">
@@ -142,10 +142,10 @@ window.onload=getCSS();
 	
 	                      
 		<div class="entry-content">
-			<h1 class="wow swing entry-title">SQL语言</h1>
+			<h1 class="wow swing entry-title">docker使用笔记</h1>
 <div class="entry-meta">
 <div class="wow bounce">
-	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-03-04 19:48:18" itemprop="datePublished" pubdate="">2021-03-04</time></i>
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-03-05 11:12:08" itemprop="datePublished" pubdate="">2021-03-05</time></i>
 	          </div>
 			
 </span>
@@ -153,176 +153,29 @@ window.onload=getCSS();
 		</div>
                   
 			<div class="wow slideInLeft entry-summary song">
-				<h2 id="sql语言一种非过程化的关系演算语言">SQL语言(一种非过程化的关系演算语言):</h2>
-<h3 id="常用名词">常用名词</h3>
+				<h2 id="常用命令">常用命令</h2>
 <ol>
-<li>基表:存在于物理磁盘内的一张表</li>
-<li>视图:虚表,根据用户的需要映射出的表,并不真正存在于物理磁盘</li>
-<li>保留字:<br>
-NULL:空值<br>
-UNIQUE:说明表的某一属性值是否允许重复<br>
-DEFAUIT:为某一属性指定缺省值<br>
-PRIMARY KEY:用来指定某一属性为主键<br>
-FOREIGN KEY:用来指明某一属性是外键<br>
-CHECK:定义表时为某一属性进行检查是否符合某要求</li>
+<li>查找容器id:docker ps</li>
+<li>启动docker-compose:docker-compose up -d</li>
+<li>进入容器:</li>
+<li>docker images</li>
 </ol>
-<h3 id="sql的四种子语言">SQL的四种子语言:</h3>
+<h2 id="零碎知识">零碎知识</h2>
 <ol>
-<li>DDL:(Data Definition Language):用来定义删除维护数据模式(表的创建与删除,视图的创建与删除,修改表的模式),多用图形化工具操作</li>
-<li>QL(Query Language):查询语言,对数据库里的数据进行查询,查询出满足条件的数据</li>
-<li>DML(Data Manipulation Language):数据操作语言,对数据库里已经存在的数据进行增删改</li>
-<li>DCL(Data Control Language):管理数据库的用户权限(授权,创建用户,完整性约束,审计)</li>
+<li>docker不用进文件夹</li>
+<li>docker-compose需要进文件夹</li>
 </ol>
-<h3 id="sql语言的基本模式">SQL语言的基本模式</h3>
-<p>SELECT [DISTINCT] 目标列 FROM 表名 WHERE 查询条件 GROUP BY 分组属性 HAVING 分组条件</p>
-<h3 id="sql语言的执行策略">SQL语言的执行策略:</h3>
-<ol>
-<li>根据FROM后的表名做笛卡尔乘积得到表A</li>
-<li>用WHERE后面的条件对表A进行筛选得到符合条件的表B</li>
-<li>对表B中的信息按照GROUP BY后的分组属性分组,对属性相同的元组分成一组</li>
-<li>对分好组的表按照HAVING后的分组条件再次筛选,筛选出符合条件的组</li>
-<li>在选好的组中根据SELECT后的信息进行投影,每个组出一条元组<br>
-SELECT的属性和HAVING属性必须是分组属性集的子集</li>
-</ol>
-<p><img src="https://wangyingying625.github.io/post-images/1614835018824.png" alt="" loading="lazy"><br>
-表名为table1,其中id自增为主键<br>
-<img src="https://wangyingying625.github.io/post-images/1614835029464.png" alt="" loading="lazy"><br>
-表名为shop,其中id自增为主键</p>
-<p>执行SQL语句:<br>
-<code>SQL SELECT T.name FROM table1 T,shop S WHERE T.id=S.id</code><br>
-执行结果如下图:<br>
-<img src="https://wangyingying625.github.io/post-images/1614835041033.png" alt="" loading="lazy"></p>
-<h3 id="模糊查询like">模糊查询like:</h3>
-<ol>
-<li>_(下划线)表示匹配任意字符</li>
-<li>%表示匹配任意0 到多个字符<br>
-<code>SQL SELECT T.name FROM table1 T WHERE T.name LIKE 'w_%i'</code><br>
-执行结果如下图:<br>
-<img src="https://wangyingying625.github.io/post-images/1614835904286.png" alt="" loading="lazy"></li>
-</ol>
-<h3 id="起别名as">起别名AS:</h3>
-<p><code>SQL SELECT T.id+1 AS id1 FROM table1 T WHERE T.name LIKE 'w_%i'</code><br>
-结果如下<br>
-<img src="https://wangyingying625.github.io/post-images/1614836268735.png" alt="" loading="lazy"></p>
-<h3 id="连接union">连接UNION:</h3>
-<p>union是关系代数中的并(∪)操作扩展而来的,所以要满足并操作的条件<br>
-并操作:把两个关系模式相同的元组组合<br>
-即要求UNION前后两句sql查询到的表列数相同<br>
-<code>SQL SELECT name FROM table1 WHERE id=1 UNION SELECT number FROM shop WHERE name='food'</code><br>
-结果如下<br>
-<img src="https://wangyingying625.github.io/post-images/1614836988247.png" alt="" loading="lazy"></p>
-<h3 id="自连接">自连接:</h3>
-<p>新建一张购买表buy,信息如下:<br>
-<img src="https://wangyingying625.github.io/post-images/1614838025350.png" alt="" loading="lazy"><br>
-若要查询既买了food又买了cloth的用户名<br>
-<code>SQL SELECT T.name FROM table1 T,buy B1,buy B2 WHERE B1.uid=B2.uid AND (B1.sid=1 AND B2.sid=2) AND T.id=B1.uid</code><br>
-<img src="https://wangyingying625.github.io/post-images/1614838719827.png" alt="" loading="lazy"></p>
-<h3 id="交intersect部分数据库支持">交INTERSECT(部分数据库支持):</h3>
-<p>实现查询既买了food又买了cloth的用户名<br>
-<code>SQL SELECT T.name FROM table1 T,buy B WHERE B.uid=T.id AND B.sid=1 INTERSECT SELECT T.name FROM table1 T,buy B WHERE B.uid=T.id AND B.sid=2</code></p>
-<h3 id="嵌套查询">嵌套查询:</h3>
-<ol>
-<li>非关联嵌套(子查询的条件与父查询无关):<br>
-查询买了food的用户名<br>
-<code>SQL SELECT T.name FROM table1 T WHERE T.id IN(SELECT B.uid FROM buy B WHERE B.sid=1)</code><br>
-对每个用户扫描,查看其id是否在买过food的表的id里面,若在返回id对应的姓名</li>
-<li>关联嵌套查询(嵌套的子查询条件与父查询相关):<br>
-例1. 查询买过food用户的名称:<br>
-<code>SQL SELECT T.name FROM table1 T WHERE EXISTS (SELECT * FROM buy B WHERE B.uid=T.id AND B.sid=1)</code><br>
-如果某用户买过food,那么在buy表中必然存在一条记录,其uid等于该用户id且sid等于1<br>
-对table1中的每个用户遍历,查看是否在buy表中存在符合上述条件的元组<br>
-相当于二重循环,对外层循环中的每条元组都做一次内层循环</li>
-</ol>
-<p>例2. 查只有一个人买的商品<br>
-<code>SQL SELECT B.sid FROM buy B WHERE B.sid NOT IN (SELECT B1.sid FROM buy B1 WHERE B.uid!=B1.uid)</code><br>
-查出表中除用户1 外其他用户买的商品,如果用户1买的商品不在其他用户买的商品列表里,则用户1买的商品就是只有一人买的<br>
-对buy表扫描,查看当前这条购买的这个人,除他以外其他人都买了什么,如果他买的东西不在其他人买的东西的列表那就满足条件<br>
-构造步骤:<br>
-查询只有除我外其他人购买了的商品:SELECT 商品 FROM 购物表 WHERE 购买者!=我<br>
-查出我只有我买的商品:SELECT 商品 FROM 购物表1 WHERE 商品 NOT IN (SELECT 商品 FROM 购物表 2 WHERE 购买者!=我)<br>
-遍历到所有人:SELECT 商品 FROM 购物表1 WHERE 商品 NOT IN (SELECT 商品 FROM 购物表 2 WHERE 购买者!=购物表1中对应购买者)</p>
-<h3 id="聚集函数">聚集函数</h3>
-<ol>
-<li>COUNT(*)某表的元组数</li>
-<li>COUNT([DISTINCT] A)某表中属性值A的不同值个数,属性A的值不一样时候加一</li>
-<li>SUM([DISTINCT] A)对属性A进行累计求和</li>
-<li>AVG([DISTINCT] A)属性A的平均值</li>
-<li>MAX(A)</li>
-<li>MIN(A)</li>
-</ol>
-<h3 id="分组group-by">分组GROUP BY</h3>
-<ol>
-<li>模式:GROUP BY( )</li>
-<li>功能:对表中信息按照条件分组,条件相同即为一组</li>
-<li>要求对分组得到的每个组它的属性在SELECT上必须是单一的(因为每个组最终只出一条信息,若不单一就无法继续)简单来说就是要求SELECT和HAVING后的属性都必须是GROUP BY后的属性的子集</li>
-</ol>
-<h3 id="having">HAVING</h3>
-<p>SELECT的属性和HAVING属性必须是分组属性集的子集</p>
-<ol>
-<li>模式:HAVING</li>
-<li>功能:对分好组后的信息按照条件筛选<br>
-例1:<br>
-定义user表如下<br>
-<img src="https://wangyingying625.github.io/post-images/1614859980796.png" alt="" loading="lazy"><br>
-查询年龄大于25的用户里每个级别最年轻用户的年龄并且每个级别里用户数要大于1<br>
-<code>SQL SELECT U.rating,MIN(U.age) AS minAge FROM user U WHERE U.age &gt;25 GROUP BY U.rating HAVING COUNT(*)&gt;1</code><br>
-结果如下:<br>
-<img src="https://wangyingying625.github.io/post-images/1614860466747.png" alt="" loading="lazy"><br>
-执行过程<br>
-对表中信息按照rating属性排序,得到:<br>
-rating   age<br>
-3         33<br>
-5          34<br>
-7           45<br>
-7           36<br>
-8           45<br>
-10          33<br>
-分出5组<br>
-再根据HAVING的条件进行筛选组,得到<br>
-7           45<br>
-7           36<br>
-对SELECT后的条件进行映射<br>
-得到<br>
-7           36<br>
-查询平均年龄最小的等级<br>
-<code>SQL SELECT Temp.rating FROM ( SELECT S.rating ,AVG(S.age) AS avgage FROM user S GROUP BY S.rating ) AS Temp WHERE temp.avgage=(SELECT MIN (Temp.avgage))</code><br>
-生成了临时表Temp</li>
-</ol>
-<h3 id="case表达式">CASE表达式</h3>
-<p><code>SQL SELECT name,CASE status WHEN 1 THEN 'admin' WHEN 2 THEN 'user' ELSE 'unknow' END AS status FROM user</code><br>
-在user表中查询用户姓名和状态,当查到状态为1 时候替换显示admin</p>
-<h3 id="cast表达式">CAST表达式:</h3>
-<p>定义一个新的列(补列): * 多用于做UNION并时添加新的列 *<br>
-CAST(NULL AS Varchar(20))</p>
-<h3 id="定义视图view">定义视图view</h3>
-<p>student(name,school)<br>
-soldiers(name,service)<br>
-<code>SQL CREATE VIEW prospects (name,school,service) AS SELECT name,school,CAST(NULL AS Varchar(20)) FROM Students UNION SELECT name,CAST(NULL AS Varchar(20)),service FROM Soldiers</code><br>
-prospects(name,school,service)定义的视图及其结构<br>
-CAST(NULL AS Varchar(20))由于student表中没有service信息,创建一列为空的信息补到student的school后充当service,使得student表有三列<br>
-CAST(NULL AS Varchar(20))同上</p>
-<h3 id="子查询">子查询:</h3>
-<h4 id="标量子查询查询结果是属性值">标量子查询:查询结果是属性值</h4>
-<p>凡是可以出现某个值的地方都可以放一个变量子查询</p>
-<h4 id="表表达式查询结果是表">表表达式:查询结果是表</h4>
-<h4 id="公共表表达式一个子表达式使用多次时对它定义">公共表表达式:一个子表达式使用多次时对它定义</h4>
-<p>公共表就是一个临时视图<br>
-<code>SQL WITH payroll(rate,avgage) AS (SELECT rating,avg(age) FROM user GROUP BY rating) SELECT avgage FROM payroll WHERE rate=10</code></p>
 
 							</div>
 	<div class="wow bounceInDown vt-post-tags">
  
-				<a href="https://wangyingying625.github.io/tag/Ml4JS8axz/" rel="tag">数据库学习</a>	
-				 
 					</div>						
 <nav class="navigation3 post-navigation3" role="navigation">
 		
 		<div class="nav-links3">
       
-		<div class="wow bounceInLeft nav-previous3"><a href="https://wangyingying625.github.io/post/ying-yu-jie-shao/" rel="prev"> 英语介绍</a></div>
 		 
-		 
-		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/git-shi-yong-dai-li/" rel="next"> Git 使用代理</a></div>
+		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/ying-yu-jie-shao/" rel="next"> 英语介绍</a></div>
 		
 		</div>
 	</nav>

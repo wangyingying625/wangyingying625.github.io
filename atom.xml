@@ -2,13 +2,46 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-05T02:11:54.174Z</updated>
+    <updated>2021-03-05T09:03:33.663Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
     <logo>https://wangyingying625.github.io/images/avatar.png</logo>
     <icon>https://wangyingying625.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, mldwyy</rights>
+    <entry>
+        <title type="html"><![CDATA[docker使用笔记]]></title>
+        <id>https://wangyingying625.github.io/post/docker-shi-yong-bi-ji/</id>
+        <link href="https://wangyingying625.github.io/post/docker-shi-yong-bi-ji/">
+        </link>
+        <updated>2021-03-05T03:12:08.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="常用命令">常用命令</h2>
+<ol>
+<li>查找容器id:docker ps</li>
+<li>启动docker-compose:docker-compose up -d</li>
+<li>进入容器:</li>
+<li>docker images</li>
+</ol>
+<h2 id="零碎知识">零碎知识</h2>
+<ol>
+<li>docker不用进文件夹</li>
+<li>docker-compose需要进文件夹</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[英语介绍]]></title>
+        <id>https://wangyingying625.github.io/post/ying-yu-jie-shao/</id>
+        <link href="https://wangyingying625.github.io/post/ying-yu-jie-shao/">
+        </link>
+        <updated>2021-03-05T02:51:09.000Z</updated>
+        <content type="html"><![CDATA[<ol>
+<li>I should further my studies because what i have learned is not enough</li>
+<li>I like the school's academic atmosphere  so much</li>
+<li></li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[SQL语言]]></title>
         <id>https://wangyingying625.github.io/post/sql-yu-yan/</id>
@@ -150,11 +183,26 @@ rating   age<br>
 <code>SQL SELECT Temp.rating FROM ( SELECT S.rating ,AVG(S.age) AS avgage FROM user S GROUP BY S.rating ) AS Temp WHERE temp.avgage=(SELECT MIN (Temp.avgage))</code><br>
 生成了临时表Temp</li>
 </ol>
+<h3 id="case表达式">CASE表达式</h3>
+<p><code>SQL SELECT name,CASE status WHEN 1 THEN 'admin' WHEN 2 THEN 'user' ELSE 'unknow' END AS status FROM user</code><br>
+在user表中查询用户姓名和状态,当查到状态为1 时候替换显示admin</p>
+<h3 id="cast表达式">CAST表达式:</h3>
+<p>定义一个新的列(补列): * 多用于做UNION并时添加新的列 *<br>
+CAST(NULL AS Varchar(20))</p>
 <h3 id="定义视图view">定义视图view</h3>
 <p>student(name,school)<br>
 soldiers(name,service)<br>
-``SQL<br>
-CREATE VIEW prospects (name,school,service) AS SELECT name,school,CAST</p>
+<code>SQL CREATE VIEW prospects (name,school,service) AS SELECT name,school,CAST(NULL AS Varchar(20)) FROM Students UNION SELECT name,CAST(NULL AS Varchar(20)),service FROM Soldiers</code><br>
+prospects(name,school,service)定义的视图及其结构<br>
+CAST(NULL AS Varchar(20))由于student表中没有service信息,创建一列为空的信息补到student的school后充当service,使得student表有三列<br>
+CAST(NULL AS Varchar(20))同上</p>
+<h3 id="子查询">子查询:</h3>
+<h4 id="标量子查询查询结果是属性值">标量子查询:查询结果是属性值</h4>
+<p>凡是可以出现某个值的地方都可以放一个变量子查询</p>
+<h4 id="表表达式查询结果是表">表表达式:查询结果是表</h4>
+<h4 id="公共表表达式一个子表达式使用多次时对它定义">公共表表达式:一个子表达式使用多次时对它定义</h4>
+<p>公共表就是一个临时视图<br>
+<code>SQL WITH payroll(rate,avgage) AS (SELECT rating,avg(age) FROM user GROUP BY rating) SELECT avgage FROM payroll WHERE rate=10</code></p>
 ]]></content>
     </entry>
     <entry>
