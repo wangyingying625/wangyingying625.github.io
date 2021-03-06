@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-06T13:23:07.013Z</updated>
+    <updated>2021-03-06T13:25:46.210Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
@@ -187,6 +187,7 @@ X锁排他,只要申请的数据之前有锁那就申请不到;比起上个版�
 有X锁的事务申请------------|----允许------------|----不允许-----|-----不允许----|不允许</li>
 </ol>
 <h6 id="死锁">死锁:</h6>
+<p>只要事务等待某一锁的时间超过一个限定那就认为产生了死锁</p>
 ]]></content>
     </entry>
     <entry>
