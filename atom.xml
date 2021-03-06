@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-06T13:22:01.687Z</updated>
+    <updated>2021-03-06T13:23:07.013Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
@@ -187,18 +187,6 @@ X锁排他,只要申请的数据之前有锁那就申请不到;比起上个版�
 有X锁的事务申请------------|----允许------------|----不允许-----|-----不允许----|不允许</li>
 </ol>
 <h6 id="死锁">死锁:</h6>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[数据库管理系统]]></title>
-        <id>https://wangyingying625.github.io/post/shu-ju-ku-guan-li-xi-tong/</id>
-        <link href="https://wangyingying625.github.io/post/shu-ju-ku-guan-li-xi-tong/">
-        </link>
-        <updated>2021-03-05T11:20:03.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="数据库管理系统的体系结构">数据库管理系统的体系结构:</h2>
-<h2 id="数据库管理系统的接口">数据库管理系统的接口:</h2>
-<h2 id="查询优化">查询优化:</h2>
-<h2 id="事务管理">事务管理:</h2>
 ]]></content>
     </entry>
     <entry>
