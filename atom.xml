@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-07T02:35:54.237Z</updated>
+    <updated>2021-03-07T02:41:38.187Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
@@ -10,7 +10,7 @@
     <icon>https://wangyingying625.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, mldwyy</rights>
     <entry>
-        <title type="html"><![CDATA[数据库安全]]></title>
+        <title type="html"><![CDATA[数据库安全及完整性约束]]></title>
         <id>https://wangyingying625.github.io/post/shu-ju-ku-an-quan/</id>
         <link href="https://wangyingying625.github.io/post/shu-ju-ku-an-quan/">
         </link>
@@ -49,7 +49,8 @@ wangming用户可以用初始密码123456连接数据库<br>
 <code>SQL ASSERT ageRe ON user:age&gt;0;</code><br>
 ageRe是我对断言取得名字,ageRe要求对user插入数据时候age必须&gt;0<br>
 或者定义表时加check<br>
-<code>SQL CREATE TABLE user (id INTEGER, name CHAR(10), age INTEGER, rating INTEGER, PRIMARY KEY(id), CHECK (age&gt;0 AND rating&gt;0))</code></li>
+<code>SQL CREATE TABLE user (id INTEGER, name CHAR(10), age INTEGER, rating INTEGER, PRIMARY KEY(id,name), CHECK (age&gt;0 AND rating&gt;0))</code><br>
+<code>SQL CREATE TABLE buy (tname CHAR(10), tid INTEGER, uid INTEGER, day DATE, PRIMARY KEY(tid,day), CONSTRAINT noFood CHECK('food' &lt;&gt; (SELECT T.name FROM thing T WHERE T.id=tid)))</code></li>
 </ol>
 <h5 id="动态约束">动态约束:</h5>
 <p>数据库从一个状态到另一个状态时应该满足的约束(与触发器结合)</p>

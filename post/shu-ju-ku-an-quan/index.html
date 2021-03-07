@@ -6,7 +6,7 @@
 <meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
 <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
 <meta HTTP-EQUIV="expires" CONTENT="0"> 
-<title>数据库安全 | mldwyy</title>	
+<title>数据库安全及完整性约束 | mldwyy</title>	
 
 <link rel="stylesheet" href="https://wangyingying625.github.io/styles/main.css">
 <script type="text/javascript">
@@ -142,7 +142,7 @@ window.onload=getCSS();
 	
 	                      
 		<div class="entry-content">
-			<h1 class="wow swing entry-title">数据库安全</h1>
+			<h1 class="wow swing entry-title">数据库安全及完整性约束</h1>
 <div class="entry-meta">
 <div class="wow bounce">
 	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-03-06 21:42:57" itemprop="datePublished" pubdate="">2021-03-06</time></i>
@@ -187,7 +187,8 @@ wangming用户可以用初始密码123456连接数据库<br>
 <code>SQL ASSERT ageRe ON user:age&gt;0;</code><br>
 ageRe是我对断言取得名字,ageRe要求对user插入数据时候age必须&gt;0<br>
 或者定义表时加check<br>
-<code>SQL CREATE TABLE user (id INTEGER, name CHAR(10), age INTEGER, rating INTEGER, PRIMARY KEY(id), CHECK (age&gt;0 AND rating&gt;0))</code></li>
+<code>SQL CREATE TABLE user (id INTEGER, name CHAR(10), age INTEGER, rating INTEGER, PRIMARY KEY(id,name), CHECK (age&gt;0 AND rating&gt;0))</code><br>
+<code>SQL CREATE TABLE buy (tname CHAR(10), tid INTEGER, uid INTEGER, day DATE, PRIMARY KEY(tid,day), CONSTRAINT noFood CHECK('food' &lt;&gt; (SELECT T.name FROM thing T WHERE T.id=tid)))</code></li>
 </ol>
 <h5 id="动态约束">动态约束:</h5>
 <p>数据库从一个状态到另一个状态时应该满足的约束(与触发器结合)</p>
