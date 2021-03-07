@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-07T11:36:19.922Z</updated>
+    <updated>2021-03-07T13:12:11.760Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
@@ -59,6 +59,14 @@
 <li>表:在物理磁盘中存储</li>
 <li>视图:虚表,不在物理磁盘中存储其内容,只在数据库中存储其定义,需要内容时通过数据库中的表根据用户的需求映射</li>
 <li>临时表:不在数据库中存储其内容也不在数据库中存储其定义,由SQL语句临时构造,在SQL语句执行完之后就被删除</li>
+</ol>
+<h3 id="如何建立一个关系型数据库">如何建立一个关系型数据库:</h3>
+<p>建立数据库需要回答:存储什么信息;信息元素之间如何关联;需要有什么样的约束</p>
+<ol>
+<li>需求分析:考察数据库中可能涉及到的数据以及数据的特征,建立数据字典</li>
+<li>概念设计:抽象实体,建立实体间联系,画出E-R图</li>
+<li>逻辑设计:把E-R图转化为表</li>
+<li>物理设计:设计数据库的存储结构及访问方法.考虑文件的存储形式和索引的建立.</li>
 </ol>
 <h3 id=""></h3>
 ]]></content>
