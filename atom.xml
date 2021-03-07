@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-07T02:41:38.187Z</updated>
+    <updated>2021-03-07T03:28:55.903Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
@@ -40,20 +40,51 @@ wangming用户可以用初始密码123456连接数据库<br>
 <p>对数据库中一些属性的约束条件(数据库中合法的实例必须满足这个要求)</p>
 <h5 id="静态约束">静态约束:</h5>
 <ol>
-<li>数据模型固有的约束(1NF),关系模型要求的</li>
-<li>隐含约束:<br>
+<li>
+<p>数据模型固有的约束(1NF),关系模型要求的</p>
+</li>
+<li>
+<p>隐含约束:<br>
 如域完整性约束;<br>
 主键约束(实体完整性约束);<br>
-外键约束(引用完整性约束):若buy表中UID是user中ID的外键,则要求UID是ID的子集;删除时候级联删除或者不删;插入时候buy表中的UID必须在user中的id里存在</li>
-<li>显示约束:<br>
+外键约束(引用完整性约束):若buy表中UID是user中ID的外键,则要求UID是ID的子集;删除时候级联删除或者不删;插入时候buy表中的UID必须在user中的id里存在</p>
+</li>
+<li>
+<p>显示约束:<br>
+定义方法一:用断言<br>
 <code>SQL ASSERT ageRe ON user:age&gt;0;</code><br>
-ageRe是我对断言取得名字,ageRe要求对user插入数据时候age必须&gt;0<br>
-或者定义表时加check<br>
+ageRe是我对断言取得名字,ageRe要求对user插入数据时候age必须&gt;0</p>
+<p>定义方法二:定义表时用check<br>
 <code>SQL CREATE TABLE user (id INTEGER, name CHAR(10), age INTEGER, rating INTEGER, PRIMARY KEY(id,name), CHECK (age&gt;0 AND rating&gt;0))</code><br>
-<code>SQL CREATE TABLE buy (tname CHAR(10), tid INTEGER, uid INTEGER, day DATE, PRIMARY KEY(tid,day), CONSTRAINT noFood CHECK('food' &lt;&gt; (SELECT T.name FROM thing T WHERE T.id=tid)))</code></li>
+定义方法三:定义CONSTRAINT<br>
+<code>SQL CREATE TABLE buy (tname CHAR(10), tid INTEGER, uid INTEGER, day DATE, PRIMARY KEY(tid,day), CONSTRAINT noFood CHECK('food' &lt;&gt; (SELECT T.name FROM thing T WHERE T.id=tid)))</code><br>
+定义了一个包含关联查询的约束noFood,其含义为当thing中name是food时候不允许其插入buy</p>
+</li>
 </ol>
 <h5 id="动态约束">动态约束:</h5>
 <p>数据库从一个状态到另一个状态时应该满足的约束(与触发器结合)</p>
+<h6 id="触发器">触发器:</h6>
+<p>数据库状态发生变化时应该遵守的规则<br>
+数据库一般是被动执行某些SQL语句,然而我们希望当数据库中数据处于某一状态时数据能主动的发出一些动作.这就需要数据库去监视一些数据.支持触发器即支持ECA规则<br>
+####### 基本概念:</p>
+<ol>
+<li>事件E监视某一事件</li>
+<li>条件C事件发生时是否满足条件</li>
+<li>动作A若满足采取行动</li>
+</ol>
+<p>####### 基本语法<br>
+每当在user表里插入一条消息时候去查看其年龄是否满足年轻用户的条件,如果满足同时加入年轻用户表(保证在年轻用户表里的用户都在用户表)<br>
+<code>SQL CREATE TRIGGER youngUser AFTER INSERT ON user REFERENCING NEW TABLE newUser FOR EACH STATEMENT INSERT INTO youngUser (id,name,age,rating) SELECT id,name,age,rating FROM newUser N WHERE N.age &lt;= 18</code><br>
+AFTER BEFORE 都是监听的事件,以上是监听插入user表时候触发.<br>
+REFERENCING NEW表示引用的是插入语句中的新值(也可用OLD)TABLE表示新插入的值被看作一张表并且为其取名newUser.整句含义为,对user表中新插入的语句我看作一张新表newUser,并且使用它的新值.<br>
+FOR EACH STATEMENT 表示对每一条插入的语句(操作粒度也可以是一条元组,一个值或者一个表)做操作</p>
+<p>####### 执行规则:</p>
+<ol>
+<li>立即执行:当事件发生时候立即去检查是否满足条件</li>
+</ol>
+<p>####### 连锁触发:<br>
+当发生某个事件并满足条件导致触发触发器时候,被触发的语句也是SQL语句,SQL语句也可能触发其他的触发器,导致连锁触发<br>
+方案:限制连锁触发的次数</p>
 ]]></content>
     </entry>
     <entry>
