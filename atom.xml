@@ -2,13 +2,67 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-07T08:49:57.997Z</updated>
+    <updated>2021-03-07T11:20:51.847Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
     <logo>https://wangyingying625.github.io/images/avatar.png</logo>
     <icon>https://wangyingying625.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, mldwyy</rights>
+    <entry>
+        <title type="html"><![CDATA[数据库思维导图]]></title>
+        <id>https://wangyingying625.github.io/post/shu-ju-ku-si-wei-dao-tu/</id>
+        <link href="https://wangyingying625.github.io/post/shu-ju-ku-si-wei-dao-tu/">
+        </link>
+        <updated>2021-03-07T11:20:07.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="数据模型">数据模型</h2>
+<figure data-type="image" tabindex="1"><img src="https://wangyingying625.github.io/post-images/1615116032962.png" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[数据库问题]]></title>
+        <id>https://wangyingying625.github.io/post/shu-ju-ku-wen-ti/</id>
+        <link href="https://wangyingying625.github.io/post/shu-ju-ku-wen-ti/">
+        </link>
+        <updated>2021-03-07T09:16:27.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="什么是数据库">什么是数据库?</h3>
+<p>答:从本质上看,数据库就是信息的集合,这个集合能长期保存,可以共享并且有一定的数据结构</p>
+<h3 id="什么是数据">什么是数据?</h3>
+<p>答:数据是数据库中存储的基本对象.</p>
+<h3 id="什么是数据库系统dbms">什么是数据库系统(DBMS):</h3>
+<h3 id="dbms有什么功能">DBMS有什么功能:</h3>
+<ol>
+<li>允许用户使用数据定义语言(DDL)建立新的数据库并定义它的模式(逻辑结构)</li>
+<li>允许使用数据库操作语言(DML)和查询语言(QL)为用户提供查询和更新数据库的接口</li>
+<li>控制多个用户的存取,一个用户对数据库的操作不影响另一个用户</li>
+<li>支持大量数据的长期存储</li>
+<li>在面对故障时能有恢复数据库的能力</li>
+</ol>
+<h3 id="dbms的功能要求dbms具备哪些结构">DBMS的功能要求DBMS具备哪些结构:</h3>
+<ol>
+<li>语法分析器:对用户提交的SQL语句进行语法分析</li>
+<li>授权检查:检查尝试执行SQL语句的用户是否有权限执行它</li>
+<li>查询分析和查询处理</li>
+<li>访问管理:解决如何把表存储成磁盘中的文件流</li>
+</ol>
+<h3 id="什么是数据模型">什么是数据模型</h3>
+<p>用来描述数据或者是信息的标记,一般由三部分组成</p>
+<ol>
+<li>数据结构</li>
+<li>数据操作</li>
+<li>完整性约束条件</li>
+</ol>
+<h3 id="关系数据模型有什么特点">关系数据模型有什么特点:</h3>
+<p>关系数据模型把现实中的实体和实体间的联系都抽象成关系,即表.对关系操作的内容和结果都是表</p>
+<h3 id="sql中的三种关系">SQL中的三种关系:</h3>
+<ol>
+<li>表:在物理磁盘中存储</li>
+<li>视图:虚表,不在物理磁盘中存储其内容,只在数据库中存储其定义,需要内容时通过数据库中的表根据用户的需求映射</li>
+<li>临时表:不在数据库中存储其内容也不在数据库中存储其定义,由SQL语句临时构造,在SQL语句执行完之后就被删除</li>
+</ol>
+<h3 id=""></h3>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[数据库设计]]></title>
         <id>https://wangyingying625.github.io/post/shu-ju-ku-she-ji/</id>
@@ -725,45 +779,5 @@ waf:
 漏洞1(SQL注入):
 1.危害:无密码登录
 2.复现过程:登录时用户名部分填入admin' or '1'='1 密码任意->无密码登录成功]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[数据库基本概念]]></title>
-        <id>https://wangyingying625.github.io/post/shu-ju-ku-bi-ji/</id>
-        <link href="https://wangyingying625.github.io/post/shu-ju-ku-bi-ji/">
-        </link>
-        <updated>2021-03-04T05:13:00.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="数据库系统">数据库系统:</h2>
-<p>数据库系统包括:数据库(存储数据),数据库管理系统(对数据库进行管理),数据和数据库管理员💑</p>
-<h3 id="数据库管理系统提供给用户访问数据库的接口">数据库管理系统提供给用户访问数据库的接口:</h3>
-<ol>
-<li>SQL语言:使用这种语言访问数据库(不是编程语言,不是功能完备的语言,不能进行复杂的编程)</li>
-<li>访问数据库的工具(GUI):提供给用户图形化界面</li>
-<li>API:应用程序里访问数据库(JDBC)</li>
-<li>把访问数据库接口封装成类(php框架laravel)</li>
-</ol>
-<h2 id="关系模型">关系模型:</h2>
-<p>把实体和实体间的联系都抽象成关系,一个关系对应一张表,对数据库的操作内容和操作结果都是关系.对应的还有层次模型,网状模型等</p>
-<h2 id="关系型数据库采用关系模型来组织和构建的数据库">关系型数据库(采用关系模型来组织和构建的数据库):</h2>
-<p>常用的关系型数据库:oracle,MySQL,SQL server,DB2<br>
-每种数据库支持的具体类型可能不同</p>
-<h3 id="关系型数据库查询语言的形式化基础">关系型数据库查询语言的形式化基础:</h3>
-<ol>
-<li>
-<p>关系代数(过程化)</p>
-</li>
-<li>
-<p>关系演算(非过程化,查询时不需要具体描述查询的步骤,只需描述要查询的结果需满足条件)</p>
-</li>
-</ol>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[常用命令]]></title>
-        <id>https://wangyingying625.github.io/post/chang-yong-ming-ling/</id>
-        <link href="https://wangyingying625.github.io/post/chang-yong-ming-ling/">
-        </link>
-        <updated>2021-03-04T04:48:36.000Z</updated>
-        <content type="html"><![CDATA[<p>1.打开文件夹  open 路径</p>
-]]></content>
     </entry>
 </feed>
