@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-08T05:03:57.334Z</updated>
+    <updated>2021-03-08T05:54:55.470Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
@@ -21,6 +21,8 @@
 <figure data-type="image" tabindex="2"><img src="https://wangyingying625.github.io/post-images/1615129998237.png" alt="" loading="lazy"></figure>
 <h2 id="关系数据库设计">关系数据库设计</h2>
 <figure data-type="image" tabindex="3"><img src="https://wangyingying625.github.io/post-images/1615130073999.png" alt="" loading="lazy"></figure>
+<h2 id="数据库安全性">数据库安全性</h2>
+<figure data-type="image" tabindex="4"><img src="https://wangyingying625.github.io/post-images/1615182369785.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
     <entry>
@@ -130,7 +132,19 @@
 <h3 id="两段锁协议">两段锁协议:</h3>
 <p>事务分为两个阶段:第一个阶段获得锁,在这个阶段事务可以申请获得任何数据上的任何锁<br>
 第二个阶段是释放锁,在这个阶段事务不能再申请任何锁,只能释放锁<br>
-若并发事务都遵守两段锁协议则对这些事务的任何并发调度都是可串行化的</p>
+若并发事务都遵守两段锁协议则对这些事务的任何并发调度都是可串行化的(是可串行化的策略,并不是避免死锁的)</p>
+<h3 id="对数据库的安全性控制有哪些措施">对数据库的安全性控制有哪些措施:</h3>
+<ol>
+<li>用户身份鉴别:为用户设置密码</li>
+<li>访问控制:对用户进行授权</li>
+<li>数据加密:对敏感数据加密存储</li>
+<li>审计追踪:对关键属性添加审计指令,这些数据就会被监视,当有操作在这些数据上时就会记录</li>
+</ol>
+<h3 id="为数据库定义约束的方法">为数据库定义约束的方法:</h3>
+<ol>
+<li>用断言定义: ASSERT ageRe on user:age&gt;0</li>
+<li>定义表时用check子句:CREATE TABLE user(id INT,name VARCHAR(10),age INT)CHECK (age&gt;0)</li>
+</ol>
 ]]></content>
     </entry>
     <entry>
