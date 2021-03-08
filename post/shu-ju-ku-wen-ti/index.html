@@ -204,6 +204,12 @@ window.onload=getCSS();
 事务具有一致性:数据库的一个状态经过一个事务运行到另外一个状态<br>
 事务具有隔离性:并发执行的多个事务间互不干扰<br>
 事务具有持久性:一个事务若成功执行,那它对数据库的影响就是永久的</p>
+<p>引入事务的作用有:</p>
+<ol>
+<li>数据库异常时的恢复(根据数据库的更新策略不同采取的具体措施也不同,commit列表和active列表)</li>
+<li>提供事务回滚,能让数据库从一个状态运行到另一个状态</li>
+<li>多应用程序并发访问数据库时为这些程序提供隔离方法(加锁,两段锁协议能避免多用户并发访问数据库时发生冲突即事务可串行调度,加锁又可能让系统死锁,死锁的预防策略是一次封锁,等待死亡)</li>
+</ol>
 <h3 id="什么是死锁什么是活锁">什么是死锁,什么是活锁</h3>
 <p>死锁:A申请B占有的排他锁;B也申请A占有的排他锁,导致两个事务都无法推进下去的情况<br>
 活锁:A申请B占有的排他锁,B释放锁后给了C...A长期得不到锁</p>
@@ -267,10 +273,29 @@ window.onload=getCSS();
 <li>用断言定义: ASSERT ageRe on user:age&gt;0</li>
 <li>定义表时用check子句:CREATE TABLE user(id INT,name VARCHAR(10),age INT)CHECK (age&gt;0)</li>
 </ol>
+<h3 id="常用的聚集函数">常用的聚集函数:</h3>
+<ol>
+<li>AVG</li>
+<li>MIN</li>
+<li>MAX</li>
+<li>COUNT</li>
+<li>SUM</li>
+</ol>
+<h3 id="group-by使用时的要求">GROUP BY使用时的要求:</h3>
+<p>在select指定的字段要么要包含在Group By语句的后面，作为分组的依据；要么就要被包含在聚合函数中</p>
+<h3 id="数据库设计中的各范式及其要求">数据库设计中的各范式及其要求:</h3>
+<ol>
+<li>1NF:强调列的原子性,即要求不能大表套小表</li>
+<li>2NF:1NF+必须有主键+非主键的属性必须完全依赖于主键不能部分依赖</li>
+<li>3NF:2NF+非主键必须直接依赖于主键不能传递依赖</li>
+<li>BCNF:3NF+若属性A能决定属性B要求属性A必须是主键</li>
+</ol>
 
 							</div>
 	<div class="wow bounceInDown vt-post-tags">
  
+				<a href="https://wangyingying625.github.io/tag/Ml4JS8axz/" rel="tag">数据库学习</a>	
+				 
 					</div>						
 <nav class="navigation3 post-navigation3" role="navigation">
 		

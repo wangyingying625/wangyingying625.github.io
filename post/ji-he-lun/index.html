@@ -6,7 +6,7 @@
 <meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
 <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
 <meta HTTP-EQUIV="expires" CONTENT="0"> 
-<title>数据库设计 | mldwyy</title>	
+<title>集合论 | mldwyy</title>	
 
 <link rel="stylesheet" href="https://wangyingying625.github.io/styles/main.css">
 <script type="text/javascript">
@@ -142,10 +142,10 @@ window.onload=getCSS();
 	
 	                      
 		<div class="entry-content">
-			<h1 class="wow swing entry-title">数据库设计</h1>
+			<h1 class="wow swing entry-title">集合论</h1>
 <div class="entry-meta">
 <div class="wow bounce">
-	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-03-07 11:34:04" itemprop="datePublished" pubdate="">2021-03-07</time></i>
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-03-08 16:18:30" itemprop="datePublished" pubdate="">2021-03-08</time></i>
 	          </div>
 			
 </span>
@@ -153,67 +153,174 @@ window.onload=getCSS();
 		</div>
                   
 			<div class="wow slideInLeft entry-summary song">
-				<h2 id="基本概念">基本概念:</h2>
-<h3 id="函数依赖">函数依赖:</h3>
-<p>数据库中一个属性的值可以决定其他属性的一个值(id决定名字)</p>
-<h3 id="多值依赖">多值依赖:</h3>
-<p>一个属性的值可以决定其他属性的一组值(老师的id 决定所上课程)</p>
-<h3 id="连接依赖">连接依赖:</h3>
-<h2 id="范式">范式:</h2>
-<h3 id="1nf不允许大表套小表">1NF:不允许大表套小表</h3>
-<h3 id="2nf1nf属性中没有任何元素对主键有部分函数依赖">2NF:1NF+属性中没有任何元素对主键有部分函数依赖</h3>
-<p>student(sid,sname,sage,cid,cgrade)<br>
-其中主键是(sid,cid),因为成绩cgrade只能由sid+cid唯一决定<br>
-但是sname可仅仅用sid决定,即sname,sage对主键存在部分函数依赖</p>
-<h4 id="不满足的影响">不满足的影响</h4>
+				<h1 id="集合">集合</h1>
+<h2 id="基本概念">基本概念</h2>
+<h3 id="命题公式">命题公式:</h3>
+<h4 id="联结词">联结词:</h4>
+<p>p,q,r...表示原子命题(简单命题,可当做逻辑变量即布尔变量);0表示假,1表示真</p>
 <ol>
-<li>插入异常:要插入学生就得插入课程</li>
-<li>删除异常:如果学生的所有课需要删除,那么学生信息将被删除</li>
-<li>更新异常:学生有五门课程,那么他的基本信息就需要插入五次</li>
+<li>否定联结词 ¬ :<br>
+¬p称为p的否定式 :<br>
+<img src="https://wangyingying625.github.io/post-images/1615192683283.png" alt="" loading="lazy"></li>
+<li>合取联结词∧:<br>
+p ∧q称为p与q的合取式<br>
+<img src="https://wangyingying625.github.io/post-images/1615192963199.png" alt="" loading="lazy"></li>
+<li>析取联结词∨:<br>
+p∨q称为q与p的析取式<br>
+<img src="https://wangyingying625.github.io/post-images/1615193105570.png" alt="" loading="lazy"></li>
+<li>蕴涵联结词-&gt;:<br>
+p-&gt;q的真假性与p&lt;=q一致<br>
+<img src="https://wangyingying625.github.io/post-images/1615193176146.png" alt="" loading="lazy"></li>
+<li>等价联结词&lt;-&gt;:<br>
+p&lt;-&gt;q与p==q真假性一致<br>
+<img src="https://wangyingying625.github.io/post-images/1615193661156.png" alt="" loading="lazy"><br>
+优先级: ¬ ,∨ ∧,-&gt; &lt;-&gt;</li>
 </ol>
-<h4 id="解决办法">解决办法:</h4>
-<p>拆表,一张表只关注一个实体</p>
-<h3 id="3nf2nf属性之间无传递依赖">3NF:2NF+属性之间无传递依赖</h3>
-<p>1NF消除属性对主键的部分函数依赖-&gt;2NF消除属性间的传递依赖-&gt;3NF<br>
-emp(eid,elevel,emoney)<br>
-其中工资emoney依赖于elevel<br>
-elevel依赖于eid<br>
-之间存在传递依赖</p>
-<h4 id="不满足的影响-2">不满足的影响:</h4>
+<h3 id="命题公式-2">命题公式:</h3>
+<h4 id="命题公式的组成">命题公式的组成:</h4>
 <ol>
-<li>插入异常:员工级别无法确定时候级别对应的工资无法录入</li>
-<li>删除异常:三级的员工都被删掉后,对应的工资状况也就被删了</li>
-<li>更新异常:三级的人有五个,则三级对应的工资信息就被重复五次,维护困难</li>
+<li>单个命题变元就是命题公式</li>
+<li>对命题变元进行有限次联结词连接得到的也是命题公式</li>
 </ol>
-<h3 id="bcnf">BCNF:</h3>
-<p>A-&gt;B则要求A一定是主键(B函数依赖于A时,要求A一定是主键)</p>
-<h4 id="解决办法-2">解决办法:</h4>
-<p>拆表<br>
-##数据库设计:</p>
-<h3 id="面向过程的方法以业务流程为中心不分析数据之间的内在关系">面向过程的方法:以业务流程为中心,不分析数据之间的内在关系</h3>
-<h3 id="面向数据的方法">面向数据的方法:</h3>
-<h4 id="设计流程">设计流程:</h4>
+<h4 id="命题公式的类型">命题公式的类型:</h4>
 <ol>
-<li>需求分析:数据字典</li>
-<li>概念设计:E-R图,独立于DBMS.抽象实体-&gt;定义实体间联系-&gt;画E-R图</li>
-<li>逻辑设计:外模式设计,数据类型设计.建表,把E-R图生成表(命名规则,数据类型),必要时定义视图</li>
-<li>物理设计:索引,文件结构(堆文件,簇集,hash文件)分区设计(大型数据库才有)</li>
+<li>可满足式:当一个命题公式,其中的原子命题取不同的值时可能对应公式取值为真.</li>
+<li>矛盾式(永假式):原子命题所有可能的取值组合(0,1组合)下,此公式的取值都为假</li>
+<li>重言式(永真式):原子命题所有可能的取值组合(0,1组合)下,此公式的取值都为真(是可满足式的一种)</li>
 </ol>
+<h3 id="等值式">等值式:</h3>
+<p>定义:两个命题公式满足A&lt;=&gt;B则A&lt;-&gt;B是永真式.即A与B可以互相代替</p>
+<p>正确性的证明:两边列真值表,若在原子命题取不同值的时候两边的取值都一样,则验证正确</p>
+<h4 id="常用等值式">常用等值式:</h4>
+<ol>
+<li>蕴涵等值式:p-&gt;q  &lt;=&gt;   ¬ p∨q  (蕴涵联结词是多余的,可被与或非表示)</li>
+<li>幂等律：A∧A⇔A      ||||||||||        A∨A⇔A</li>
+<li>交换律：A∨B⇔B∨A    ||||||||||||     A∧B⇔B∧A</li>
+<li>结合律：<br>
+（A∧B）∧C⇔A∧（B∧C）<br>
+（A∨B）∨C⇔A∨（B∨C）</li>
+<li>分配律：<br>
+A∨（B∧C）⇔（A∨B）∧（A∨C）<br>
+A∧（B∨C）⇔（A∧B）∨（A∧C）</li>
+<li>德摩根律：<br>
+┐（A∨B）⇔┐A∧┐B<br>
+┐（A∧B）⇔┐A∨┐B</li>
+<li>吸收律：<br>
+A∨（A∧B）⇔A<br>
+A∧（A∨B）⇔A</li>
+<li>零律：<br>
+A∨1⇔1<br>
+A∧0⇔0</li>
+<li>同一律：<br>
+A∨0⇔A<br>
+A∧1⇔A</li>
+<li>排中律：A∨┐A⇔1(若A不对则非A一定对)</li>
+<li>矛盾律：A∧┐A⇔0(若A对则非A一定不对)</li>
+<li>双重否定律：┐┐A⇔A</li>
+<li>等价等值式:A&lt;-&gt;B &lt;=&gt; (A -&gt; B)∧(B-&gt;A) (等价联结词是多余的,可被蕴含联结词和与或非表示)</li>
+<li>等价否定等值式：A↔B⇔┐A↔┐B</li>
+<li>归谬论：（A→B）∧（A→┐B）⇔┐A<br>
+只涉及与或非时,与跟或换时0跟1也换</li>
+</ol>
+<h4 id="等值演算就是给一个命题公式通过等值式的转换得到另外一个命题公式他们俩是等价的可用真值表验证">等值演算:就是给一个命题公式通过等值式的转换得到另外一个命题公式,他们俩是等价的(可用真值表验证)</h4>
+<p>判断两个公式是否相等的两种方法:等值演算;列真值表<br>
+任何两个公式只要是相等的一定能通过等值演算证明</p>
+<h3 id="推理">推理:</h3>
+<p>由一个命题得出另外一个命题的过程</p>
+<h4 id="推理的形式结构">推理的形式结构:</h4>
+<p>前提:A1,A2,A3...<br>
+结论:B<br>
+形式结构:<br>
+(A1 ∧ A2 ∧ A3 ∧ A4...)-&gt;B</p>
+<h4 id="推理定律">推理定律</h4>
+<p>A=&gt;B则A-&gt;B是永真式</p>
+<ol>
+<li>拒取式:(A-&gt;B)∧ ¬ B  =&gt;  A</li>
+<li>附加律:A=&gt;(A∨B)</li>
+<li>化简律:(A∧B)=&gt;A,(A∧B)=&gt;B</li>
+<li>假言:(A-&gt;B)∧A=&gt;B(A能推出B,并且A是对的,那么B就是对的)</li>
+<li>析取三段论:(A∨B)∧ ¬ A=&gt;B<br>
+(AVB)∧ ¬ B=&gt;A<br>
+A和B必有嫌疑人,排除A那B是嫌疑人</li>
+<li>假言三段论:(A-&gt;B)∧(B-&gt;C) =&gt;(A-&gt;C)</li>
+<li>等价三段论:(A&lt;-&gt;B)∧(B&lt;-&gt;C) =&gt;(A&lt;-&gt;C)</li>
+<li>构造性两难:(A-&gt;B)∧(C-&gt;D)∧(AVC) =&gt; (BVD)</li>
+</ol>
+<h4 id="判断推理正确的方法">判断推理正确的方法</h4>
+<p>前提:p-&gt;(q-&gt;r),p,q<br>
+结论:r<br>
+方法一:</p>
+<ol>
+<li>写出推理的形式结构</li>
+<li>证明该形式结构永真<br>
+<img src="https://wangyingying625.github.io/post-images/1615198910960.jpg" alt="" loading="lazy"><br>
+方法二:从前提推演结论<br>
+(P-&gt;(q-&gt;r))∧p∧q  =&gt;<br>
+(q-&gt;r)∧q  =&gt;<br>
+r</li>
+</ol>
+<h3 id="谓词逻辑">谓词逻辑:</h3>
+<p>对命题再进行细分.命题是陈述句,再按照主语谓语分<br>
+主语是个体,谓语是谓词</p>
+<h4 id="基本概念-2">基本概念</h4>
+<ol>
+<li>个体:可以独立存在的客体,通常用a,b,c表示个体常元;用x,y,z表示个体变元</li>
+<li>谓词:表示个体性质或者彼此之间联系的词,常用F,G,H..表示<br>
+F(x)表示x具有性质F<br>
+若F(x,y)表示x&gt;y则F(3,2)表示3大于2</li>
+<li>量词:表示数量的词:<br>
+全称量词:所有的⩝<br>
+⩝x表示所有的x<br>
+⩝xF(x)表示个体域里的所有x都有F(x)这个属性<br>
+存在量词:存在∃<br>
+∃xF(x)表示个体域中有x 有性质F</li>
+</ol>
+<h4 id="命题符号化">命题符号化:</h4>
+<p><img src="https://wangyingying625.github.io/post-images/1615200644492.jpg" alt="" loading="lazy"><br>
+<img src="https://wangyingying625.github.io/post-images/1615200651176.jpg" alt="" loading="lazy"></p>
+<h4 id="一阶谓词逻辑公式">一阶谓词逻辑公式</h4>
+<p>量词加在个体上,即任何X或者存在X<br>
+<img src="https://wangyingying625.github.io/post-images/1615201094641.jpg" alt="" loading="lazy"><br>
+如果逻辑公式A在任何解释下都为真,则它是永真式<br>
+如果逻辑公式A在任何解释下都为真,则它是永假式<br>
+如果逻辑公式A至少存在一个解释使其为真,则它是可满足式<br>
+如果A&lt;-&gt;B是永真的,那么A与B等值,记为A&lt;=&gt;B</p>
+<h5 id="基本等值式">基本等值式:</h5>
+<ol>
+<li>在有限个体域上消去量词:<br>
+⩝xA(x)&lt;=&gt;A(x1)∧A(x2)∧A(x3)∧A(x4)∧A(x5)∧A(x6)...<br>
+∃yB(y)&lt;=&gt;B(y1)∨B(y2)∨B(y3)∨B(y4)∨B(y5)∨B(y6)∨B(y7)...</li>
+<li>量词否定等值式:<br>
+¬ ⩝xA(x) &lt;=&gt; ∃x ¬ A(x)<br>
+¬ ∃xB(x) &lt;=&gt; ⩝x ¬ B(x)</li>
+<li>量词辖域收缩和扩张等值式:<br>
+<img src="https://wangyingying625.github.io/post-images/1615201852622.png" alt="" loading="lazy"><br>
+<img src="https://wangyingying625.github.io/post-images/1615202547661.png" alt="" loading="lazy"></li>
+</ol>
+<hr>
+<h2 id="运算和性质">运算和性质</h2>
+<h1 id="二元关系">二元关系</h1>
+<h2 id="表示和性质">表示和性质</h2>
+<h2 id="等价关系">等价关系</h2>
+<h2 id="序关系">序关系</h2>
+<h1 id="函数">函数</h1>
+<h1 id="自然数">自然数</h1>
+<h1 id="基数和序数">基数和序数</h1>
 
 							</div>
 	<div class="wow bounceInDown vt-post-tags">
  
-				<a href="https://wangyingying625.github.io/tag/Ml4JS8axz/" rel="tag">数据库学习</a>	
+				<a href="https://wangyingying625.github.io/tag/UDLHbLGhm/" rel="tag">离散数学</a>	
 				 
 					</div>						
 <nav class="navigation3 post-navigation3" role="navigation">
 		
 		<div class="nav-links3">
       
-		<div class="wow bounceInLeft nav-previous3"><a href="https://wangyingying625.github.io/post/shu-ju-ku-wen-ti/" rel="prev"> 数据库问题</a></div>
+		<div class="wow bounceInLeft nav-previous3"><a href="https://wangyingying625.github.io/post/tu-lun/" rel="prev"> 图论</a></div>
 		 
 		 
-		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/shu-ju-ku-an-quan/" rel="next"> 数据库安全及完整性约束</a></div>
+		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/shu-ju-ku-si-wei-dao-tu/" rel="next"> 数据库思维导图</a></div>
 		
 		</div>
 	</nav>

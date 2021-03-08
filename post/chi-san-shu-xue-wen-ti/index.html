@@ -6,7 +6,7 @@
 <meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
 <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
 <meta HTTP-EQUIV="expires" CONTENT="0"> 
-<title>数据库设计 | mldwyy</title>	
+<title>离散数学问题 | mldwyy</title>	
 
 <link rel="stylesheet" href="https://wangyingying625.github.io/styles/main.css">
 <script type="text/javascript">
@@ -142,10 +142,10 @@ window.onload=getCSS();
 	
 	                      
 		<div class="entry-content">
-			<h1 class="wow swing entry-title">数据库设计</h1>
+			<h1 class="wow swing entry-title">离散数学问题</h1>
 <div class="entry-meta">
 <div class="wow bounce">
-	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-03-07 11:34:04" itemprop="datePublished" pubdate="">2021-03-07</time></i>
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-03-08 16:23:45" itemprop="datePublished" pubdate="">2021-03-08</time></i>
 	          </div>
 			
 </span>
@@ -153,67 +153,33 @@ window.onload=getCSS();
 		</div>
                   
 			<div class="wow slideInLeft entry-summary song">
-				<h2 id="基本概念">基本概念:</h2>
-<h3 id="函数依赖">函数依赖:</h3>
-<p>数据库中一个属性的值可以决定其他属性的一个值(id决定名字)</p>
-<h3 id="多值依赖">多值依赖:</h3>
-<p>一个属性的值可以决定其他属性的一组值(老师的id 决定所上课程)</p>
-<h3 id="连接依赖">连接依赖:</h3>
-<h2 id="范式">范式:</h2>
-<h3 id="1nf不允许大表套小表">1NF:不允许大表套小表</h3>
-<h3 id="2nf1nf属性中没有任何元素对主键有部分函数依赖">2NF:1NF+属性中没有任何元素对主键有部分函数依赖</h3>
-<p>student(sid,sname,sage,cid,cgrade)<br>
-其中主键是(sid,cid),因为成绩cgrade只能由sid+cid唯一决定<br>
-但是sname可仅仅用sid决定,即sname,sage对主键存在部分函数依赖</p>
-<h4 id="不满足的影响">不满足的影响</h4>
-<ol>
-<li>插入异常:要插入学生就得插入课程</li>
-<li>删除异常:如果学生的所有课需要删除,那么学生信息将被删除</li>
-<li>更新异常:学生有五门课程,那么他的基本信息就需要插入五次</li>
-</ol>
-<h4 id="解决办法">解决办法:</h4>
-<p>拆表,一张表只关注一个实体</p>
-<h3 id="3nf2nf属性之间无传递依赖">3NF:2NF+属性之间无传递依赖</h3>
-<p>1NF消除属性对主键的部分函数依赖-&gt;2NF消除属性间的传递依赖-&gt;3NF<br>
-emp(eid,elevel,emoney)<br>
-其中工资emoney依赖于elevel<br>
-elevel依赖于eid<br>
-之间存在传递依赖</p>
-<h4 id="不满足的影响-2">不满足的影响:</h4>
-<ol>
-<li>插入异常:员工级别无法确定时候级别对应的工资无法录入</li>
-<li>删除异常:三级的员工都被删掉后,对应的工资状况也就被删了</li>
-<li>更新异常:三级的人有五个,则三级对应的工资信息就被重复五次,维护困难</li>
-</ol>
-<h3 id="bcnf">BCNF:</h3>
-<p>A-&gt;B则要求A一定是主键(B函数依赖于A时,要求A一定是主键)</p>
-<h4 id="解决办法-2">解决办法:</h4>
-<p>拆表<br>
-##数据库设计:</p>
-<h3 id="面向过程的方法以业务流程为中心不分析数据之间的内在关系">面向过程的方法:以业务流程为中心,不分析数据之间的内在关系</h3>
-<h3 id="面向数据的方法">面向数据的方法:</h3>
-<h4 id="设计流程">设计流程:</h4>
-<ol>
-<li>需求分析:数据字典</li>
-<li>概念设计:E-R图,独立于DBMS.抽象实体-&gt;定义实体间联系-&gt;画E-R图</li>
-<li>逻辑设计:外模式设计,数据类型设计.建表,把E-R图生成表(命名规则,数据类型),必要时定义视图</li>
-<li>物理设计:索引,文件结构(堆文件,簇集,hash文件)分区设计(大型数据库才有)</li>
-</ol>
+				<h2 id="如何给集合下定义">如何给集合下定义</h2>
+<h2 id="如何用集合定义关系函数和自然数">如何用集合定义关系,函数和自然数</h2>
+<h2 id="如何比较集合的大小">如何比较集合的大小</h2>
+<h2 id="有没有最大的集合">有没有最大的集合</h2>
+<h2 id="能否把每个集合的元素依次列举">能否把每个集合的元素依次列举</h2>
+<h2 id="什么是图">什么是图</h2>
+<h2 id="有哪些图">有哪些图</h2>
+<h2 id="图有什么性质">图有什么性质</h2>
+<h2 id="什么是欧拉图">什么是欧拉图</h2>
+<h2 id="什么是哈密顿图">什么是哈密顿图</h2>
+<h2 id="什么是树">什么是树</h2>
+<h2 id="如何用矩阵表示图">如何用矩阵表示图</h2>
+<h2 id="什么是平面图">什么是平面图</h2>
+<h2 id="什么是图的着色">什么是图的着色</h2>
+<h2 id="什么是带权图">什么是带权图</h2>
+<h2 id="什么是支配集">什么是支配集</h2>
 
 							</div>
 	<div class="wow bounceInDown vt-post-tags">
  
-				<a href="https://wangyingying625.github.io/tag/Ml4JS8axz/" rel="tag">数据库学习</a>	
-				 
 					</div>						
 <nav class="navigation3 post-navigation3" role="navigation">
 		
 		<div class="nav-links3">
       
-		<div class="wow bounceInLeft nav-previous3"><a href="https://wangyingying625.github.io/post/shu-ju-ku-wen-ti/" rel="prev"> 数据库问题</a></div>
 		 
-		 
-		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/shu-ju-ku-an-quan/" rel="next"> 数据库安全及完整性约束</a></div>
+		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/tu-lun/" rel="next"> 图论</a></div>
 		
 		</div>
 	</nav>
