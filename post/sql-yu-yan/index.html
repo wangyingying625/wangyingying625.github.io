@@ -188,55 +188,68 @@ SELECT的属性和HAVING属性必须是分组属性集的子集</li>
 表名为table1,其中id自增为主键<br>
 <img src="https://wangyingying625.github.io/post-images/1614835029464.png" alt="" loading="lazy"><br>
 表名为shop,其中id自增为主键</p>
-<p>执行SQL语句:<br>
-<code>SQL SELECT T.name FROM table1 T,shop S WHERE T.id=S.id</code><br>
-执行结果如下图:<br>
+<p>执行SQL语句:</p>
+<pre><code class="language-SQL">SELECT T.name FROM table1 T,shop S WHERE T.id=S.id
+</code></pre>
+<p>执行结果如下图:<br>
 <img src="https://wangyingying625.github.io/post-images/1614835041033.png" alt="" loading="lazy"></p>
 <h2 id="ql语言">QL语言</h2>
 <h3 id="模糊查询like">模糊查询like:</h3>
 <ol>
 <li>_(下划线)表示匹配任意字符</li>
-<li>%表示匹配任意0 到多个字符<br>
-<code>SQL SELECT T.name FROM table1 T WHERE T.name LIKE 'w_%i'</code><br>
-执行结果如下图:<br>
-<img src="https://wangyingying625.github.io/post-images/1614835904286.png" alt="" loading="lazy"></li>
+<li>%表示匹配任意0 到多个字符<pre><code class="language-SQL">  SELECT T.name FROM table1 T WHERE T.name LIKE 'w_%i'
+</code></pre>
+</li>
 </ol>
+<p>执行结果如下图:<br>
+<img src="https://wangyingying625.github.io/post-images/1614835904286.png" alt="" loading="lazy"></p>
 <h3 id="起别名as">起别名AS:</h3>
-<p><code>SQL SELECT T.id+1 AS id1 FROM table1 T WHERE T.name LIKE 'w_%i'</code><br>
-结果如下<br>
-<img src="https://wangyingying625.github.io/post-images/1614836268735.png" alt="" loading="lazy"></p>
-<h3 id="连接union">连接UNION:</h3>
-<p>union是关系代数中的并(∪)操作扩展而来的,所以要满足并操作的条件<br>
-并操作:把两个关系模式相同的元组组合<br>
-即要求UNION前后两句sql查询到的表列数相同<br>
-<code>SQL SELECT name FROM table1 WHERE id=1 UNION SELECT number FROM shop WHERE name='food'</code><br>
-结果如下<br>
+<pre><code class="language-SQL">    SELECT T.id+1 AS id1 FROM table1 T WHERE T.name LIKE 'w_%i'
+    ```
+    结果如下
+    ![](https://wangyingying625.github.io/post-images/1614836268735.png)
+
+### 连接UNION:
+union是关系代数中的并(∪)操作扩展而来的,所以要满足并操作的条件
+并操作:把两个关系模式相同的元组组合
+即要求UNION前后两句sql查询到的表列数相同
+```SQL
+  SELECT name FROM table1 WHERE id=1 UNION SELECT number FROM shop WHERE name='food'
+</code></pre>
+<p>结果如下<br>
 <img src="https://wangyingying625.github.io/post-images/1614836988247.png" alt="" loading="lazy"></p>
 <h3 id="自连接">自连接:</h3>
 <p>新建一张购买表buy,信息如下:<br>
 <img src="https://wangyingying625.github.io/post-images/1614838025350.png" alt="" loading="lazy"><br>
-若要查询既买了food又买了cloth的用户名<br>
-<code>SQL SELECT T.name FROM table1 T,buy B1,buy B2 WHERE B1.uid=B2.uid AND (B1.sid=1 AND B2.sid=2) AND T.id=B1.uid</code><br>
-<img src="https://wangyingying625.github.io/post-images/1614838719827.png" alt="" loading="lazy"></p>
+若要查询既买了food又买了cloth的用户名</p>
+<pre><code class="language-SQL">SELECT T.name FROM table1 T,buy B1,buy B2 WHERE B1.uid=B2.uid AND (B1.sid=1 AND B2.sid=2) AND T.id=B1.uid
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://wangyingying625.github.io/post-images/1614838719827.png" alt="" loading="lazy"></figure>
 <h3 id="交intersect部分数据库支持">交INTERSECT(部分数据库支持):</h3>
-<p>实现查询既买了food又买了cloth的用户名<br>
-<code>SQL SELECT T.name FROM table1 T,buy B WHERE B.uid=T.id AND B.sid=1 INTERSECT SELECT T.name FROM table1 T,buy B WHERE B.uid=T.id AND B.sid=2</code></p>
+<p>实现查询既买了food又买了cloth的用户名</p>
+<pre><code class="language-SQL">SELECT T.name FROM table1 T,buy B WHERE B.uid=T.id AND B.sid=1
+INTERSECT
+SELECT T.name FROM table1 T,buy B WHERE B.uid=T.id AND B.sid=2
+</code></pre>
 <h3 id="嵌套查询">嵌套查询:</h3>
 <ol>
 <li>非关联嵌套(子查询的条件与父查询无关):<br>
-查询买了food的用户名<br>
-<code>SQL SELECT T.name FROM table1 T WHERE T.id IN(SELECT B.uid FROM buy B WHERE B.sid=1)</code><br>
-对每个用户扫描,查看其id是否在买过food的表的id里面,若在返回id对应的姓名</li>
-<li>关联嵌套查询(嵌套的子查询条件与父查询相关):<br>
-例1. 查询买过food用户的名称:<br>
-<code>SQL SELECT T.name FROM table1 T WHERE EXISTS (SELECT * FROM buy B WHERE B.uid=T.id AND B.sid=1)</code><br>
-如果某用户买过food,那么在buy表中必然存在一条记录,其uid等于该用户id且sid等于1<br>
-对table1中的每个用户遍历,查看是否在buy表中存在符合上述条件的元组<br>
-相当于二重循环,对外层循环中的每条元组都做一次内层循环</li>
+查询买了food的用户名</li>
 </ol>
-<p>例2. 查只有一个人买的商品<br>
-<code>SQL SELECT B.sid FROM buy B WHERE B.sid NOT IN (SELECT B1.sid FROM buy B1 WHERE B.uid!=B1.uid)</code><br>
-查出表中除用户1 外其他用户买的商品,如果用户1买的商品不在其他用户买的商品列表里,则用户1买的商品就是只有一人买的<br>
+<pre><code class="language-SQL">SELECT  T.name FROM table1 T WHERE T.id IN(SELECT B.uid FROM buy B WHERE B.sid=1)
+</code></pre>
+<p>对每个用户扫描,查看其id是否在买过food的表的id里面,若在返回id对应的姓名<br>
+2. 关联嵌套查询(嵌套的子查询条件与父查询相关):<br>
+例1. 查询买过food用户的名称:</p>
+<pre><code class="language-SQL">SELECT T.name FROM table1 T WHERE EXISTS (SELECT * FROM buy B WHERE B.uid=T.id AND B.sid=1)
+</code></pre>
+<p>如果某用户买过food,那么在buy表中必然存在一条记录,其uid等于该用户id且sid等于1<br>
+对table1中的每个用户遍历,查看是否在buy表中存在符合上述条件的元组<br>
+相当于二重循环,对外层循环中的每条元组都做一次内层循环</p>
+<p>例2. 查只有一个人买的商品</p>
+<pre><code class="language-SQL">SELECT B.sid FROM buy B WHERE   B.sid NOT IN (SELECT  B1.sid FROM buy B1 WHERE B.uid!=B1.uid)
+</code></pre>
+<p>查出表中除用户1 外其他用户买的商品,如果用户1买的商品不在其他用户买的商品列表里,则用户1买的商品就是只有一人买的<br>
 对buy表扫描,查看当前这条购买的这个人,除他以外其他人都买了什么,如果他买的东西不在其他人买的东西的列表那就满足条件<br>
 构造步骤:<br>
 查询只有除我外其他人购买了的商品:SELECT 商品 FROM 购物表 WHERE 购买者!=我<br>
@@ -265,9 +278,11 @@ SELECT的属性和HAVING属性必须是分组属性集的子集</li>
 例1:<br>
 定义user表如下<br>
 <img src="https://wangyingying625.github.io/post-images/1614859980796.png" alt="" loading="lazy"><br>
-查询年龄大于25的用户里每个级别最年轻用户的年龄并且每个级别里用户数要大于1<br>
-<code>SQL SELECT U.rating,MIN(U.age) AS minAge FROM user U WHERE U.age &gt;25 GROUP BY U.rating HAVING COUNT(*)&gt;1</code><br>
-结果如下:<br>
+查询年龄大于25的用户里每个级别最年轻用户的年龄并且每个级别里用户数要大于1</li>
+</ol>
+<pre><code class="language-SQL">SELECT U.rating,MIN(U.age) AS minAge FROM user U WHERE U.age &gt;25 GROUP BY U.rating HAVING COUNT(*)&gt;1
+</code></pre>
+<p>结果如下:<br>
 <img src="https://wangyingying625.github.io/post-images/1614860466747.png" alt="" loading="lazy"><br>
 执行过程<br>
 对表中信息按照rating属性排序,得到:<br>
@@ -285,21 +300,30 @@ rating   age<br>
 对SELECT后的条件进行映射<br>
 得到<br>
 7           36<br>
-查询平均年龄最小的等级<br>
-<code>SQL SELECT Temp.rating FROM ( SELECT S.rating ,AVG(S.age) AS avgage FROM user S GROUP BY S.rating ) AS Temp WHERE temp.avgage=(SELECT MIN (Temp.avgage))</code><br>
-生成了临时表Temp</li>
-</ol>
+查询平均年龄最小的等级</p>
+<pre><code class="language-SQL">SELECT Temp.rating FROM (
+    SELECT S.rating ,AVG(S.age) AS avgage FROM user S GROUP BY S.rating
+) AS Temp WHERE temp.avgage=(SELECT MIN (Temp.avgage))
+</code></pre>
+<p>生成了临时表Temp</p>
 <h3 id="case表达式">CASE表达式</h3>
-<p><code>SQL SELECT name,CASE status WHEN 1 THEN 'admin' WHEN 2 THEN 'user' ELSE 'unknow' END AS status FROM user</code><br>
-在user表中查询用户姓名和状态,当查到状态为1 时候替换显示admin</p>
+<pre><code class="language-SQL">SELECT name,CASE status
+                                WHEN 1 THEN 'admin'
+                                WHEN 2 THEN 'user'
+                                ELSE 'unknow'
+                    END AS status
+FROM user
+</code></pre>
+<p>在user表中查询用户姓名和状态,当查到状态为1 时候替换显示admin</p>
 <h3 id="cast表达式">CAST表达式:</h3>
 <p>定义一个新的列(补列): ** 多用于做UNION并时添加新的列 **<br>
 CAST(NULL AS Varchar(20))</p>
 <h3 id="定义视图view">定义视图view</h3>
 <p>student(name,school)<br>
-soldiers(name,service)<br>
-<code>SQL CREATE VIEW prospects (name,school,service) AS SELECT name,school,CAST(NULL AS Varchar(20)) FROM Students UNION SELECT name,CAST(NULL AS Varchar(20)),service FROM Soldiers</code><br>
-prospects(name,school,service)定义的视图及其结构<br>
+soldiers(name,service)</p>
+<pre><code class="language-SQL">CREATE VIEW prospects (name,school,service) AS SELECT name,school,CAST(NULL AS Varchar(20)) FROM Students UNION SELECT name,CAST(NULL AS Varchar(20)),service FROM Soldiers
+</code></pre>
+<p>prospects(name,school,service)定义的视图及其结构<br>
 CAST(NULL AS Varchar(20))由于student表中没有service信息,创建一列为空的信息补到student的school后充当service,使得student表有三列<br>
 CAST(NULL AS Varchar(20))同上</p>
 <h3 id="子查询">子查询:</h3>
@@ -307,17 +331,22 @@ CAST(NULL AS Varchar(20))同上</p>
 <p>凡是可以出现某个值的地方都可以放一个变量子查询</p>
 <h4 id="表表达式查询结果是表">表表达式:查询结果是表</h4>
 <h4 id="公共表表达式一个子表达式使用多次时对它定义">公共表表达式:一个子表达式使用多次时对它定义</h4>
-<p>公共表就是一个临时视图<br>
-<code>SQL WITH payroll(rate,avgage) AS (SELECT rating,avg(age) FROM user GROUP BY rating) SELECT avgage FROM payroll WHERE rate=10</code></p>
+<p>公共表就是一个临时视图</p>
+<pre><code class="language-SQL">WITH payroll(rate,avgage) AS (SELECT rating,avg(age) FROM user GROUP BY rating)
+SELECT avgage FROM payroll WHERE rate=10
+</code></pre>
 <h2 id="dml语句">DML语句:</h2>
 <h3 id="insert语句">INSERT语句:</h3>
-<p>一条INSERT语句就是向数据库插入一条元组<br>
-<code>SQL INSERT INTO user VALUES('wangHua',10,12)</code></p>
+<p>一条INSERT语句就是向数据库插入一条元组</p>
+<pre><code class="language-SQL">INSERT INTO user VALUES('wangHua',10,12)
+</code></pre>
 <h3 id="delete语句">DELETE语句:</h3>
-<p>删除满足条件元组(可能多条)<br>
-<code>SQL DELETE FROM user WHERE id=1</code></p>
+<p>删除满足条件元组(可能多条)</p>
+<pre><code class="language-SQL">DELETE FROM user WHERE id=1
+</code></pre>
 <h3 id="update语句">UPDATE语句:</h3>
-<p><code>SQL UPDATE user SET name='liHua',rating=2 WHERE id=1</code></p>
+<pre><code class="language-SQL">UPDATE user  SET name='liHua',rating=2 WHERE id=1
+</code></pre>
 <h3 id="view">VIEW</h3>
 <p>利用视图实现外模式,通过外模式与模式的映射实现逻辑独立性<br>
 在数据库中只存储其定义,不存储其对应数据,在需要数据时通过对表的映射得到<br>
@@ -325,37 +354,36 @@ CAST(NULL AS Varchar(20))同上</p>
 <code>SQL CREATE VIEW youngUser AS SELECT id,name,rating,age FROM user WHERE age&lt;18</code><br>
 视图的修改:<br>
 有的数据库支持有的不支持,当视图中的某一属性能唯一映射到原表中时,可支持,此时修改视图实际修改的是表中信息</p>
-<p><code>SQL CREATE VIEW youngUser AS SELECT id,name,rating,age FROM user WHERE age&lt;18</code><br>
-垂直方向做了投影,水平方向做了筛选,可修改</p>
-<p><code>SQL CREATE VIEW youngUser AS SELECT rating,AVG(age) FROM user GROUP BY rating</code><br>
-不支持修改,因为修改视图中某一条属性无法返回到基表中的某个属性值</p>
-<p>WITH子句定义的临时表定义也不在数据库中存储</p>
-<h2 id="sql嵌入编程语言">SQL嵌入编程语言:</h2>
-<h3 id="面临问题">面临问题:</h3>
-<ol>
-<li>SQL支持的数据类型与编程语言不匹配</li>
-<li>SQL语言执行(关系型数据库查询结果)结果是表,编程语言想要的是变量</li>
-<li>SQL中有空值NULL,如何对其处理</li>
-</ol>
-<h3 id="解决方案">解决方案:</h3>
-<ol>
-<li>嵌入式SQL</li>
-<li>API(JDBC):用户直接利用接口调用SQL语句</li>
-<li>类封装</li>
-</ol>
-<h3 id="嵌入式sql的解决思路">嵌入式SQL的解决思路:</h3>
-<ol>
-<li>以 EXEC SQL开头,以';'结尾的会被c语言识别为SQL语句;</li>
-<li>引入 <strong>宿主变量</strong> 在C语言和数据库之间传递信息,其中在C语言中宿主变量与普通变量并无区别,在SQL中使用宿主变量时要在变量前加':',通过在C语言中赋值,在SQL中引用(或者相反)在他们俩之间传递信息</li>
-<li>使用indicator(short int)变量来标记是否是空值</li>
-</ol>
-<h3 id="使用步骤">使用步骤:</h3>
-<ol>
-<li>连接数据库</li>
-<li>在C语言中以EXEC SQL BEGIN DECLARE SECTION开头 EXEC SQL END DECLARE SECTION结尾标记宿主变量的定义</li>
-<li>游标机制:游标定义对应的是一句SQL语句,返回这条语句执行的结果,结果类似于文件,有一个读写指针,指针指向一条元组,每读一条元组就向下走到下一条元组</li>
-<li>需要预编译,得到纯C代码</li>
-</ol>
+<pre><code class="language-SQL">CREATE VIEW youngUser AS SELECT id,name,rating,age FROM user WHERE age&lt;18
+</code></pre>
+<p>垂直方向做了投影,水平方向做了筛选,可修改</p>
+<pre><code class="language-SQL">CREATE VIEW youngUser AS SELECT rating,AVG(age) FROM user GROUP BY rating
+``
+不支持修改,因为修改视图中某一条属性无法返回到基表中的某个属性值
+
+WITH子句定义的临时表定义也不在数据库中存储
+## SQL嵌入编程语言:
+### 面临问题:
+1. SQL支持的数据类型与编程语言不匹配
+2. SQL语言执行(关系型数据库查询结果)结果是表,编程语言想要的是变量
+3. SQL中有空值NULL,如何对其处理
+### 解决方案:
+1. 嵌入式SQL
+2. API(JDBC):用户直接利用接口调用SQL语句
+3. 类封装
+### 嵌入式SQL的解决思路:
+1. 以 EXEC SQL开头,以';'结尾的会被c语言识别为SQL语句;
+2. 引入 **宿主变量** 在C语言和数据库之间传递信息,其中在C语言中宿主变量与普通变量并无区别,在SQL中使用宿主变量时要在变量前加':',通过在C语言中赋值,在SQL中引用(或者相反)在他们俩之间传递信息
+3. 使用indicator(short int)变量来标记是否是空值
+### 使用步骤:
+1. 连接数据库
+2. 在C语言中以EXEC SQL BEGIN DECLARE SECTION开头 EXEC SQL END DECLARE SECTION结尾标记宿主变量的定义
+3. 游标机制:游标定义对应的是一句SQL语句,返回这条语句执行的结果,结果类似于文件,有一个读写指针,指针指向一条元组,每读一条元组就向下走到下一条元组
+4. 需要预编译,得到纯C代码
+
+
+
+</code></pre>
 
 							</div>
 	<div class="wow bounceInDown vt-post-tags">

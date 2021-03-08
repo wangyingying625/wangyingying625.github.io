@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-08T14:01:04.257Z</updated>
+    <updated>2021-03-08T15:03:36.650Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
@@ -19,7 +19,8 @@
 <h3 id="什么情况下会产生sql注入漏洞">什么情况下会产生SQL注入漏洞</h3>
 <p>SQL注入漏洞的产生是由于程序将用户的输入当做SQL语句的一部分,拼接在程序写好的那部分SQL语句后面执行了.那么当用户在输入时,利用UNION连接符拼接恶意的SQL语句,这些语句也将会被执行.</p>
 <h3 id="如何测试某个功能点是否存在sql注入漏洞">如何测试某个功能点是否存在SQL注入漏洞</h3>
-<p>在输入的位置</p>
+<p>如果是int型并且插入位置在WHERE后面:可在输入的位置添加 AND 1=2,看执行结果是否 (如果是字符型需要考虑括号的闭合)<br>
+可用#</p>
 ]]></content>
     </entry>
     <entry>
