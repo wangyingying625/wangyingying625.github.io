@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-09T05:54:00.719Z</updated>
+    <updated>2021-03-09T09:09:42.498Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
@@ -10,22 +10,23 @@
     <icon>https://wangyingying625.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, mldwyy</rights>
     <entry>
-        <title type="html"><![CDATA[集合]]></title>
+        <title type="html"><![CDATA[集合论]]></title>
         <id>https://wangyingying625.github.io/post/ji-he/</id>
         <link href="https://wangyingying625.github.io/post/ji-he/">
         </link>
         <updated>2021-03-09T05:52:33.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="集合论">集合论:</h3>
+        <content type="html"><![CDATA[<h2 id="集合论">集合论:</h2>
 <p>用集合论作为描述工具<br>
 集合中的元素要各不相同<br>
 集合中的元素不规定顺序<br>
 集合的两种表示法可以互相转换</p>
+<h3 id="集合基本概念">集合基本概念</h3>
 <h4 id="集合的表示">集合的表示:</h4>
 <ol>
 <li>列举法 A={1,2,3}</li>
 <li>描述法</li>
 </ol>
-<h4 id="集合基本概念">集合基本概念</h4>
+<h3 id="常用术语">常用术语:</h3>
 <ol>
 <li>子集⊆:若B是A的子集,要求B中元素都是A中元素,也叫B包含于A,A包含B.空集是一切集合的子集</li>
 <li>相等:A包含B且B包含A</li>
@@ -33,8 +34,11 @@
 <li>幂集:设A是一个集合,则由A的全体子集组成的集合是A的幂集,记为P(A)</li>
 <li>集合的元素个数:|A|表示集合A中的元素个数<br>
 若|A|=n,则|P(A)|=2ⁿ</li>
+<li>定义域:dom R</li>
+<li>值域:ran R</li>
+<li>域:ran R U dom R</li>
 </ol>
-<h4 id="集合的运算">集合的运算:</h4>
+<h3 id="集合的运算">集合的运算:</h3>
 <ol>
 <li>并集∪:设A与B为两个集合,由A和B中所有元素组成的集合是A和B的并集AUB</li>
 <li>交集∩</li>
@@ -45,7 +49,7 @@
 <li>文氏图:集合与集合之间的关系以及一些运算的结果可以用文氏图直观表示.其中矩阵表示全集,圆或者其他封闭的曲线可以表示E的子集,运算结果得到的集合用阴影表示.<br>
 <img src="https://wangyingying625.github.io/post-images/1615262997178.jpg" alt="" loading="lazy"></li>
 </ol>
-<h4 id="基本的集合恒等式">基本的集合恒等式:</h4>
+<h3 id="基本的集合恒等式">基本的集合恒等式:</h3>
 <p>设E是全集,A,B,C是E的任意子集:</p>
 <ol>
 <li>幂等律:A ∪ A=A ,  A∩A=A</li>
@@ -66,12 +70,74 @@
 <img src="https://wangyingying625.github.io/post-images/1615269104056.jpg" alt="" loading="lazy"></li>
 </ol>
 <h3 id="有序对">有序对:</h3>
-<p>&lt;a,b&gt;={{a},{a,b}},其中a是第一元素,b是第二元素</p>
-<h2 id="运算和性质">运算和性质</h2>
-<h1 id="二元关系">二元关系</h1>
-<h2 id="表示和性质">表示和性质</h2>
-<h2 id="等价关系">等价关系</h2>
-<h2 id="序关系">序关系</h2>
+<p>&lt;a,b&gt;={{a},{a,b}},其中a是第一元素,b是第二元素.<br>
+&lt;a,b,c&gt;=&lt;&lt;a,b&gt;,c&gt;  有序三元组</p>
+<h3 id="卡式积笛卡尔积">卡式积(笛卡尔积):</h3>
+<p>A与B是两个集合,他们的卡式积是一个新的集合.集合中的元素都是有序对,有序对中第一元素都在A中,第二元素都在B中,所有这样的有序对构成卡式积.</p>
+<h4 id="卡式积性质">卡式积性质:</h4>
+<ol>
+<li>非交换(除非A=B或者A=∅或者B=∅)Ax∅=∅</li>
+<li>非结合:(AxB)xc≠Ax(Bxc)甚至(AxA)xA≠Ax(AxA)</li>
+<li>分配律:Ax(B∪C)=(AxB)∪(AxC)</li>
+<li>AxB=∅ &lt;=&gt; A=∅∪B=∅两非空集合卡式积一定非空</li>
+<li>无零因子</li>
+</ol>
+<p>性质证明:<br>
+设A,B,C是任意集合:证明若A≠∅,则AxB ⊆ AxC &lt;=&gt; B ⊆ C<br>
+<img src="https://wangyingying625.github.io/post-images/1615272819895.jpg" alt="" loading="lazy"></p>
+<h2 id="二元关系与关系数据库相关">二元关系(与关系数据库相关)</h2>
+<p>元素都是有序n元素的集合叫n元关系<br>
+F1={&lt;1,2,3&gt;,&lt;你,我,他&gt;}是一个三元关系</p>
+<h3 id="基本概念">基本概念</h3>
+<ol>
+<li>
+<p>关系(2元关系):元素全是有序对的集合<br>
+F1={&lt;1,2&gt;,&lt;2,3&gt;}<br>
+F2={&lt;1,2&gt;,3,4}不是二元关系,其中3,4不是有序对</p>
+</li>
+<li>
+<p>A到B的二元关系:AxB的任意子集(A对B的笛卡尔乘积都是A到B的二元关系)<br>
+若|A|=m,|B|=n,则|AxB|=mn,|P(AxB)|=2nm次方<br>
+即A到B的不同二元关系有2nm次方个</p>
+<p>例1:设A={a1,a2},B={b1}<br>
+则A到B的二元关系有:<br>
+R1=∅,R2={&lt;a1,b1&gt;},R3={<a2>,<b1>},R4={&lt;a1,b1&gt;,&lt;a2,b1&gt;}<br>
+B到A的二元关系有:<br>
+R1=∅,R2={&lt;b1,a1&gt;},R3={<b1>,<a2>},R4={&lt;b1,a1&gt;,&lt;b1,a2&gt;}</p>
+</li>
+</ol>
+<h3 id="基本运算">基本运算:</h3>
+<ol>
+<li>逆</li>
+<li>合成(复合函数)</li>
+<li>限制⨡:关系F和集合A,关系F对A的限制就是一些关系的集合,这些关系满足第一元素来自于A</li>
+<li>象F[{a}]:关系F在集合A上的象就是F中第一个元素在A里面的第二个元素的集合(类似于H(A))</li>
+<li>单根:F是单根的意味着在关系F=&lt;x,y&gt;中,<strong>任意</strong>一个y都对应<strong>唯一</strong>的x</li>
+<li>单值:F是单值的意味着F中<strong>任意</strong>一个x都唯一对应一个y</li>
+<li>(FoG)的逆=G-1oF-1</li>
+</ol>
+<p><img src="https://wangyingying625.github.io/post-images/1615276477548.jpg" alt="" loading="lazy"><br>
+<img src="https://wangyingying625.github.io/post-images/1615277275790.jpg" alt="" loading="lazy"></p>
+<h3 id="表示和性质">表示和性质</h3>
+<h4 id="表示">表示:</h4>
+<ol>
+<li>集合</li>
+<li>关系矩阵</li>
+<li>关系图</li>
+</ol>
+<h4 id="性质">性质:</h4>
+<ol>
+<li>自反:设R是A上的一个二元关系,说R是自反的当且仅当任取x在集合A里那么&lt;x,x&gt;就有关系R.集合中的每个元素自己都和自己有关系(全部x都得满足)[关系矩阵主对角线元素都是1,关系图每个顶点都有环]</li>
+<li>反自反:任何x,自己和自己都没有关系(所有X都不能和自己有关系R)[要求每个点都没有环,主对角线全为0]</li>
+<li>非自反:存在x属于A那么&lt;x,x&gt;必不属于关系R(只要有一个不属于就行)</li>
+<li>对称:任选x和y,如果&lt;x,y&gt;有关系R那么&lt;y,x&gt;也有关系R(相等关系)[关系图中不同两点间必然是双箭头,矩阵中必然是对称矩阵]任何两个点间都没有边的关系既是对称的也是反对称的</li>
+<li>反对称:任何两个点之间只有一条有向边</li>
+<li>非对称:只有有一个&lt;x,y&gt;不对称[存在两个点间只有一条边]</li>
+<li>传递:当X和Y有关系,并且Y和Z有关系时,X和Z有关系(R和R的合成是R的子集)</li>
+</ol>
+<figure data-type="image" tabindex="1"><img src="https://wangyingying625.github.io/post-images/1615280969332.jpg" alt="" loading="lazy"></figure>
+<h3 id="等价关系">等价关系</h3>
+<h3 id="序关系">序关系</h3>
 <h1 id="函数">函数</h1>
 <h1 id="自然数">自然数</h1>
 <h1 id="基数和序数">基数和序数</h1>
