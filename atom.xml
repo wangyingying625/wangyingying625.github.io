@@ -2,13 +2,81 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-08T15:03:36.650Z</updated>
+    <updated>2021-03-09T05:54:00.719Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
     <logo>https://wangyingying625.github.io/images/avatar.png</logo>
     <icon>https://wangyingying625.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, mldwyy</rights>
+    <entry>
+        <title type="html"><![CDATA[集合]]></title>
+        <id>https://wangyingying625.github.io/post/ji-he/</id>
+        <link href="https://wangyingying625.github.io/post/ji-he/">
+        </link>
+        <updated>2021-03-09T05:52:33.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="集合论">集合论:</h3>
+<p>用集合论作为描述工具<br>
+集合中的元素要各不相同<br>
+集合中的元素不规定顺序<br>
+集合的两种表示法可以互相转换</p>
+<h4 id="集合的表示">集合的表示:</h4>
+<ol>
+<li>列举法 A={1,2,3}</li>
+<li>描述法</li>
+</ol>
+<h4 id="集合基本概念">集合基本概念</h4>
+<ol>
+<li>子集⊆:若B是A的子集,要求B中元素都是A中元素,也叫B包含于A,A包含B.空集是一切集合的子集</li>
+<li>相等:A包含B且B包含A</li>
+<li>真子集⊂:A是B的子集且A不等于B,则A⊂于B</li>
+<li>幂集:设A是一个集合,则由A的全体子集组成的集合是A的幂集,记为P(A)</li>
+<li>集合的元素个数:|A|表示集合A中的元素个数<br>
+若|A|=n,则|P(A)|=2ⁿ</li>
+</ol>
+<h4 id="集合的运算">集合的运算:</h4>
+<ol>
+<li>并集∪:设A与B为两个集合,由A和B中所有元素组成的集合是A和B的并集AUB</li>
+<li>交集∩</li>
+<li>不相交:设A和B为两个集合,若A∩B=∅,则A与B不相交</li>
+<li>相对补:A-B,属于集合A而不属于集合B的全体元素</li>
+<li>绝对补:任意集合A对全集E的绝对补,记为~A</li>
+<li>对称差⨁:属于A不属于B的和属于B但不属于A的全体元素组成的集合</li>
+<li>文氏图:集合与集合之间的关系以及一些运算的结果可以用文氏图直观表示.其中矩阵表示全集,圆或者其他封闭的曲线可以表示E的子集,运算结果得到的集合用阴影表示.<br>
+<img src="https://wangyingying625.github.io/post-images/1615262997178.jpg" alt="" loading="lazy"></li>
+</ol>
+<h4 id="基本的集合恒等式">基本的集合恒等式:</h4>
+<p>设E是全集,A,B,C是E的任意子集:</p>
+<ol>
+<li>幂等律:A ∪ A=A ,  A∩A=A</li>
+<li>交换律:AUB=BUA ,A ∩B=B∩A</li>
+<li>结合律:(AUB)UC=AU(BUC) , (A∩B)∩C=A∩(B∩C)</li>
+<li>分配律:AU(B∩C)=(AUB)∩(AUC) , A∩(BUC)=(A∩B)U(A∩C)</li>
+<li>德摩根律:<sub>(AUB)=</sub> A∩~B , <sub>(A∩B)=</sub>AU~B</li>
+<li>吸收率:AU(A∩B)=A , A∩（AUB）= A</li>
+<li>零律:AUE=E , A∩∅=∅</li>
+<li>同一律:AU∅=A , A∩E=A</li>
+<li>排中律:AU~A=E</li>
+<li>矛盾律:A∩~A=∅</li>
+<li>余补律:~∅=E , ~E=∅</li>
+<li>双重否定率:<sub>(</sub>A)=A</li>
+<li>补交转换率:A-B=A∩~B<br>
+优先级:绝对补 幂集 广义交 广义并,并 交 相对补 对称差<br>
+集合等式的证明可以用命题演算证明<br>
+<img src="https://wangyingying625.github.io/post-images/1615269104056.jpg" alt="" loading="lazy"></li>
+</ol>
+<h3 id="有序对">有序对:</h3>
+<p>&lt;a,b&gt;={{a},{a,b}},其中a是第一元素,b是第二元素</p>
+<h2 id="运算和性质">运算和性质</h2>
+<h1 id="二元关系">二元关系</h1>
+<h2 id="表示和性质">表示和性质</h2>
+<h2 id="等价关系">等价关系</h2>
+<h2 id="序关系">序关系</h2>
+<h1 id="函数">函数</h1>
+<h1 id="自然数">自然数</h1>
+<h1 id="基数和序数">基数和序数</h1>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[OWASP问题版]]></title>
         <id>https://wangyingying625.github.io/post/owasp-wen-ti-ban/</id>
@@ -20,7 +88,14 @@
 <p>SQL注入漏洞的产生是由于程序将用户的输入当做SQL语句的一部分,拼接在程序写好的那部分SQL语句后面执行了.那么当用户在输入时,利用UNION连接符拼接恶意的SQL语句,这些语句也将会被执行.</p>
 <h3 id="如何测试某个功能点是否存在sql注入漏洞">如何测试某个功能点是否存在SQL注入漏洞</h3>
 <p>如果是int型并且插入位置在WHERE后面:可在输入的位置添加 AND 1=2,看执行结果是否 (如果是字符型需要考虑括号的闭合)<br>
-可用#</p>
+可用#屏蔽后面的SQL代码</p>
+<h3 id="预防">预防:</h3>
+<ol>
+<li>对SQL语句预编译</li>
+<li>对单引号进行转义</li>
+<li>强制类型转换为数字</li>
+</ol>
+<h2 id=""></h2>
 ]]></content>
     </entry>
     <entry>
@@ -65,13 +140,12 @@
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[集合论]]></title>
+        <title type="html"><![CDATA[命题和谓词逻辑]]></title>
         <id>https://wangyingying625.github.io/post/ji-he-lun/</id>
         <link href="https://wangyingying625.github.io/post/ji-he-lun/">
         </link>
         <updated>2021-03-08T08:18:30.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="集合">集合</h1>
-<h2 id="基本概念">基本概念</h2>
+        <content type="html"><![CDATA[<h2 id="基本概念">基本概念</h2>
 <h3 id="命题公式">命题公式:</h3>
 <h4 id="联结词">联结词:</h4>
 <p>p,q,r...表示原子命题(简单命题,可当做逻辑变量即布尔变量);0表示假,1表示真</p>
@@ -219,14 +293,6 @@ F(x)表示x具有性质F<br>
 可用基本等值式求前束范式<br>
 <img src="https://wangyingying625.github.io/post-images/1615203809312.jpg" alt="" loading="lazy"></p>
 <hr>
-<h2 id="运算和性质">运算和性质</h2>
-<h1 id="二元关系">二元关系</h1>
-<h2 id="表示和性质">表示和性质</h2>
-<h2 id="等价关系">等价关系</h2>
-<h2 id="序关系">序关系</h2>
-<h1 id="函数">函数</h1>
-<h1 id="自然数">自然数</h1>
-<h1 id="基数和序数">基数和序数</h1>
 ]]></content>
     </entry>
     <entry>
@@ -707,26 +773,6 @@ T1若想要申请一个锁,但是此锁被T2占有,则T1比较它与T2的时间�
 采用这种方法,等待关系只可能是年老的等年轻的,方向是单向的;并且由于比该事务年老的事务总是有限的所以它总能等到想要的锁</li>
 <li>被伤等待法:<br>
 遇到比自己年老的就会被人家kill</li>
-</ol>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[docker使用笔记]]></title>
-        <id>https://wangyingying625.github.io/post/docker-shi-yong-bi-ji/</id>
-        <link href="https://wangyingying625.github.io/post/docker-shi-yong-bi-ji/">
-        </link>
-        <updated>2021-03-05T03:12:08.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="常用命令">常用命令</h2>
-<ol>
-<li>查找容器id:docker ps</li>
-<li>启动docker-compose:docker-compose up -d</li>
-<li>进入容器:</li>
-<li>docker images</li>
-</ol>
-<h2 id="零碎知识">零碎知识</h2>
-<ol>
-<li>docker不用进文件夹</li>
-<li>docker-compose需要进文件夹</li>
 </ol>
 ]]></content>
     </entry>

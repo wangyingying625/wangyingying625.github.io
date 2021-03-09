@@ -6,7 +6,7 @@
 <meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
 <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
 <meta HTTP-EQUIV="expires" CONTENT="0"> 
-<title>OWASP TOP 10 漏洞笔记 | mldwyy</title>	
+<title>集合 | mldwyy</title>	
 
 <link rel="stylesheet" href="https://wangyingying625.github.io/styles/main.css">
 <script type="text/javascript">
@@ -142,10 +142,10 @@ window.onload=getCSS();
 	
 	                      
 		<div class="entry-content">
-			<h1 class="wow swing entry-title">OWASP TOP 10 漏洞笔记</h1>
+			<h1 class="wow swing entry-title">集合</h1>
 <div class="entry-meta">
 <div class="wow bounce">
-	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2020-06-03 13:18:41" itemprop="datePublished" pubdate="">2020-06-03</time></i>
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-03-09 13:52:33" itemprop="datePublished" pubdate="">2021-03-09</time></i>
 	          </div>
 			
 </span>
@@ -153,113 +153,79 @@ window.onload=getCSS();
 		</div>
                   
 			<div class="wow slideInLeft entry-summary song">
-				<h1 id="注入">注入</h1>
-<h2 id="sql-注入">SQL 注入</h2>
+				<h3 id="集合论">集合论:</h3>
+<p>用集合论作为描述工具<br>
+集合中的元素要各不相同<br>
+集合中的元素不规定顺序<br>
+集合的两种表示法可以互相转换</p>
+<h4 id="集合的表示">集合的表示:</h4>
 <ol>
-<li>产生条件:网站执行的sql代码需要结合用户输入<br>
-用户输入恶意的sql代码<br>
-使用order by 1检测出正常被执行的代码查询结果列数<br>
-使用union拼接恶意查询语句(union查询结果列数需要与前面执行的sql语句查询列数相同)</li>
-<li>测试方法:<br>
-2.1 数字型:SELECT * from user WHERE id= 1 and 1=2;即可以用and永假式看是否异常测试;<br>
-2.2 字符型:SELECT * from user WHERE name='name1' and '1'='1'</li>
-<li>可能危害:执行SQL代码,获取数据库信息</li>
-<li>注意点:union并时要求返回元组有相同的属性数目,需要提前用order by 1/2/3...测试前面语句的返回属性数</li>
+<li>列举法 A={1,2,3}</li>
+<li>描述法</li>
 </ol>
-<p>mysql 可以写文件, 但是要求,绝对路径 --&gt; 写入文件</p>
-<h2 id="命令注入">命令注入</h2>
-<p>提交的命令注入到原始的命令中</p>
+<h4 id="集合基本概念">集合基本概念</h4>
 <ol>
-<li>基础知识:管道符|能把前面命令的输出当做后面命令的输入<br>
-; 分号后的命令能被直接执行<br>
-&amp;&amp;符号如果前面命令执行成功就接着执行后面命令<br>
-|| 如果前面命令执行失败就执行后面命令<br>
-php的exec函数会把参数当做命令执行</li>
-<li>可能危害:get shell</li>
+<li>子集⊆:若B是A的子集,要求B中元素都是A中元素,也叫B包含于A,A包含B.空集是一切集合的子集</li>
+<li>相等:A包含B且B包含A</li>
+<li>真子集⊂:A是B的子集且A不等于B,则A⊂于B</li>
+<li>幂集:设A是一个集合,则由A的全体子集组成的集合是A的幂集,记为P(A)</li>
+<li>集合的元素个数:|A|表示集合A中的元素个数<br>
+若|A|=n,则|P(A)|=2ⁿ</li>
 </ol>
-<h2 id="失效的身份认证">失效的身份认证</h2>
+<h4 id="集合的运算">集合的运算:</h4>
 <ol>
-<li>
-<p>弱口令&amp;口令破解<br>
-使用burpsuit抓包:<br>
-send to intruder-&gt;options选择爆破点-&gt;payloads-&gt;payload Type -&gt;start attack</p>
-</li>
-<li>
-<p>cookie伪造&amp;cookie绕过<br>
-Admin=1</p>
-</li>
+<li>并集∪:设A与B为两个集合,由A和B中所有元素组成的集合是A和B的并集AUB</li>
+<li>交集∩</li>
+<li>不相交:设A和B为两个集合,若A∩B=∅,则A与B不相交</li>
+<li>相对补:A-B,属于集合A而不属于集合B的全体元素</li>
+<li>绝对补:任意集合A对全集E的绝对补,记为~A</li>
+<li>对称差⨁:属于A不属于B的和属于B但不属于A的全体元素组成的集合</li>
+<li>文氏图:集合与集合之间的关系以及一些运算的结果可以用文氏图直观表示.其中矩阵表示全集,圆或者其他封闭的曲线可以表示E的子集,运算结果得到的集合用阴影表示.<br>
+<img src="https://wangyingying625.github.io/post-images/1615262997178.jpg" alt="" loading="lazy"></li>
 </ol>
-<h2 id="xml-外部实体xxe-xml-external-entity">XML 外部实体(XXE--XML External Entity)</h2>
-<h3 id="基础知识">基础知识:</h3>
+<h4 id="基本的集合恒等式">基本的集合恒等式:</h4>
+<p>设E是全集,A,B,C是E的任意子集:</p>
 <ol>
-<li>xml可扩展标记语言,用来传输和存储数据,标记电子文件使其具有结构性</li>
-<li>xml包括xml声明+DTD(文档类型定义)+文档元素<br>
-其中DTD内容可以用户自己声明也可以引用外部链接地址</li>
+<li>幂等律:A ∪ A=A ,  A∩A=A</li>
+<li>交换律:AUB=BUA ,A ∩B=B∩A</li>
+<li>结合律:(AUB)UC=AU(BUC) , (A∩B)∩C=A∩(B∩C)</li>
+<li>分配律:AU(B∩C)=(AUB)∩(AUC) , A∩(BUC)=(A∩B)U(A∩C)</li>
+<li>德摩根律:<sub>(AUB)=</sub> A∩~B , <sub>(A∩B)=</sub>AU~B</li>
+<li>吸收率:AU(A∩B)=A , A∩（AUB）= A</li>
+<li>零律:AUE=E , A∩∅=∅</li>
+<li>同一律:AU∅=A , A∩E=A</li>
+<li>排中律:AU~A=E</li>
+<li>矛盾律:A∩~A=∅</li>
+<li>余补律:~∅=E , ~E=∅</li>
+<li>双重否定率:<sub>(</sub>A)=A</li>
+<li>补交转换率:A-B=A∩~B<br>
+优先级:绝对补 幂集 广义交 广义并,并 交 相对补 对称差<br>
+集合等式的证明可以用命题演算证明<br>
+<img src="https://wangyingying625.github.io/post-images/1615269104056.jpg" alt="" loading="lazy"></li>
 </ol>
-<h3 id="xxe">XXE</h3>
-<p>攻击原理:在文档类型定义处引用外部链接时,恶意用户可以引入一个可执行文件</p>
-<p>Doc , Excel , 配置文件</p>
-<h1 id="失效的访问控制">失效的访问控制</h1>
-<h2 id="越权访问逻辑漏洞">越权访问(逻辑漏洞)</h2>
-<ol>
-<li>
-<p>水平越权<br>
-userA 修改/查看和他同一级别的用户userB隐秘属性</p>
-</li>
-<li>
-<p>垂直越权<br>
-userA 获取到比他高级的用户admin权限</p>
-</li>
-</ol>
-<h1 id="安全配置错误">安全配置错误</h1>
-<h2 id="不安全的默认配置">不安全的默认配置</h2>
-<p>开启debug模式,如PHP框架(larvael)开启了debuger会显示出所有变量内容(包括数据库密码)<br>
-开了php报错,会显示错误信息: 网站绝对路径</p>
-<h1 id="跨站脚本xss">跨站脚本(XSS)</h1>
-<ol>
-<li>产生条件:网站对用户输入提交的信息未进行处理<br>
-恶意用户在表单部分输入恶意js代码</li>
-<li>测试方法:<br>
-在表单部分输入代码<br>
-<code>&lt;details open ontoggle=prompt('hello')&gt;</code></li>
-<li>可能危害:<br>
-获取用户cookie<br>
-破坏网页结构</li>
-</ol>
-<h1 id="不安全的反序列化对象注入">不安全的反序列化(对象注入)</h1>
-<p>序列化 : 变量 (对象) --&gt; 字符串<br>
-反序列化 :字符串 --&gt; 变量 (对象)</p>
-<h2 id="php中的魔术方法">php中的魔术方法:</h2>
-<ol>
-<li></li>
-</ol>
-<p>127.0.0.1/a.php<br>
-User<br>
-user: name :yy id: 3 lasttime: 2021.xxx<br>
-序列化成字符串<br>
-127.0.0.1/b.php<br>
-字符串反序列化成对象</p>
-<p>php : __wake()</p>
-<h1 id="使用含有已知漏洞的组件">使用含有已知漏洞的组件</h1>
-<p>struct2<br>
-fastjson<br>
-weblogic<br>
-shiro</p>
-<p>中国: cnvd<br>
-国际: cve</p>
+<h3 id="有序对">有序对:</h3>
+<p>&lt;a,b&gt;={{a},{a,b}},其中a是第一元素,b是第二元素</p>
+<h2 id="运算和性质">运算和性质</h2>
+<h1 id="二元关系">二元关系</h1>
+<h2 id="表示和性质">表示和性质</h2>
+<h2 id="等价关系">等价关系</h2>
+<h2 id="序关系">序关系</h2>
+<h1 id="函数">函数</h1>
+<h1 id="自然数">自然数</h1>
+<h1 id="基数和序数">基数和序数</h1>
 
 							</div>
 	<div class="wow bounceInDown vt-post-tags">
  
+				<a href="https://wangyingying625.github.io/tag/UDLHbLGhm/" rel="tag">离散数学</a>	
+				 
 					</div>						
 <nav class="navigation3 post-navigation3" role="navigation">
 		
 		<div class="nav-links3">
       
-		<div class="wow bounceInLeft nav-previous3"><a href="https://wangyingying625.github.io/post/git-shi-yong-dai-li/" rel="prev"> Git 使用代理</a></div>
 		 
-		 
-		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/src-lou-dong-zong-jie/" rel="next"> src漏洞总结</a></div>
+		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/owasp-wen-ti-ban/" rel="next"> OWASP问题版</a></div>
 		
 		</div>
 	</nav>

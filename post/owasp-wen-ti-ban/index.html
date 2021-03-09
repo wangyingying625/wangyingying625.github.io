@@ -158,7 +158,14 @@ window.onload=getCSS();
 <p>SQL注入漏洞的产生是由于程序将用户的输入当做SQL语句的一部分,拼接在程序写好的那部分SQL语句后面执行了.那么当用户在输入时,利用UNION连接符拼接恶意的SQL语句,这些语句也将会被执行.</p>
 <h3 id="如何测试某个功能点是否存在sql注入漏洞">如何测试某个功能点是否存在SQL注入漏洞</h3>
 <p>如果是int型并且插入位置在WHERE后面:可在输入的位置添加 AND 1=2,看执行结果是否 (如果是字符型需要考虑括号的闭合)<br>
-可用#</p>
+可用#屏蔽后面的SQL代码</p>
+<h3 id="预防">预防:</h3>
+<ol>
+<li>对SQL语句预编译</li>
+<li>对单引号进行转义</li>
+<li>强制类型转换为数字</li>
+</ol>
+<h2 id=""></h2>
 
 							</div>
 	<div class="wow bounceInDown vt-post-tags">
@@ -170,6 +177,8 @@ window.onload=getCSS();
 		
 		<div class="nav-links3">
       
+		<div class="wow bounceInLeft nav-previous3"><a href="https://wangyingying625.github.io/post/ji-he/" rel="prev"> 集合</a></div>
+		 
 		 
 		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/chi-san-shu-xue-wen-ti/" rel="next"> 离散数学问题</a></div>
 		
