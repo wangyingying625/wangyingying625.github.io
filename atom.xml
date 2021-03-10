@@ -2,13 +2,24 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-10T06:55:03.790Z</updated>
+    <updated>2021-03-10T14:57:03.563Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
     <logo>https://wangyingying625.github.io/images/avatar.png</logo>
     <icon>https://wangyingying625.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, mldwyy</rights>
+    <entry>
+        <title type="html"><![CDATA[离散数学思维导图]]></title>
+        <id>https://wangyingying625.github.io/post/chi-san-shu-xue-si-wei-dao-tu/</id>
+        <link href="https://wangyingying625.github.io/post/chi-san-shu-xue-si-wei-dao-tu/">
+        </link>
+        <updated>2021-03-10T08:52:39.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="数理逻辑">数理逻辑</h2>
+<figure data-type="image" tabindex="1"><img src="https://wangyingying625.github.io/post-images/1615366403802.png" alt="" loading="lazy"></figure>
+<h2 id="集合论">集合论</h2>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[爱读书的大肥兔]]></title>
         <id>https://wangyingying625.github.io/post/ai-du-shu-de-da-fei-tu/</id>
@@ -221,11 +232,37 @@ sr(R)=rs(R) , tr(R)=rt(R) , st(R)不一定对称⊆ts(R)</p>
         <link href="https://wangyingying625.github.io/post/chi-san-shu-xue-wen-ti/">
         </link>
         <updated>2021-03-08T08:23:45.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="如何给集合下定义">如何给集合下定义</h2>
-<h2 id="如何用集合定义关系函数和自然数">如何用集合定义关系,函数和自然数</h2>
-<h2 id="如何比较集合的大小">如何比较集合的大小</h2>
-<h2 id="有没有最大的集合">有没有最大的集合</h2>
-<h2 id="能否把每个集合的元素依次列举">能否把每个集合的元素依次列举</h2>
+        <content type="html"><![CDATA[<h2 id="命题与陈述句有什么关系">命题与陈述句有什么关系?</h2>
+<p>命题是具有确定真假值的陈述句,由于命题有确定的真假值,所以可以当做布尔变量看待它</p>
+<h2 id="如何从真值表写出主析取合取范式">如何从真值表写出主析取(合取)范式?</h2>
+<p>主析取范式是极小项析取组成的,只需根据真值表写出满足条件的极小项即可.那么如何去找满足条件的极小项呢,要想让主析取范式(与原式等价)取真要求任一极小项取真,那么把所有极小项赋值为真的指派并起来就是主析取范式<br>
+主合取范式是有极大项组成的,要想让主合取范式(原式)取假只需任一极大项取假,假设p=0,q=1时原命题为假,那么其中一个极大项应该为(p∨¬q)<br>
+若得出主析取范式也可用主析取范式直接求出主合取范式</p>
+<h2 id="如何判断两个公式是否等价">如何判断两个公式是否等价</h2>
+<ol>
+<li>列两个公式的真值表,若各种指派下他们俩取值都相等就等价</li>
+<li>用基本等价公式推导证明</li>
+<li>求各自的主析取(合取)范式,若所有的两个范式一样那就等价</li>
+</ol>
+<h2 id="如何给集合下定义">如何给集合下定义</h2>
+<p>具有某种特殊性质的客体的集合</p>
+<h2 id="二元关系有哪些表示方法">二元关系有哪些表示方法</h2>
+<ol>
+<li>集合表示法</li>
+<li>矩阵表示</li>
+<li>图表示</li>
+</ol>
+<h2 id="如何用集合定义关系函数">如何用集合定义关系,函数</h2>
+<p>关系是以序偶作为元素的集合<br>
+函数是一种特定的关系,要求定义域中的每个x都能唯一确定y</p>
+<h2 id="什么是商集什么是划分">什么是商集,什么是划分</h2>
+<p>商集是等价关系下的划分</p>
+<h2 id="如何构造从集合a到集合b的双射函数">如何构造从集合A到集合B的双射函数</h2>
+<ol>
+<li>若AB都是有穷集合,先列出AB在把AB中的元素进行对应</li>
+<li>若AB是实数区间,则平滑连接点&lt;A最小,B最小&gt;到&lt;A最大,B最大&gt;</li>
+<li>若AB都是无穷集合,则把AB分别列出来,从前往后一一对应</li>
+</ol>
 <h2 id="什么是图">什么是图</h2>
 <h2 id="有哪些图">有哪些图</h2>
 <h2 id="图有什么性质">图有什么性质</h2>
@@ -625,82 +662,6 @@ elevel依赖于eid<br>
 <li>逻辑设计:外模式设计,数据类型设计.建表,把E-R图生成表(命名规则,数据类型),必要时定义视图</li>
 <li>物理设计:索引,文件结构(堆文件,簇集,hash文件)分区设计(大型数据库才有)</li>
 </ol>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[数据库安全及完整性约束]]></title>
-        <id>https://wangyingying625.github.io/post/shu-ju-ku-an-quan/</id>
-        <link href="https://wangyingying625.github.io/post/shu-ju-ku-an-quan/">
-        </link>
-        <updated>2021-03-06T13:42:57.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="常用手段">常用手段:</h2>
-<h3 id="访问授权">访问授权</h3>
-<h4 id="dba创建新用户并对新用户进行访问数据库的基本授权">DBA创建新用户并对新用户进行访问数据库的基本授权</h4>
-<ol>
-<li>
-<p>对用户授权<br>
-<code>SQL GRANT CONNECT TO WANGMING IDENTIFIED BY 123456;</code><br>
-wangming用户可以用初始密码123456连接数据库<br>
-<code>SQL GRANT SELECT ON TABLE USER TO WANGMING WITH GRANT OPTION</code><br>
-用户WANGMING有查询user表的权利,并且可以把这个权利转售给其他人(WITH GRANT OPTION)</p>
-</li>
-<li>
-<p>创建角色,然后为某用户直接给角色</p>
-</li>
-</ol>
-<h3 id="数据加密">数据加密:</h3>
-<p>对数据库的访问需要通过DBMS,不能直接在操作系统层访问<br>
-对数据加密后存储进数据库</p>
-<h3 id="审计追踪">审计追踪:</h3>
-<p>由于不能保证数据库一定安全,设计审计追踪环节.<br>
-在关注的数据上面添加审计指令,对所监视的表任何指令记录.</p>
-<h3 id="完整性约束">完整性约束:</h3>
-<p>对数据库中一些属性的约束条件(数据库中合法的实例必须满足这个要求)</p>
-<h4 id="静态约束">静态约束:</h4>
-<ol>
-<li>
-<p>数据模型固有的约束(1NF),关系模型要求的</p>
-</li>
-<li>
-<p>隐含约束:<br>
-如域完整性约束;<br>
-主键约束(实体完整性约束);<br>
-外键约束(引用完整性约束):若buy表中UID是user中ID的外键,则要求UID是ID的子集;删除时候级联删除或者不删;插入时候buy表中的UID必须在user中的id里存在</p>
-</li>
-<li>
-<p>显示约束:<br>
-定义方法一:用断言<br>
-<code>SQL ASSERT ageRe ON user:age&gt;0;</code><br>
-ageRe是我对断言取得名字,ageRe要求对user插入数据时候age必须&gt;0</p>
-<p>定义方法二:定义表时用check<br>
-<code>SQL CREATE TABLE user (id INTEGER, name CHAR(10), age INTEGER, rating INTEGER, PRIMARY KEY(id,name), CHECK (age&gt;0 AND rating&gt;0))</code><br>
-定义方法三:定义CONSTRAINT<br>
-<code>SQL CREATE TABLE buy (tname CHAR(10), tid INTEGER, uid INTEGER, day DATE, PRIMARY KEY(tid,day), CONSTRAINT noFood CHECK('food' &lt;&gt; (SELECT T.name FROM thing T WHERE T.id=tid)))</code><br>
-定义了一个包含关联查询的约束noFood,其含义为当thing中name是food时候不允许其插入buy</p>
-</li>
-</ol>
-<h4 id="动态约束">动态约束:</h4>
-<p>数据库从一个状态到另一个状态时应该满足的约束(与触发器结合)</p>
-<h5 id="触发器">触发器:</h5>
-<p>数据库状态发生变化时应该遵守的规则<br>
-数据库一般是被动执行某些SQL语句,然而我们希望当数据库中数据处于某一状态时数据能主动的发出一些动作.这就需要数据库去监视一些数据.支持触发器即支持ECA规则</p>
-<h6 id="基本概念">基本概念:</h6>
-<ol>
-<li>事件E监视某一事件</li>
-<li>条件C事件发生时是否满足条件</li>
-<li>动作A若满足采取行动</li>
-</ol>
-<h6 id="基本语法">基本语法</h6>
-<p>每当在user表里插入一条消息时候去查看其年龄是否满足年轻用户的条件,如果满足同时加入年轻用户表(保证在年轻用户表里的用户都在用户表)<br>
-<code>SQL CREATE TRIGGER youngUser AFTER INSERT ON user REFERENCING NEW TABLE newUser FOR EACH STATEMENT INSERT INTO youngUser (id,name,age,rating) SELECT id,name,age,rating FROM newUser N WHERE N.age &lt;= 18</code><br>
-AFTER BEFORE 都是监听的事件,以上是监听插入user表时候触发.<br>
-REFERENCING NEW表示引用的是插入语句中的新值(也可用OLD)TABLE表示新插入的值被看作一张表并且为其取名newUser.整句含义为,对user表中新插入的语句我看作一张新表newUser,并且使用它的新值.<br>
-FOR EACH STATEMENT 表示对每一条插入的语句(操作粒度也可以是一条元组,一个值或者一个表)做操作</p>
-<h6 id="执行规则">执行规则:</h6>
-<p>立即执行:当事件发生时候立即去检查是否满足条件</p>
-<h6 id="连锁触发">连锁触发:</h6>
-<p>当发生某个事件并满足条件导致触发触发器时候,被触发的语句也是SQL语句,SQL语句也可能触发其他的触发器,导致连锁触发<br>
-方案:限制连锁触发的次数</p>
 ]]></content>
     </entry>
 </feed>
