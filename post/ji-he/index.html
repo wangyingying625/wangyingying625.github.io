@@ -243,6 +243,9 @@ R1=∅,R2={&lt;a1,b1&gt;},R3={<a2>,<b1>},R4={&lt;a1,b1&gt;,&lt;a2,b1&gt;}<br>
 B到A的二元关系有:<br>
 R1=∅,R2={&lt;b1,a1&gt;},R3={<b1>,<a2>},R4={&lt;b1,a1&gt;,&lt;b1,a2&gt;}</p>
 </li>
+<li>
+<p>恒等关系:A中每个元素自己和自己有关系的那种关系</p>
+</li>
 </ol>
 <h3 id="基本运算">基本运算:</h3>
 <ol>
@@ -274,8 +277,36 @@ R1=∅,R2={&lt;b1,a1&gt;},R3={<b1>,<a2>},R4={&lt;b1,a1&gt;,&lt;b1,a2&gt;}</p>
 <li>传递:当X和Y有关系,并且Y和Z有关系时,X和Z有关系(R和R的合成是R的子集)</li>
 </ol>
 <figure data-type="image" tabindex="1"><img src="https://wangyingying625.github.io/post-images/1615280969332.jpg" alt="" loading="lazy"></figure>
-<h3 id="等价关系">等价关系</h3>
-<h3 id="序关系">序关系</h3>
+<h3 id="闭包">闭包:</h3>
+<p>关系的幂:<br>
+<img src="https://wangyingying625.github.io/post-images/1615283212083.jpg" alt="" loading="lazy"><br>
+包含给定的元素并且具有给定性质的最小集合</p>
+<ol>
+<li>自反闭包:要求都包含关系R,结果的二元关系是自反的(原来的R可能不自反,加一些元素使其自反),并且是最小的,R的自反闭包用r(R)表示</li>
+<li>对称闭包:...结果的二元关系是对称的...,R的对称闭包用s(R)表示(任意两个结点都是对称的)</li>
+<li>传递闭包:...结果的二元关系是传递的...R的传递闭包用t(R)表示(任意两个结点都是传递的)<br>
+r(R1UR2)=r(R1)Ur(R2)并起来并不会增加环的数量<br>
+s(R1UR2)=s(R1)Us(R2)两点之间本来就都有两条边,并起来并不会增加双向边的数量<br>
+t(R1UR2)⊇t(R1)Ut(R2)并了以后长度为2 的路径会更多</li>
+</ol>
+<h4 id="求法">求法:</h4>
+<p>r(R)=RUIA(恒等关系);矩阵上就是把对角线元素都改为1;图上就是每个点都加环<br>
+s(R)=RUR逆;矩阵上变为对称阵;原来无边的不用加,原来有一条半的加反向边<br>
+t(R)=RUR²UR³U...<br>
+<img src="https://wangyingying625.github.io/post-images/1615287920816.jpg" alt="" loading="lazy"><br>
+sr(R)=rs(R) , tr(R)=rt(R) , st(R)不一定对称⊆ts(R)</p>
+<h3 id="等价关系用来分类">等价关系(用来分类)</h3>
+<p>设A≠∅,且R⊆AxA,若R是自反的对称的传递的,则R是等价关系</p>
+<h4 id="性质-2">性质:</h4>
+<p>设R是A≠∅上的等价关系,则⩝x,y∈A有</p>
+<ol>
+<li>[x]≠∅(必定有x自己)</li>
+<li>xRy=&gt;[x]=<a href="x%E5%92%8Cy%E6%9C%89%E5%85%B3%E7%B3%BB,y%E4%B9%9F%E5%92%8Cx%E6%9C%89%E5%85%B3%E7%B3%BB,y%E8%BF%98%E5%92%8C%E5%AE%83%E6%89%80%E5%9C%A8%E7%AD%89%E4%BB%B7%E7%B1%BB%E7%9A%84%E5%85%B6%E4%BB%96%E5%85%83%E7%B4%A0%E6%9C%89%E5%85%B3%E7%B3%BB,%E9%82%A3x%E4%B9%9F%E5%92%8Cy%E7%9A%84%E7%AD%89%E4%BB%B7%E7%B1%BB%E6%9C%89%E5%85%B3%E7%B3%BB">y</a></li>
+<li>¬ xRy=&gt;[x]∩[y]≠∅当两元素没关系时他们的等价类一定不相交</li>
+<li>所有等价类并起来就是原集合A</li>
+</ol>
+<h3 id="商集分类结果">商集:分类结果</h3>
+<h3 id="序关系用来在一个类里排序">序关系(用来在一个类里排序)</h3>
 <h1 id="函数">函数</h1>
 <h1 id="自然数">自然数</h1>
 <h1 id="基数和序数">基数和序数</h1>
@@ -290,6 +321,8 @@ R1=∅,R2={&lt;b1,a1&gt;},R3={<b1>,<a2>},R4={&lt;b1,a1&gt;,&lt;b1,a2&gt;}</p>
 		
 		<div class="nav-links3">
       
+		<div class="wow bounceInLeft nav-previous3"><a href="https://wangyingying625.github.io/post/ai-du-shu-de-da-fei-tu/" rel="prev"> 爱读书的大肥兔</a></div>
+		 
 		 
 		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/owasp-wen-ti-ban/" rel="next"> OWASP问题版</a></div>
 		
