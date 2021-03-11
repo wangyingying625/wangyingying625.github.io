@@ -2,13 +2,144 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-10T14:57:31.343Z</updated>
+    <updated>2021-03-11T11:40:09.717Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
     <logo>https://wangyingying625.github.io/images/avatar.png</logo>
     <icon>https://wangyingying625.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, mldwyy</rights>
+    <entry>
+        <title type="html"><![CDATA[代数系统]]></title>
+        <id>https://wangyingying625.github.io/post/dai-shu-xi-tong/</id>
+        <link href="https://wangyingying625.github.io/post/dai-shu-xi-tong/">
+        </link>
+        <updated>2021-03-11T02:23:53.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="代数结构">代数结构</h2>
+<p>结构=集合+对应规则+公理</p>
+<h3 id="代数系统基本概念">代数系统基本概念</h3>
+<h4 id="代数系统的构成">代数系统的构成:</h4>
+<ol>
+<li>成分:载体(集合)和运算</li>
+<li>公理:运算性质(交换结合分配零元单位元等)</li>
+</ol>
+<h5 id="n元运算">n元运算</h5>
+<h6 id="定义">定义:</h6>
+<ol>
+<li>设A是集合,函数f:AXA-&gt;A称为A上的二元运算,也可以写为f(&lt;a1,a2&gt;)=a3</li>
+<li>AXA意味着该二元运算的定义域是A即两次从A中任选元素都能进行运算(两次可选同意元素),如果随便取两次取出的a不能进行f这种运算,那么f就不是二元运算.(除法不是实数集合上的二元运算,当除数取0时候不能运算)</li>
+<li>值域也是A,即运算对集合是封闭的</li>
+</ol>
+<h6 id="写法">写法:</h6>
+<p>n元运算的写法:<br>
+o(x1,x2,x3,x4,x5...)=y</p>
+<h6 id="表示">表示:</h6>
+<ol>
+<li>表达式:xoy=x+y*2</li>
+<li>运算表,左边第一列和上边第一行列出参与运算的表达式,中间写入运算的结果</li>
+</ol>
+<h6 id="二元运算律">二元运算律:</h6>
+<p>####### 只涉及一个二元运算的:</p>
+<ol>
+<li>交换:aob=boa</li>
+<li>结合:(aob)oc=ao(boc)</li>
+<li>幂等:aoa=a</li>
+<li>消去:aob=aoc∧a≠𝛉=&gt;b=c(a不是零元)<br>
+####### 涉及两个运算的</li>
+<li>分配:ao(b<em>c)=(aob)</em>(aoc),(b<em>c)oa=(boa)</em>(coa)</li>
+<li>吸收:ao(a<em>b)=a,a</em>(aob)=a</li>
+</ol>
+<h6 id="特异元素的定义与性质">特异元素的定义与性质</h6>
+<ol>
+<li>单位元e:eoa=aoe=a(对系统中所有元素都满足,一系统最多一个)运算中不起作用</li>
+<li>零元𝛉:𝛉oa=ao𝛉=𝛉(对系统中所有元素)</li>
+<li>幂等元a:aoa=a</li>
+<li>可逆元x:xoy=yox=e</li>
+</ol>
+<p>单位元和零元存在必唯一<br>
+可结合的运算逆元必定唯一</p>
+<h6 id="判断某一给定运算是否满足某些二元运算律是否有特异元素">判断某一给定运算是否满足某些二元运算律,是否有特异元素</h6>
+<ol>
+<li>表达式法</li>
+<li>表格法</li>
+</ol>
+<h4 id="构成代数系统的方法">构成代数系统的方法</h4>
+<ol>
+<li>从原有代数系统抽一子集出来</li>
+<li>由不同的代数系统做笛卡尔积(把两个不同的代数系统组合成新的代数系统)</li>
+<li>抽象</li>
+</ol>
+<h3 id="代数系统">代数系统</h3>
+<h4 id="概念">概念</h4>
+<ol>
+<li>
+<p>成分:V=&lt;A,o,*...&gt;<br>
+其中:A是载体,非空<br>
+后面都是对集合A的各种运算</p>
+</li>
+<li>
+<p>分类:<br>
+同类型的:构成成分相同(如都有两个二元运算的&lt;Z,+,-&gt;和&lt;S,*,/&gt;)<br>
+同种的:构成成分和公理都相同</p>
+<p>构成成分:运算个数,对应运算的元数<br>
+公理:交换,结合,幂等,吸收,分配,小区率,单位元...</p>
+</li>
+</ol>
+<h4 id="由一个代数系统产生更多代数系统的方法">由一个代数系统产生更多代数系统的方法</h4>
+<h5 id="子代数">子代数:</h5>
+<p>代数系统里是否存在一子集,子集能良好的保持代数系统的性质:</p>
+<ol>
+<li>定义:设V=&lt;A,o1,o2,o3,...&gt;是代数系统,B是A的非空子集.若B对于V中的所有运算封闭,则称&lt;B,o1,o1...&gt;是V的子代数,若B真包含与A则称其是V的真子代数</li>
+<li>当集合A里只有一个元素时是平凡的子代数</li>
+</ol>
+<h5 id="积代数">积代数:</h5>
+<p>一. 定义:设V1=&lt;A,o,o1,o2...&gt;与V2=&lt;B,*,*1,<em>2...&gt;是同类型的代数系统,对于i=1,2,3...,两个代数系统中oi与</em>i对应的元数一样,则V1xV2=&lt;AxB,<sub>,</sub>1,~2,...&gt;<br>
+其中:AxB是集合A与B的笛卡尔积<br>
+本来的代数系统集合A是元素为数字或者字符或者矩阵的集合,生成的积代数的元素A'是序偶对的集合<br>
+<img src="https://wangyingying625.github.io/post-images/1615445753647.jpg" alt="" loading="lazy"><br>
+二. 性质:</p>
+<ol>
+<li>若第一个系统的第i个运算可交换,第二个系统的第i个运算也可交换,则生成的积代数的运算oi也是可交换的(可结合和幂等也有一样的性质)</li>
+<li>若原来的因子运算oi,oj可分配且*i,*j可分配,那么新生成的<sub>i,</sub>j也可分配(吸收率也有改性质)</li>
+<li>两个系统中的针对相同位置的运算oi,*i的零元和单位元相应的组合也是新运算中的零元和单位元</li>
+<li>两个系统中的针对相同位置含单位元的运算oi,*i的逆元相应的组合也是新运算中的逆元</li>
+</ol>
+<h4 id="同构和同态代数系统之间的关系">同构和同态(代数系统之间的关系):</h4>
+<p>把一个代数系统同函数映射到另外一个代数系统<br>
+两个系统如果同构就没有区别,不过是赋予了不同的含义</p>
+<h5 id="同态可以把一些有相同性质的代数系统联系起来">同态:(可以把一些有相同性质的代数系统联系起来)</h5>
+<p>V1=&lt;A,o,o1,o2...&gt;,V2=&lt;B,*,*1,*2...&gt;是同类型的代数系统,假设oi是r元的,*i也是r元的,若满足:<br>
+f(oi(a1,a2,a3...))=*i(f(a1),f(a2),f(a3)...),其中a1,a2,a3都是A中的元素<br>
+即先运算再映射的值与先映射再运算的值相等<br>
+<img src="https://wangyingying625.github.io/post-images/1615449353651.jpg" alt="" loading="lazy"></p>
+<h5 id="同构">同构:</h5>
+<p>同态按照映射类型可分为:<br>
+单同态<br>
+满同态<br>
+同构<br>
+<img src="https://wangyingying625.github.io/post-images/1615451578931.jpg" alt="" loading="lazy"></p>
+<h4 id="同余关系和商代数">同余关系和商代数</h4>
+<p>同余关系是一个等价关系,通过这个关系可以把元素划分成等价类.两个元素彼此等价,则运算过程中替换后,运算结果还等价.由此可把类抽象,即认为同一个类中的元素是一个元素.<br>
+<img src="https://wangyingying625.github.io/post-images/1615458497151.jpg" alt="" loading="lazy"></p>
+<h4 id="把代数系统进行分类得到不同种类的代数系统">把代数系统进行分类,得到不同种类的代数系统</h4>
+<ol>
+<li>只有一个运算的半群和群</li>
+<li>有两个运算的环域</li>
+<li>还有两个运算的格和布尔代数</li>
+</ol>
+<hr>
+<h3 id="半群和独异点只有一个二元运算">半群和独异点(只有一个二元运算)</h3>
+<p>广群:只需具备封闭性--&gt;添加公理<br>
+半群:可结合的--&gt;添加公理<br>
+独异点:含单位元</p>
+<h4 id="半群">半群:</h4>
+<h4 id="独异点含幺半群">独异点(含幺半群)</h4>
+<p>可通过对半群增加单位元并且定义与单位元相关的运算扩张而成</p>
+<h3 id="群">群(*)</h3>
+<h3 id="环和域">环和域</h3>
+<h3 id="格和布尔代数">格和布尔代数</h3>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[离散数学思维导图]]></title>
         <id>https://wangyingying625.github.io/post/chi-san-shu-xue-si-wei-dao-tu/</id>
@@ -18,6 +149,8 @@
         <content type="html"><![CDATA[<h2 id="数理逻辑">数理逻辑</h2>
 <figure data-type="image" tabindex="1"><img src="https://wangyingying625.github.io/post-images/1615366403802.png" alt="" loading="lazy"></figure>
 <h2 id="集合论">集合论</h2>
+<figure data-type="image" tabindex="2"><img src="https://wangyingying625.github.io/post-images/1615429075509.png" alt="" loading="lazy"></figure>
+<h2 id=""></h2>
 ]]></content>
     </entry>
     <entry>
@@ -607,60 +740,6 @@ F(x)表示x具有性质F<br>
 <li>2NF:1NF+必须有主键+非主键的属性必须完全依赖于主键不能部分依赖</li>
 <li>3NF:2NF+非主键必须直接依赖于主键不能传递依赖</li>
 <li>BCNF:3NF+若属性A能决定属性B要求属性A必须是主键</li>
-</ol>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[数据库设计]]></title>
-        <id>https://wangyingying625.github.io/post/shu-ju-ku-she-ji/</id>
-        <link href="https://wangyingying625.github.io/post/shu-ju-ku-she-ji/">
-        </link>
-        <updated>2021-03-07T03:34:04.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="基本概念">基本概念:</h2>
-<h3 id="函数依赖">函数依赖:</h3>
-<p>数据库中一个属性的值可以决定其他属性的一个值(id决定名字)</p>
-<h3 id="多值依赖">多值依赖:</h3>
-<p>一个属性的值可以决定其他属性的一组值(老师的id 决定所上课程)</p>
-<h3 id="连接依赖">连接依赖:</h3>
-<h2 id="范式">范式:</h2>
-<h3 id="1nf不允许大表套小表">1NF:不允许大表套小表</h3>
-<h3 id="2nf1nf属性中没有任何元素对主键有部分函数依赖">2NF:1NF+属性中没有任何元素对主键有部分函数依赖</h3>
-<p>student(sid,sname,sage,cid,cgrade)<br>
-其中主键是(sid,cid),因为成绩cgrade只能由sid+cid唯一决定<br>
-但是sname可仅仅用sid决定,即sname,sage对主键存在部分函数依赖</p>
-<h4 id="不满足的影响">不满足的影响</h4>
-<ol>
-<li>插入异常:要插入学生就得插入课程</li>
-<li>删除异常:如果学生的所有课需要删除,那么学生信息将被删除</li>
-<li>更新异常:学生有五门课程,那么他的基本信息就需要插入五次</li>
-</ol>
-<h4 id="解决办法">解决办法:</h4>
-<p>拆表,一张表只关注一个实体</p>
-<h3 id="3nf2nf属性之间无传递依赖">3NF:2NF+属性之间无传递依赖</h3>
-<p>1NF消除属性对主键的部分函数依赖-&gt;2NF消除属性间的传递依赖-&gt;3NF<br>
-emp(eid,elevel,emoney)<br>
-其中工资emoney依赖于elevel<br>
-elevel依赖于eid<br>
-之间存在传递依赖</p>
-<h4 id="不满足的影响-2">不满足的影响:</h4>
-<ol>
-<li>插入异常:员工级别无法确定时候级别对应的工资无法录入</li>
-<li>删除异常:三级的员工都被删掉后,对应的工资状况也就被删了</li>
-<li>更新异常:三级的人有五个,则三级对应的工资信息就被重复五次,维护困难</li>
-</ol>
-<h3 id="bcnf">BCNF:</h3>
-<p>A-&gt;B则要求A一定是主键(B函数依赖于A时,要求A一定是主键)</p>
-<h4 id="解决办法-2">解决办法:</h4>
-<p>拆表<br>
-##数据库设计:</p>
-<h3 id="面向过程的方法以业务流程为中心不分析数据之间的内在关系">面向过程的方法:以业务流程为中心,不分析数据之间的内在关系</h3>
-<h3 id="面向数据的方法">面向数据的方法:</h3>
-<h4 id="设计流程">设计流程:</h4>
-<ol>
-<li>需求分析:数据字典</li>
-<li>概念设计:E-R图,独立于DBMS.抽象实体-&gt;定义实体间联系-&gt;画E-R图</li>
-<li>逻辑设计:外模式设计,数据类型设计.建表,把E-R图生成表(命名规则,数据类型),必要时定义视图</li>
-<li>物理设计:索引,文件结构(堆文件,簇集,hash文件)分区设计(大型数据库才有)</li>
 </ol>
 ]]></content>
     </entry>
