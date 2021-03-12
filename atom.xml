@@ -2,13 +2,56 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-11T11:40:09.717Z</updated>
+    <updated>2021-03-12T11:31:14.879Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
     <logo>https://wangyingying625.github.io/images/avatar.png</logo>
     <icon>https://wangyingying625.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, mldwyy</rights>
+    <entry>
+        <title type="html"><![CDATA[c语言]]></title>
+        <id>https://wangyingying625.github.io/post/c-yu-yan/</id>
+        <link href="https://wangyingying625.github.io/post/c-yu-yan/">
+        </link>
+        <updated>2021-03-12T09:25:49.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="unsigned与signed的转换">unsigned与signed的转换</h3>
+<p>负数用补码表示,signed转化为unsigned时候不对数据做任何转换,只改变对数据的解释方式(即把以补码表示的负数直接输出)</p>
+<pre><code class="language-c"> unsigned short a = -1;
+    short b = a;
+    ```
+    输出b:-1,a:65535
+
+### scanf结束之后会有一个'\n',如果scanf之后跟着getchar将会认为scanf结束时候的'\n'是getchar的输入
+需要多加一个getchar()屏蔽\n的影响</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[常见算法]]></title>
+        <id>https://wangyingying625.github.io/post/chang-jian-suan-fa/</id>
+        <link href="https://wangyingying625.github.io/post/chang-jian-suan-fa/">
+        </link>
+        <updated>2021-03-12T08:27:22.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="把一个数组根据下标是奇数还是偶数分割成两个数组">把一个数组根据下标是奇数还是偶数分割成两个数组</h3>
+<p>假设要分割的数组a=[1,2,3,4,5,6,7,8,9]</p>
+<ol>
+<li>定义一个变量i用来遍历数组a;</li>
+<li>定义一个变量j用来标识数组b中下一个元素要存储的位置;</li>
+<li>定义一个变量k用来标识数组c中下一个元素要存储的位置<br>
+当(i%2)==0把a[i]中的值存入数组b[j++]<br>
+否则把a[i]中的值存入数组c[k++]</li>
+</ol>
+<h3 id="删除字符串中的所有空格并且输出删除后的字符串以及被删除的空格数">删除字符串中的所有空格并且输出删除后的字符串以及被删除的空格数</h3>
+<p>假设被操作的字符串是s=['h','e','l','l','o',' ','w','o','r','d']</p>
+<ol>
+<li>定义一个变量i用来遍历字符串s</li>
+<li>定义一个变量j用来标识删除过后的字符串下个元素要存入的位置</li>
+<li>遍历字符串s,如果当前字符是' ',则指针i后移;若当前字符不是' '则把当前字符存入s[j]的位置,并且j++</li>
+<li>被删除的空格数就是i-j</li>
+</ol>
+<h3 id=""></h3>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[代数系统]]></title>
         <id>https://wangyingying625.github.io/post/dai-shu-xi-tong/</id>
@@ -39,13 +82,13 @@ o(x1,x2,x3,x4,x5...)=y</p>
 <li>运算表,左边第一列和上边第一行列出参与运算的表达式,中间写入运算的结果</li>
 </ol>
 <h6 id="二元运算律">二元运算律:</h6>
-<p>####### 只涉及一个二元运算的:</p>
+<p>只涉及一个二元运算的:</p>
 <ol>
 <li>交换:aob=boa</li>
 <li>结合:(aob)oc=ao(boc)</li>
 <li>幂等:aoa=a</li>
 <li>消去:aob=aoc∧a≠𝛉=&gt;b=c(a不是零元)<br>
-####### 涉及两个运算的</li>
+涉及两个运算的</li>
 <li>分配:ao(b<em>c)=(aob)</em>(aoc),(b<em>c)oa=(boa)</em>(coa)</li>
 <li>吸收:ao(a<em>b)=a,a</em>(aob)=a</li>
 </ol>
@@ -131,13 +174,33 @@ f(oi(a1,a2,a3...))=*i(f(a1),f(a2),f(a3)...),其中a1,a2,a3都是A中的元素<br
 <h3 id="半群和独异点只有一个二元运算">半群和独异点(只有一个二元运算)</h3>
 <p>广群:只需具备封闭性--&gt;添加公理<br>
 半群:可结合的--&gt;添加公理<br>
-独异点:含单位元</p>
-<h4 id="半群">半群:</h4>
+独异点:含单位元--&gt;每个元素都有逆<br>
+半群</p>
 <h4 id="独异点含幺半群">独异点(含幺半群)</h4>
 <p>可通过对半群增加单位元并且定义与单位元相关的运算扩张而成</p>
 <h3 id="群">群(*)</h3>
-<h3 id="环和域">环和域</h3>
-<h3 id="格和布尔代数">格和布尔代数</h3>
+<h4 id="群的定义">群的定义</h4>
+<ol>
+<li>定义与实例<br>
+要求群中有一个二元运算*,且<em>满足结合律,每个元素都有关于二元运算</em>的逆元</li>
+<li>术语<br>
+平凡群:只含有单位元e<br>
+交换群:阿贝尔群<br>
+元素a的阶:使aⁿ=e的最小n,有的群中元素的阶不存在(有限)</li>
+</ol>
+<h5 id="子群">子群</h5>
+<p>若G是群,H是G的非空子集,若H关于G中运算构成群,则称H为G的子群,记作H≤G;如果H是真子集,就是真子群<br>
+判定定理:<br>
+H非空 + H∈G + 运算再H中可结合 + 单位元在H内  + 每个元素都有逆 + 运算在H中封闭 =&gt;<br>
+任意a,b∈H,ab逆∈H</p>
+<h3 id="循环群">循环群</h3>
+<p>群可以由其中一个元素生成<br>
+如整数加群可看作由整数1生成</p>
+<ol>
+<li>循环群的生成元<br>
+若G是无限循环群,则G的生成怨是a 和a的逆</li>
+</ol>
+<h3 id="格">格</h3>
 ]]></content>
     </entry>
     <entry>
@@ -416,7 +479,29 @@ sr(R)=rs(R) , tr(R)=rt(R) , st(R)不一定对称⊆ts(R)</p>
         </link>
         <updated>2021-03-08T08:22:15.000Z</updated>
         <content type="html"><![CDATA[<h1 id="图">图</h1>
-<h2 id="基本概念">基本概念</h2>
+<h3 id="基本概念">基本概念</h3>
+<p>由定点和边组成<br>
+无向图的边集合是无序集()<br>
+有向图的是卡式积的集合&lt;&gt;</p>
+<ol>
+<li>n阶图:图有n个定点</li>
+<li>有限图:顶点集有限</li>
+<li>零图:无边的图E=∅</li>
+<li>平凡图:只有一个定点的图,一阶零图</li>
+<li>空图:顶点和边都是空集合</li>
+<li>出度</li>
+<li>入度</li>
+<li>度</li>
+<li>简单图:没有环,没有平行边的图(度数介于0~(n-1))</li>
+</ol>
+<h3 id="图的关系">图的关系:</h3>
+<ol>
+<li>图同构:在两图顶点间建立双射(一一对应关系),使得两个丁点间有一条边当且仅当在另一图中的两个对应顶点间也有一条边,这样两图之间的性质完全一样(只关心顶点间是否有线,不关心顶点位置)</li>
+</ol>
+<h3 id="基本定理">基本定理:</h3>
+<ol>
+<li>握手定理:图所有度(入度+出度)的和=边数*2</li>
+</ol>
 <h2 id="连通性">连通性</h2>
 <h2 id="欧拉图与哈密顿图">欧拉图与哈密顿图</h2>
 <h2 id="树">树</h2>
@@ -580,167 +665,6 @@ F(x)表示x具有性质F<br>
 可用基本等值式求前束范式<br>
 <img src="https://wangyingying625.github.io/post-images/1615203809312.jpg" alt="" loading="lazy"></p>
 <hr>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[数据库思维导图]]></title>
-        <id>https://wangyingying625.github.io/post/shu-ju-ku-si-wei-dao-tu/</id>
-        <link href="https://wangyingying625.github.io/post/shu-ju-ku-si-wei-dao-tu/">
-        </link>
-        <updated>2021-03-07T11:20:07.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="数据模型">数据模型</h2>
-<figure data-type="image" tabindex="1"><img src="https://wangyingying625.github.io/post-images/1615116032962.png" alt="" loading="lazy"></figure>
-<h2 id="数据库管理系统dbms">数据库管理系统DBMS</h2>
-<figure data-type="image" tabindex="2"><img src="https://wangyingying625.github.io/post-images/1615129998237.png" alt="" loading="lazy"></figure>
-<h2 id="关系数据库设计">关系数据库设计</h2>
-<figure data-type="image" tabindex="3"><img src="https://wangyingying625.github.io/post-images/1615130073999.png" alt="" loading="lazy"></figure>
-<h2 id="数据库安全性">数据库安全性</h2>
-<figure data-type="image" tabindex="4"><img src="https://wangyingying625.github.io/post-images/1615182369785.png" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[数据库问题]]></title>
-        <id>https://wangyingying625.github.io/post/shu-ju-ku-wen-ti/</id>
-        <link href="https://wangyingying625.github.io/post/shu-ju-ku-wen-ti/">
-        </link>
-        <updated>2021-03-07T09:16:27.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="什么是数据库">什么是数据库?</h3>
-<p>答:从本质上看,数据库就是信息的集合,这个集合能长期保存,可以共享并且有一定的数据结构</p>
-<h3 id="什么是数据">什么是数据?</h3>
-<p>答:数据是数据库中存储的基本对象.</p>
-<h3 id="什么是数据库系统">什么是数据库系统:</h3>
-<p>数据库系统是有数据库,数据,数据库管理系统和数据库管理员组成的系统</p>
-<h3 id="什么是数据库管理系统dbms">什么是数据库管理系统(DBMS):</h3>
-<h3 id="dbms有什么功能">DBMS有什么功能:</h3>
-<ol>
-<li>允许用户使用数据定义语言(DDL)建立新的数据库并定义它的模式(逻辑结构)</li>
-<li>允许使用数据库操作语言(DML)和查询语言(QL)为用户提供查询和更新数据库的接口</li>
-<li>控制多个用户的存取,一个用户对数据库的操作不影响另一个用户</li>
-<li>支持大量数据的长期存储</li>
-<li>在面对故障时能有恢复数据库的能力</li>
-</ol>
-<h3 id="dbms的功能要求dbms具备哪些结构">DBMS的功能要求DBMS具备哪些结构:</h3>
-<ol>
-<li>语法分析器:对用户提交的SQL语句进行语法分析</li>
-<li>授权检查:检查尝试执行SQL语句的用户是否有权限执行它</li>
-<li>查询分析和查询处理</li>
-<li>访问管理:解决如何把表存储成磁盘中的文件流</li>
-</ol>
-<h3 id="什么是数据模型">什么是数据模型</h3>
-<p>用来描述数据或者是信息的标记,一般由三部分组成</p>
-<ol>
-<li>数据结构</li>
-<li>数据操作</li>
-<li>完整性约束条件</li>
-</ol>
-<h3 id="关系数据模型有什么特点">关系数据模型有什么特点:</h3>
-<p>关系数据模型把现实中的实体和实体间的联系都抽象成关系,即表.对关系操作的内容和结果都是表</p>
-<h3 id="sql中的三种关系">SQL中的三种关系:</h3>
-<ol>
-<li>表:在物理磁盘中存储</li>
-<li>视图:虚表,不在物理磁盘中存储其内容,只在数据库中存储其定义,需要内容时通过数据库中的表根据用户的需求映射</li>
-<li>临时表:不在数据库中存储其内容也不在数据库中存储其定义,由SQL语句临时构造,在SQL语句执行完之后就被删除</li>
-</ol>
-<h3 id="如何建立一个关系型数据库">如何建立一个关系型数据库:</h3>
-<p>建立数据库需要回答:存储什么信息;信息元素之间如何关联;需要有什么样的约束</p>
-<ol>
-<li>需求分析:考察数据库中可能涉及到的数据以及数据的特征,建立数据字典</li>
-<li>概念设计:抽象实体,建立实体间联系,画出E-R图</li>
-<li>逻辑设计:把E-R图转化为表</li>
-<li>物理设计:设计数据库的存储结构及访问方法.考虑文件的存储形式和索引的建立.</li>
-</ol>
-<h3 id="什么是事务">什么是事务</h3>
-<p>事务是对数据库操作的基本单位,本质上是一组SQL语句;<br>
-事务具有原子性,原子性指的是SQL语句要么全部执行,要么一句也不执行<br>
-事务具有一致性:数据库的一个状态经过一个事务运行到另外一个状态<br>
-事务具有隔离性:并发执行的多个事务间互不干扰<br>
-事务具有持久性:一个事务若成功执行,那它对数据库的影响就是永久的</p>
-<p>引入事务的作用有:</p>
-<ol>
-<li>数据库异常时的恢复(根据数据库的更新策略不同采取的具体措施也不同,commit列表和active列表)</li>
-<li>提供事务回滚,能让数据库从一个状态运行到另一个状态</li>
-<li>多应用程序并发访问数据库时为这些程序提供隔离方法(加锁,两段锁协议能避免多用户并发访问数据库时发生冲突即事务可串行调度,加锁又可能让系统死锁,死锁的预防策略是一次封锁,等待死亡)</li>
-</ol>
-<h3 id="什么是死锁什么是活锁">什么是死锁,什么是活锁</h3>
-<p>死锁:A申请B占有的排他锁;B也申请A占有的排他锁,导致两个事务都无法推进下去的情况<br>
-活锁:A申请B占有的排他锁,B释放锁后给了C...A长期得不到锁</p>
-<h3 id="预防死锁的策略">预防死锁的策略:</h3>
-<ol>
-<li>一次封锁发:任何事务执行前要求它获得所有需要的锁,如果不能获得全部需要的锁就不执行</li>
-<li>等待死亡法:为每个事务增加一个时间戳属性,当事务A申请事务B的锁时,比较时间戳,若A比B年轻,事务A回滚,等待某一随机时间再用之前的时间戳申请;若A比B年老,事务A等待事务B释放锁</li>
-</ol>
-<h3 id="dbms查询优化的策略">DBMS查询优化的策略:</h3>
-<ol>
-<li>代数优化:DBMS对SQL语句形成的操作树进行处理:在查询结果不变的情况下尽量把一元操作往操作树的叶子部位压</li>
-<li>操作优化:用最优的方式执行基本操作,最主要的是连接操作<br>
-对连接操作的优化策略有:连接操作时每次从磁盘中取一个块的元组放进缓冲区,对被连接属性的比较在内存中计算,从而减少IO次数,减少连接操作耗时,本质上是用空间换时间.<br>
-对连接属性添加B+树索引,有索引的表用做内循环,减少对连接属性的比较时间<br>
-对连接属性按照hash映射存储,这样连接属性值相同的就在同一个hash块里,同样增加了对连接属性的比较时间</li>
-</ol>
-<h3 id="事务对数据库的更新策略有哪些">事务对数据库的更新策略有哪些</h3>
-<ol>
-<li>更改直接写进数据库:<br>
-创建事务-&gt;将事务id写入active列表-&gt;把旧数据记入log-&gt;新数据把旧数据覆盖-&gt;事务id写入commit列表-&gt;事务id从active列表中删除<br>
-重启动检查时,若发现事务id只在active列表中出现,那么对该事务进行undo(撤销)操作,回滚事务,然后从active列表删除其id;若事务id在active和commit列表都出现,说明该事务已经对数据库进行了修改,只是还没来得及从commit中删除其id就出了故障,那么只需从commit中删除其id;若只在commit中发现事务id证明事务已经顺利执行完,不做任何事.</li>
-<li>更改在commit时写进数据库:<br>
-创建事务-&gt;将事务id写入active列表-&gt;把新数据写入log-&gt;当数据写完需要commit时事务id写入commit-&gt;把log中数据写进数据库-&gt;事务id从active中删除<br>
-重启检查时,若发现事务id只在active中,在active列表中删除其id<br>
-若发现事务id在commit和active中,redo<br>
-只在commit中找到,nothing to do</li>
-<li>再新建一个进程,一旦磁盘空闲时,这个进程就开始搬数据<br>
-创建事务-&gt;把其id写入active列表-&gt;把新数据写入log-&gt;同时如果磁盘空闲,同时把新数据写入数据库-&gt;事务id写入commit列表-&gt;commit事务前检查是否所有需要更爱的数据全部写入数据库-&gt;从active列表删除事务id<br>
-重启检查时,若发现事务id只在active列表,undo并且删除active列表中的id<br>
-若事务id同时出现在commit列表和active列表,redo<br>
-事务id只在commit中,nothing to do</li>
-</ol>
-<h3 id="多事务并发时候可能会产生冲突这些冲突可能会造成什么影响">多事务并发时候可能会产生冲突,这些冲突可能会造成什么影响:</h3>
-<ol>
-<li>读写冲突--读脏数据:事务A改了数据1后事务B去读数据1,在事务B读完之后事务A执行异常回滚事务,导致事务B读取到了脏数据</li>
-<li>读写冲突--不可重复读:事务A读完数据1后事务B对数据1进行了更改,事务A再次读数据1时和上次读到的不一致</li>
-<li>写写冲突--丢失更新:事务A写了数据1还没来得及存回数据库时,事务B读取了数据1,也对其进行修改</li>
-</ol>
-<h3 id="如何解决这些冲突带来的影响如何让事务间的执行可串行化">如何解决这些冲突带来的影响(如何让事务间的执行可串行化):</h3>
-<p>可串行化调度:计算机对并发执行事务的调度是随机的,在计算机中多个并发执行事务的结果是正确的当且仅当它的结果与按某一次序顺序执行时候的结果相同.<br>
-加锁:</p>
-<ol>
-<li>X锁:X锁是排他锁,当对某一数据加了X锁之后其他事务无法再向该数据加锁</li>
-<li>X+S锁:X锁排他,S锁不排他.当对某一数据加了S锁时,允许其他事务再对该数据加S锁,但不允许加X锁<br>
-加了X锁的数据不允许其他事务对它加任何锁</li>
-<li>X+S+U锁:U锁是考虑到对数据库的更改也分为读数据库和写数据库两步,当用户要修改数据库时先申请U锁,加了U锁的数据允许再加S锁,但不允许再加U和X锁</li>
-</ol>
-<h3 id="两段锁协议">两段锁协议:</h3>
-<p>事务分为两个阶段:第一个阶段获得锁,在这个阶段事务可以申请获得任何数据上的任何锁<br>
-第二个阶段是释放锁,在这个阶段事务不能再申请任何锁,只能释放锁<br>
-若并发事务都遵守两段锁协议则对这些事务的任何并发调度都是可串行化的(是可串行化的策略,并不是避免死锁的)</p>
-<h3 id="对数据库的安全性控制有哪些措施">对数据库的安全性控制有哪些措施:</h3>
-<ol>
-<li>用户身份鉴别:为用户设置密码</li>
-<li>访问控制:对用户进行授权</li>
-<li>数据加密:对敏感数据加密存储</li>
-<li>审计追踪:对关键属性添加审计指令,这些数据就会被监视,当有操作在这些数据上时就会记录</li>
-</ol>
-<h3 id="为数据库定义约束的方法">为数据库定义约束的方法:</h3>
-<ol>
-<li>用断言定义: ASSERT ageRe on user:age&gt;0</li>
-<li>定义表时用check子句:CREATE TABLE user(id INT,name VARCHAR(10),age INT)CHECK (age&gt;0)</li>
-</ol>
-<h3 id="常用的聚集函数">常用的聚集函数:</h3>
-<ol>
-<li>AVG</li>
-<li>MIN</li>
-<li>MAX</li>
-<li>COUNT</li>
-<li>SUM</li>
-</ol>
-<h3 id="group-by使用时的要求">GROUP BY使用时的要求:</h3>
-<p>在select指定的字段要么要包含在Group By语句的后面，作为分组的依据；要么就要被包含在聚合函数中</p>
-<h3 id="数据库设计中的各范式及其要求">数据库设计中的各范式及其要求:</h3>
-<ol>
-<li>1NF:强调列的原子性,即要求不能大表套小表</li>
-<li>2NF:1NF+必须有主键+非主键的属性必须完全依赖于主键不能部分依赖</li>
-<li>3NF:2NF+非主键必须直接依赖于主键不能传递依赖</li>
-<li>BCNF:3NF+若属性A能决定属性B要求属性A必须是主键</li>
-</ol>
 ]]></content>
     </entry>
 </feed>
