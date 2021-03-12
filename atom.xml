@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-12T11:31:14.879Z</updated>
+    <updated>2021-03-12T13:30:44.432Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
@@ -49,7 +49,40 @@
 <li>遍历字符串s,如果当前字符是' ',则指针i后移;若当前字符不是' '则把当前字符存入s[j]的位置,并且j++</li>
 <li>被删除的空格数就是i-j</li>
 </ol>
-<h3 id=""></h3>
+<h3 id="排序算法">排序算法</h3>
+<h4 id="选择">选择</h4>
+<ol>
+<li>简单选择:<br>
+每一轮从未排好序的序列里选择一个最小的,与最前面未排序的元素交换<br>
+直到排好</li>
+<li>堆排序</li>
+</ol>
+<h4 id="交换">交换</h4>
+<ol>
+<li>冒泡<br>
+从数组头开始两两比较,若前面的比后面的大就交换,第一轮比较结束时最大的元素被移动到最后<br>
+从数组头开始再次两两比较,比较到倒数第二个时候截止<br>
+...重复直到比较完或者一轮都没有交换</li>
+<li>快排<br>
+选取数列的第一个元素作为基准<br>
+从第二个元素开始与基准比较,若比基准小就放到当前基准在数组中的地方,并把基准在数组中的指针向后移1</li>
+</ol>
+<h4 id="插入">插入</h4>
+<ol>
+<li>简单插入<br>
+默认第一个元素排好序,从第二个元素开始,和前面的元素比较,若比前面的元素小就交换,直到比前面的大,开始下一轮比较直到全部排好</li>
+<li>希尔排序<br>
+把表按照某一特定增量k分割<br>
+同一增量下的元素进行简单插入排序<br>
+增量变为k/2,重复上述过程</li>
+</ol>
+<h4 id="归并">归并</h4>
+<ol>
+<li>二路归并排序<br>
+把数组分为n/2个等长的子数组<br>
+每个子数组里进行二路归并排序<br>
+将排好序的相邻两个子数组再进行二路归并排序,知道最后只剩下两个n/2的数组</li>
+</ol>
 ]]></content>
     </entry>
     <entry>
@@ -402,27 +435,6 @@ sr(R)=rs(R) , tr(R)=rt(R) , st(R)不一定对称⊆ts(R)</p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[OWASP问题版]]></title>
-        <id>https://wangyingying625.github.io/post/owasp-wen-ti-ban/</id>
-        <link href="https://wangyingying625.github.io/post/owasp-wen-ti-ban/">
-        </link>
-        <updated>2021-03-08T13:31:44.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="sql">SQL</h2>
-<h3 id="什么情况下会产生sql注入漏洞">什么情况下会产生SQL注入漏洞</h3>
-<p>SQL注入漏洞的产生是由于程序将用户的输入当做SQL语句的一部分,拼接在程序写好的那部分SQL语句后面执行了.那么当用户在输入时,利用UNION连接符拼接恶意的SQL语句,这些语句也将会被执行.</p>
-<h3 id="如何测试某个功能点是否存在sql注入漏洞">如何测试某个功能点是否存在SQL注入漏洞</h3>
-<p>如果是int型并且插入位置在WHERE后面:可在输入的位置添加 AND 1=2,看执行结果是否 (如果是字符型需要考虑括号的闭合)<br>
-可用#屏蔽后面的SQL代码</p>
-<h3 id="预防">预防:</h3>
-<ol>
-<li>对SQL语句预编译</li>
-<li>对单引号进行转义</li>
-<li>强制类型转换为数字</li>
-</ol>
-<h2 id=""></h2>
-]]></content>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[离散数学问题]]></title>
         <id>https://wangyingying625.github.io/post/chi-san-shu-xue-wen-ti/</id>
         <link href="https://wangyingying625.github.io/post/chi-san-shu-xue-wen-ti/">
@@ -665,6 +677,22 @@ F(x)表示x具有性质F<br>
 可用基本等值式求前束范式<br>
 <img src="https://wangyingying625.github.io/post-images/1615203809312.jpg" alt="" loading="lazy"></p>
 <hr>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[数据库思维导图]]></title>
+        <id>https://wangyingying625.github.io/post/shu-ju-ku-si-wei-dao-tu/</id>
+        <link href="https://wangyingying625.github.io/post/shu-ju-ku-si-wei-dao-tu/">
+        </link>
+        <updated>2021-03-07T11:20:07.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="数据模型">数据模型</h2>
+<figure data-type="image" tabindex="1"><img src="https://wangyingying625.github.io/post-images/1615116032962.png" alt="" loading="lazy"></figure>
+<h2 id="数据库管理系统dbms">数据库管理系统DBMS</h2>
+<figure data-type="image" tabindex="2"><img src="https://wangyingying625.github.io/post-images/1615129998237.png" alt="" loading="lazy"></figure>
+<h2 id="关系数据库设计">关系数据库设计</h2>
+<figure data-type="image" tabindex="3"><img src="https://wangyingying625.github.io/post-images/1615130073999.png" alt="" loading="lazy"></figure>
+<h2 id="数据库安全性">数据库安全性</h2>
+<figure data-type="image" tabindex="4"><img src="https://wangyingying625.github.io/post-images/1615182369785.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>
