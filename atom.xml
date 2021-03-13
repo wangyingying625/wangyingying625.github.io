@@ -2,13 +2,22 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-12T13:30:44.432Z</updated>
+    <updated>2021-03-13T14:03:00.723Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
     <logo>https://wangyingying625.github.io/images/avatar.png</logo>
     <icon>https://wangyingying625.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, mldwyy</rights>
+    <entry>
+        <title type="html"><![CDATA[Tell me about yourself]]></title>
+        <id>https://wangyingying625.github.io/post/tell-me-about-yourself/</id>
+        <link href="https://wangyingying625.github.io/post/tell-me-about-yourself/">
+        </link>
+        <updated>2021-03-13T13:51:34.000Z</updated>
+        <content type="html"><![CDATA[<p>When you are applying for a position in a company especially English ability in reading and writing is importint in the position,or when you are prepareing for the second examination about postgraduate entrance just like me, it is indispensable to introduce yourself in English.Then I will write about my introduction and the my thought about writing it.(It is my first English blog,Although try my best to check it,errors and defects are inevitable,just forgive me.)</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[c语言]]></title>
         <id>https://wangyingying625.github.io/post/c-yu-yan/</id>
@@ -234,6 +243,14 @@ H非空 + H∈G + 运算再H中可结合 + 单位元在H内  + 每个元素都�
 若G是无限循环群,则G的生成怨是a 和a的逆</li>
 </ol>
 <h3 id="格">格</h3>
+<p>任何两个元素都有最大下界和最小上界<br>
+在联机分析处理中,为了加快查询进度,可以将数据按照维度进行聚集<br>
+<img src="https://wangyingying625.github.io/post-images/1615601255121.jpg" alt="" loading="lazy"></p>
+<h4 id="格的性质">格的性质</h4>
+<ol>
+<li>对偶原理:若果把格中的≤换成≥对P中所有格成立的一切命题换后也成立</li>
+<li>有自反性和传递性</li>
+</ol>
 ]]></content>
     </entry>
     <entry>
@@ -677,22 +694,6 @@ F(x)表示x具有性质F<br>
 可用基本等值式求前束范式<br>
 <img src="https://wangyingying625.github.io/post-images/1615203809312.jpg" alt="" loading="lazy"></p>
 <hr>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[数据库思维导图]]></title>
-        <id>https://wangyingying625.github.io/post/shu-ju-ku-si-wei-dao-tu/</id>
-        <link href="https://wangyingying625.github.io/post/shu-ju-ku-si-wei-dao-tu/">
-        </link>
-        <updated>2021-03-07T11:20:07.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="数据模型">数据模型</h2>
-<figure data-type="image" tabindex="1"><img src="https://wangyingying625.github.io/post-images/1615116032962.png" alt="" loading="lazy"></figure>
-<h2 id="数据库管理系统dbms">数据库管理系统DBMS</h2>
-<figure data-type="image" tabindex="2"><img src="https://wangyingying625.github.io/post-images/1615129998237.png" alt="" loading="lazy"></figure>
-<h2 id="关系数据库设计">关系数据库设计</h2>
-<figure data-type="image" tabindex="3"><img src="https://wangyingying625.github.io/post-images/1615130073999.png" alt="" loading="lazy"></figure>
-<h2 id="数据库安全性">数据库安全性</h2>
-<figure data-type="image" tabindex="4"><img src="https://wangyingying625.github.io/post-images/1615182369785.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>
