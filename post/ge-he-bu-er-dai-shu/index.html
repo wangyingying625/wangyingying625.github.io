@@ -6,7 +6,7 @@
 <meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
 <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
 <meta HTTP-EQUIV="expires" CONTENT="0"> 
-<title>Tell me about yourself | mldwyy</title>	
+<title>格和布尔代数 | mldwyy</title>	
 
 <link rel="stylesheet" href="https://wangyingying625.github.io/styles/main.css">
 <script type="text/javascript">
@@ -142,10 +142,10 @@ window.onload=getCSS();
 	
 	                      
 		<div class="entry-content">
-			<h1 class="wow swing entry-title">Tell me about yourself</h1>
+			<h1 class="wow swing entry-title">格和布尔代数</h1>
 <div class="entry-meta">
 <div class="wow bounce">
-	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-03-13 21:51:34" itemprop="datePublished" pubdate="">2021-03-13</time></i>
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-03-14 18:58:44" itemprop="datePublished" pubdate="">2021-03-14</time></i>
 	          </div>
 			
 </span>
@@ -153,18 +153,37 @@ window.onload=getCSS();
 		</div>
                   
 			<div class="wow slideInLeft entry-summary song">
-				<p>When you are applying for a position in a company especially English ability in reading and writing is important in the position,or when you are prepareing for the second examination about postgraduate entrance just like me, it is indispensable to introduce yourself in English.<br>
-Then I will write about my introduction and my thought about writing it.<br>
-(It is my first English blog,Although try my best to check it,errors and defects are inevitable,just forgive me.)</p>
-<p>In the first place,post my introduction.It can also help you to know me by reading it.</p>
-<blockquote></blockquote>
-<p>Good afternoon,teachers.Thank you for the precious opporitunity.<br>
-I will introduce myself from the following three aspects.The first is my basic information,the second is my undergraduate study,and the third is my work experience.</p>
-<p>First,My name is mldwyy,twenty-three years old.I was born and raised in LL,a city of XX province.It's well-know for it's food,such as xxx and ooo.As for my character,I am a introverted person.And sometimes I notice that I am shy to share my ideas when there is a room of people.And it is something that I know I need to work on.In fact,recently I having been watching a few TED videos.And through the videos I have picked up a lot tools.Now they are helping me a lot.And teacher is a job that always need to share their ideas to students.I am always open to any coaching.And in my spare time,I like  playing with my cat.Her name is TaoTao.She is adopted and we adopted her with this name.</p>
-<p>Second, I graduated from the xxx departmen of xx University in July,two thousand twenty.I have been study hard during my school time and my grade is excellent and I have gained scholarship several times.During my college, I enter the competitive too.</p>
-<p>Third,I have worked in a Internet company as a front end engineer for nearly four months.My daily job was reading technical document and useing it to writing website programmes.So it is my strength that read and summarize a document just in a short time. And it was during that time that I decided to choose network security as my future major.I find it's necessary to help Interent enterprise improve the safety of their products.And that's I am passionate about.To learn more about it ,I ask for my friend in that major about a workable study plan and learned the basics of common vulnerabilities. I wish to devote my life and energy into the development of it.</p>
-<p>That's all,Thanks for your listening.</p>
-<blockquote></blockquote>
+				<h2 id="格">格</h2>
+<p>为了说明格的概念和性质需要有偏序关系的准备知识</p>
+<ol>
+<li>什么是关系呢?<br>
+关系(2元关系):元素全是有序对的集合<br>
+如:R1={&lt;1,2&gt;,&lt;2,3&gt;}就是一个二元关系;<br>
+R2={&lt;1,2&gt;,3,4}不是二元关系,其中3,4不是有序对<br>
+(我会理解为关系是一种把一个元素变为另一个元素的方法,就像R1就是把1变成2,2变成3 的方法)</li>
+</ol>
+<p>总结一下就是首先关系是一个集合,集合中放的是有序对,即&lt;a,b&gt;与&lt;b,a&gt;代表的含义不同</p>
+<ol start="2">
+<li>那么,什么又叫偏序关系呢?<br>
+这就得先说一说关系的一些性质了.关系是有序对的集合,它可能有一些什么性质来让我们更愿意使用它呢?<br>
+自反:设R是A上的一个二元关系,说R是自反的当且仅当任取x在集合A里那么&lt;x,x&gt;就是关系R的一个元素.集合中的每个元素自己都和自己有关系(全部x都得满足)<br>
+也就是说通过关系R能让元素集合A里面的所有元素都能保持自己</li>
+</ol>
+<p>反自反:任何x,自己和自己都没有关系(所有X都不能和自己有关系R)</p>
+<p>对称:任选x和y,如果&lt;x,y&gt;有关系R那么&lt;y,x&gt;也有关系R(相等关系)<br>
+也就是说一旦通过关系R,x能变成y,那么关系R也一定有办法把y变成x</p>
+<p>反对称:任何两个点之间只有一条有向边</p>
+<p>传递:当X和Y有关系,并且Y和Z有关系时,X和Z有关系(R和R的合成是R的子集)<br>
+也就是说通过关系R如果x能变成y ,y 又能变成z的话.R就一定能把x直接变成z</p>
+<p>那么这些乏味的概念和偏序关系究竟有什么关系呢?</p>
+<p>In fact,偏序关系就是一种关系呀,就可以当做是把一个元素变成另一个元素的一种办法,但是它的变换是有要求的,它要求这个关系满足 自反性,反对称性和传递性,一般记作≼,被举的最多的例子就整数集上的大于和小于关系.<br>
+为了让偏序关系被表示的更加明显和更方便使用,用哈斯图来表示它,比如集合{1,2,4}上的偏序关系就可以用下面的哈斯图来表示<br>
+<img src="https://wangyingying625.github.io/post-images/1615721390271.png" alt="" loading="lazy"></p>
+<p>有了这些就可以看格了!</p>
+<p>首先是概念:<br>
+格有两种等价概念:<br>
+1.</p>
+<h2 id="布尔代数">布尔代数</h2>
 
 							</div>
 	<div class="wow bounceInDown vt-post-tags">
@@ -174,10 +193,8 @@ I will introduce myself from the following three aspects.The first is my basic i
 		
 		<div class="nav-links3">
       
-		<div class="wow bounceInLeft nav-previous3"><a href="https://wangyingying625.github.io/post/qun-de-li-jie/" rel="prev"> 群的理解</a></div>
 		 
-		 
-		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/c-yu-yan/" rel="next"> c语言</a></div>
+		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/qun-de-li-jie/" rel="next"> 群的理解</a></div>
 		
 		</div>
 	</nav>
