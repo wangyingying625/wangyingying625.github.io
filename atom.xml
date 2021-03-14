@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-13T14:28:58.778Z</updated>
+    <updated>2021-03-14T02:48:33.713Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
@@ -22,9 +22,10 @@ Then I will write about my introduction and my thought about writing it.<br>
 <blockquote></blockquote>
 <p>Good afternoon,teachers.Thank you for the precious opporitunity.<br>
 I will introduce myself from the following three aspects.The first is my basic information,the second is my undergraduate study,and the third is my work experience.</p>
-<p>First,My name is mldwyy,twenty-three years old.I was born and raised in LL,a city of XX province.It's well-know for it's food,such as xxx and ooo.As for my character,I am a introverted person.And sometimes I notice that I am shy to share my ideas when there is a room of people.And it is something that I know I need to work on.In fact,recently I having been watching a few TED videos.And through the videos I have picked up a lot tools.Now they are helping me a lot.And teacher is a job that always need to share their ideas to students.I am always open to any coaching.</p>
+<p>First,My name is mldwyy,twenty-three years old.I was born and raised in LL,a city of XX province.It's well-know for it's food,such as xxx and ooo.As for my character,I am a introverted person.And sometimes I notice that I am shy to share my ideas when there is a room of people.And it is something that I know I need to work on.In fact,recently I having been watching a few TED videos.And through the videos I have picked up a lot tools.Now they are helping me a lot.And teacher is a job that always need to share their ideas to students.I am always open to any coaching.And in my spare time,I like  playing with my cat.Her name is TaoTao.She is adopted and we adopted her with this name.</p>
 <p>Second, I graduated from the xxx departmen of xx University in July,two thousand twenty.I have been study hard during my school time and my grade is excellent and I have gained scholarship several times.During my college, I enter the competitive too.</p>
 <p>Third,I have worked in a Internet company as a front end engineer for nearly four months.My daily job was reading technical document and useing it to writing website programmes.So it is my strength that read and summarize a document just in a short time. And it was during that time that I decided to choose network security as my future major.I find it's necessary to help Interent enterprise improve the safety of their products.And that's I am passionate about.To learn more about it ,I ask for my friend in that major about a workable study plan and learned the basics of common vulnerabilities. I wish to devote my life and energy into the development of it.</p>
+<p>That's all,Thanks for your listening.</p>
 <blockquote></blockquote>
 ]]></content>
     </entry>
@@ -255,12 +256,34 @@ H非空 + H∈G + 运算再H中可结合 + 单位元在H内  + 每个元素都�
 <h3 id="格">格</h3>
 <p>任何两个元素都有最大下界和最小上界<br>
 在联机分析处理中,为了加快查询进度,可以将数据按照维度进行聚集<br>
+设&lt;L,<em>,o&gt;是具有两个二元运算的代数系统,如果这两个二元运算满足交换结合和吸收律,则称&lt;L,</em>,o&gt;是格<br>
 <img src="https://wangyingying625.github.io/post-images/1615601255121.jpg" alt="" loading="lazy"></p>
 <h4 id="格的性质">格的性质</h4>
 <ol>
 <li>对偶原理:若果把格中的≤换成≥对P中所有格成立的一切命题换后也成立</li>
-<li>有自反性和传递性</li>
+<li>有自反性和传递性(一般无分配律)</li>
+<li>交换结合幂等吸收</li>
+<li>&lt;S,<em>,o&gt;是具有两个二元运算的代数系统,如果</em>,o运算满足交换结合和吸收律,那么<br>
+<em>,o运算满足幂等律:a</em>a=a*(ao(a<em>a))=a<br>
+a</em>b=a  &lt;=&gt;  aob=b<br>
+a<em>b=a</em>(aob)=a(吸收律)<br>
+aob=(a*b)ob=b</li>
+<li>有两个二元运算的代数系统,如果*,o满足交换结合和吸收律,可以适当定义S上的偏序≼,使得&lt;S,≼&gt;构成格,且其导出的代数系统就是&lt;S,<em>,o&gt;(最小上界的结果是o运算,最大下界的结果是</em>运算)<br>
+定义二元关系R,aRb&lt;=&gt;aob=b<br>
+证明R是偏序</li>
 </ol>
+<h4 id="子格">子格</h4>
+<p>L的非空子集,且S关于L中的两个运算封闭</p>
+<h4 id="格的同态">格的同态</h4>
+<p>设L1,L2是两个格,有一映射f:L1-.L2使得任意x,y属于L1时都有f(x∧y)=f(x)∧f(y)<br>
+f(x∨y)=f(x)∨f(y),则称f是L1到L2的同态<br>
+<em>同态的性质</em></p>
+<ol>
+<li>f是格L1到L2的同态,则任意a,b∈L1,a≼b=&gt;f(a)≼f(b)   保序性(反之不一定)</li>
+<li>f是双射,f为L1到L2的同构,当且仅当a≼b &lt;=&gt; f(a)≼f(b)</li>
+</ol>
+<h4 id="完备格">完备格:</h4>
+<p>任意子集(可无限)都有最大下界和最小上界∧S和∨S</p>
 ]]></content>
     </entry>
     <entry>
