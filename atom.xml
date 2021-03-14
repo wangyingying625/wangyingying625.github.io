@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-14T11:45:15.937Z</updated>
+    <updated>2021-03-14T13:19:16.058Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
@@ -41,11 +41,57 @@ R2={&lt;1,2&gt;,3,4}不是二元关系,其中3,4不是有序对<br>
 <p>In fact,偏序关系就是一种关系呀,就可以当做是把一个元素变成另一个元素的一种办法,但是它的变换是有要求的,它要求这个关系满足 自反性,反对称性和传递性,一般记作≼,被举的最多的例子就整数集上的大于和小于关系.<br>
 为了让偏序关系被表示的更加明显和更方便使用,用哈斯图来表示它,比如集合{1,2,4}上的偏序关系就可以用下面的哈斯图来表示<br>
 <img src="https://wangyingying625.github.io/post-images/1615721390271.png" alt="" loading="lazy"></p>
+<p>偏序的概念可以联系到权限:假设ABC三人权限由高到低分别为超级管理员,管理员和普通用户,首先自反性保证了自己的信息自己能看到,反对称性表示B能看到C的信息,但是C看不到B的.传递性表明A能看到B的,B又能看到C的那么A一定能看到C的啊</p>
 <p>有了这些就可以看格了!</p>
 <p>首先是概念:<br>
 格有两种等价概念:</p>
 <ol>
-<li>假设&lt;L,≼&gt;是一个偏序集,对于集合L中的任何两个元素都有最大下界和最小上界,那么&lt;L,≼&gt;就是格</li>
+<li>假设&lt;L,≼&gt;是一个偏序集,对于集合L中的任何两个元素都有最大下界和最小上界,那么&lt;L,≼&gt;就是格<br>
+还用上面的ABC来举例,也就是说A和B总能找到一个人(A),那个人是能看到AB信息的人里权限最小的,也存在一个人那个人是能被A和B都看的人里权限最大的(C)</li>
+</ol>
+<p>那么是不是所有的偏序集都有这样的性质呢,并不是!<br>
+<img src="https://wangyingying625.github.io/post-images/1615723952406.jpg" alt="" loading="lazy"><br>
+这个显然不是格,因为部门A管理员和部门B管理员没有最小上界<br>
+<img src="https://wangyingying625.github.io/post-images/1615723964097.jpg" alt="" loading="lazy"><br>
+那么这个呢?这个也不是,因为A管理员和B管理员没有最大下界即A,B小组长无法区分大小</p>
+<ol start="2">
+<li>
+<p>设&lt;L,∧,∨&gt;是具有两个二元运算的代数系统,如果∧对∨满足交换结合和吸收律,则称&lt;L,∧,∨&gt;是格</p>
+<p>这是什么意思呢?<br>
+如果偏序关系中有a≤b,那么就意味着a∨b=b<br>
+也意味着a∧b=a<br>
+这就说明偏序关系是可以用∨∧这两个运算来等价表示的</p>
+<p>那么既然偏序关系要求具备自反,反对称,传递等关系的性质,当然也要要求这两个二元运算满足一些二元运算的要求.即交换,结合,和吸收律<br>
+交换:x∧y=y∧x<br>
+结合:(x∧y)∧z=x∧(y∧z)<br>
+吸收:x∧(y∨x)=x</p>
+</li>
+</ol>
+<p>那么有这些要求的格有什么性质呢:<br>
+对偶命题:<br>
+若果把格中的≤换成≥,同时把∨和∧互换,格中成立的一切命题换后也成立</p>
+<p>和群类似,格中也有一些元素,它们自己就能满足格的概念.于是这些元素构成的集合和偏序关系就构成了子格</p>
+<p>此外还有一些格具有更加特殊和良好的性质:<br>
+<img src="https://wangyingying625.github.io/post-images/1615727173636.png" alt="" loading="lazy"></p>
+<ol>
+<li>完全格:格的每个非空子集都有最大下界和最小上界---如下图<br>
+<img src="https://wangyingying625.github.io/post-images/1615726747189.png" alt="" loading="lazy"></li>
+<li>分配格:设&lt;L,∧,∨&gt;是格,若对L中任取a,b,c都满足<br>
+a∧(b∨c)=(a∧b)∨(a∧c)<br>
+a∨(b∧c)=(a∨b)∧(a∨c)<br>
+<img src="https://wangyingying625.github.io/post-images/1615727076862.jpg" alt="" loading="lazy"><br>
+<img src="https://wangyingying625.github.io/post-images/1615727218456.png" alt="" loading="lazy"><br>
+<img src="https://wangyingying625.github.io/post-images/1615727266934.png" alt="" loading="lazy"><br>
+没错,我偷懒了🤔</li>
+<li>有界格:设&lt;L,∧,∨&gt;是格,存在一个元素a∈L,使得a≤L中所有元素,那么称a是全下界;同时也存在一个元素b∈L,使得使得b≥L中所有元素,那么称b是全上界. 一般把全上界记为1,全下界记为0,有界格也写成&lt;L, ≤, 0, 1&gt;<br>
+<img src="https://wangyingying625.github.io/post-images/1615727566609.png" alt="" loading="lazy"></li>
+<li>有补格:有补格的定义涉及到补元,首先摆出补元的概念:<br>
+补元：有界格&lt;L, ≤, 0, 1&gt;中, 对任意元素a∈L, 若存在b∈L, 并且a∧b = 0, a∨b = 1, 则称b是a的补元，补元不一定唯一。<br>
+有补格：每一个元素都有补元，则称为有补格。<br>
+有界分配格的补元唯一<br>
+有界格中全上界与全下界互补</li>
+<li>布尔格:如果一个格是有补分配格，那么称为布尔代数<br>
+<img src="https://wangyingying625.github.io/post-images/1615727947869.png" alt="" loading="lazy"></li>
 </ol>
 <h2 id="布尔代数">布尔代数</h2>
 ]]></content>
