@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-14T14:01:33.307Z</updated>
+    <updated>2021-03-15T12:13:39.395Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
@@ -15,8 +15,22 @@
         <link href="https://wangyingying625.github.io/post/tong-tai-yu-tong-gou/">
         </link>
         <updated>2021-03-14T13:54:04.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="同态">同态</h2>
+        <content type="html"><![CDATA[<p>当研究一个新的代数系统时候,我们就想找到一个已经了解的代数系统,看看它们之间是否有相似的性质.<br>
+那么两个代数系统之间的关系就被概括成同构和同态</p>
+<h2 id="同态">同态</h2>
+<p>V1=&lt;A,o,o1,o2...&gt;,V2=&lt;B,*,*1,*2...&gt;是同类型的代数系统,假设oi是r元的,*i也是r元的,若满足:<br>
+f(oi(a1,a2,a3...))=*i(f(a1),f(a2),f(a3)...),其中a1,a2,a3都是A中的元素<br>
+即先运算再映射的值与先映射再运算的值相等</p>
 <h2 id="同构">同构</h2>
+<p>同态按照映射类型可分为:<br>
+单同态<br>
+满同态<br>
+同构</p>
+<p>群 G和群H之间若建立了同构映射，那么不仅群 G 中的每个元素在群 H中都有一一对应，而且对于群 G中的两个元素a,b  ，在群运算 o下得到的元素aob 也在这个映射下保持一一对应<br>
+同构的两个代数系统本质没有任何差别,只是用了不同的解读方式</p>
+<p>但是两个代数系统同构要求比较高,于是我们尝试找弱一点的同态代数系统,同态与同构的不同在于映射的函数f不是双射的,可能是单射可能是满射.<br>
+如果是单射,那么新的代数系统中只有一部分与已知代数系统同构<br>
+如果是满射,那么新的代数系统只与已知代数系统的一部分同构</p>
 ]]></content>
     </entry>
     <entry>
@@ -142,7 +156,7 @@ Then I will write about my introduction and my thought about writing it.<br>
 I will introduce myself from the following three aspects.The first is my basic information,the second is my undergraduate study,and the third is my work experience.</p>
 <p>First,My name is mldwyy,twenty-three years old.I was born and raised in LL,a city of XX province.It's well-know for it's food,such as xxx and ooo.As for my character,I am a introverted person.And sometimes I notice that I am shy to share my ideas when there is a room of people.And it is something that I know I need to work on.In fact,recently I having been watching a few TED videos.And through the videos I have picked up a lot tools.Now they are helping me a lot.And teacher is a job that always need to share their ideas to students.I am always open to any coaching.And in my spare time,I like  playing with my cat.Her name is TaoTao.She is adopted and we adopted her with this name.</p>
 <p>Second, I graduated from the xxx departmen of xx University in July,two thousand twenty.I have been study hard during my school time and my grade is excellent and I have gained scholarship several times.During my college, I enter the competitive too.</p>
-<p>Third,I have worked in a Internet company as a front end engineer for nearly four months.My daily job was reading technical document and useing it to writing website programmes.So it is my strength that read and summarize a document just in a short time. And it was during that time that I decided to choose network security as my future major.I find it's necessary to help Interent enterprise improve the safety of their products.And that's I am passionate about.To learn more about it ,I ask for my friend in that major about a workable study plan and learned the basics of common vulnerabilities. I wish to devote my life and energy into the development of it.</p>
+<p>Third,I have worked in an Internet company as a front end engineer for nearly four months.My daily job was reading technical documents and useing it to writie website programmes.So it is my strength that read and summarize a document  in a short time. And it was during that time that I decided to choose network security as my future major.I find it's necessary to help Interent enterprise improve the safety of their products.And that's I am passionate about.To learn more about it ,I ask for my friend in that major about a workable study plan and learned the basics of common vulnerabilities. I wish to devote my life and energy into the development of it.</p>
 <p>That's all,Thanks for your listening.</p>
 <blockquote></blockquote>
 ]]></content>
@@ -437,6 +451,8 @@ f(x∨y)=f(x)∨f(y),则称f是L1到L2的同态<br>
 <figure data-type="image" tabindex="2"><img src="https://wangyingying625.github.io/post-images/1615429075509.png" alt="" loading="lazy"></figure>
 <h2 id="代数系统">代数系统</h2>
 <figure data-type="image" tabindex="3"><img src="https://wangyingying625.github.io/post-images/1615728716696.png" alt="" loading="lazy"></figure>
+<h2 id="图论">图论</h2>
+<figure data-type="image" tabindex="4"><img src="https://wangyingying625.github.io/post-images/1615810412478.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
     <entry>
