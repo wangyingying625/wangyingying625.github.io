@@ -6,7 +6,7 @@
 <meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
 <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
 <meta HTTP-EQUIV="expires" CONTENT="0"> 
-<title>Linux的进程和相关的几个重要函数 | mldwyy</title>	
+<title>数据库中的函数依赖 | mldwyy</title>	
 
 <link rel="stylesheet" href="https://wangyingying625.github.io/styles/main.css">
 <script type="text/javascript">
@@ -142,10 +142,10 @@ window.onload=getCSS();
 	
 	                      
 		<div class="entry-content">
-			<h1 class="wow swing entry-title">Linux的进程和相关的几个重要函数</h1>
+			<h1 class="wow swing entry-title">数据库中的函数依赖</h1>
 <div class="entry-meta">
 <div class="wow bounce">
-	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-03-19 11:43:01" itemprop="datePublished" pubdate="">2021-03-19</time></i>
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-03-19 12:18:20" itemprop="datePublished" pubdate="">2021-03-19</time></i>
 	          </div>
 			
 </span>
@@ -153,14 +153,29 @@ window.onload=getCSS();
 		</div>
                   
 			<div class="wow slideInLeft entry-summary song">
-				<p>在Linux系统中每个进程都有一个唯一的编号叫pid,除了init的根进程外任何一个进程都必须由父进程产生.<br>
-一个系统中的所有父子进程连起来是一个树的关系,init的进程是根,其他进程是它的子孙<br>
-由父进程产生子进程的方法有:</p>
-<h2 id="fork">fork()</h2>
-<p>这个方法会把父进程的所有数据复制一份给子进程,产生的子进程是和调用fork()方法时候的父进程一样的,父进程的fpid指向子进程的进程id,子进程因为它自己没有子进程所以fpid值为1,可以通过判断当前进程的fpid来让两个进程选择性的执行一些代码.<br>
-接着可以通过返回值的不同来判断执行当前代码的是父进程还是子进程</p>
-<p>在父进程中，fork返回新创建子进程的进程ID；<br>
-在子进程中,fork返回值是0</p>
+				<p>数据库已经看完一遍了,但是发现函数依赖这块还是盲点,于是决定专门为它写一篇<br>
+首先函数依赖出现在数据库设计中的原因是什么呢?<br>
+很多时候我们设计的数据库往往会有很多问题,比如同一数据可能在两张表中出现,导致数据的不一致,<br>
+还有当一张表中数据项过多时也会引起插入异常和删除异常.<br>
+那么怎么来判断我的关系模式(数据库表)设计的是不是好呢<br>
+这就涉及到函数依赖:</p>
+<h2 id="函数依赖">函数依赖</h2>
+<p>R是一个关系模式,且里面有属性α和β,如果对于R上任意的两条元组t1和t2都有当α上的值相同时β上的值也相同,那么就说β函数依赖于α.</p>
+<h3 id="平凡的函数依赖">平凡的函数依赖</h3>
+<p>β⊆α则α-&gt;β<br>
+所有关系都满足的函数依赖</p>
+<h3 id="确定集合的闭包">确定集合的闭包:</h3>
+<p><img src="https://wangyingying625.github.io/post-images/1616133575272.png" alt="" loading="lazy"><br>
+(BC)+=BCA   在关系中找由BC能确定谁,就加进去闭包里面,在用闭包里面的元素去集合中找还能不能确定其他元素,直到无其他元素能被新闭包中的元素确定</p>
+<h3 id="找关系的候选码">找关系的候选码</h3>
+<p><img src="https://wangyingying625.github.io/post-images/1616133692636.png" alt="" loading="lazy"><br>
+(BC)+=BCA<br>
+(AB)+=AB<br>
+(AC)+=ABC<br>
+即关系的候选码是BC和AC</p>
+<h2 id="范式">范式</h2>
+<h3 id="1nf">1NF</h3>
+<p>表中所有的属性域都是原子的</p>
 
 							</div>
 	<div class="wow bounceInDown vt-post-tags">
@@ -170,10 +185,8 @@ window.onload=getCSS();
 		
 		<div class="nav-links3">
       
-		<div class="wow bounceInLeft nav-previous3"><a href="https://wangyingying625.github.io/post/shu-ju-ku-zhong-de-han-shu-yi-lai/" rel="prev"> 数据库中的函数依赖</a></div>
 		 
-		 
-		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/kan-jian-ni-jiu-hui-kan-jian-yang-guang/" rel="next"> 看见你就会看见阳光</a></div>
+		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/linux-de-jin-cheng-he-xiang-guan-de-ji-ge-chong-yao-han-shu/" rel="next"> Linux的进程和相关的几个重要函数</a></div>
 		
 		</div>
 	</nav>

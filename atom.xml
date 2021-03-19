@@ -2,13 +2,44 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-19T04:16:44.336Z</updated>
+    <updated>2021-03-19T07:22:36.953Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
     <logo>https://wangyingying625.github.io/images/avatar.png</logo>
     <icon>https://wangyingying625.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, mldwyy</rights>
+    <entry>
+        <title type="html"><![CDATA[数据库中的函数依赖]]></title>
+        <id>https://wangyingying625.github.io/post/shu-ju-ku-zhong-de-han-shu-yi-lai/</id>
+        <link href="https://wangyingying625.github.io/post/shu-ju-ku-zhong-de-han-shu-yi-lai/">
+        </link>
+        <updated>2021-03-19T04:18:20.000Z</updated>
+        <content type="html"><![CDATA[<p>数据库已经看完一遍了,但是发现函数依赖这块还是盲点,于是决定专门为它写一篇<br>
+首先函数依赖出现在数据库设计中的原因是什么呢?<br>
+很多时候我们设计的数据库往往会有很多问题,比如同一数据可能在两张表中出现,导致数据的不一致,<br>
+还有当一张表中数据项过多时也会引起插入异常和删除异常.<br>
+那么怎么来判断我的关系模式(数据库表)设计的是不是好呢<br>
+这就涉及到函数依赖:</p>
+<h2 id="函数依赖">函数依赖</h2>
+<p>R是一个关系模式,且里面有属性α和β,如果对于R上任意的两条元组t1和t2都有当α上的值相同时β上的值也相同,那么就说β函数依赖于α.</p>
+<h3 id="平凡的函数依赖">平凡的函数依赖</h3>
+<p>β⊆α则α-&gt;β<br>
+所有关系都满足的函数依赖</p>
+<h3 id="确定集合的闭包">确定集合的闭包:</h3>
+<p><img src="https://wangyingying625.github.io/post-images/1616133575272.png" alt="" loading="lazy"><br>
+(BC)+=BCA   在关系中找由BC能确定谁,就加进去闭包里面,在用闭包里面的元素去集合中找还能不能确定其他元素,直到无其他元素能被新闭包中的元素确定</p>
+<h3 id="找关系的候选码">找关系的候选码</h3>
+<p><img src="https://wangyingying625.github.io/post-images/1616133692636.png" alt="" loading="lazy"><br>
+(BC)+=BCA<br>
+(AB)+=AB<br>
+(AC)+=ABC<br>
+即关系的候选码是BC和AC</p>
+<h2 id="范式">范式</h2>
+<h3 id="1nf">1NF</h3>
+<p>表中所有的属性域都是原子的</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Linux的进程和相关的几个重要函数]]></title>
         <id>https://wangyingying625.github.io/post/linux-de-jin-cheng-he-xiang-guan-de-ji-ge-chong-yao-han-shu/</id>
@@ -472,22 +503,6 @@ f(x∨y)=f(x)∨f(y),则称f是L1到L2的同态<br>
 <ol>
 <li>模格</li>
 </ol>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[离散数学思维导图]]></title>
-        <id>https://wangyingying625.github.io/post/chi-san-shu-xue-si-wei-dao-tu/</id>
-        <link href="https://wangyingying625.github.io/post/chi-san-shu-xue-si-wei-dao-tu/">
-        </link>
-        <updated>2021-03-10T08:52:39.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="数理逻辑">数理逻辑</h2>
-<figure data-type="image" tabindex="1"><img src="https://wangyingying625.github.io/post-images/1615366403802.png" alt="" loading="lazy"></figure>
-<h2 id="集合论">集合论</h2>
-<figure data-type="image" tabindex="2"><img src="https://wangyingying625.github.io/post-images/1615429075509.png" alt="" loading="lazy"></figure>
-<h2 id="代数系统">代数系统</h2>
-<figure data-type="image" tabindex="3"><img src="https://wangyingying625.github.io/post-images/1615728716696.png" alt="" loading="lazy"></figure>
-<h2 id="图论">图论</h2>
-<figure data-type="image" tabindex="4"><img src="https://wangyingying625.github.io/post-images/1615810412478.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>
