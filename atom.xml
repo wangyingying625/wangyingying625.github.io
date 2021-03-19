@@ -2,13 +2,29 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-19T03:36:48.592Z</updated>
+    <updated>2021-03-19T04:16:44.336Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
     <logo>https://wangyingying625.github.io/images/avatar.png</logo>
     <icon>https://wangyingying625.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, mldwyy</rights>
+    <entry>
+        <title type="html"><![CDATA[Linux的进程和相关的几个重要函数]]></title>
+        <id>https://wangyingying625.github.io/post/linux-de-jin-cheng-he-xiang-guan-de-ji-ge-chong-yao-han-shu/</id>
+        <link href="https://wangyingying625.github.io/post/linux-de-jin-cheng-he-xiang-guan-de-ji-ge-chong-yao-han-shu/">
+        </link>
+        <updated>2021-03-19T03:43:01.000Z</updated>
+        <content type="html"><![CDATA[<p>在Linux系统中每个进程都有一个唯一的编号叫pid,除了init的根进程外任何一个进程都必须由父进程产生.<br>
+一个系统中的所有父子进程连起来是一个树的关系,init的进程是根,其他进程是它的子孙<br>
+由父进程产生子进程的方法有:</p>
+<h2 id="fork">fork()</h2>
+<p>这个方法会把父进程的所有数据复制一份给子进程,产生的子进程是和调用fork()方法时候的父进程一样的,父进程的fpid指向子进程的进程id,子进程因为它自己没有子进程所以fpid值为1,可以通过判断当前进程的fpid来让两个进程选择性的执行一些代码.<br>
+接着可以通过返回值的不同来判断执行当前代码的是父进程还是子进程</p>
+<p>在父进程中，fork返回新创建子进程的进程ID；<br>
+在子进程中,fork返回值是0</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[看见你就会看见阳光]]></title>
         <id>https://wangyingying625.github.io/post/kan-jian-ni-jiu-hui-kan-jian-yang-guang/</id>
@@ -472,26 +488,6 @@ f(x∨y)=f(x)∨f(y),则称f是L1到L2的同态<br>
 <figure data-type="image" tabindex="3"><img src="https://wangyingying625.github.io/post-images/1615728716696.png" alt="" loading="lazy"></figure>
 <h2 id="图论">图论</h2>
 <figure data-type="image" tabindex="4"><img src="https://wangyingying625.github.io/post-images/1615810412478.png" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[爱读书的大肥兔]]></title>
-        <id>https://wangyingying625.github.io/post/ai-du-shu-de-da-fei-tu/</id>
-        <link href="https://wangyingying625.github.io/post/ai-du-shu-de-da-fei-tu/">
-        </link>
-        <updated>2021-03-10T04:38:25.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="被人讨厌的勇气">被人讨厌的勇气</h3>
-<ol>
-<li>既没有自卑感也不必炫耀优越性,能够保持一种平静而自然的状态.真正的爱应该是这样的.</li>
-<li>过于希望得到别人的认可,就会按照别人的期待去生活.也就是舍弃真正的自己,活在别人的人生中.</li>
-<li>假如说你不是为了满足别人的期待而活,那么他人也不是为了满足你的期待而活,当别人的行为不符合自己的想法时也不可发怒.</li>
-<li>想要取得别人的认可的时候,几乎所有人都会采取&quot;满足别人的期待&quot;这一手段,这其实都是受&quot;如果做了恰当的事情就能够得到表扬&quot;这种赏罚教育的影响.但是,若果工作的主要目标变成了&quot;满足别人的期待&quot;,那工作就会变得相当痛苦.因为那样就会一味的在意别人的实现,害怕别人的评价,根本无法做真正的自己.</li>
-<li>基本上,一切人际关系矛盾都起因于对别人的课题王加干涉或者自己的课题被别人妄加干涉.</li>
-<li>时尚的父母总是说&quot;为你着想&quot;之类的话,但是,父母的行为有时候很明显是为了满足自己的目的--面子和虚荣又或者是支配欲.正因为察觉到了这种欺骗行为,孩子才会反抗.</li>
-<li>关于自己的人生你能够做的就只有&quot;选择自己认为最好的道路&quot;.另一方面,别人如何评价你的选择,那是别人的课题,你根本无法左右.</li>
-<li>没有学会直面困难的孩子最终会想要逃避一切困难.<br>
-<img src="https://wangyingying625.github.io/post-images/1615352619902.jpg" alt="" loading="lazy"></li>
-</ol>
 ]]></content>
     </entry>
 </feed>
