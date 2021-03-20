@@ -2,13 +2,23 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-19T13:10:09.260Z</updated>
+    <updated>2021-03-20T00:45:27.488Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
     <logo>https://wangyingying625.github.io/images/avatar.png</logo>
     <icon>https://wangyingying625.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, mldwyy</rights>
+    <entry>
+        <title type="html"><![CDATA[关系模式的分解]]></title>
+        <id>https://wangyingying625.github.io/post/guan-xi-mo-shi-de-fen-jie/</id>
+        <link href="https://wangyingying625.github.io/post/guan-xi-mo-shi-de-fen-jie/">
+        </link>
+        <updated>2021-03-19T13:10:16.000Z</updated>
+        <content type="html"><![CDATA[<p>关系模式分解就是把一个关系模式分解成好多个关系模式<br>
+判断分解后的关系模式们是否与分解前等价的方法是 判断是否无损连接和函数依赖</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[数据库中的函数依赖]]></title>
         <id>https://wangyingying625.github.io/post/shu-ju-ku-zhong-de-han-shu-yi-lai/</id>
@@ -22,7 +32,8 @@
 那么怎么来判断我的关系模式(数据库表)设计的是不是好呢<br>
 这就涉及到函数依赖:</p>
 <h2 id="函数依赖">函数依赖</h2>
-<p>R是一个关系模式,且里面有属性α和β,如果对于R上任意的两条元组t1和t2都有当α上的值相同时β上的值也相同,那么就说β函数依赖于α.</p>
+<p>x中值相等时候Y中值也相等<br>
+R是一个关系模式,且里面有属性α和β,如果对于R上任意的两条元组t1和t2都有当α上的值相同时β上的值也相同,那么就说β函数依赖于α.</p>
 <h3 id="平凡的函数依赖">平凡的函数依赖</h3>
 <p>β⊆α则α-&gt;β</p>
 <h3 id="完全函数依赖">完全函数依赖</h3>
@@ -230,7 +241,7 @@ Then I will write about my introduction and my thought about writing it.<br>
 <p>Good afternoon,teachers.Thank you for the precious opporitunity.<br>
 I will introduce myself from three aspects.The first is my basic information,the second is my undergraduate study,and the third is my work experience.</p>
 <p>First,My name is mldwyy,twenty-three years old.I was born and raised in LL,a city of XX province.It's well-know for it's food,such as xxx .And in my spare time.I like  playing with my cat.Her name is TaoTao.She is adopted and we adopted her with this name.As for my character,I am a introverted girl.And sometimes I notice that I am shy to share my ideas when there is a room of people.And it is something that I know I need to work on.In fact,recently I having been watching a few TED videos.And through the videos I have picked up a lot tools.Now they are helping me a lot.</p>
-<p>Second, I graduated from the xxx departmen of xx University in July,two thousand twenty.I have been study hard during my school time and my grade is excellent and I have gained scholarship several times.During my college, I enter the competitive too.</p>
+<p>Second, I graduated from the xxx departmen of xx University in July,two thousand twenty.I have been study hard during my school time and my grade is excellent and I have gained scholarship several times.Because I didn't pass the examPostgraduate Candidates Exempt from Admission Exam</p>
 <p>Third,I have worked in an Internet company as a front-end engineer for nearly four months.My daily job was reading technical documentations and useing it to writie website programmes.So it is my strength that read and summarize a documentation  in a short time. And it was during that time that I decided to choose network security as my future major.I find it's necessary to help Interent Internet company improve the safety of their products.And that's I am passionate about.To learn more about it ,I ask for my friend in that major about a workable study plan and learned the basics of common vulnerabilities. I wish to devote my life and energy into the development of it.</p>
 <p>That's all,Thanks for your listening.</p>
 <blockquote></blockquote>
@@ -311,208 +322,6 @@ I will introduce myself from three aspects.The first is my basic information,the
 把数组分为n/2个等长的子数组<br>
 每个子数组里进行二路归并排序<br>
 将排好序的相邻两个子数组再进行二路归并排序,知道最后只剩下两个n/2的数组</li>
-</ol>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[代数系统]]></title>
-        <id>https://wangyingying625.github.io/post/dai-shu-xi-tong/</id>
-        <link href="https://wangyingying625.github.io/post/dai-shu-xi-tong/">
-        </link>
-        <updated>2021-03-11T02:23:53.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="代数结构">代数结构</h2>
-<p>结构=集合+对应规则+公理</p>
-<h3 id="代数系统基本概念">代数系统基本概念</h3>
-<h4 id="代数系统的构成">代数系统的构成:</h4>
-<ol>
-<li>成分:载体(集合)和运算</li>
-<li>公理:运算性质(交换结合分配零元单位元等)</li>
-</ol>
-<h5 id="n元运算">n元运算</h5>
-<h6 id="定义">定义:</h6>
-<ol>
-<li>设A是集合,函数f:AXA-&gt;A称为A上的二元运算,也可以写为f(&lt;a1,a2&gt;)=a3</li>
-<li>AXA意味着该二元运算的定义域是A即两次从A中任选元素都能进行运算(两次可选同意元素),如果随便取两次取出的a不能进行f这种运算,那么f就不是二元运算.(除法不是实数集合上的二元运算,当除数取0时候不能运算)</li>
-<li>值域也是A,即运算对集合是封闭的</li>
-</ol>
-<h6 id="写法">写法:</h6>
-<p>n元运算的写法:<br>
-o(x1,x2,x3,x4,x5...)=y</p>
-<h6 id="表示">表示:</h6>
-<ol>
-<li>表达式:xoy=x+y*2</li>
-<li>运算表,左边第一列和上边第一行列出参与运算的表达式,中间写入运算的结果</li>
-</ol>
-<h6 id="二元运算律">二元运算律:</h6>
-<p>只涉及一个二元运算的:</p>
-<ol>
-<li>交换:aob=boa</li>
-<li>结合:(aob)oc=ao(boc)</li>
-<li>幂等:aoa=a</li>
-<li>消去:aob=aoc∧a≠𝛉=&gt;b=c(a不是零元)<br>
-涉及两个运算的</li>
-<li>分配:ao(b<em>c)=(aob)</em>(aoc),(b<em>c)oa=(boa)</em>(coa)</li>
-<li>吸收:ao(a<em>b)=a,a</em>(aob)=a</li>
-</ol>
-<h6 id="特异元素的定义与性质">特异元素的定义与性质</h6>
-<ol>
-<li>单位元e:eoa=aoe=a(对系统中所有元素都满足,一系统最多一个)运算中不起作用</li>
-<li>零元𝛉:𝛉oa=ao𝛉=𝛉(对系统中所有元素)</li>
-<li>幂等元a:aoa=a</li>
-<li>可逆元x:xoy=yox=e</li>
-</ol>
-<p>单位元和零元存在必唯一<br>
-可结合的运算逆元必定唯一</p>
-<h6 id="判断某一给定运算是否满足某些二元运算律是否有特异元素">判断某一给定运算是否满足某些二元运算律,是否有特异元素</h6>
-<ol>
-<li>表达式法</li>
-<li>表格法</li>
-</ol>
-<h4 id="构成代数系统的方法">构成代数系统的方法</h4>
-<ol>
-<li>从原有代数系统抽一子集出来</li>
-<li>由不同的代数系统做笛卡尔积(把两个不同的代数系统组合成新的代数系统)</li>
-<li>抽象</li>
-</ol>
-<h3 id="代数系统">代数系统</h3>
-<h4 id="概念">概念</h4>
-<ol>
-<li>
-<p>成分:V=&lt;A,o,*...&gt;<br>
-其中:A是载体,非空<br>
-后面都是对集合A的各种运算</p>
-</li>
-<li>
-<p>分类:<br>
-同类型的:构成成分相同(如都有两个二元运算的&lt;Z,+,-&gt;和&lt;S,*,/&gt;)<br>
-同种的:构成成分和公理都相同</p>
-<p>构成成分:运算个数,对应运算的元数<br>
-公理:交换,结合,幂等,吸收,分配,小区率,单位元...</p>
-</li>
-</ol>
-<h4 id="由一个代数系统产生更多代数系统的方法">由一个代数系统产生更多代数系统的方法</h4>
-<h5 id="子代数">子代数:</h5>
-<p>代数系统里是否存在一子集,子集能良好的保持代数系统的性质:</p>
-<ol>
-<li>定义:设V=&lt;A,o1,o2,o3,...&gt;是代数系统,B是A的非空子集.若B对于V中的所有运算封闭,则称&lt;B,o1,o1...&gt;是V的子代数,若B真包含与A则称其是V的真子代数</li>
-<li>当集合A里只有一个元素时是平凡的子代数</li>
-</ol>
-<h5 id="积代数">积代数:</h5>
-<p>一. 定义:设V1=&lt;A,o,o1,o2...&gt;与V2=&lt;B,*,*1,<em>2...&gt;是同类型的代数系统,对于i=1,2,3...,两个代数系统中oi与</em>i对应的元数一样,则V1xV2=&lt;AxB,<sub>,</sub>1,~2,...&gt;<br>
-其中:AxB是集合A与B的笛卡尔积<br>
-本来的代数系统集合A是元素为数字或者字符或者矩阵的集合,生成的积代数的元素A'是序偶对的集合<br>
-<img src="https://wangyingying625.github.io/post-images/1615445753647.jpg" alt="" loading="lazy"><br>
-二. 性质:</p>
-<ol>
-<li>若第一个系统的第i个运算可交换,第二个系统的第i个运算也可交换,则生成的积代数的运算oi也是可交换的(可结合和幂等也有一样的性质)</li>
-<li>若原来的因子运算oi,oj可分配且*i,*j可分配,那么新生成的<sub>i,</sub>j也可分配(吸收率也有改性质)</li>
-<li>两个系统中的针对相同位置的运算oi,*i的零元和单位元相应的组合也是新运算中的零元和单位元</li>
-<li>两个系统中的针对相同位置含单位元的运算oi,*i的逆元相应的组合也是新运算中的逆元</li>
-</ol>
-<h4 id="同构和同态代数系统之间的关系">同构和同态(代数系统之间的关系):</h4>
-<p>把一个代数系统同函数映射到另外一个代数系统<br>
-两个系统如果同构就没有区别,不过是赋予了不同的含义</p>
-<h5 id="同态可以把一些有相同性质的代数系统联系起来">同态:(可以把一些有相同性质的代数系统联系起来)</h5>
-<p>V1=&lt;A,o,o1,o2...&gt;,V2=&lt;B,*,*1,*2...&gt;是同类型的代数系统,假设oi是r元的,*i也是r元的,若满足:<br>
-f(oi(a1,a2,a3...))=*i(f(a1),f(a2),f(a3)...),其中a1,a2,a3都是A中的元素<br>
-即先运算再映射的值与先映射再运算的值相等<br>
-<img src="https://wangyingying625.github.io/post-images/1615449353651.jpg" alt="" loading="lazy"></p>
-<h5 id="同构">同构:</h5>
-<p>同态按照映射类型可分为:<br>
-单同态<br>
-满同态<br>
-同构<br>
-<img src="https://wangyingying625.github.io/post-images/1615451578931.jpg" alt="" loading="lazy"></p>
-<h4 id="同余关系和商代数">同余关系和商代数</h4>
-<p>同余关系是一个等价关系,通过这个关系可以把元素划分成等价类.两个元素彼此等价,则运算过程中替换后,运算结果还等价.由此可把类抽象,即认为同一个类中的元素是一个元素.<br>
-<img src="https://wangyingying625.github.io/post-images/1615458497151.jpg" alt="" loading="lazy"></p>
-<h4 id="把代数系统进行分类得到不同种类的代数系统">把代数系统进行分类,得到不同种类的代数系统</h4>
-<ol>
-<li>只有一个运算的半群和群</li>
-<li>有两个运算的环域</li>
-<li>还有两个运算的格和布尔代数</li>
-</ol>
-<hr>
-<h3 id="半群和独异点只有一个二元运算">半群和独异点(只有一个二元运算)</h3>
-<p>广群:只需具备封闭性--&gt;添加公理<br>
-半群:可结合的--&gt;添加公理<br>
-独异点:含单位元--&gt;每个元素都有逆<br>
-群(群中无零元)</p>
-<h4 id="独异点含幺半群">独异点(含幺半群)</h4>
-<p>可通过对半群增加单位元并且定义与单位元相关的运算扩张而成</p>
-<h3 id="群">群(*)</h3>
-<h4 id="群的定义">群的定义</h4>
-<ol>
-<li>定义与实例(可认为是对集合中元素的一种映射变换,变换过后元素还是那些元素只不过位置发生了变化)<br>
-要求群中有一个二元运算*,且<em>满足结合律,每个元素都有关于二元运算</em>的逆元<br>
-&lt;I,*&gt;整数集合上的乘法:封闭,可结合,有单位元,2,3...整数无逆元,不是群<br>
-&lt;R,+&gt;实数集合上的加法运算,封闭,可结合,有单位元0,每个元素都有逆元,是群<br>
-&lt;P(S),∩&gt;幂集上的交运算,封闭,可结合,有单位元,无逆元</li>
-<li>术语<br>
-阶:&lt;G,<em>&gt;是群,G中元素的个数叫该群的阶|G|<br>
-等幂元:&lt;G,</em>&gt;是代数系统,若存在a∈G,使a*a=a则a是等幂元<br>
-平凡群:只含有单位元e<br>
-交换群:阿贝尔群<br>
-元素a的阶:使aⁿ=e的最小n,有的群中元素的阶不存在(有限)</li>
-<li>性质:<br>
-&lt;G,<em>&gt;是群,存在任意的a,b∈G,必定存在唯一的x使得a</em>x=b<br>
-群中只有单位元是等幂元<br>
-群中每一行每一列都是G的一个置换<br>
-<img src="https://wangyingying625.github.io/post-images/1615711087117.jpg" alt="" loading="lazy"></li>
-</ol>
-<h5 id="子群">子群</h5>
-<p>若G是群,H是G的非空子集,若H关于G中运算构成群,则称H为G的子群,记作H≤G;如果H是真子集,就是真子群<br>
-判定定理:<br>
-H非空 + H∈G + 运算再H中可结合 + 单位元在H内  + 每个元素都有逆 + 运算在H中封闭 =&gt;<br>
-任意a,b∈H,ab逆∈H<br>
-H是有限集属于G,且运算再H上封闭<br>
-性质:<br>
-子群的单位元是父群的单位元</p>
-<h4 id="阿贝尔群">阿贝尔群</h4>
-<p>群中运算<em>满足a</em>b=b*a</p>
-<h3 id="循环群">循环群</h3>
-<p>群可以由其中一个元素生成<br>
-如整数加群可看作由整数1生成</p>
-<ol>
-<li>循环群的生成元<br>
-若G是无限循环群,则G的生成怨是a 和a的逆</li>
-</ol>
-<h3 id="格">格</h3>
-<p>假设&lt;L,≼&gt;是一个偏序集,对于集合L中的任何两个元素都有最大下界和最小上界,那么&lt;L,≼&gt;就是格</p>
-<p>在联机分析处理中,为了加快查询进度,可以将数据按照维度进行聚集<br>
-设&lt;L,<em>,o&gt;是具有两个二元运算的代数系统,如果这两个二元运算满足交换结合和吸收律,则称&lt;L,</em>,o&gt;是格<br>
-<img src="https://wangyingying625.github.io/post-images/1615718887510.png" alt="" loading="lazy"><br>
-<img src="https://wangyingying625.github.io/post-images/1615718869919.png" alt="" loading="lazy"><br>
-<img src="https://wangyingying625.github.io/post-images/1615601255121.jpg" alt="" loading="lazy"></p>
-<h4 id="格的性质">格的性质</h4>
-<ol>
-<li>对偶原理:若果把格中的≤换成≥对P中所有格成立的一切命题换后也成立</li>
-<li>有自反性和传递性(一般无分配律)</li>
-<li>交换结合幂等吸收</li>
-<li>&lt;S,<em>,o&gt;是具有两个二元运算的代数系统,如果</em>,o运算满足交换结合和吸收律,那么<br>
-<em>,o运算满足幂等律:a</em>a=a*(ao(a<em>a))=a<br>
-a</em>b=a  &lt;=&gt;  aob=b<br>
-a<em>b=a</em>(aob)=a(吸收律)<br>
-aob=(a*b)ob=b</li>
-<li>有两个二元运算的代数系统,如果*,o满足交换结合和吸收律,可以适当定义S上的偏序≼,使得&lt;S,≼&gt;构成格,且其导出的代数系统就是&lt;S,<em>,o&gt;(最小上界的结果是o运算,最大下界的结果是</em>运算)<br>
-定义二元关系R,aRb&lt;=&gt;aob=b<br>
-证明R是偏序</li>
-</ol>
-<h4 id="子格">子格</h4>
-<p>L的非空子集,且S关于L中的两个运算封闭</p>
-<h4 id="格的同态">格的同态</h4>
-<p>设L1,L2是两个格,有一映射f:L1-.L2使得任意x,y属于L1时都有f(x∧y)=f(x)∧f(y)<br>
-f(x∨y)=f(x)∨f(y),则称f是L1到L2的同态<br>
-<em>同态的性质</em></p>
-<ol>
-<li>f是格L1到L2的同态,则任意a,b∈L1,a≼b=&gt;f(a)≼f(b)   保序性(反之不一定)</li>
-<li>f是双射,f为L1到L2的同构,当且仅当a≼b &lt;=&gt; f(a)≼f(b)</li>
-</ol>
-<h4 id="完备格">完备格:</h4>
-<p>任意子集(可无限)都有最大下界和最小上界∧S和∨S(有穷集合构成的格是完备的)</p>
-<h4 id="特殊格">特殊格</h4>
-<ol>
-<li>模格</li>
 </ol>
 ]]></content>
     </entry>

@@ -6,7 +6,7 @@
 <meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
 <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
 <meta HTTP-EQUIV="expires" CONTENT="0"> 
-<title>数据库中的函数依赖 | mldwyy</title>	
+<title>关系模式的分解 | mldwyy</title>	
 
 <link rel="stylesheet" href="https://wangyingying625.github.io/styles/main.css">
 <script type="text/javascript">
@@ -142,10 +142,10 @@ window.onload=getCSS();
 	
 	                      
 		<div class="entry-content">
-			<h1 class="wow swing entry-title">数据库中的函数依赖</h1>
+			<h1 class="wow swing entry-title">关系模式的分解</h1>
 <div class="entry-meta">
 <div class="wow bounce">
-	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-03-19 12:18:20" itemprop="datePublished" pubdate="">2021-03-19</time></i>
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-03-19 21:10:16" itemprop="datePublished" pubdate="">2021-03-19</time></i>
 	          </div>
 			
 </span>
@@ -153,41 +153,8 @@ window.onload=getCSS();
 		</div>
                   
 			<div class="wow slideInLeft entry-summary song">
-				<p>数据库已经看完一遍了,但是发现函数依赖这块还是盲点,于是决定专门为它写一篇<br>
-首先函数依赖出现在数据库设计中的原因是什么呢?<br>
-很多时候我们设计的数据库往往会有很多问题,比如同一数据可能在两张表中出现,导致数据的不一致,<br>
-还有当一张表中数据项过多时也会引起插入异常和删除异常.<br>
-那么怎么来判断我的关系模式(数据库表)设计的是不是好呢<br>
-这就涉及到函数依赖:</p>
-<h2 id="函数依赖">函数依赖</h2>
-<p>x中值相等时候Y中值也相等<br>
-R是一个关系模式,且里面有属性α和β,如果对于R上任意的两条元组t1和t2都有当α上的值相同时β上的值也相同,那么就说β函数依赖于α.</p>
-<h3 id="平凡的函数依赖">平凡的函数依赖</h3>
-<p>β⊆α则α-&gt;β</p>
-<h3 id="完全函数依赖">完全函数依赖</h3>
-<p>如果x能决定Y,那么任意一个x的真子集都不能决定外,就说Y完全函数依赖于x</p>
-<h3 id="部分函数依赖">部分函数依赖</h3>
-<p>x能决定Y,但是其实x的某个真子集就能决定外,就说Y部分函数依赖于x</p>
-<h3 id="传递函数依赖">传递函数依赖</h3>
-<p>x能决定y,y能决定z,就说z对x有传递函数依赖</p>
-<h3 id="确定集合的闭包">确定集合的闭包:</h3>
-<p><img src="https://wangyingying625.github.io/post-images/1616133575272.png" alt="" loading="lazy"><br>
-(BC)+=BCA   在关系中找由BC能确定谁,就加进去闭包里面,在用闭包里面的元素去集合中找还能不能确定其他元素,直到无其他元素能被新闭包中的元素确定</p>
-<h3 id="找关系的候选码">找关系的候选码</h3>
-<p><img src="https://wangyingying625.github.io/post-images/1616133692636.png" alt="" loading="lazy"><br>
-(BC)+=BCA<br>
-(AB)+=AB<br>
-(AC)+=ABC<br>
-即关系的候选码是BC和AC</p>
-<h2 id="范式">范式</h2>
-<h3 id="1nf">1NF</h3>
-<p>表中所有的属性域都是原子的</p>
-<h3 id="2nf">2NF</h3>
-<p>消除了1NF中非主属性对主属性的部分函数依赖</p>
-<h3 id="3nf">3NF</h3>
-<p>消除了2NF中非主属性对码的传递函数依赖</p>
-<h3 id="bcnf">BCNF</h3>
-<p>消除了3NF中主属性对码的部分和传递函数依赖</p>
+				<p>关系模式分解就是把一个关系模式分解成好多个关系模式<br>
+判断分解后的关系模式们是否与分解前等价的方法是 判断是否无损连接和函数依赖</p>
 
 							</div>
 	<div class="wow bounceInDown vt-post-tags">
@@ -197,10 +164,8 @@ R是一个关系模式,且里面有属性α和β,如果对于R上任意的两条
 		
 		<div class="nav-links3">
       
-		<div class="wow bounceInLeft nav-previous3"><a href="https://wangyingying625.github.io/post/guan-xi-mo-shi-de-fen-jie/" rel="prev"> 关系模式的分解</a></div>
 		 
-		 
-		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/linux-de-jin-cheng-he-xiang-guan-de-ji-ge-chong-yao-han-shu/" rel="next"> Linux的进程和相关的几个重要函数</a></div>
+		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/shu-ju-ku-zhong-de-han-shu-yi-lai/" rel="next"> 数据库中的函数依赖</a></div>
 		
 		</div>
 	</nav>
