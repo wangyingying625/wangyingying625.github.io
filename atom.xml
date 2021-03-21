@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-20T02:04:45.944Z</updated>
+    <updated>2021-03-21T03:42:28.515Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
@@ -37,6 +37,10 @@
 <li>增广律:A-&gt;B那么AC-&gt;BC</li>
 <li>传递律:A-&gt;B,B-&gt;C那么A-&gt;C</li>
 </ol>
+<hr>
+<p>关系模式的分解方法:<br>
+函数依赖投影求法:<br>
+首先需要明白这个操作是在做什么,为了什么;</p>
 <p>决定一个属性集是不是键的时候需要考虑第一它是否能决定属性集里所有元素,第二它是否具有最小性(即他的任何子集都不能决定属性集里的所有元素)</p>
 ]]></content>
     </entry>
