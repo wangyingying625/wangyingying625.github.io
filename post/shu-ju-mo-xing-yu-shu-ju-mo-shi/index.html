@@ -6,7 +6,7 @@
 <meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
 <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
 <meta HTTP-EQUIV="expires" CONTENT="0"> 
-<title>链表中的冒泡排序 | mldwyy</title>	
+<title>数据模型与数据模式 | mldwyy</title>	
 
 <link rel="stylesheet" href="https://wangyingying625.github.io/styles/main.css">
 <script type="text/javascript">
@@ -142,10 +142,10 @@ window.onload=getCSS();
 	
 	                      
 		<div class="entry-content">
-			<h1 class="wow swing entry-title">链表中的冒泡排序</h1>
+			<h1 class="wow swing entry-title">数据模型与数据模式</h1>
 <div class="entry-meta">
 <div class="wow bounce">
-	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-03-22 18:40:42" itemprop="datePublished" pubdate="">2021-03-22</time></i>
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-03-22 19:28:55" itemprop="datePublished" pubdate="">2021-03-22</time></i>
 	          </div>
 			
 </span>
@@ -153,62 +153,25 @@ window.onload=getCSS();
 		</div>
                   
 			<div class="wow slideInLeft entry-summary song">
-				<p>对一组数的存储方法最常见的就是数组和链表,它们各自有优缺点,链表增删操作便捷,数组可以随机存取.也是因为这样的不同,导致一些排序算法无法在链表中使用.</p>
-<p>在数组中的冒泡排序已经写了太多次了,今天想尝试一下链表中的排序:</p>
-<p>首先,假设链表中存储的数据是这样的</p>
-<p>3-&gt;5-&gt;1-&gt;9-&gt;2</p>
-<p>数组中的排序代码如下</p>
-<pre><code class="language-c">void sort(int *a,int length){
-int i,j,t;
-int flag;
-for(i=0;i&lt;length;i++){
-    flag=0;
-    for(j=0;j&lt;i;j++){
-        if(a[i]&lt;a[j]){
-            t=a[i];
-            a[i]=a[j];
-            a[j]=t;
-            flag=1;
-        }
-    }
-    if(flag==0)
-    return;
-  }
-}
-</code></pre>
-<p>在链表中因为没有了随机存取的优势</p>
-<pre><code class="language-C">typedef struct node{
-int data;
-struct node * next;
-}Node;
-int t;
-void sort(Node *head,){
-Node *p=NULL;
-Node *teil=NULL;
-p=head-&gt;next;
-while(p!=teil){
-while(p-&gt;next!=teil){
-        if(p-&gt;data  &gt; teil-&gt;data){
-                t=p-&gt;data;
-                p-&gt;data=teil-&gt;data;
-                teil-&gt;data=t;
-            }
-            p=p-&gt;next;
-        }
-        teil=p;
-        p=head-&gt;next;
-    }
-}
-
-
-
-
-
-
-
-
-
-</code></pre>
+				<p>发现自己好像把这两个概念混起来了,我得仔细区分一下</p>
+<h2 id="数据模型">数据模型:</h2>
+<p>用来描述数据的一组定义.<br>
+一般对数据的描述包括三个部分:数据结构+数据操作+完整性约束</p>
+<p>首先数据模型是实现DBMS的基础,同时它还是对现实世界中数据的抽象.那就要求它既与现实贴近又要容易实现.<br>
+于是采用了分层的方法,针对不同的用户使用不同的数据模型:</p>
+<ol>
+<li>概念模型:面向用户,与DBMS无关</li>
+<li>逻辑模型:用户从数据库看到的数据模型.与DBMS有关,DBMS常用它所使用的逻辑模型来分类(如关系型数据库),用概念模型抽象的数据必须转化成逻辑模型才能在DBMS中实现.</li>
+<li>物理模型:面向物理存储介质,用来反映数据在物理介质中的存储,与操作系统和硬件以及DBMS都有关</li>
+</ol>
+<h2 id="数据模式">数据模式:</h2>
+<p>模式就是对数据结构的描述,也就是说模式是用来描述数据模型中的 <strong>数据结构</strong>那一部分的<br>
+在DBMS中由于数据用多级模型描述,与之对应的数据模式也有多级</p>
+<ol>
+<li>外模式:面向用户的,用户能看到的数据,一般通过视图实现</li>
+<li>模式:是对数据库全体数据结构的描述,一个数据库只有一个模式</li>
+<li>内模式:是对数据库在物理介质中存储结构的描述,比如存储路径,存储方式和索引等</li>
+</ol>
 
 							</div>
 	<div class="wow bounceInDown vt-post-tags">
@@ -218,10 +181,8 @@ while(p-&gt;next!=teil){
 		
 		<div class="nav-links3">
       
-		<div class="wow bounceInLeft nav-previous3"><a href="https://wangyingying625.github.io/post/shu-ju-mo-xing-yu-shu-ju-mo-shi/" rel="prev"> 数据模型与数据模式</a></div>
 		 
-		 
-		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/jie-na-fu-mian-de-zi-ji/" rel="next"> 接纳负面的自己</a></div>
+		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/lian-biao-zhong-de-mou-pao-pai-xu/" rel="next"> 链表中的冒泡排序</a></div>
 		
 		</div>
 	</nav>

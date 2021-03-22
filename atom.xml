@@ -2,13 +2,40 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-22T10:43:17.365Z</updated>
+    <updated>2021-03-22T13:39:31.474Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
     <logo>https://wangyingying625.github.io/images/avatar.png</logo>
     <icon>https://wangyingying625.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, mldwyy</rights>
+    <entry>
+        <title type="html"><![CDATA[数据模型与数据模式]]></title>
+        <id>https://wangyingying625.github.io/post/shu-ju-mo-xing-yu-shu-ju-mo-shi/</id>
+        <link href="https://wangyingying625.github.io/post/shu-ju-mo-xing-yu-shu-ju-mo-shi/">
+        </link>
+        <updated>2021-03-22T11:28:55.000Z</updated>
+        <content type="html"><![CDATA[<p>发现自己好像把这两个概念混起来了,我得仔细区分一下</p>
+<h2 id="数据模型">数据模型:</h2>
+<p>用来描述数据的一组定义.<br>
+一般对数据的描述包括三个部分:数据结构+数据操作+完整性约束</p>
+<p>首先数据模型是实现DBMS的基础,同时它还是对现实世界中数据的抽象.那就要求它既与现实贴近又要容易实现.<br>
+于是采用了分层的方法,针对不同的用户使用不同的数据模型:</p>
+<ol>
+<li>概念模型:面向用户,与DBMS无关</li>
+<li>逻辑模型:用户从数据库看到的数据模型.与DBMS有关,DBMS常用它所使用的逻辑模型来分类(如关系型数据库),用概念模型抽象的数据必须转化成逻辑模型才能在DBMS中实现.</li>
+<li>物理模型:面向物理存储介质,用来反映数据在物理介质中的存储,与操作系统和硬件以及DBMS都有关</li>
+</ol>
+<h2 id="数据模式">数据模式:</h2>
+<p>模式就是对数据结构的描述,也就是说模式是用来描述数据模型中的 <strong>数据结构</strong>那一部分的<br>
+在DBMS中由于数据用多级模型描述,与之对应的数据模式也有多级</p>
+<ol>
+<li>外模式:面向用户的,用户能看到的数据,一般通过视图实现</li>
+<li>模式:是对数据库全体数据结构的描述,一个数据库只有一个模式</li>
+<li>内模式:是对数据库在物理介质中存储结构的描述,比如存储路径,存储方式和索引等</li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[链表中的冒泡排序]]></title>
         <id>https://wangyingying625.github.io/post/lian-biao-zhong-de-mou-pao-pai-xu/</id>
@@ -17,6 +44,60 @@
         <updated>2021-03-22T10:40:42.000Z</updated>
         <content type="html"><![CDATA[<p>对一组数的存储方法最常见的就是数组和链表,它们各自有优缺点,链表增删操作便捷,数组可以随机存取.也是因为这样的不同,导致一些排序算法无法在链表中使用.</p>
 <p>在数组中的冒泡排序已经写了太多次了,今天想尝试一下链表中的排序:</p>
+<p>首先,假设链表中存储的数据是这样的</p>
+<p>3-&gt;5-&gt;1-&gt;9-&gt;2</p>
+<p>数组中的排序代码如下</p>
+<pre><code class="language-c">void sort(int *a,int length){
+int i,j,t;
+int flag;
+for(i=0;i&lt;length;i++){
+    flag=0;
+    for(j=0;j&lt;i;j++){
+        if(a[i]&lt;a[j]){
+            t=a[i];
+            a[i]=a[j];
+            a[j]=t;
+            flag=1;
+        }
+    }
+    if(flag==0)
+    return;
+  }
+}
+</code></pre>
+<p>在链表中因为没有了随机存取的优势</p>
+<pre><code class="language-C">typedef struct node{
+int data;
+struct node * next;
+}Node;
+int t;
+void sort(Node *head,){
+Node *p=NULL;
+Node *teil=NULL;
+p=head-&gt;next;
+while(p!=teil){
+while(p-&gt;next!=teil){
+        if(p-&gt;data  &gt; teil-&gt;data){
+                t=p-&gt;data;
+                p-&gt;data=teil-&gt;data;
+                teil-&gt;data=t;
+            }
+            p=p-&gt;next;
+        }
+        teil=p;
+        p=head-&gt;next;
+    }
+}
+
+
+
+
+
+
+
+
+
+</code></pre>
 ]]></content>
     </entry>
     <entry>
@@ -352,27 +433,6 @@ a∨(b∧c)=(a∨b)∧(a∨c)<br>
 <img src="https://wangyingying625.github.io/post-images/1615727947869.png" alt="" loading="lazy"></li>
 </ol>
 <figure data-type="image" tabindex="1"><img src="https://wangyingying625.github.io/post-images/1615728235216.jpg" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[群的理解]]></title>
-        <id>https://wangyingying625.github.io/post/qun-de-li-jie/</id>
-        <link href="https://wangyingying625.github.io/post/qun-de-li-jie/">
-        </link>
-        <updated>2021-03-14T09:26:42.000Z</updated>
-        <content type="html"><![CDATA[<p>今天也是被离散数学折磨的一天<br>
-学到了代数系统里的群,据说这是最简答的一种代数系统,不愿意接受自己连最简单的都学不明白的事实于是看了一堆相关的视频和文章,结论如下:</p>
-<p>首先,群是一种代数系统,是代数系统就要求它有一些元素,还要求元素之间能进行某种运算.群的运算必须是二元运算,也就是说进行这种运算的只能是两个元素.</p>
-<p>那么随便什么运算只要是两个元素之间进行的就可以吗?当然也不是.群对这个二元运算有更高的要求<br>
-它要求这个二元运算是封闭的,可结合的,有单位元每个元素都有逆元.</p>
-<p>首先封闭要求,群里任意两个元素之间都能进行这种运算,并且运算的结果仍然是群里的元素,不能跑出去</p>
-<p>可结合指的是,假设进行运算的是元素a<em>b</em>c那么无论我先进行a<em>b还是b</em>c都不影响运算的结果</p>
-<p>有单位元指的是群的元素里面存在那么一个元素,它在群的运算中不起作用,不管和谁运算,结果都是人家</p>
-<p>有逆元指的是群中任何一个元素都能在群里找到另外一个元素,他们俩进行运算的结果是单位元.</p>
-<p>只有满足以上四个公理的运算和集合才能叫做群.<br>
-然而一个群中的元素们也有小团体，关系好的一些元素组成了一个子群，这个团体内也满足群的一切性质，只不过是组成元素是大群的一部分。</p>
-<p>在此基础上阿贝尔群指的是,小猫和小狗聊天的结果与小狗和小猫聊天的结果一样最终都聊到了小鸭</p>
-<p>循环群指的是,小猫和小猫聊天聊着聊着聊出来小狗,小狗和小猫聊天聊着聊着聊出来小猪...直到把集合里所有元素都聊出来,又聊回去小猫自己.也就是说小猫自己经过聊天这个运算聊出来了集合里的全部小动物们</p>
 ]]></content>
     </entry>
 </feed>
