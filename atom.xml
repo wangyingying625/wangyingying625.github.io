@@ -2,13 +2,110 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-22T08:31:08.441Z</updated>
+    <updated>2021-03-22T09:10:27.665Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
     <logo>https://wangyingying625.github.io/images/avatar.png</logo>
     <icon>https://wangyingying625.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, mldwyy</rights>
+    <entry>
+        <title type="html"><![CDATA[与二叉树相关的算法]]></title>
+        <id>https://wangyingying625.github.io/post/yu-er-cha-shu-xiang-guan-de-suan-fa/</id>
+        <link href="https://wangyingying625.github.io/post/yu-er-cha-shu-xiang-guan-de-suan-fa/">
+        </link>
+        <updated>2021-03-22T08:35:56.000Z</updated>
+        <content type="html"><![CDATA[<p>树应该算用的比较多的数据结构,但是几乎所有场景下的使用都离不开基础算法,比如二叉树遍历,树遍历,二叉树构造,今天就总结一下这些算法:<br>
+<img src="https://wangyingying625.github.io/post-images/1616402444193.png" alt="" loading="lazy"></p>
+<h3 id="二叉树存储">二叉树存储:</h3>
+<p>要想遍历首先得了解二叉树的存储方法:<br>
+链表法:结构体定义如下</p>
+<pre><code class="language-c">typedef struct tree{
+   struct * tree lchild;
+   struct *tree rchild;
+   char data;
+}Tree;
+</code></pre>
+<ol>
+<li>二叉树前序(根左右)递归遍历:<br>
+ABDECFG</li>
+</ol>
+<pre><code class="language-C">void PreOrder(Tree t)
+{
+    if ( t )
+    {
+    printf(&quot;%c&quot;,t-&gt;data);
+    PreOrder(t-&gt;lchild);
+    PreOrder(t-&gt;rchild);
+    }
+</code></pre>
+<ol start="2">
+<li>二叉树前序非递归:<br>
+需要借助栈实现</li>
+</ol>
+<pre><code class="language-c">void PreOrder1(Tree t)
+{
+    Tree p = t;
+    Sqstack s;
+    InitStack(s);//初始化一个栈
+ 
+    while ( p || !StackEmpty(s) )
+    {
+    if ( p )
+    {
+        printf(&quot;%c&quot;,p-&gt;data);
+        Push(s,p);
+        p = p-&gt;lchild;    
+    }
+    else
+    {
+        Pop(s,p); 
+        p = p-&gt;rchild;
+    }
+    }
+ 
+}
+
+</code></pre>
+<ol start="3">
+<li>二叉树中序递归:</li>
+</ol>
+<pre><code class="language-c">void order(Tree t){
+    Tree p=t;
+    if(p){
+        p=p-&gt;lchild;
+        printf(&quot;%c&quot;,p-&gt;data);
+        p=p-&gt;rchild;
+    }
+}
+</code></pre>
+<ol start="4">
+<li>二叉树中非递归:</li>
+</ol>
+<pre><code class="language-c">void order1(Tree t){
+    Tree p=t;
+     Sqstack s;
+    InitStack(s);//初始化一个栈
+while ( p || !StackEmpty(s) ){
+    if(p){
+        push(s,p);
+        p=p-&gt;lchild;
+    }
+    else{
+        pop(s,p);
+        printf(&quot;%d&quot;,p-&gt;data);
+        p=p-&gt;rchild;
+    }
+    }
+}
+</code></pre>
+<ol start="5">
+<li>二叉树后序非递归遍历:</li>
+</ol>
+<pre><code class="language-c">
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[关系模式的分解]]></title>
         <id>https://wangyingying625.github.io/post/guan-xi-mo-shi-de-fen-jie/</id>
@@ -317,65 +414,6 @@ fscanf :一次读到空格,遇到空格就停止,假设我文件中的内容为2
 <p>写文件的函数们:<br>
 fprintf: 可给文件中写入任意多个任意类型的内容fprintf(fp,&quot;%d %d %s&quot;,123,234,&quot;hello world!&quot;)如果写入成功返回写入个数,如果失败返回一负数</p>
 </li>
-</ol>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[常见算法]]></title>
-        <id>https://wangyingying625.github.io/post/chang-jian-suan-fa/</id>
-        <link href="https://wangyingying625.github.io/post/chang-jian-suan-fa/">
-        </link>
-        <updated>2021-03-12T08:27:22.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="把一个数组根据下标是奇数还是偶数分割成两个数组">把一个数组根据下标是奇数还是偶数分割成两个数组</h3>
-<p>假设要分割的数组a=[1,2,3,4,5,6,7,8,9]</p>
-<ol>
-<li>定义一个变量i用来遍历数组a;</li>
-<li>定义一个变量j用来标识数组b中下一个元素要存储的位置;</li>
-<li>定义一个变量k用来标识数组c中下一个元素要存储的位置<br>
-当(i%2)==0把a[i]中的值存入数组b[j++]<br>
-否则把a[i]中的值存入数组c[k++]</li>
-</ol>
-<h3 id="删除字符串中的所有空格并且输出删除后的字符串以及被删除的空格数">删除字符串中的所有空格并且输出删除后的字符串以及被删除的空格数</h3>
-<p>假设被操作的字符串是s=['h','e','l','l','o',' ','w','o','r','d']</p>
-<ol>
-<li>定义一个变量i用来遍历字符串s</li>
-<li>定义一个变量j用来标识删除过后的字符串下个元素要存入的位置</li>
-<li>遍历字符串s,如果当前字符是' ',则指针i后移;若当前字符不是' '则把当前字符存入s[j]的位置,并且j++</li>
-<li>被删除的空格数就是i-j</li>
-</ol>
-<h3 id="排序算法">排序算法</h3>
-<h4 id="选择">选择</h4>
-<ol>
-<li>简单选择:<br>
-每一轮从未排好序的序列里选择一个最小的,与最前面未排序的元素交换<br>
-直到排好</li>
-<li>堆排序</li>
-</ol>
-<h4 id="交换">交换</h4>
-<ol>
-<li>冒泡<br>
-从数组头开始两两比较,若前面的比后面的大就交换,第一轮比较结束时最大的元素被移动到最后<br>
-从数组头开始再次两两比较,比较到倒数第二个时候截止<br>
-...重复直到比较完或者一轮都没有交换</li>
-<li>快排<br>
-选取数列的第一个元素作为基准<br>
-从第二个元素开始与基准比较,若比基准小就放到当前基准在数组中的地方,并把基准在数组中的指针向后移1</li>
-</ol>
-<h4 id="插入">插入</h4>
-<ol>
-<li>简单插入<br>
-默认第一个元素排好序,从第二个元素开始,和前面的元素比较,若比前面的元素小就交换,直到比前面的大,开始下一轮比较直到全部排好</li>
-<li>希尔排序<br>
-把表按照某一特定增量k分割<br>
-同一增量下的元素进行简单插入排序<br>
-增量变为k/2,重复上述过程</li>
-</ol>
-<h4 id="归并">归并</h4>
-<ol>
-<li>二路归并排序<br>
-把数组分为n/2个等长的子数组<br>
-每个子数组里进行二路归并排序<br>
-将排好序的相邻两个子数组再进行二路归并排序,知道最后只剩下两个n/2的数组</li>
 </ol>
 ]]></content>
     </entry>
