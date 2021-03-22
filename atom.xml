@@ -2,13 +2,23 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-22T10:38:32.099Z</updated>
+    <updated>2021-03-22T10:43:17.365Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
     <logo>https://wangyingying625.github.io/images/avatar.png</logo>
     <icon>https://wangyingying625.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, mldwyy</rights>
+    <entry>
+        <title type="html"><![CDATA[链表中的冒泡排序]]></title>
+        <id>https://wangyingying625.github.io/post/lian-biao-zhong-de-mou-pao-pai-xu/</id>
+        <link href="https://wangyingying625.github.io/post/lian-biao-zhong-de-mou-pao-pai-xu/">
+        </link>
+        <updated>2021-03-22T10:40:42.000Z</updated>
+        <content type="html"><![CDATA[<p>对一组数的存储方法最常见的就是数组和链表,它们各自有优缺点,链表增删操作便捷,数组可以随机存取.也是因为这样的不同,导致一些排序算法无法在链表中使用.</p>
+<p>在数组中的冒泡排序已经写了太多次了,今天想尝试一下链表中的排序:</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[接纳负面的自己]]></title>
         <id>https://wangyingying625.github.io/post/jie-na-fu-mian-de-zi-ji/</id>
@@ -19,23 +29,7 @@
 今天一天都处在一种很焦虑的状态,不断地想如果我失败了我该怎么办,也不断的强迫自己告诉自己说你别想了,多看一道题不比这强吗,但是似乎毫无作用,尽管播着很多温柔的歌曲,还是没有办法把自己从那种状态里抽离出来,还是眼睛做着眼睛的事,脑袋做着脑袋的事.但是越这样也就导致我的焦虑感更加严重.</p>
 <p>意识到要想坦然面对未知的事情,就必须调节好自己的情绪.于是放下了手里的题尝试去看书,想通过里面的文字来让自己放松一点,来告诉自己我也很优秀.但是作用也微乎其微.</p>
 <p>于是去搜索&quot;如何缓解焦虑&quot;尝试找到一个答案能让我放松.看到了这篇高赞回答,它对我有用,我打算记下来.以后,我可能还会用到.</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
 <blockquote></blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
 <p>你应该接纳自己的一切,爱自己的一切,不管是正面的自己还是负面的自己.当你获得了成功,你会激动会开心,这个时候你充满了自信,那是因为你给了自己肯定,你接纳了那个正面的自己.<br>
 而当你失败的时候,你会悲伤,你会痛苦,那是因为你给了自己否定,你没有接纳这个负面的自己.<br>
 其实人从一出生的时候,就被刻画了两个自己,一个是正面的一个是负面的.正面的出现的时候,你会开心,负面的出现的时候你也不该烦恼.因为那也是你自己,你唯一能做的就是包容和接纳.<br>
@@ -43,23 +37,7 @@
 当对自己的一切进行接纳之后,其实对我来说各种痛苦也就被我同化成了朋友,也就很少有东西可以伤害到我了.<br>
 学会接纳自己之后,你会尊重自己的每一个选择.因为那是你自己做出来的.不管你的选择导致了什么样的结果,都要去接受.因为你不再会去遗憾什么.<br>
 即使外面的情况很糟糕了,只要我还活着,那么我就可以再次做出选择,再次去改变外界的世界.</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
 <blockquote></blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
 ]]></content>
     </entry>
     <entry>
@@ -395,26 +373,6 @@ a∨(b∧c)=(a∨b)∧(a∨c)<br>
 然而一个群中的元素们也有小团体，关系好的一些元素组成了一个子群，这个团体内也满足群的一切性质，只不过是组成元素是大群的一部分。</p>
 <p>在此基础上阿贝尔群指的是,小猫和小狗聊天的结果与小狗和小猫聊天的结果一样最终都聊到了小鸭</p>
 <p>循环群指的是,小猫和小猫聊天聊着聊着聊出来小狗,小狗和小猫聊天聊着聊着聊出来小猪...直到把集合里所有元素都聊出来,又聊回去小猫自己.也就是说小猫自己经过聊天这个运算聊出来了集合里的全部小动物们</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Tell me about yourself]]></title>
-        <id>https://wangyingying625.github.io/post/tell-me-about-yourself/</id>
-        <link href="https://wangyingying625.github.io/post/tell-me-about-yourself/">
-        </link>
-        <updated>2021-03-13T13:51:34.000Z</updated>
-        <content type="html"><![CDATA[<p>When you are applying for a position in a company especially English ability in reading and writing is important in the position,or when you are prepareing for the second examination about postgraduate entrance just like me, it is indispensable to introduce yourself in English.<br>
-Then I will write about my introduction and my thought about writing it.<br>
-(It is my first English blog,Although try my best to check it,errors and defects are inevitable,just forgive me.)</p>
-<p>In the first place,post my introduction.It can also help you to know me by reading it.</p>
-<blockquote></blockquote>
-<p>Good afternoon,teachers.Thank you for the precious opporitunity.<br>
-I will introduce myself from three aspects.The first is my basic information,the second is my undergraduate study,and the third is my work experience.</p>
-<p>First,My name is mldwyy,twenty-three years old.I was born and raised in LL,a city of XX province.It's well-know for it's food,such as xxx .And in my spare time.I like  playing with my cat.Her name is TaoTao.She is adopted and we adopted her with this name.As for my character,I am a introverted girl.And sometimes I notice that I am shy to share my ideas when there is a room of people.And it is something that I know I need to work on.In fact,recently I having been watching a few TED videos.And through the videos I have picked up a lot tools.Now they are helping me a lot.</p>
-<p>Second, I graduated from the xxx departmen of xx University in July,two thousand twenty.I have been study hard during my school time and my grade is excellent and I have gained scholarship several times.Because I didn't pass the examPostgraduate Candidates Exempt from Admission Exam</p>
-<p>Third,I have worked in an Internet company as a front-end engineer for nearly four months.My daily job was reading technical documentations and useing it to writie website programmes.So it is my strength that read and summarize a documentation  in a short time. And it was during that time that I decided to choose network security as my future major.I find it's necessary to help Interent Internet company improve the safety of their products.And that's I am passionate about.To learn more about it ,I ask for my friend in that major about a workable study plan and learned the basics of common vulnerabilities. I wish to devote my life and energy into the development of it.</p>
-<p>That's all,Thanks for your listening.</p>
-<blockquote></blockquote>
 ]]></content>
     </entry>
 </feed>
