@@ -183,9 +183,15 @@ fclose(fp);
 putchar('\n');
 </code></pre>
 <ol start="2">
-<li>读取文件的函数们:<br>
+<li>
+<p>读取文件的函数们:<br>
 fgetc  :一次读取一个字符,如ch = fgetc(fp);读完时ch=EOF<br>
-fscanf :一次读到空格,遇到空格就停止,假设我文件中的内容为22 33,那么fscanf(fp,&quot;%d&quot;,&amp;num);那么num位置处就被写入22</li>
+fscanf :一次读到空格,遇到空格就停止,假设我文件中的内容为22 33,那么fscanf(fp,&quot;%d&quot;,&amp;num);那么num位置处就被写入22</p>
+</li>
+<li>
+<p>写文件的函数们:<br>
+fprintf: 可给文件中写入任意多个任意类型的内容fprintf(fp,&quot;%d %d %s&quot;,123,234,&quot;hello world!&quot;)如果写入成功返回写入个数,如果失败返回一负数</p>
+</li>
 </ol>
 
 							</div>
