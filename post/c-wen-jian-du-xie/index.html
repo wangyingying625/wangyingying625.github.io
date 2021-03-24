@@ -6,7 +6,7 @@
 <meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
 <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
 <meta HTTP-EQUIV="expires" CONTENT="0"> 
-<title>数据模型与数据模式 | mldwyy</title>	
+<title>c文件读写 | mldwyy</title>	
 
 <link rel="stylesheet" href="https://wangyingying625.github.io/styles/main.css">
 <script type="text/javascript">
@@ -142,10 +142,10 @@ window.onload=getCSS();
 	
 	                      
 		<div class="entry-content">
-			<h1 class="wow swing entry-title">数据模型与数据模式</h1>
+			<h1 class="wow swing entry-title">c文件读写</h1>
 <div class="entry-meta">
 <div class="wow bounce">
-	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-03-22 19:28:55" itemprop="datePublished" pubdate="">2021-03-22</time></i>
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-03-24 17:36:23" itemprop="datePublished" pubdate="">2021-03-24</time></i>
 	          </div>
 			
 </span>
@@ -153,38 +153,64 @@ window.onload=getCSS();
 		</div>
                   
 			<div class="wow slideInLeft entry-summary song">
-				<p>发现自己好像把这两个概念混起来了,我得仔细区分一下</p>
-<h2 id="数据模型">数据模型:</h2>
-<p>用来描述数据的一组定义.<br>
-一般对数据的描述包括三个部分:数据结构+数据操作+完整性约束</p>
-<p>首先数据模型是实现DBMS的基础,同时它还是对现实世界中数据的抽象.那就要求它既与现实贴近又要容易实现.<br>
-于是采用了分层的方法,针对不同的用户使用不同的数据模型:</p>
+				<h3 id="文件类型">文件类型:</h3>
+<p>文件类型分为文本文件和二进制文件两种</p>
+<h3 id="文件存取方式">文件存取方式:</h3>
+<p>文件存取方式有顺序存取和随机存取两种方式<br>
+顺序存取中把文件自上而下一行一行的读取,保存数据时候数据加在文件末尾.<br>
+随机存取的文件大多是二进制文件,通常存储的单位是一个结构块</p>
+<h3 id="文件操作">文件操作</h3>
+<h4 id="打开文件">打开文件:</h4>
 <ol>
-<li>概念模型:面向用户,与DBMS无关</li>
-<li>逻辑模型:用户从数据库看到的数据模型.与DBMS有关,DBMS常用它所使用的逻辑模型来分类(如关系型数据库),用概念模型抽象的数据必须转化成逻辑模型才能在DBMS中实现.</li>
-<li>物理模型:面向物理存储介质,用来反映数据在物理介质中的存储,与操作系统和硬件以及DBMS都有关</li>
+<li>函数原型:fopen(&quot;文件路径&quot;,&quot;打开模式&quot;);</li>
+<li>返回:打开成功时返回一个文件操作符指针,否则返回NULL</li>
+<li>打开模式:<br>
+r:只能读文件,若文件不存在打开失败<br>
+w:只能写文件,如果操作文件本来不存在,就创建一个文件;如果被操作文件本来就存在则把它删掉重新创建<br>
+a:向文件增加新数据,打开时文件指针默认移动到文件尾,如果要打开文件本来不存在就打开失败<br>
+r+:可读可写,但是被打开文件需要存在,否则打开失败<br>
+w+:可读可写<br>
+a+:可读可写,原文件中内容不被删去,默认文件指针在末尾</li>
 </ol>
-<h2 id="数据模式">数据模式:</h2>
-<p>模式就是对数据结构的描述,也就是说模式是用来描述数据模型中的 <strong>数据结构</strong>那一部分的<br>
-在DBMS中由于数据用多级模型描述,与之对应的数据模式也有多级</p>
+<h4 id="关闭文件">关闭文件:</h4>
 <ol>
-<li>外模式:面向用户的,用户能看到的数据,一般通过视图实现</li>
-<li>模式:是对数据库全体数据结构的描述,一个数据库只有一个模式</li>
-<li>内模式:是对数据库在物理介质中存储结构的描述,比如存储路径,存储方式和索引等</li>
+<li>函数原型:fclose(文件描述符指针)</li>
+<li>正常关闭时返回0,否则返回非零值</li>
 </ol>
+<h4 id="字符存取函数">字符存取函数:</h4>
+<p>存取的单位是字符</p>
+<ol>
+<li>读文件:fgetc(文件描述符指针),从文件流中一次读取一个字符,然后读取指针移到下个字符,逐步读取文件内容;如果读取成功返回字符,失败返回EOF(通常表示文件的结尾);判断文件是否读完用feof(),未读完返回0,已读完返回非零.</li>
+<li>写文件:fputc(写入字符,文件描述符指针),每次往文件里写一个字符</li>
+</ol>
+<h4 id="字符串存取函数">字符串存取函数:</h4>
+<p>存取的单位是字符串</p>
+<ol>
+<li>读文件:fgets(读出的字符串需要被存储进去的变量,字符串长度n,文件描述符),从文件流中n个字符(最后一个是\0),如果还不到n个就遇到换行或者EOF那就不继续往下读</li>
+<li>写文件:fputs(&quot;打算写入的字符串&quot;,文件描述符指针),若输出成功返回0否则返回EOF</li>
+</ol>
+<h4 id="格式化存取函数">格式化存取函数:</h4>
+<ol>
+<li>读文件:fscanf(fp,&quot;%d&quot;,&quot;%s&quot;,1,&quot;123ert&quot;);<br>
+是从磁盘输入内容到终端(屏幕)</li>
+<li>写文件:fprintf(fp,&quot;%d&quot;,1)<br>
+向磁盘输入内容</li>
+</ol>
+<h4 id="指针重返函数">指针重返函数:</h4>
+<p>rewind(FILE *)能使文件指针重新返回文件开头</p>
 
 							</div>
 	<div class="wow bounceInDown vt-post-tags">
  
+				<a href="https://wangyingying625.github.io/tag/05lIvIsxX/" rel="tag">c语言</a>	
+				 
 					</div>						
 <nav class="navigation3 post-navigation3" role="navigation">
 		
 		<div class="nav-links3">
       
-		<div class="wow bounceInLeft nav-previous3"><a href="https://wangyingying625.github.io/post/c-wen-ti-ban/" rel="prev"> C问题版</a></div>
 		 
-		 
-		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/lian-biao-zhong-de-mou-pao-pai-xu/" rel="next"> 链表中的冒泡排序</a></div>
+		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/c-wen-ti-ban/" rel="next"> C问题版</a></div>
 		
 		</div>
 	</nav>
