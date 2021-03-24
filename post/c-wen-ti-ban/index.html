@@ -358,12 +358,64 @@ int main(){
 </code></pre>
 <h3 id="文件">文件</h3>
 <ol>
-<li>输入员工信息,保存到文件empty.txt中,并从该文件读出数据.员工信息由编号,项目和薪资组成<pre><code class="language-c">
+<li>输入员工信息,保存到文件empty.txt中,并从该文件读出数据.员工信息由编号,项目和薪资组成<pre><code class="language-c">//
 </code></pre>
 </li>
 </ol>
-<h3 id="递归">递归</h3>
-<h3 id="二叉树">二叉树</h3>
+<p>//  file.c<br>
+//  test1<br>
+//<br>
+//  Created by mldwyy on 2021/3/24.<br>
+//</p>
+<p>#include &lt;stdio.h&gt;<br>
+#include &lt;stdlib.h&gt;<br>
+#include &lt;string.h&gt;<br>
+typedef struct emp{<br>
+int id;<br>
+char name[20];<br>
+int money;<br>
+}Emp;<br>
+void input(Emp node){<br>
+FILE *fp;<br>
+fp=fopen(&quot;empty.txt&quot;, &quot;w&quot;);<br>
+if(fp==NULL){<br>
+printf(&quot;打不开&quot;);<br>
+return;<br>
+}<br>
+fprintf(fp,&quot;%d %s %d&quot;,node.id,node.name,node.money);<br>
+fclose(fp);<br>
+};<br>
+void output(){<br>
+Emp node;<br>
+FILE *fp;<br>
+fp=fopen(&quot;empty.txt&quot;, &quot;r&quot;);<br>
+if(fp!=NULL){<br>
+while(!feof(fp))<br>
+fscanf(fp, &quot;%d %s %d&quot;,&amp;(node.id),node.name,&amp;(node.money));<br>
+}<br>
+printf(&quot;%d\n%s\n&quot;,node.id,node.name);<br>
+fclose(fp);<br>
+}<br>
+int main(){<br>
+Emp e;<br>
+scanf(&quot;%d %s %d&quot;,&amp;e.id,e.name,&amp;e.money);<br>
+input(e);<br>
+output();<br>
+return 0;<br>
+}</p>
+<pre><code>
+
+
+
+
+
+
+
+
+
+
+
+</code></pre>
 
 							</div>
 	<div class="wow bounceInDown vt-post-tags">
