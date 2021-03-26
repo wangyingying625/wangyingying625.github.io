@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-24T10:56:42.505Z</updated>
+    <updated>2021-03-26T03:48:47.424Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
@@ -10,6 +10,53 @@
     <logo>https://wangyingying625.github.io/images/avatar.png</logo>
     <icon>https://wangyingying625.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, mldwyy</rights>
+    <entry>
+        <title type="html"><![CDATA[The rain will stop the sun will shine]]></title>
+        <id>https://wangyingying625.github.io/post/the-rain-will-stop-the-sun-will-shine/</id>
+        <link href="https://wangyingying625.github.io/post/the-rain-will-stop-the-sun-will-shine/">
+        </link>
+        <updated>2021-03-26T03:24:25.000Z</updated>
+        <content type="html"><![CDATA[<p>吃饭的时候有一个大哥跟我唠嗑,了解到我在准备复试,就开始鼓励我,试图想对我明天或者后天的表现提供一些积极的建议顺便也缓解我现在焦虑的情绪.<br>
+其实说实话在和他唠嗑前我本来没有这么恐惧的.好像是把自己的注意力转移到其他地方了.尽管他重复告诉我,看我现在这么冷静,肯定是没有问题..想了想其实我冷静只是因为知道我现在去和任何人说我的焦虑和害怕说我的紧张感和不适感对我的处境没有任何帮助,除了在我失败之后拿着这个借口来拒绝承认自己的不足之外.</p>
+<p>其实最近几天我确实身体出现了些大大小小的问题.比如最近食欲非常不好,一天基本上只吃一顿饭还要剩一半,确实是吃不下.但是我又不想让自己变成一个这么脆弱的人,于是我就去安慰自己是因为今天买太多了,吃不下正好还当减肥了呢..每天的睡眠时间也就是六小时左右,晚上将近一点睡觉早晨六点也必然醒,然后在床上翻来覆去的烙自己,直到毫无睡意...</p>
+<p>最让我觉得奇妙的感觉是,不知道为什么尽管已经用尽了自己所有的努力,尽管也意识到自己可能根本就不差,但是总是觉得考上可能性像我出门买彩票,只买了一张就中了的那种感觉..这种感觉确切的形容就是  这种低概率的惊喜是不会发生在我身上的.  可能是倒霉太久了吧,倒霉到觉得自己不可能幸运了.</p>
+<p>不知道等待着我的结局是什么,大哥说结局早就写好了,只是我还没有去翻开看,那有人能帮我看看吗.</p>
+<p>成年人的生活都是辛苦的,只是有些时候不能喊疼罢了.</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[工具使用的总结]]></title>
+        <id>https://wangyingying625.github.io/post/gong-ju-shi-yong-de-zong-jie/</id>
+        <link href="https://wangyingying625.github.io/post/gong-ju-shi-yong-de-zong-jie/">
+        </link>
+        <updated>2021-03-24T11:48:00.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="sqlmap">sqlmap:</h3>
+<p>用来进行自动化检测，利用 SQL 注入漏洞，获取数据库服务器的权限</p>
+<ol>
+<li>安装:基于pyhon,所以需要先安装python</li>
+<li></li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[安全内容的总结]]></title>
+        <id>https://wangyingying625.github.io/post/an-quan-nei-rong-de-zong-jie/</id>
+        <link href="https://wangyingying625.github.io/post/an-quan-nei-rong-de-zong-jie/">
+        </link>
+        <updated>2021-03-24T11:03:53.000Z</updated>
+        <content type="html"><![CDATA[<p>核心:所有的漏洞都出现在输入输出,出现在数据流的某一层<br>
+通过提交特殊数据,在数据流的某一层没有对数据进行处理,就会出现相应层的安全问题.</p>
+<h3 id="数据流的层级">数据流的层级:</h3>
+<ol>
+<li>前端层:js解析器把特殊数据当做指令执行(&lt;details open ontoggle=prompt('hello')&gt;)------XSS</li>
+<li>开发框架:PHP把特殊数据当做指令执行(eval($_REQUEST['x'])😉------远程命令执行</li>
+<li>web容器:如nginx把特殊数据当做命令执行----远程溢出</li>
+<li>数据存储:DBMS把特殊数据当做命令执行( union select user, pwd, 1, 2, 3, 4 from users--)---SQL注入</li>
+<li>操作系统:Linux的bash环境把特殊数据当做命令执行(; rm -rf /😉------OS命令执行</li>
+</ol>
+<h3 id="漏洞总结">漏洞总结</h3>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[c文件读写]]></title>
         <id>https://wangyingying625.github.io/post/c-wen-jian-du-xie/</id>
@@ -571,82 +618,6 @@ while ( p || !StackEmpty(s) ){
 函数依赖投影求法:<br>
 首先需要明白这个操作是在做什么,为了什么;</p>
 <p>决定一个属性集是不是键的时候需要考虑第一它是否能决定属性集里所有元素,第二它是否具有最小性(即他的任何子集都不能决定属性集里的所有元素)</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[数据库中的函数依赖]]></title>
-        <id>https://wangyingying625.github.io/post/shu-ju-ku-zhong-de-han-shu-yi-lai/</id>
-        <link href="https://wangyingying625.github.io/post/shu-ju-ku-zhong-de-han-shu-yi-lai/">
-        </link>
-        <updated>2021-03-19T04:18:20.000Z</updated>
-        <content type="html"><![CDATA[<p>数据库已经看完一遍了,但是发现函数依赖这块还是盲点,于是决定专门为它写一篇<br>
-首先函数依赖出现在数据库设计中的原因是什么呢?<br>
-很多时候我们设计的数据库往往会有很多问题,比如同一数据可能在两张表中出现,导致数据的不一致,<br>
-还有当一张表中数据项过多时也会引起插入异常和删除异常.<br>
-那么怎么来判断我的关系模式(数据库表)设计的是不是好呢<br>
-这就涉及到函数依赖:</p>
-<h2 id="函数依赖">函数依赖</h2>
-<p>x中值相等时候Y中值也相等<br>
-R是一个关系模式,且里面有属性α和β,如果对于R上任意的两条元组t1和t2都有当α上的值相同时β上的值也相同,那么就说β函数依赖于α.</p>
-<h3 id="平凡的函数依赖">平凡的函数依赖</h3>
-<p>β⊆α则α-&gt;β</p>
-<h3 id="完全函数依赖">完全函数依赖</h3>
-<p>如果x能决定Y,那么任意一个x的真子集都不能决定外,就说Y完全函数依赖于x</p>
-<h3 id="部分函数依赖">部分函数依赖</h3>
-<p>x能决定Y,但是其实x的某个真子集就能决定外,就说Y部分函数依赖于x</p>
-<h3 id="传递函数依赖">传递函数依赖</h3>
-<p>x能决定y,y能决定z,就说z对x有传递函数依赖</p>
-<h3 id="确定集合的闭包">确定集合的闭包:</h3>
-<p><img src="https://wangyingying625.github.io/post-images/1616133575272.png" alt="" loading="lazy"><br>
-(BC)+=BCA   在关系中找由BC能确定谁,就加进去闭包里面,在用闭包里面的元素去集合中找还能不能确定其他元素,直到无其他元素能被新闭包中的元素确定</p>
-<h3 id="找关系的候选码">找关系的候选码</h3>
-<p><img src="https://wangyingying625.github.io/post-images/1616133692636.png" alt="" loading="lazy"><br>
-(BC)+=BCA<br>
-(AB)+=AB<br>
-(AC)+=ABC<br>
-即关系的候选码是BC和AC</p>
-<h2 id="范式用来区分关系模式的优劣">范式(用来区分关系模式的优劣)</h2>
-<h3 id="1nf">1NF</h3>
-<p>表中所有的属性域都是原子的</p>
-<h3 id="2nf">2NF</h3>
-<p>消除了1NF中非主属性对主属性的部分函数依赖</p>
-<h3 id="3nf">3NF</h3>
-<p>消除了2NF中非主属性对码的传递函数依赖</p>
-<h3 id="bcnf">BCNF</h3>
-<p>消除了3NF中主属性对码的部分和传递函数依赖</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Linux的进程和相关的几个重要函数]]></title>
-        <id>https://wangyingying625.github.io/post/linux-de-jin-cheng-he-xiang-guan-de-ji-ge-chong-yao-han-shu/</id>
-        <link href="https://wangyingying625.github.io/post/linux-de-jin-cheng-he-xiang-guan-de-ji-ge-chong-yao-han-shu/">
-        </link>
-        <updated>2021-03-19T03:43:01.000Z</updated>
-        <content type="html"><![CDATA[<p>在Linux系统中每个进程都有一个唯一的编号叫pid,除了init的根进程外任何一个进程都必须由父进程产生.<br>
-一个系统中的所有父子进程连起来是一个树的关系,init的进程是根,其他进程是它的子孙<br>
-由父进程产生子进程的方法有:</p>
-<h2 id="fork">fork()</h2>
-<p>这个方法会把父进程的所有数据复制一份给子进程,产生的子进程是和调用fork()方法时候的父进程一样的,父进程的fpid指向子进程的进程id,子进程因为它自己没有子进程所以fpid值为1,可以通过判断当前进程的fpid来让两个进程选择性的执行一些代码.<br>
-接着可以通过返回值的不同来判断执行当前代码的是父进程还是子进程</p>
-<p>在父进程中，fork返回新创建子进程的进程ID；<br>
-在子进程中,fork返回值是0</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[看见你就会看见阳光]]></title>
-        <id>https://wangyingying625.github.io/post/kan-jian-ni-jiu-hui-kan-jian-yang-guang/</id>
-        <link href="https://wangyingying625.github.io/post/kan-jian-ni-jiu-hui-kan-jian-yang-guang/">
-        </link>
-        <updated>2021-03-19T03:06:47.000Z</updated>
-        <content type="html"><![CDATA[<p>我今天必须吐槽,gridea太不好用了,等我熬过这段忙碌又艰难的生活我一定第一件事就是换掉这个博客,再留你小子几天.<br>
-好的正文开始!<br>
-没错,是一个很温暖很阳光的标题,但是我最近的生活里充满了各种不顺利和无奈,我不知道是不是每个人都会有这样的一段时间,是不是我努力的熬过来我就会变得强,我其实不知道答案,但是我不断的告诉自己,是的!是的!是的!所以每次失望的放下电脑躺在床上放声大哭,然后再做起来再拿起电脑再去尝试.</p>
-<p>今天是他生日,但是很戏剧性的是今天他被安排出差了.就一天,今天走明天就可能回来,本来应该觉得没关系的就一天而已嘛,但是就是觉得不舒服,哪哪都不舒服,甚至这种感觉从昨天前天就开始了.</p>
-<p>这段时间我们的生活里充满了无奈和不顺利,他说这是因为我们对困难处境的记忆比对幸福的记忆深刻.我说因为我们能互相感受到彼此的情绪,所以一个人的困难被过成了两份.很多时候我也意识到如果没有他的陪伴,我也不能变成今天这样,虽然还是有很多缺点,还是很胆小但是确实多了些坚韧,这应该是几年前那个我想不到我会有的吧.</p>
-<p>今天早晨我妈给我发微信我才意识到确实很久没有和她联系了,但是我过得不好的时候我真的不想和他们分享,不想他们那么无力的担心我,于是轻飘飘的回复了一个我自己都不知道到底有什么含义的表情,轻飘飘的假装这就是我的生活.是的,我宁愿在这里打出这一段段根本不会有人看的文字也不想告诉他们我在经历生活中必不可缺的属于困难的那一部分.</p>
-<p>好在今天这里就只有我一个人,所以我还是可以擦干眼泪轻飘飘的假装这些事情对我都没有任何影响.<br>
-然后接着打开视频,去一遍一遍的录制,去检查,去克服不自信.如果这是我要成长要进步就必经的道路的话,那我能撑过来,那没什么.我依然会坐在桌前去打开视频去模拟去录制.依然会在哭过一场之后告诉自己不过如此,这都没什么.<br>
-<img src="https://wangyingying625.github.io/post-images/1616124377975.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>

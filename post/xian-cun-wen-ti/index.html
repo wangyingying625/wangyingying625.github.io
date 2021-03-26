@@ -6,7 +6,7 @@
 <meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
 <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
 <meta HTTP-EQUIV="expires" CONTENT="0"> 
-<title>OWASP TOP 10 漏洞笔记 | mldwyy</title>	
+<title>现存问题 | mldwyy</title>	
 
 <link rel="stylesheet" href="https://wangyingying625.github.io/styles/main.css">
 <script type="text/javascript">
@@ -142,10 +142,10 @@ window.onload=getCSS();
 	
 	                      
 		<div class="entry-content">
-			<h1 class="wow swing entry-title">OWASP TOP 10 漏洞笔记</h1>
+			<h1 class="wow swing entry-title">现存问题</h1>
 <div class="entry-meta">
 <div class="wow bounce">
-	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2020-06-03 13:18:41" itemprop="datePublished" pubdate="">2020-06-03</time></i>
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-03-24 22:16:06" itemprop="datePublished" pubdate="">2021-03-24</time></i>
 	          </div>
 			
 </span>
@@ -153,146 +153,89 @@ window.onload=getCSS();
 		</div>
                   
 			<div class="wow slideInLeft entry-summary song">
-				<h1 id="注入">注入</h1>
-<h2 id="sql-注入">SQL 注入</h2>
-<ol>
-<li>产生条件:网站执行的sql代码需要结合用户输入<br>
-用户输入恶意的sql代码<br>
-使用order by 1检测出正常被执行的代码查询结果列数<br>
-使用union拼接恶意查询语句(union查询结果列数需要与前面执行的sql语句查询列数相同)</li>
-<li>测试方法:<br>
-2.1 数字型:SELECT * from user WHERE id= 1 and 1=2;即可以用and永假式看是否异常测试;<br>
-2.2 字符型:SELECT * from user WHERE name='name1' and '1'='1'</li>
-<li>可能危害:执行SQL代码,获取数据库信息</li>
-<li>常见的注入点:get/Post请求参数</li>
-<li>fuzz注入点:<br>
-&quot; and &quot;1&quot;=&quot;1<br>
-or 1=1</li>
+				<ol>
+<li>数据库完整性约束条件</li>
+<li>漏洞原理背诵</li>
+<li>工具使用的总结</li>
+<li>挖洞流程的总结<br>
+首先搜集想要挖洞的网站的信息(我的目标就是搜集一些使用量小的网站--&gt;用fofa去搜是否含有子域名并且是否使用了一些有已知漏洞的组件--&gt;有直接攻击---&gt;去修改它请求中的内容---&gt;发送请求---&gt;查看是否会产生异常结果(报错)</li>
+<li>taoDEsign项目的总结</li>
+<li>英语问题---让我帮你按下什么样的按钮呢?有什么理由来说服我按下按钮?</li>
+<li>密码学总结</li>
 </ol>
-<p>mysql 可以写文件, 但是要求,绝对路径 --&gt; 写入文件</p>
-<hr>
-<p>了解OWASP TOP10漏洞:由OWASP组织发布的最新的漏洞排名</p>
-<ol>
-<li>SQL注入:它是因为网站执行的sql代码需要结合用户的输入,然后用户去构造恶意的sql代码.可能在get/Post请求参数的地方出现.可以用 and 1=1;or 1=1去fuzz注入点<br>
-防御方法就是对用户的输入做强制类型转换,sql预编译:系统会认为用户输入进去的内容就是参数,不是代码,这样的话不管用户输入的是and or 还是union都不会被当做SQL保留字,只会被当做普通的字符串</li>
-</ol>
-<p>SQL预编译:因为每条SQL语句被提交给DBMS之后都需要DBMS去语义分析构造语法树,去优化查询,这是比较耗时的操作,尤其是某些查询可能被执行很多次,而每次执行的不同仅仅在于查询条件一个小小改变</p>
-<ol start="2">
-<li>
-<p>XSS 是由于js代码拼接了用户输入:它主要分为<br>
-存储型XSS:一般出现在论坛的评论位置,当用户恶意的输入被存进数据库之后,普通用户只要打开被攻击的页面那就中招了,就可以被获取cookie<br>
-反射型XSS:反射型相比较存储型而言危害性要小一些,因为它的恶意代码没有被存储进数据库,它一般需要普通用户点击恶意用户构造好的链接从而带来危害<br>
-防御方法是:对用户的输入强制类型转换为字符串</p>
-</li>
-<li>
-<p>使用具有已知漏洞的组件  : Java的shiro/中间件 weblogic<br>
-在国内的cnvd和国际的cve上每天都会有最新的漏洞信息</p>
-</li>
-<li>
-<p>身份认证失效:包括弱口令爆破和在需要用户认证的地方有逻辑漏洞<br>
-用户通过抓包去修改请求参数,去绕过认证甚至提权<br>
-也包括API没有很好的访问控制,使一些没有权限的用户能访问到不该被他看到的接口<br>
-我曾经看到过一个高校的漏洞是一个后台管理网站,先被弱口令爆破进去,发现里面有修改密码的功能.修改密码的时候需要用到注册用户的短信验证码,但是发现在HTTP参数里有一个status状态变量,把它改成1然后其他参数原封不动的发出去,结果就绕过了短信验证,成功修改了用户密码.发然后去复盘发现他对认证的辨识来源于参数的数值,取值是1 就代表你认证通过了<br>
-这是我印象非常深刻的一个例子,也让我在我之后的开发过程中去留意类似的一些逻辑漏洞.</p>
-</li>
-<li>
-<p>XML外部实体注入:他是因为服务端接受和解析了来自用户的XML数据<br>
-使用开发语言提供的禁用外部实体的方法</p>
-</li>
-<li>
-<p>访问控制失效(逻辑漏洞):<br>
-水平越权:userA 修改/查看和他同一级别的用户userB隐秘属性<br>
-垂直越权:userA 获取到比他高级的用户admin权限</p>
-</li>
-<li>
-<p>CSRF(跨站请求伪造):</p>
-</li>
-</ol>
-<p>工具使用:<br>
-burpsuit爆破弱口令:send to intruder-&gt;options选择爆破点-&gt;payloads-&gt;payload Type -&gt;start attack爆破成功的包返回信息大小会和别的包不一样<br>
-sqlmap:可以用它去利用sql注入漏洞从而获取数据库服务器的权限.<br>
-使用过ida Pro去反编译过elf文件和matersploit木马</p>
-<hr>
-<h2 id="命令注入">命令注入</h2>
-<p>提交的命令注入到原始的命令中</p>
-<ol>
-<li>基础知识:管道符|能把前面命令的输出当做后面命令的输入<br>
-; 分号后的命令能被直接执行<br>
-&amp;&amp;符号如果前面命令执行成功就接着执行后面命令<br>
-|| 如果前面命令执行失败就执行后面命令<br>
-php的exec函数会把参数当做命令执行</li>
-<li>可能危害:get shell</li>
-</ol>
-<h2 id="失效的身份认证">失效的身份认证</h2>
-<ol>
-<li>
-<p>弱口令&amp;口令破解<br>
-使用burpsuit抓包:<br>
-send to intruder-&gt;options选择爆破点-&gt;payloads-&gt;payload Type -&gt;start attack</p>
-</li>
-<li>
-<p>cookie伪造&amp;cookie绕过<br>
-Admin=1</p>
-</li>
-</ol>
-<h2 id="xml-外部实体xxe-xml-external-entity">XML 外部实体(XXE--XML External Entity)</h2>
-<h3 id="基础知识">基础知识:</h3>
-<ol>
-<li>xml可扩展标记语言,用来传输和存储数据,标记电子文件使其具有结构性</li>
-<li>xml包括xml声明+DTD(文档类型定义)+文档元素<br>
-其中DTD内容可以用户自己声明也可以引用外部链接地址</li>
-</ol>
-<h3 id="xxe">XXE</h3>
-<p>攻击原理:在文档类型定义处引用外部链接时,恶意用户可以引入一个可执行文件</p>
-<p>Doc , Excel , 配置文件</p>
-<h1 id="失效的访问控制">失效的访问控制</h1>
-<h2 id="越权访问逻辑漏洞">越权访问(逻辑漏洞)</h2>
-<ol>
-<li>
-<p>水平越权<br>
-userA 修改/查看和他同一级别的用户userB隐秘属性</p>
-</li>
-<li>
-<p>垂直越权<br>
-userA 获取到比他高级的用户admin权限</p>
-</li>
-</ol>
-<h1 id="安全配置错误">安全配置错误</h1>
-<h2 id="不安全的默认配置">不安全的默认配置</h2>
-<p>开启debug模式,如PHP框架(larvael)开启了debuger会显示出所有变量内容(包括数据库密码)<br>
-开了php报错,会显示错误信息: 网站绝对路径</p>
-<h1 id="跨站脚本xss">跨站脚本(XSS)</h1>
-<ol>
-<li>产生条件:网站对用户输入提交的信息未进行处理<br>
-恶意用户在表单部分输入恶意js代码</li>
-<li>测试方法:<br>
-在表单部分输入代码<br>
-<code>&lt;details open ontoggle=prompt('hello')&gt;</code></li>
-<li>可能危害:<br>
-获取用户cookie<br>
-破坏网页结构</li>
-</ol>
-<h1 id="不安全的反序列化对象注入">不安全的反序列化(对象注入)</h1>
-<p>序列化 : 变量 (对象) --&gt; 字符串<br>
-反序列化 :字符串 --&gt; 变量 (对象)</p>
-<h2 id="php中的魔术方法">php中的魔术方法:</h2>
-<ol>
-<li></li>
-</ol>
-<p>127.0.0.1/a.php<br>
-User<br>
-user: name :yy id: 3 lasttime: 2021.xxx<br>
-序列化成字符串<br>
-127.0.0.1/b.php<br>
-字符串反序列化成对象</p>
-<p>php : __wake()</p>
-<h1 id="使用含有已知漏洞的组件">使用含有已知漏洞的组件</h1>
+<p>你知道xxx原理吗,我只用过,但是没有深入研究过</p>
+<h3 id="怎么去研究的网络安全">怎么去研究的网络安全</h3>
+<h3 id="了解过病毒和木马吗区别">了解过病毒和木马吗,区别</h3>
+<p>我了解的病毒和木马的主要区别是病毒具有传播性,</p>
+<h3 id="僵尸网络botnet了解过吗">僵尸网络(botnet)了解过吗:</h3>
+<p>我理解中的僵尸网络是通过一些蠕虫病毒去横向感染大量的主机,从而使攻击者能够用一台主机去控制多台肉鸡.然后常说的ddos攻击经常使用的就是这样一批僵尸网络里面的肉鸡,去耗服务器的资源.<br>
+把静态资源放到cdn<br>
+如果发现这些恶意的攻击都来自于某一段ip那就直接在防火墙把那段IP封掉</p>
+<h3 id="你了解过哪些比较严重的漏洞">你了解过哪些比较严重的漏洞</h3>
 <p>struct2<br>
 fastjson<br>
-weblogic<br>
-shiro</p>
-<p>中国: cnvd<br>
-国际: cve</p>
+中间件weblogic<br>
+Java的shiro</p>
+<h3 id="有自己分析过漏洞吗">有自己分析过漏洞吗</h3>
+<p>Burp是啥语言写的,咋装的 不对 //<br>
+Kali自带<br>
+Java环境,吾爱破解下包,执行Java命令安装</p>
+<h3 id="sqlmap是啥语言写的咋装的">Sqlmap是啥语言写的,咋装的</h3>
+<p>Kali自带<br>
+用python的包管理工具 pip下载安装</p>
+<h3 id="从哪里看到过教育网的漏洞">从哪里看到过教育网的漏洞?</h3>
+<p>教育网src,上面会公布一些已经修复的高效网站漏洞</p>
+<h3 id="webshell-大马-小马-一句话木马-中国菜刀">Webshell 大马, 小马, 一句话木马, 中国菜刀,</h3>
+<p>webshell:通过一个文件就能管理网站的文件(一句话木马)<br>
+大马:复杂的webshell,</p>
+<p>我开端口--&gt;别人连接操作<br>
+118.89.217</p>
+<h3 id="msfvenom">msfvenom</h3>
+<p>Kali生成木马</p>
+<h3 id="绕过的方法知道吗">绕过的方法知道吗</h3>
+<p>content -  type 绕过</p>
+<h3 id="用过知道哪些网络安全防守工具">用过(知道)哪些网络安全防守工具?</h3>
+<p>在自己的开发过程中写过一些简单的waf,比如说文件上传时候对用户上传文件的限制<br>
+也了解过HIDS</p>
+<h3 id="入侵监测系统hids">入侵监测系统(HIDS):</h3>
+<ol>
+<li>资产清点:<br>
+公网资产<br>
+内网资产<br>
+用户:防弱口令<br>
+软件:0day漏洞的检测<br>
+网站部署路径:一旦有网站沦陷通过路径来排查webshell<br>
+启动项:添加开机自动运行的软件</li>
+<li>风险感知:<br>
+根据软件匹配漏洞<br>
+根据CVE和CNVD漏洞信息匹配软件漏洞<br>
+弱口令:ssh<br>
+查看是否有未更新的windows系统补丁:定期把安全问题打包更新<br>
+敏感文件:监控敏感文件<br>
+敏感端口:SMB 永恒之蓝</li>
+<li>入侵检测:<br>
+Webshell:查看是否有webshell被上传<br>
+反弹shell:<br>
+可疑命令:筛选是不是正常的进程在执行这个命令<br>
+命令记录:登录这台主机之后执行的所有命令都被记录<br>
+恶意文件:exe,ELF --- (判断文件类型 FILE命令)<br>
+暴力破解:检测是否有人正在对我进行爆破<br>
+本地提权:检测是否有进程被提权<br>
+异常登录:有人登录ssh<br>
+蜜罐:开设一个虚假端口,当这个端口被访问时就知道网站沦陷了<br>
+第二代蜜罐:溯源</li>
+</ol>
+<h3 id="msf的木马能说说咋了解的吗你看到了什么结构">msf的木马能说说咋了解的吗,你看到了什么结构</h3>
+<p>经过反编译我看到的是一个代码大致的结构.它是尝试对我的电脑进行socket连接,我的电脑开一个端口去listen他,当他成功连接之后就可以对我的电脑进行任何他想的操作</p>
+<p>IDA pro 吾爱破解</p>
+<h3 id="你有用过msf-木马">你有用过msf 木马</h3>
+<p>只是生成过一些简单的木马</p>
+<p>工控安全了解过吗<br>
+shiro属于: 供应链攻击</p>
+<p>我认为我不是一个天才,但我是一个肯努力的普通人.<br>
+我叫王莹莹,于2020年毕业于中北大学网络工程专业,来自于山西吕梁.<br>
+我在一个互联网公司从事过前端开发,我的基本工作内容涉及数据可视化和web动效的实现.同时也参与web页面的实现和接口对接工作.<br>
+我决定离职考研主要是因为想去在网络安全方向做一些更深入的研究,想跟着老师们一起去研究一些有突破性的东西.</p>
 
 							</div>
 	<div class="wow bounceInDown vt-post-tags">
@@ -302,11 +245,7 @@ shiro</p>
 		
 		<div class="nav-links3">
       
-		<div class="wow bounceInLeft nav-previous3"><a href="https://wangyingying625.github.io/post/git-shi-yong-dai-li/" rel="prev"> Git 使用代理</a></div>
 		 
-		 
-		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/src-lou-dong-zong-jie/" rel="next"> src漏洞总结</a></div>
-		
 		</div>
 	</nav>
 	<div class="wow rollIn author-info" style="visibility: visible; animation-name: rollIn;">
