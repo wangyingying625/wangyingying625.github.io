@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-29T09:57:02.310Z</updated>
+    <updated>2021-03-30T04:34:32.919Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
@@ -17,20 +17,6 @@
         </link>
         <updated>2021-03-28T14:46:12.000Z</updated>
         <content type="html"><![CDATA[<h3 id="反弹shell">反弹shell:</h3>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[The rain will stop the sun will shine]]></title>
-        <id>https://wangyingying625.github.io/post/the-rain-will-stop-the-sun-will-shine/</id>
-        <link href="https://wangyingying625.github.io/post/the-rain-will-stop-the-sun-will-shine/">
-        </link>
-        <updated>2021-03-26T03:24:25.000Z</updated>
-        <content type="html"><![CDATA[<p>吃饭的时候有一个大哥跟我唠嗑,了解到我在准备复试,就开始鼓励我,试图想对我明天或者后天的表现提供一些积极的建议顺便也缓解我现在焦虑的情绪.<br>
-其实说实话在和他唠嗑前我本来没有这么恐惧的.好像是把自己的注意力转移到其他地方了.尽管他重复告诉我,看我现在这么冷静,肯定是没有问题..想了想其实我冷静只是因为知道我现在去和任何人说我的焦虑和害怕说我的紧张感和不适感对我的处境没有任何帮助,除了在我失败之后拿着这个借口来拒绝承认自己的不足之外.</p>
-<p>其实最近几天我确实身体出现了些大大小小的问题.比如最近食欲非常不好,一天基本上只吃一顿饭还要剩一半,确实是吃不下.但是我又不想让自己变成一个这么脆弱的人,于是我就去安慰自己是因为今天买太多了,吃不下正好还当减肥了呢..每天的睡眠时间也就是六小时左右,晚上将近一点睡觉早晨六点也必然醒,然后在床上翻来覆去的烙自己,直到毫无睡意...</p>
-<p>最让我觉得奇妙的感觉是,不知道为什么尽管已经用尽了自己所有的努力,尽管也意识到自己可能根本就不差,但是总是觉得考上可能性像我出门买彩票,只买了一张就中了的那种感觉..这种感觉确切的形容就是  这种低概率的惊喜是不会发生在我身上的.  可能是倒霉太久了吧,倒霉到觉得自己不可能幸运了.</p>
-<p>不知道等待着我的结局是什么,大哥说结局早就写好了,只是我还没有去翻开看,那有人能帮我看看吗.</p>
-<p>成年人的生活都是辛苦的,只是有些时候不能喊疼罢了.</p>
 ]]></content>
     </entry>
     <entry>
@@ -592,6 +578,41 @@ while ( p || !StackEmpty(s) ){
     }
 }
 </code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[关系模式的分解]]></title>
+        <id>https://wangyingying625.github.io/post/guan-xi-mo-shi-de-fen-jie/</id>
+        <link href="https://wangyingying625.github.io/post/guan-xi-mo-shi-de-fen-jie/">
+        </link>
+        <updated>2021-03-19T13:10:16.000Z</updated>
+        <content type="html"><![CDATA[<p>关系模式分解就是把一个关系模式分解成好多个关系模式<br>
+判断分解后的关系模式们是否与分解前等价的方法是 判断是否无损连接和函数依赖</p>
+<p>看了视频但是对属性集的闭包部分的理解还是有些不顺畅</p>
+<hr>
+<p>我决定用最通俗易懂的方式解释一些基本概念<br>
+逻辑蕴涵:给定一个函数依赖集F(就是学号-&gt;姓名),如果能通过F证明其他函数依赖也成立(如学号-&gt;学院),那就认为其他函数依赖被F蕴涵</p>
+<p>函数依赖集的闭包:现有一关系模式 R为student(Sno,Sname,Sage,Sdep),F为属性集上的函数依赖即<br>
+(Sno-&gt;Sname,Sno-&gt;Sdep,Sname-&gt;Sage)<br>
+那么F的闭包指的就是在R的属性集中所有可以由依赖集合F推导出的依赖集合,记作F+</p>
+<p>属性集的闭包:对依赖集F，F+中所有X→A的A的集合称为X的闭包，记为XF+。可以理解为XF+表示所有X可以决定的属性。</p>
+<p>最小函数依赖集(最小覆盖,极小函数依赖集):</p>
+<ol>
+<li>F中任意一个函数依赖右面仅有一个属性</li>
+<li>F中不存在这样的函数依赖X→A，使得F与F-{X→A}等价。</li>
+<li>F中不存在这样的函数依赖X→A，X有真子集Z使得F-{X→A}U{Z→A}与F等价。</li>
+</ol>
+<p>Armstrong公理:(用来推导函数依赖的)</p>
+<ol>
+<li>自反律:B包含于A时,A-&gt;B</li>
+<li>增广律:A-&gt;B那么AC-&gt;BC</li>
+<li>传递律:A-&gt;B,B-&gt;C那么A-&gt;C</li>
+</ol>
+<hr>
+<p>关系模式的分解方法:<br>
+函数依赖投影求法:<br>
+首先需要明白这个操作是在做什么,为了什么;</p>
+<p>决定一个属性集是不是键的时候需要考虑第一它是否能决定属性集里所有元素,第二它是否具有最小性(即他的任何子集都不能决定属性集里的所有元素)</p>
 ]]></content>
     </entry>
 </feed>
