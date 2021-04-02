@@ -6,7 +6,7 @@
 <meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
 <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
 <meta HTTP-EQUIV="expires" CONTENT="0"> 
-<title>docker使用 | mldwyy</title>	
+<title>hw资料总结 | mldwyy</title>	
 
 <link rel="stylesheet" href="https://wangyingying625.github.io/styles/main.css">
 <script type="text/javascript">
@@ -142,10 +142,10 @@ window.onload=getCSS();
 	
 	                      
 		<div class="entry-content">
-			<h1 class="wow swing entry-title">docker使用</h1>
+			<h1 class="wow swing entry-title">hw资料总结</h1>
 <div class="entry-meta">
 <div class="wow bounce">
-	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-03-30 14:23:20" itemprop="datePublished" pubdate="">2021-03-30</time></i>
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2021-04-02 06:14:42" itemprop="datePublished" pubdate="">2021-04-02</time></i>
 	          </div>
 			
 </span>
@@ -153,25 +153,55 @@ window.onload=getCSS();
 		</div>
                   
 			<div class="wow slideInLeft entry-summary song">
-				<h3 id="进入容器">进入容器:</h3>
-<p>docker exec -it 容器id</p>
-<h3 id="退出容器">退出容器:</h3>
-<p>exit</p>
+				<h3 id="前期准备工作">前期准备工作</h3>
+<h4 id="自检">自检</h4>
+<ol>
+<li>
+<p>外网渗透测试:主要关注那些能直接获取主机权限的漏洞和会泄露大量数据的漏洞,包括:<br>
+弱口令:数据库,ssh,后台<br>
+命令执行:struct2,spring和如weblogic,Jboss,Tomcat等一些中间件<br>
+文件操作:文件上传,文件读取<br>
+未授权访问:docker,redis,hadoop</p>
+</li>
+<li>
+<p>内网渗透测试(快速的尽可能多的发现漏洞)<br>
+资产发现<br>
+资产指纹梳理(用于批量发现漏洞)<br>
+漏洞发现(渗透测试)<br>
+主要测试路径:http://192.168.1.1:8080/env<br>
+http://192.168.1.1:8080/trace<br>
+可能会存在一些信息泄露</p>
+</li>
+</ol>
+<h4 id="加固">加固</h4>
+<h5 id="运维方面">运维方面:</h5>
+<ol>
+<li>测试,开发服务器全部关停</li>
+<li>敏感端口安全组隔离</li>
+<li>用户和权限隔离(MYSQL不使用默认root用户)</li>
+<li>使用跳板机运维</li>
+</ol>
+<h5 id="安全设备">安全设备:</h5>
+<p>WAF(WEB应用防火墙):拦截或报警恶意流量<br>
+防火墙防御大多攻击<br>
+蜜罐<br>
+HIDS</p>
+<h3 id="进行中工作">进行中工作</h3>
+<h4 id="通过日志检索和流量分析发现弱口令">通过日志检索和流量分析发现弱口令</h4>
+<p>虽然在前期进行过一些筛查工作,但是可能因为时间比较短,筛查不够全面,在护网期间也通过日志检索发现了一些弱口令和敏感字段(MYSQL连接时直接把密码写在命令行,这样如果一台主机被侵,并且这个密码是通用的的话可能会影响大量的主机)</p>
 
 							</div>
 	<div class="wow bounceInDown vt-post-tags">
  
-				<a href="https://wangyingying625.github.io/tag/tools/" rel="tag">工具</a>	
-				 
 					</div>						
 <nav class="navigation3 post-navigation3" role="navigation">
 		
 		<div class="nav-links3">
       
-		<div class="wow bounceInLeft nav-previous3"><a href="https://wangyingying625.github.io/post/hw-zi-liao-zong-jie/" rel="prev"> hw资料总结</a></div>
+		<div class="wow bounceInLeft nav-previous3"><a href="https://wangyingying625.github.io/post/an-quan-xiang-guan-de-zhu-yu-ji-gong-ju/" rel="prev"> 安全相关的术语及工具</a></div>
 		 
 		 
-		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/an-quan-bi-ji/" rel="next"> 安全笔记</a></div>
+		<div class="wow bounceInRight nav-next3"><a href="https://wangyingying625.github.io/post/docker-shi-yong/" rel="next"> docker使用</a></div>
 		
 		</div>
 	</nav>

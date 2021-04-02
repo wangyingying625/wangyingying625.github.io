@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangyingying625.github.io</id>
     <title>mldwyy</title>
-    <updated>2021-03-30T06:24:15.917Z</updated>
+    <updated>2021-04-02T07:22:20.257Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangyingying625.github.io"/>
     <link rel="self" href="https://wangyingying625.github.io/atom.xml"/>
@@ -11,6 +11,77 @@
     <icon>https://wangyingying625.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, mldwyy</rights>
     <entry>
+        <title type="html"><![CDATA[再见Gridea]]></title>
+        <id>https://wangyingying625.github.io/post/zai-jian-gridea/</id>
+        <link href="https://wangyingying625.github.io/post/zai-jian-gridea/">
+        </link>
+        <updated>2021-04-02T07:20:37.000Z</updated>
+        <content type="html"><![CDATA[<p>新博客地址:https://mldwyy.taropowder.cn/blog</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[安全相关的术语及工具]]></title>
+        <id>https://wangyingying625.github.io/post/an-quan-xiang-guan-de-zhu-yu-ji-gong-ju/</id>
+        <link href="https://wangyingying625.github.io/post/an-quan-xiang-guan-de-zhu-yu-ji-gong-ju/">
+        </link>
+        <updated>2021-04-01T23:41:26.000Z</updated>
+        <content type="html"><![CDATA[<ol>
+<li>
+<p>WAF(Web Application Firewall):Web应用防护系统/网站应用级入侵防御系统.通过一系列针对HTTP和HTTPS的安全策略来为web应用提供保护的产品<br>
+涉及功能:访问控制,控制对一些web应用服务的访问<br>
+web应用加固</p>
+</li>
+<li>
+<p>安骑士:主机安全加固产品(入侵检测,病毒查杀,漏洞修复,防篡改等)</p>
+</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[hw资料总结]]></title>
+        <id>https://wangyingying625.github.io/post/hw-zi-liao-zong-jie/</id>
+        <link href="https://wangyingying625.github.io/post/hw-zi-liao-zong-jie/">
+        </link>
+        <updated>2021-04-01T22:14:42.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="前期准备工作">前期准备工作</h3>
+<h4 id="自检">自检</h4>
+<ol>
+<li>
+<p>外网渗透测试:主要关注那些能直接获取主机权限的漏洞和会泄露大量数据的漏洞,包括:<br>
+弱口令:数据库,ssh,后台<br>
+命令执行:struct2,spring和如weblogic,Jboss,Tomcat等一些中间件<br>
+文件操作:文件上传,文件读取<br>
+未授权访问:docker,redis,hadoop</p>
+</li>
+<li>
+<p>内网渗透测试(快速的尽可能多的发现漏洞)<br>
+资产发现<br>
+资产指纹梳理(用于批量发现漏洞)<br>
+漏洞发现(渗透测试)<br>
+主要测试路径:http://192.168.1.1:8080/env<br>
+http://192.168.1.1:8080/trace<br>
+可能会存在一些信息泄露</p>
+</li>
+</ol>
+<h4 id="加固">加固</h4>
+<h5 id="运维方面">运维方面:</h5>
+<ol>
+<li>测试,开发服务器全部关停</li>
+<li>敏感端口安全组隔离</li>
+<li>用户和权限隔离(MYSQL不使用默认root用户)</li>
+<li>使用跳板机运维</li>
+</ol>
+<h5 id="安全设备">安全设备:</h5>
+<p>WAF(WEB应用防火墙):拦截或报警恶意流量<br>
+防火墙防御大多攻击<br>
+蜜罐<br>
+HIDS</p>
+<h3 id="进行中工作">进行中工作</h3>
+<h4 id="通过日志检索和流量分析发现弱口令">通过日志检索和流量分析发现弱口令</h4>
+<p>虽然在前期进行过一些筛查工作,但是可能因为时间比较短,筛查不够全面,在护网期间也通过日志检索发现了一些弱口令和敏感字段(MYSQL连接时直接把密码写在命令行,这样如果一台主机被侵,并且这个密码是通用的的话可能会影响大量的主机)</p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[docker使用]]></title>
         <id>https://wangyingying625.github.io/post/docker-shi-yong/</id>
         <link href="https://wangyingying625.github.io/post/docker-shi-yong/">
@@ -18,6 +89,8 @@
         <updated>2021-03-30T06:23:20.000Z</updated>
         <content type="html"><![CDATA[<h3 id="进入容器">进入容器:</h3>
 <p>docker exec -it 容器id</p>
+<h3 id="退出容器">退出容器:</h3>
+<p>exit</p>
 ]]></content>
     </entry>
     <entry>
@@ -411,183 +484,6 @@ return 0;<br>
 <li>模式:是对数据库全体数据结构的描述,一个数据库只有一个模式</li>
 <li>内模式:是对数据库在物理介质中存储结构的描述,比如存储路径,存储方式和索引等</li>
 </ol>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[链表中的冒泡排序]]></title>
-        <id>https://wangyingying625.github.io/post/lian-biao-zhong-de-mou-pao-pai-xu/</id>
-        <link href="https://wangyingying625.github.io/post/lian-biao-zhong-de-mou-pao-pai-xu/">
-        </link>
-        <updated>2021-03-22T10:40:42.000Z</updated>
-        <content type="html"><![CDATA[<p>对一组数的存储方法最常见的就是数组和链表,它们各自有优缺点,链表增删操作便捷,数组可以随机存取.也是因为这样的不同,导致一些排序算法无法在链表中使用.</p>
-<p>在数组中的冒泡排序已经写了太多次了,今天想尝试一下链表中的排序:</p>
-<p>首先,假设链表中存储的数据是这样的</p>
-<p>3-&gt;5-&gt;1-&gt;9-&gt;2</p>
-<p>数组中的排序代码如下</p>
-<pre><code class="language-c">void sort(int *a,int length){
-int i,j,t;
-int flag;
-for(i=0;i&lt;length;i++){
-    flag=0;
-    for(j=0;j&lt;i;j++){
-        if(a[i]&lt;a[j]){
-            t=a[i];
-            a[i]=a[j];
-            a[j]=t;
-            flag=1;
-        }
-    }
-    if(flag==0)
-    return;
-  }
-}
-</code></pre>
-<p>在链表中因为没有了随机存取的优势</p>
-<pre><code class="language-C">typedef struct node{
-int data;
-struct node * next;
-}Node;
-int t;
-void sort(Node *head,){
-Node *p=NULL;
-Node *teil=NULL;
-p=head-&gt;next;
-while(p!=teil){
-while(p-&gt;next!=teil){
-        if(p-&gt;data  &gt; teil-&gt;data){
-                t=p-&gt;data;
-                p-&gt;data=teil-&gt;data;
-                teil-&gt;data=t;
-            }
-            p=p-&gt;next;
-        }
-        teil=p;
-        p=head-&gt;next;
-    }
-}
-
-
-
-
-
-
-
-
-
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[接纳负面的自己]]></title>
-        <id>https://wangyingying625.github.io/post/jie-na-fu-mian-de-zi-ji/</id>
-        <link href="https://wangyingying625.github.io/post/jie-na-fu-mian-de-zi-ji/">
-        </link>
-        <updated>2021-03-22T10:21:06.000Z</updated>
-        <content type="html"><![CDATA[<p>我最终还是决定在我时间这么宝贵的现在来写下这篇文章.<br>
-今天一天都处在一种很焦虑的状态,不断地想如果我失败了我该怎么办,也不断的强迫自己告诉自己说你别想了,多看一道题不比这强吗,但是似乎毫无作用,尽管播着很多温柔的歌曲,还是没有办法把自己从那种状态里抽离出来,还是眼睛做着眼睛的事,脑袋做着脑袋的事.但是越这样也就导致我的焦虑感更加严重.</p>
-<p>意识到要想坦然面对未知的事情,就必须调节好自己的情绪.于是放下了手里的题尝试去看书,想通过里面的文字来让自己放松一点,来告诉自己我也很优秀.但是作用也微乎其微.</p>
-<p>于是去搜索&quot;如何缓解焦虑&quot;尝试找到一个答案能让我放松.看到了这篇高赞回答,它对我有用,我打算记下来.以后,我可能还会用到.</p>
-<blockquote></blockquote>
-<p>你应该接纳自己的一切,爱自己的一切,不管是正面的自己还是负面的自己.当你获得了成功,你会激动会开心,这个时候你充满了自信,那是因为你给了自己肯定,你接纳了那个正面的自己.<br>
-而当你失败的时候,你会悲伤,你会痛苦,那是因为你给了自己否定,你没有接纳这个负面的自己.<br>
-其实人从一出生的时候,就被刻画了两个自己,一个是正面的一个是负面的.正面的出现的时候,你会开心,负面的出现的时候你也不该烦恼.因为那也是你自己,你唯一能做的就是包容和接纳.<br>
-当你焦虑或者恐惧的时候,你什么也不要去想,坦然的接受.仔细去感受这个负面自己的到来.尝试去想&quot;原来这就是另一个我呀,原来她是这样的,我想看看她是怎样给我带来痛苦的.&quot;<br>
-当对自己的一切进行接纳之后,其实对我来说各种痛苦也就被我同化成了朋友,也就很少有东西可以伤害到我了.<br>
-学会接纳自己之后,你会尊重自己的每一个选择.因为那是你自己做出来的.不管你的选择导致了什么样的结果,都要去接受.因为你不再会去遗憾什么.<br>
-即使外面的情况很糟糕了,只要我还活着,那么我就可以再次做出选择,再次去改变外界的世界.</p>
-<blockquote></blockquote>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[与二叉树相关的算法]]></title>
-        <id>https://wangyingying625.github.io/post/yu-er-cha-shu-xiang-guan-de-suan-fa/</id>
-        <link href="https://wangyingying625.github.io/post/yu-er-cha-shu-xiang-guan-de-suan-fa/">
-        </link>
-        <updated>2021-03-22T08:35:56.000Z</updated>
-        <content type="html"><![CDATA[<p>树应该算用的比较多的数据结构,但是几乎所有场景下的使用都离不开基础算法,比如二叉树遍历,树遍历,二叉树构造,今天就总结一下这些算法:<br>
-<img src="https://wangyingying625.github.io/post-images/1616402444193.png" alt="" loading="lazy"></p>
-<h3 id="二叉树存储">二叉树存储:</h3>
-<p>要想遍历首先得了解二叉树的存储方法:<br>
-链表法:结构体定义如下</p>
-<pre><code class="language-c">typedef struct tree{
-   struct * tree lchild;
-   struct *tree rchild;
-   char data;
-}Tree;
-</code></pre>
-<ol>
-<li>二叉树前序(根左右)递归遍历:<br>
-ABDECFG</li>
-</ol>
-<pre><code class="language-C">void PreOrder(Tree t)
-{
-    if ( t )
-    {
-    printf(&quot;%c&quot;,t-&gt;data);
-    PreOrder(t-&gt;lchild);
-    PreOrder(t-&gt;rchild);
-    }
-</code></pre>
-<ol start="2">
-<li>二叉树前序非递归:<br>
-需要借助栈实现</li>
-</ol>
-<pre><code class="language-c">void PreOrder1(Tree t)
-{
-    Tree p = t;
-    Sqstack s;
-    InitStack(s);//初始化一个栈
- 
-    while ( p || !StackEmpty(s) )
-    {
-    if ( p )
-    {
-        printf(&quot;%c&quot;,p-&gt;data);
-        Push(s,p);
-        p = p-&gt;lchild;    
-    }
-    else
-    {
-        Pop(s,p); 
-        p = p-&gt;rchild;
-    }
-    }
- 
-}
-
-</code></pre>
-<ol start="3">
-<li>二叉树中序递归:</li>
-</ol>
-<pre><code class="language-c">void order(Tree t){
-    Tree p=t;
-    if(p){
-        p=p-&gt;lchild;
-        printf(&quot;%c&quot;,p-&gt;data);
-        p=p-&gt;rchild;
-    }
-}
-</code></pre>
-<ol start="4">
-<li>二叉树中非递归:</li>
-</ol>
-<pre><code class="language-c">void order1(Tree t){
-    Tree p=t;
-     Sqstack s;
-    InitStack(s);//初始化一个栈
-while ( p || !StackEmpty(s) ){
-    if(p){
-        push(s,p);
-        p=p-&gt;lchild;
-    }
-    else{
-        pop(s,p);
-        printf(&quot;%d&quot;,p-&gt;data);
-        p=p-&gt;rchild;
-    }
-    }
-}
-</code></pre>
 ]]></content>
     </entry>
 </feed>
